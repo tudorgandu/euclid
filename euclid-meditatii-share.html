@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Euclid Meditații</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B3F6B; --navy-dark: #112840; --navy-light: #2a5a96;
+    --cream: #F5F0E8; --cream-dark: #EDE6D6;
+    --amber: #E8A020; --amber-soft: #FEF3D0;
+    --coral: #D94F2B; --coral-soft: #FDE8E3;
+    --green: #2E7D52; --green-soft: #D8F0E4;
+    --ink: #1a1a18; --ink-soft: #4a4a46; --ink-muted: #8a8a80;
+    --border: rgba(27,63,107,0.12);
+    --shadow: 0 4px 24px rgba(27,63,107,0.10);
+    --shadow-sm: 0 2px 8px rgba(27,63,107,0.08);
+    --r: 16px; --r-sm: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+
+  .app-header { width: 100%; background: var(--navy); padding: 0.85rem 1.5rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .logo { font-size: 1.15rem; font-weight: 900; color: white; letter-spacing: -0.01em; display: flex; align-items: center; gap: 0.5rem; }
+  .logo-icon { width: 28px; height: 28px; background: var(--amber); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+  .header-right { display: flex; align-items: center; gap: 0.75rem; }
+  .session-stats { display: flex; gap: 1rem; align-items: center; }
+  .stat-pill { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 20px; padding: 0.3rem 0.75rem; font-size: 0.8rem; font-weight: 700; color: white; display: flex; align-items: center; gap: 0.35rem; }
+  .stat-pill .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .dot-amber { background: var(--amber); } .dot-green { background: #4ade80; }
+  .btn-settings { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 0.35rem 0.65rem; color: white; font-size: 16px; cursor: pointer; line-height: 1; }
+  .btn-settings:hover { background: rgba(255,255,255,0.2); }
+
+  .stage { width: 100%; max-width: 660px; padding: 2rem 1.25rem 4rem; flex: 1; }
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* SETUP SCREEN */
+  .setup-hero { text-align: center; padding: 1.5rem 0 1.25rem; }
+  .setup-icon { font-size: 3.5rem; margin-bottom: 0.75rem; }
+  .setup-title { font-size: 1.6rem; font-weight: 900; color: var(--navy); margin-bottom: 0.4rem; }
+  .setup-sub { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; max-width: 440px; margin: 0 auto 1.75rem; }
+  .setup-card { background: white; border-radius: var(--r); padding: 1.5rem; margin-bottom: 1rem; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+  .setup-field-label { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+  .setup-field-sub { font-size: 0.78rem; color: var(--ink-muted); margin-bottom: 0.65rem; line-height: 1.5; }
+  .setup-input { width: 100%; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 700; padding: 0.7rem 0.9rem; border: 2px solid var(--cream-dark); border-radius: var(--r-sm); background: var(--cream); color: var(--ink); outline: none; transition: border-color 0.15s; font-family: monospace; letter-spacing: 0.03em; }
+  .setup-input:focus { border-color: var(--navy); background: white; }
+  .setup-input.ok { border-color: var(--green); }
+  .setup-input.err { border-color: var(--coral); }
+  .setup-link { font-size: 0.78rem; color: var(--navy); font-weight: 700; margin-top: 0.5rem; display: inline-block; }
+  .btn-setup-save { width: 100%; padding: 1rem; background: var(--navy); color: white; border: none; border-radius: var(--r-sm); font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; margin-top: 0.5rem; transition: background 0.15s; }
+  .btn-setup-save:hover { background: var(--navy-dark); }
+  .setup-skip { text-align: center; margin-top: 0.85rem; font-size: 0.82rem; color: var(--ink-muted); font-weight: 600; cursor: pointer; }
+  .setup-skip:hover { color: var(--navy); }
+  .setup-note { background: var(--amber-soft); border: 1px solid #f5d27a; border-radius: var(--r-sm); padding: 0.85rem 1rem; font-size: 0.82rem; color: #5c3400; line-height: 1.6; margin-bottom: 1rem; font-weight: 600; }
+
+  /* START SCREEN */
+  .start-hero { text-align: center; padding: 2rem 0 1.5rem; }
+  .start-mascot { width: 96px; height: 96px; background: var(--navy); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 48px; margin: 0 auto 1.25rem; box-shadow: var(--shadow); }
+  .start-title { font-size: 1.9rem; font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 0.5rem; }
+  .start-sub { font-size: 1rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 2rem; }
+  .config-card { background: white; border-radius: var(--r); padding: 1.5rem; margin-bottom: 1.25rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+  .config-label { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.85rem; }
+  .config-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .config-chip { padding: 0.5rem 1rem; border-radius: 24px; border: 2px solid var(--border); font-size: 0.88rem; font-weight: 700; cursor: pointer; background: white; color: var(--ink-soft); transition: all 0.15s; user-select: none; }
+  .config-chip:hover { border-color: var(--navy-light); color: var(--navy); }
+  .config-chip.selected { background: var(--navy); border-color: var(--navy); color: white; }
+  .config-chip.dif-easy.selected { background: var(--green); border-color: var(--green); }
+  .config-chip.dif-med.selected { background: var(--amber); border-color: var(--amber); color: var(--ink); }
+  .config-chip.dif-hard.selected { background: var(--coral); border-color: var(--coral); }
+  .voice-toggle-row { display: flex; align-items: center; justify-content: space-between; }
+  .voice-toggle-label { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+  .voice-toggle-sub { font-size: 0.8rem; color: var(--ink-muted); margin-top: 2px; }
+  .toggle { width: 52px; height: 28px; background: var(--cream-dark); border-radius: 14px; cursor: pointer; position: relative; transition: background 0.2s; border: none; flex-shrink: 0; }
+  .toggle.on { background: var(--navy); }
+  .toggle::after { content: ''; position: absolute; width: 22px; height: 22px; background: white; border-radius: 50%; top: 3px; left: 3px; transition: transform 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+  .toggle.on::after { transform: translateX(24px); }
+  .voice-status { font-size: 0.72rem; color: var(--green); font-weight: 700; margin-top: 4px; }
+  .voice-status.no-key { color: var(--ink-muted); }
+  .btn-start { width: 100%; padding: 1rem; background: var(--navy); color: white; border: none; border-radius: var(--r-sm); font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: background 0.15s, transform 0.1s; margin-top: 0.5rem; }
+  .btn-start:hover { background: var(--navy-dark); }
+  .btn-start:active { transform: scale(0.98); }
+
+  /* SESSION SCREEN */
+  .progress-row { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.5rem; }
+  .progress-track { flex: 1; height: 8px; background: var(--cream-dark); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--navy); border-radius: 4px; transition: width 0.4s ease; }
+  .progress-label { font-size: 0.8rem; font-weight: 800; color: var(--navy); white-space: nowrap; }
+  .problem-card { background: var(--navy); border-radius: var(--r); padding: 1.75rem; margin-bottom: 1.25rem; position: relative; overflow: hidden; box-shadow: var(--shadow); }
+  .problem-card::before { content: ''; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+  .problem-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .badge { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.22rem 0.6rem; border-radius: 20px; }
+  .badge-cat { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
+  .badge-dif-1 { background: rgba(46,125,82,0.4); color: #a7f3c0; }
+  .badge-dif-2 { background: rgba(232,160,32,0.3); color: #fde68a; }
+  .badge-dif-3 { background: rgba(217,79,43,0.3); color: #fca5a5; }
+  .problem-num { font-size: 0.75rem; color: rgba(255,255,255,0.45); font-weight: 700; margin-left: auto; }
+  .problem-text { font-size: 1.15rem; font-weight: 700; color: white; line-height: 1.65; position: relative; z-index: 1; margin-bottom: 1.1rem; }
+  .voice-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 24px; padding: 0.45rem 0.95rem; font-family: 'Nunito', sans-serif; font-size: 0.82rem; font-weight: 700; color: white; cursor: pointer; transition: background 0.15s; }
+  .voice-btn:hover { background: rgba(255,255,255,0.2); }
+  .voice-btn.speaking { background: rgba(232,160,32,0.3); border-color: rgba(232,160,32,0.5); color: #fde68a; }
+  .voice-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  .speaking .voice-dot { animation: pulse-dot 0.7s ease-in-out infinite alternate; }
+  @keyframes pulse-dot { from { opacity: 1; transform: scale(1); } to { opacity: 0.4; transform: scale(0.6); } }
+  .answer-card { background: white; border-radius: var(--r); padding: 1.5rem; margin-bottom: 1rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+  .answer-label-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem; }
+  .answer-label { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: var(--navy); }
+  .timer-mini { font-size: 0.82rem; font-weight: 800; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+  .timer-mini.warn { color: var(--coral); }
+  .answer-input { width: 100%; font-family: 'Nunito', sans-serif; font-size: 1.2rem; font-weight: 700; padding: 0.85rem 1rem; border: 2.5px solid var(--cream-dark); border-radius: var(--r-sm); background: var(--cream); color: var(--ink); outline: none; transition: border-color 0.15s; margin-bottom: 0.85rem; }
+  .answer-input:focus { border-color: var(--navy); background: white; }
+  .answer-input.correct { border-color: var(--green); background: var(--green-soft); }
+  .answer-input.wrong { border-color: var(--coral); background: var(--coral-soft); }
+  .btn-row { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+  .btn { flex: 1; min-width: 100px; padding: 0.8rem 1rem; border-radius: var(--r-sm); font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 800; border: none; cursor: pointer; transition: all 0.15s; }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--navy); color: white; }
+  .btn-primary:hover { background: var(--navy-dark); }
+  .btn-primary:disabled { background: var(--cream-dark); color: var(--ink-muted); cursor: not-allowed; transform: none; }
+  .btn-secondary { background: var(--cream-dark); color: var(--ink-soft); }
+  .btn-secondary:hover { background: #ddd8c8; }
+  .btn-hint { background: var(--amber-soft); color: #7a4500; }
+  .btn-hint:hover { background: #fde68a; }
+  .feedback-card { border-radius: var(--r); padding: 1.5rem; margin-bottom: 1rem; display: none; animation: slide-up 0.3s ease; }
+  @keyframes slide-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .feedback-card.correct { background: var(--green-soft); border: 2px solid var(--green); }
+  .feedback-card.wrong { background: var(--coral-soft); border: 2px solid var(--coral); }
+  .feedback-card.show { display: block; }
+  .feedback-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
+  .feedback-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .correct .feedback-icon { background: var(--green); }
+  .wrong .feedback-icon { background: var(--coral); }
+  .feedback-title { font-size: 1rem; font-weight: 900; }
+  .correct .feedback-title { color: var(--green); }
+  .wrong .feedback-title { color: var(--coral); }
+  .feedback-answer { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; }
+  .explanation-box { background: white; border-radius: var(--r-sm); padding: 1.1rem; margin-top: 0.85rem; border: 1px solid var(--border); display: none; }
+  .explanation-box.show { display: block; }
+  .explanation-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.65rem; }
+  .prof-avatar { width: 28px; height: 28px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .prof-name { font-size: 0.78rem; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.06em; }
+  .explanation-voice-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 0.4rem; background: var(--navy); border: none; border-radius: 20px; padding: 0.3rem 0.75rem; font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 800; color: white; cursor: pointer; }
+  .explanation-voice-btn:hover { background: var(--navy-dark); }
+  .explanation-text { font-size: 0.95rem; line-height: 1.7; color: var(--ink-soft); font-weight: 600; }
+  .loading-dots span { display: inline-block; width: 6px; height: 6px; background: var(--navy); border-radius: 50%; margin: 0 2px; animation: bounce 1.2s ease-in-out infinite; }
+  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-6px); } }
+  .explanation-loading { display: flex; align-items: center; gap: 0.5rem; color: var(--ink-muted); font-size: 0.88rem; font-weight: 700; }
+  .btn-next { width: 100%; padding: 1rem; background: var(--navy); color: white; border: none; border-radius: var(--r-sm); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; margin-top: 0.75rem; display: none; }
+  .btn-next.show { display: block; }
+  .btn-next:hover { background: var(--navy-dark); }
+  .hint-box { background: var(--amber-soft); border: 1.5px solid #f5d27a; border-radius: var(--r-sm); padding: 0.9rem 1rem; margin-bottom: 0.85rem; display: none; animation: slide-up 0.25s ease; }
+  .hint-box.show { display: block; }
+  .hint-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #7a4500; margin-bottom: 0.35rem; }
+  .hint-text { font-size: 0.9rem; font-weight: 700; color: #5c3400; line-height: 1.5; }
+  .streak-row { display: flex; gap: 0.4rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .streak-dot { width: 32px; height: 32px; border-radius: 50%; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; font-size: 14px; transition: all 0.3s; }
+  .streak-dot.correct-dot { background: var(--green); color: white; }
+  .streak-dot.wrong-dot { background: var(--coral); color: white; }
+  .streak-dot.current-dot { background: var(--navy); color: white; animation: pulse-ring 1s ease-in-out infinite; }
+  @keyframes pulse-ring { 0%,100% { box-shadow: 0 0 0 0 rgba(27,63,107,0.4); } 50% { box-shadow: 0 0 0 6px rgba(27,63,107,0); } }
+
+  /* RESULTS */
+  .results-hero { text-align: center; padding: 1.5rem 0; }
+  .score-ring { width: 130px; height: 130px; margin: 0 auto 1.25rem; position: relative; }
+  .score-ring svg { transform: rotate(-90deg); }
+  .score-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .score-num { font-size: 2.2rem; font-weight: 900; color: var(--navy); line-height: 1; }
+  .score-den { font-size: 0.85rem; font-weight: 700; color: var(--ink-muted); }
+  .results-title { font-size: 1.6rem; font-weight: 900; color: var(--navy); margin-bottom: 0.4rem; }
+  .results-sub { font-size: 0.95rem; color: var(--ink-soft); font-weight: 600; margin-bottom: 2rem; }
+  .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 1.5rem; }
+  .result-stat { background: white; border-radius: var(--r-sm); padding: 1.1rem; text-align: center; border: 1px solid var(--border); }
+  .result-stat-num { font-size: 2rem; font-weight: 900; color: var(--navy); }
+  .result-stat-label { font-size: 0.78rem; font-weight: 700; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+  .btn-restart { width: 100%; padding: 1rem; background: var(--navy); color: white; border: none; border-radius: var(--r-sm); font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; margin-bottom: 0.65rem; }
+  .btn-restart.secondary { background: white; color: var(--navy); border: 2px solid var(--navy); }
+
+  .confetti-piece { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti-fall linear forwards; border-radius: 2px; z-index: 999; pointer-events: none; }
+  @keyframes confetti-fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+
+  @media (max-width: 500px) {
+    .problem-text { font-size: 1.05rem; }
+    .results-grid { grid-template-columns: 1fr; }
+    .start-title { font-size: 1.5rem; }
+  }
+
+  /* ── AUTH SCREEN ── */
+  .auth-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--cream); padding: 1.5rem; }
+  .auth-box { background: white; border-radius: 20px; padding: 2.5rem 2rem; width: 100%; max-width: 400px; box-shadow: 0 8px 40px rgba(27,63,107,0.14); border: 1px solid var(--border); }
+  .auth-logo { text-align: center; margin-bottom: 2rem; }
+  .auth-logo-icon { width: 64px; height: 64px; background: var(--navy); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 0.85rem; }
+  .auth-logo-title { font-size: 1.5rem; font-weight: 900; color: var(--navy); }
+  .auth-logo-sub { font-size: 0.85rem; color: var(--ink-muted); font-weight: 600; margin-top: 0.25rem; }
+  .auth-tabs { display: flex; background: var(--cream); border-radius: 10px; padding: 3px; margin-bottom: 1.75rem; }
+  .auth-tab { flex: 1; padding: 0.55rem; text-align: center; font-size: 0.88rem; font-weight: 800; color: var(--ink-muted); cursor: pointer; border-radius: 8px; transition: all 0.15s; border: none; background: transparent; font-family: 'Nunito', sans-serif; }
+  .auth-tab.active { background: white; color: var(--navy); box-shadow: 0 1px 4px rgba(27,63,107,0.12); }
+  .auth-field { margin-bottom: 1rem; }
+  .auth-label { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.4rem; display: block; }
+  .auth-input { width: 100%; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 700; padding: 0.8rem 1rem; border: 2px solid var(--cream-dark); border-radius: 10px; background: var(--cream); color: var(--ink); outline: none; transition: border-color 0.15s; }
+  .auth-input:focus { border-color: var(--navy); background: white; }
+  .btn-auth { width: 100%; padding: 0.95rem; background: var(--navy); color: white; border: none; border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; margin-top: 0.5rem; transition: background 0.15s; }
+  .btn-auth:hover { background: var(--navy-dark); }
+  .btn-auth:disabled { background: var(--cream-dark); color: var(--ink-muted); cursor: not-allowed; }
+  .auth-msg { font-size: 0.82rem; font-weight: 700; padding: 0.65rem 0.85rem; border-radius: 8px; margin-top: 0.85rem; display: none; }
+  .auth-msg.err { background: var(--coral-soft); color: var(--coral); border: 1px solid #f5b3a5; display: block; }
+  .auth-msg.ok { background: var(--green-soft); color: var(--green); border: 1px solid #b3e0c5; display: block; }
+  .auth-footer { text-align: center; font-size: 0.78rem; color: var(--ink-muted); font-weight: 600; margin-top: 1.5rem; }
+
+  /* ── SESSION COUNT BADGE ── */
+  .session-count-badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 0.28rem 0.7rem; font-size: 0.75rem; font-weight: 800; color: white; display: none; align-items: center; gap: 0.35rem; }
+  .session-count-badge.warn { background: rgba(232,160,32,0.3); border-color: rgba(232,160,32,0.5); color: #fde68a; }
+  .btn-logout { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 0.3rem 0.6rem; color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; transition: all 0.15s; }
+  .btn-logout:hover { background: rgba(255,255,255,0.2); color: white; }
+  .limit-banner { background: var(--coral-soft); border: 1.5px solid var(--coral); border-radius: var(--r-sm); padding: 1rem 1.25rem; margin-bottom: 1.25rem; display: none; }
+  .limit-banner.show { display: block; }
+  .limit-banner-title { font-size: 1rem; font-weight: 900; color: var(--coral); margin-bottom: 0.3rem; }
+  .limit-banner-text { font-size: 0.85rem; color: #7a2010; font-weight: 600; line-height: 1.5; }
+  .btn-upgrade { display: inline-block; margin-top: 0.65rem; background: var(--coral); color: white; border: none; border-radius: 8px; padding: 0.5rem 1rem; font-family: 'Nunito', sans-serif; font-size: 0.85rem; font-weight: 800; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<!-- ══════ AUTH OVERLAY ══════ -->
+<div id="authOverlay" class="auth-wrap" style="position:fixed;inset:0;z-index:9999;display:none">
+  <div class="auth-box">
+    <div class="auth-logo">
+      <div class="auth-logo-icon">📐</div>
+      <div class="auth-logo-title">Euclid Meditații</div>
+      <div class="auth-logo-sub">Pregătire pentru concursul Euclid · cls. IV</div>
+    </div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Conectare</button>
+      <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Cont nou</button>
+    </div>
+    <div id="authFormLogin">
+      <div class="auth-field">
+        <label class="auth-label">Email</label>
+        <input type="email" class="auth-input" id="loginEmail" placeholder="email@exemplu.com" autocomplete="email">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Parolă</label>
+        <input type="password" class="auth-input" id="loginPass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <button class="btn-auth" id="btnLogin" onclick="doLogin()">Conectează-te →</button>
+    </div>
+    <div id="authFormRegister" style="display:none">
+      <div class="auth-field">
+        <label class="auth-label">Prenumele copilului</label>
+        <input type="text" class="auth-input" id="regName" placeholder="ex: Maria" autocomplete="given-name">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Email</label>
+        <input type="email" class="auth-input" id="regEmail" placeholder="email@exemplu.com" autocomplete="email">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Parolă (min. 6 caractere)</label>
+        <input type="password" class="auth-input" id="regPass" placeholder="••••••••" autocomplete="new-password" onkeydown="if(event.key==='Enter')doRegister()">
+      </div>
+      <button class="btn-auth" id="btnRegister" onclick="doRegister()">Creează cont gratuit →</button>
+    </div>
+    <div class="auth-msg" id="authMsg"></div>
+    <div class="auth-footer">🔒 Cont gratuit: 20 sesiuni/lună · Datele sunt securizate</div>
+  </div>
+</div>
+
+<header class="app-header">
+  <div class="logo">
+    <div class="logo-icon">📐</div>
+    Euclid Meditații
+  </div>
+  <div class="header-right">
+    <div class="session-stats" id="headerStats" style="display:none">
+      <div class="stat-pill"><div class="dot dot-green"></div><span id="statCorrect">0</span> corecte</div>
+      <div class="stat-pill"><div class="dot dot-amber"></div><span id="statQ">0/0</span></div>
+    </div>
+    <div class="session-count-badge" id="sessionCountBadge">📚 <span id="sessionCountText">— sesiuni</span></div>
+    <button class="btn-logout" id="btnLogout" style="display:none" onclick="doLogout()">Ieșire</button>
+  </div>
+</header>
+
+<div class="stage">
+
+  <!-- ══════ START ══════ -->
+  <div class="screen active" id="screen-start">
+    <div class="start-hero">
+      <div class="start-mascot">🦉</div>
+      <div class="start-title">Pregătire Euclid</div>
+      <div class="start-sub">Sesiune de antrenament cu profesor virtual.<br>Ascultă problema, gândește, răspunde.</div>
+    </div>
+
+    <div class="config-card">
+      <div class="config-label">Număr de probleme</div>
+      <div class="config-row" id="countConfig">
+        <div class="config-chip" data-val="5">5 probleme</div>
+        <div class="config-chip selected" data-val="10">10 probleme</div>
+        <div class="config-chip" data-val="20">20 probleme</div>
+      </div>
+    </div>
+
+    <div class="config-card">
+      <div class="config-label">Dificultate</div>
+      <div class="config-row" id="difConfig">
+        <div class="config-chip dif-easy" data-val="1">Ușor</div>
+        <div class="config-chip dif-med" data-val="2">Mediu</div>
+        <div class="config-chip dif-hard" data-val="3">Greu</div>
+        <div class="config-chip selected" data-val="0">Mixt</div>
+      </div>
+    </div>
+
+    <div class="config-card">
+      <div class="config-label">Categorie</div>
+      <div class="config-row" id="catConfig">
+        <div class="config-chip selected" data-val="">Toate</div>
+        <div class="config-chip" data-val="Numere naturale">Numere</div>
+        <div class="config-chip" data-val="Operații">Operații</div>
+        <div class="config-chip" data-val="Geometrie">Geometrie</div>
+        <div class="config-chip" data-val="Probleme de logică">Logică</div>
+        <div class="config-chip" data-val="Fracții">Fracții</div>
+        <div class="config-chip" data-val="Combinatorică">Combinatorică</div>
+      </div>
+    </div>
+
+    <div class="config-card">
+      <div class="voice-toggle-row">
+        <div>
+          <div class="voice-toggle-label">🔊 Voce activă</div>
+          <div class="voice-toggle-sub">Profesorul citește problema și explică soluția</div>
+          <div class="voice-status" id="voiceStatus">● ElevenLabs activ</div>
+        </div>
+        <button class="toggle on" id="voiceToggle" onclick="toggleVoice()"></button>
+      </div>
+    </div>
+
+    <div class="limit-banner" id="limitBanner">
+      <div class="limit-banner-title">⏸ Limita lunară atinsă</div>
+      <div class="limit-banner-text">Ai folosit toate cele 20 de sesiuni gratuite din această lună. Sesiunile se resetează la începutul lunii viitoare.</div>
+      <button class="btn-upgrade" onclick="alert('Funcționalitate coming soon! Te vom notifica când va fi disponibil abonamentul.')">🚀 Upgrade la nelimitat</button>
+    </div>
+    <button class="btn-start" id="btnStart" onclick="startSession()">Începe sesiunea →</button>
+  </div>
+
+  <!-- ══════ SESSION ══════ -->
+  <div class="screen" id="screen-session">
+    <div class="progress-row">
+      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">1 / 10</div>
+    </div>
+    <div class="streak-row" id="streakRow"></div>
+
+    <div class="problem-card">
+      <div class="problem-meta">
+        <span class="badge badge-cat" id="pCat">-</span>
+        <span class="badge" id="pDif">-</span>
+        <span class="problem-num" id="pNum">#-</span>
+      </div>
+      <div class="problem-text" id="pText">-</div>
+      <button class="voice-btn" id="readBtn" onclick="readProblem()">
+        <div class="voice-dot"></div>
+        <span id="readBtnText">Ascultă problema</span>
+      </button>
+    </div>
+
+    <div class="hint-box" id="hintBox">
+      <div class="hint-label">💡 Indiciu</div>
+      <div class="hint-text" id="hintText">-</div>
+    </div>
+
+    <div class="answer-card">
+      <div class="answer-label-row">
+        <div class="answer-label">Răspunsul tău</div>
+        <div class="timer-mini" id="timerMini">—</div>
+      </div>
+      <input type="text" class="answer-input" id="answerInput" placeholder="Scrie răspunsul…" onkeydown="if(event.key==='Enter') checkAnswer()">
+      <div class="btn-row">
+        <button class="btn btn-primary" id="checkBtn" onclick="checkAnswer()">Verifică</button>
+        <button class="btn btn-hint" onclick="showHint()">Indiciu</button>
+        <button class="btn btn-secondary" onclick="skipProblem()">Sari peste</button>
+      </div>
+    </div>
+
+    <div class="feedback-card" id="feedbackCard">
+      <div class="feedback-header">
+        <div class="feedback-icon" id="feedbackIcon">-</div>
+        <div>
+          <div class="feedback-title" id="feedbackTitle">-</div>
+          <div class="feedback-answer" id="feedbackAnswer">-</div>
+        </div>
+      </div>
+      <div class="explanation-box" id="explanationBox">
+        <div class="explanation-header">
+          <div class="prof-avatar">🦉</div>
+          <div class="prof-name">Profesor Euclid</div>
+          <button class="explanation-voice-btn" id="explainVoiceBtn" onclick="readExplanation()">🔊 Ascultă</button>
+        </div>
+        <div class="explanation-text" id="explanationText">
+          <div class="explanation-loading">Profesorul explică <div class="loading-dots"><span></span><span></span><span></span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-next" id="nextBtn" onclick="nextProblem()">Problema următoare →</button>
+  </div>
+
+  <!-- ══════ RESULTS ══════ -->
+  <div class="screen" id="screen-results">
+    <div class="results-hero">
+      <div class="score-ring">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="56" fill="none" stroke="#EDE6D6" stroke-width="10"/>
+          <circle cx="65" cy="65" r="56" fill="none" stroke="#1B3F6B" stroke-width="10" stroke-linecap="round" stroke-dasharray="351.9" stroke-dashoffset="351.9" id="scoreArc" style="transition:stroke-dashoffset 1.2s ease"/>
+        </svg>
+        <div class="score-center">
+          <div class="score-num" id="scoreNum">0</div>
+          <div class="score-den" id="scoreDen">din 10</div>
+        </div>
+      </div>
+      <div class="results-title" id="resultsTitle">Sesiune finalizată!</div>
+      <div class="results-sub" id="resultsSub">-</div>
+    </div>
+    <div class="results-grid">
+      <div class="result-stat"><div class="result-stat-num" id="rCorrect" style="color:var(--green)">0</div><div class="result-stat-label">Corecte</div></div>
+      <div class="result-stat"><div class="result-stat-num" id="rWrong" style="color:var(--coral)">0</div><div class="result-stat-label">Greșite</div></div>
+      <div class="result-stat"><div class="result-stat-num" id="rSkipped" style="color:var(--ink-muted)">0</div><div class="result-stat-label">Sărite</div></div>
+      <div class="result-stat"><div class="result-stat-num" id="rTime">0</div><div class="result-stat-label">Minute</div></div>
+    </div>
+    <button class="btn-restart" onclick="restartSession()">Sesiune nouă →</button>
+    <button class="btn-restart secondary" onclick="showScreen('start')">Schimbă configurația</button>
+  </div>
+
+</div>
+
+<script>
+const PROBLEMS = [
+  {id:1,cat:"Numere naturale",dif:1,text:"Pe o masă sunt 48 de cărți împărțite în grămezi egale. Câte grămezi se pot forma? Găsește toate variantele posibile.",ans:"10",hint:"Gândește-te la toți divizorii lui 48.",barem:"Divizorii lui 48 sunt: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48 — deci 10 variante posibile."},
+  {id:2,cat:"Numere naturale",dif:1,text:"Calculați suma numerelor naturale pare mai mici decât 20.",ans:"90",hint:"Numerele pare de la 2 la 18. Sunt 9 termeni. Folosește formula sumei.",barem:"2+4+6+8+10+12+14+16+18 = 90. Formula: 9×(2+18)/2 = 90."},
+  {id:3,cat:"Numere naturale",dif:2,text:"Găsiți cel mai mare număr de 3 cifre care se împarte exact la 7 și la 9.",ans:"945",hint:"Mai întâi calculează cel mai mic multiplu comun al lui 7 și 9.",barem:"lcm(7,9) = 63. Cel mai mare multiplu al lui 63 sub 1000: 63 × 15 = 945."},
+  {id:4,cat:"Numere naturale",dif:2,text:"Suma a trei numere naturale consecutive este 111. Care este cel mai mare dintre ele?",ans:"38",hint:"Dacă primul număr este n, atunci n+(n+1)+(n+2)=111.",barem:"3n+3=111 → n=36. Cele trei numere sunt 36, 37, 38. Cel mai mare: 38."},
+  {id:5,cat:"Numere naturale",dif:2,text:"Un număr natural este de 4 ori mai mare decât al doilea. Suma lor este 120. Găsiți cele două numere.",ans:"96 și 24",hint:"Dacă cel mic este y, cel mare este 4y. Suma lor este 5y.",barem:"5y=120 → y=24, x=96. Verificare: 96+24=120 ✓"},
+  {id:6,cat:"Numere naturale",dif:1,text:"Câte numere naturale de 2 cifre există al căror produs al cifrelor este 12?",ans:"4",hint:"Caută perechile de cifre (a,b) cu a×b=12 și a≥1.",barem:"Perechile: (2,6),(6,2),(3,4),(4,3). Numerele: 26, 62, 34, 43. Răspuns: 4."},
+  {id:7,cat:"Numere naturale",dif:3,text:"Câte cifre are numărul 2 la puterea 10 înmulțit cu 5 la puterea 12?",ans:"12",hint:"Rescrie ca 10 la puterea 10 înmulțit cu 25.",barem:"2^10 × 5^12 = 10^10 × 25 = 250.000.000.000 — 12 cifre."},
+  {id:8,cat:"Numere naturale",dif:2,text:"Dintre numerele 1, 2, 3, ..., 100, câte sunt divizibile cu 3 sau cu 5?",ans:"47",hint:"Folosește incluziunea-excluderea: |A∪B| = |A| + |B| - |A∩B|.",barem:"Div cu 3: 33. Div cu 5: 20. Div cu 15: 6. Total: 33+20-6 = 47."},
+  {id:9,cat:"Numere naturale",dif:1,text:"Suma cifrelor unui număr de 2 cifre este 9. Dacă inversăm cifrele, noul număr este cu 27 mai mare. Găsiți numărul inițial.",ans:"36",hint:"Fie cifrele a și b. Scrie două ecuații: a+b=9 și diferența inversatelor este 27.",barem:"a+b=9 și 9(b-a)=27 → b-a=3. Deci a=3, b=6. Numărul: 36."},
+  {id:10,cat:"Numere naturale",dif:3,text:"Câte numere naturale de 3 cifre au toate cifrele distincte și suma cifrelor egală cu 9?",ans:"34",hint:"Găsești mai întâi tripletele de cifre distincte cu suma 9, apoi numeri permutările.",barem:"Triplete posibile: (0,1,8),(0,2,7),(0,3,6),(0,4,5),(1,2,6),(1,3,5),(2,3,4). Aranjamente fără zero la sute: 34 numere."},
+  {id:11,cat:"Operații",dif:1,text:"Calculați: 1+2+3+...+50.",ans:"1275",hint:"Folosește formula lui Gauss: S = n(n+1)/2.",barem:"S = 50×51/2 = 1275."},
+  {id:12,cat:"Operații",dif:1,text:"Cât este 999 × 111?",ans:"110889",hint:"999 = 1000 - 1. Aplică proprietatea distributivă.",barem:"999×111 = (1000-1)×111 = 111000 - 111 = 110889."},
+  {id:13,cat:"Operații",dif:2,text:"Calculați: (1+3+5+7+...+99) - (2+4+6+8+...+100).",ans:"-50",hint:"Prima sumă are 50 termeni impari, a doua 50 termeni pari.",barem:"Prima sumă: 50² = 2500. A doua: 50×51 = 2550. Diferența: 2500-2550 = -50."},
+  {id:14,cat:"Operații",dif:2,text:"Aflați x dacă: 3×(x+5) − 2×(x−1) = 27.",ans:"10",hint:"Elimină parantezele, apoi adună termenii cu x.",barem:"3x+15-2x+2=27 → x+17=27 → x=10."},
+  {id:15,cat:"Operații",dif:1,text:"Maria are 240 de lei. Cheltuiește 1/3 pe cărți și 1/4 din ce rămâne pe rechizite. Cât îi mai rămâne?",ans:"120",hint:"Mai întâi calculează cât cheltuie pe cărți, apoi din rest calculează rechizitele.",barem:"Cărți: 240/3=80. Rămân 160. Rechizite: 160/4=40. Rămân: 120 lei."},
+  {id:16,cat:"Operații",dif:3,text:"Câte înmulțiri sunt necesare să calculezi 2 la puterea 32 folosind doar rezultate deja calculate?",ans:"5",hint:"Ridică la pătrat în mod repetat.",barem:"2→4→16→256→65536→2^32. Exact 5 înmulțiri prin ridicare succesivă la pătrat."},
+  {id:17,cat:"Operații",dif:2,text:"Un număr împărțit la 7 dă câtul 13 și restul 5. Găsiți numărul.",ans:"96",hint:"Formula: număr = împărțitor × cât + rest.",barem:"7×13+5 = 91+5 = 96."},
+  {id:18,cat:"Operații",dif:1,text:"Calculați: 123 × 9 + 123 × 1.",ans:"1230",hint:"Factorizează: 123×(9+1).",barem:"123×(9+1) = 123×10 = 1230."},
+  {id:19,cat:"Operații",dif:2,text:"Suma a 5 numere este 375. Dacă adăugăm un al șaselea număr, media devine 80. Găsiți al șaselea număr.",ans:"105",hint:"Media a 6 numere este 80, deci suma lor este 80×6.",barem:"Total cu 6 numere: 480. Al șaselea: 480-375 = 105."},
+  {id:20,cat:"Operații",dif:3,text:"Aflați toate perechile de numere naturale (a,b) cu a mai mic sau egal cu b pentru care a×b = a+b+10.",ans:"(2,12)",hint:"Rescrie ecuația ca (a-1)×(b-1) = 11. Ce știi despre 11?",barem:"(a-1)(b-1)=11. 11 este prim: a-1=1, b-1=11 → (2,12). Verificare: 2×12=24=2+12+10 ✓"},
+  {id:21,cat:"Operații",dif:2,text:"O fabrică produce 240 de piese pe zi în 8 ore. Câte piese produce în 5 ore?",ans:"150",hint:"Calculează câte piese produce pe oră.",barem:"240/8 = 30 piese/oră. În 5 ore: 30×5 = 150."},
+  {id:22,cat:"Operații",dif:1,text:"Câte minute sunt în 3 zile și 7 ore?",ans:"4740",hint:"Transformă totul în ore, apoi în minute.",barem:"3×24 + 7 = 79 ore. 79×60 = 4740 minute."},
+  {id:23,cat:"Fracții",dif:1,text:"Calculați: 1/2 + 1/3 + 1/6.",ans:"1",hint:"Aduce la numitor comun: 6.",barem:"3/6 + 2/6 + 1/6 = 6/6 = 1."},
+  {id:24,cat:"Fracții",dif:2,text:"Dintr-o cutie s-au luat 2/5 din bomboane, apoi 1/3 din ce rămânea. Au rămas 40 de bomboane. Câte erau la început?",ans:"100",hint:"Ce fracție din total rămâne după ambele luări?",barem:"Rămân 3/5 după prima luare. Din 3/5 mai rămân 2/3, adică 2/5 din total = 40 → total = 100."},
+  {id:25,cat:"Fracții",dif:1,text:"Ordonați crescător: 3/4, 5/6, 7/12, 2/3.",ans:"7/12, 2/3, 3/4, 5/6",hint:"Aduce toate la numitor comun 12.",barem:"7/12, 8/12, 9/12, 10/12. Ordinea: 7/12 < 2/3 < 3/4 < 5/6."},
+  {id:26,cat:"Fracții",dif:2,text:"Un rezervor se umple printr-o țeavă în 4 ore și printr-o alta în 6 ore. Cât durează dacă lucrează împreună?",ans:"2h 24min",hint:"Adună debitele: câtă parte din rezervor umple fiecare pe oră?",barem:"Debit combinat: 1/4+1/6 = 5/12/oră. Timp: 12/5 = 2,4 ore = 2h 24min."},
+  {id:27,cat:"Fracții",dif:3,text:"Calculați suma: 1 pe 1×2 plus 1 pe 2×3 plus 1 pe 3×4 plus ... plus 1 pe 9×10.",ans:"9/10",hint:"Scrie fiecare termen ca diferență: 1/(k×(k+1)) = 1/k - 1/(k+1).",barem:"Sume telescopice: 1 - 1/10 = 9/10."},
+  {id:28,cat:"Fracții",dif:2,text:"Un număr este cu 3/8 mai mic decât 80. Găsiți numărul.",ans:"50",hint:"3/8 din 80 este diferența. Scade din 80.",barem:"3/8 × 80 = 30. Numărul = 80 - 30 = 50."},
+  {id:29,cat:"Șiruri și șabloane",dif:1,text:"Care este al 10-lea termen al șirului: 3, 7, 11, 15, ...?",ans:"39",hint:"Șir aritmetic cu primul termen 3 și rație 4.",barem:"T10 = 3 + 9×4 = 3 + 36 = 39."},
+  {id:30,cat:"Șiruri și șabloane",dif:2,text:"Șirul: 2, 6, 18, 54, ... Care este al 7-lea termen?",ans:"1458",hint:"Șir geometric cu rație 3.",barem:"T7 = 2 × 3^6 = 2 × 729 = 1458."},
+  {id:31,cat:"Șiruri și șabloane",dif:2,text:"Suma primilor n termeni impari este n pătrat. Calculați suma primilor 15 termeni impari.",ans:"225",hint:"Aplică direct formula cu n=15.",barem:"S15 = 15² = 225."},
+  {id:32,cat:"Șiruri și șabloane",dif:3,text:"Câți termeni are șirul: 5, 10, 15, ..., 500?",ans:"100",hint:"Împarte ultimul termen la rație.",barem:"n = (500-5)/5 + 1 = 100."},
+  {id:33,cat:"Șiruri și șabloane",dif:2,text:"Numerele de la 1 la 100 sunt scrise pe hârtie. Câte cifre au fost scrise în total?",ans:"192",hint:"Împarte în grupuri: 1-9, 10-99, 100.",barem:"1-9: 9×1=9. 10-99: 90×2=180. 100: 3 cifre. Total: 192."},
+  {id:34,cat:"Șiruri și șabloane",dif:3,text:"Găsiți termenul al 100-lea al șirului: 1, apoi 1,2, apoi 1,2,3, apoi 1,2,3,4, și tot așa.",ans:"9",hint:"Structura: grupuri de 1,2,3,... termeni. Suma primelor k grupuri: k(k+1)/2.",barem:"Primele 13 grupuri: 91 termeni. Termenul 100 este în grupul 14, la poziția 9."},
+  {id:35,cat:"Șiruri și șabloane",dif:1,text:"Completați: 2, 4, 8, 16, ___, 64.",ans:"32",hint:"Fiecare termen se înmulțește cu 2.",barem:"16 × 2 = 32."},
+  {id:36,cat:"Probleme de logică",dif:1,text:"Ana are cu 12 ani mai mult decât Bogdan. Peste 5 ani, Ana va avea de 2 ori vârsta lui Bogdan. Câți ani are acum Bogdan?",ans:"7",hint:"Scrie două ecuații: A=B+12 și A+5=2(B+5).",barem:"B+17 = 2B+10 → B=7. Ana: 19 ani. Verificare: 24=2×12 ✓"},
+  {id:37,cat:"Probleme de logică",dif:2,text:"Trei prieteni au împreună 48 de cărți. Al doilea are de 2 ori mai multe ca primul, iar al treilea de 3 ori mai multe ca primul. Câte cărți are fiecare?",ans:"8, 16, 24",hint:"Dacă primul are x cărți, expresia totală este x+2x+3x.",barem:"6x=48 → x=8. Cei trei: 8, 16, 24."},
+  {id:38,cat:"Probleme de logică",dif:2,text:"O sfoară de 100 m este tăiată în bucăți de câte 2 m. Câte tăieturi se fac?",ans:"49",hint:"50 de bucăți necesită câte tăieturi?",barem:"50 bucăți rezultă din 49 tăieturi."},
+  {id:39,cat:"Probleme de logică",dif:2,text:"Pe o masă sunt farfurii cu 2 și 3 prăjituri, în total 25 de prăjituri și 10 farfurii. Câte farfurii au câte 2 prăjituri?",ans:"5",hint:"Fie a = farfurii cu 2 prăjituri, b = farfurii cu 3 prăjituri.",barem:"a+b=10 și 2a+3b=25. Scăzând: b=5, a=5."},
+  {id:40,cat:"Probleme de logică",dif:1,text:"Într-un tren sunt 3 vagoane. Primul are 12 pasageri, al doilea cu 5 mai mulți, al treilea cu 3 mai puțini decât primele două împreună. Câți pasageri sunt total?",ans:"55",hint:"Calculează fiecare vagon pe rând.",barem:"V1=12, V2=17, V3=26. Total: 55."},
+  {id:41,cat:"Probleme de logică",dif:3,text:"Cinci copii stau la rând. Anca este a 3-a din față. Câți copii sunt înaintea Ancăi?",ans:"2",hint:"A 3-a din față înseamnă că în fața ei sunt 2 copii.",barem:"A 3-a din față = 2 copii înaintea ei."},
+  {id:42,cat:"Probleme de logică",dif:2,text:"Un ceas întârzie cu 5 minute pe oră. Dacă îl potrivesc la 12:00, ce oră va arăta după 12 ore reale?",ans:"11:00",hint:"Câte minute pierde în total în 12 ore?",barem:"Pierde 5×12=60 minute = 1 oră. Arată 11:00."},
+  {id:43,cat:"Probleme de logică",dif:2,text:"Ion a gândit un număr. L-a înmulțit cu 4, a scăzut 2, a împărțit la 2 și a obținut 15. Ce număr a gândit?",ans:"8",hint:"Operează invers, de la final spre început.",barem:"Invers: 15×2=30, 30+2=32, 32÷4=8. Verificare: (8×4−2)÷2=15 ✓"},
+  {id:44,cat:"Probleme de logică",dif:2,text:"Doi frați au împreună 30 de ani. Cel mare are de 2 ori vârsta celui mic. Câți ani are cel mare?",ans:"20",hint:"Fie cel mic = m. Atunci cel mare = 2m.",barem:"m+2m=30 → m=10. Cel mare: 20 ani."},
+  {id:45,cat:"Probleme de logică",dif:2,text:"Un comerciant vinde mere cu 3 lei/kg. Dacă ar fi vândut cu 4 lei/kg, ar fi câștigat 30 lei în plus. Câte kg de mere a vândut?",ans:"30",hint:"Diferența de preț pe kg este 1 leu.",barem:"(4-3) × kg = 30 → kg = 30."},
+  {id:46,cat:"Geometrie",dif:1,text:"Perimetrul unui pătrat este 48 cm. Care este aria lui?",ans:"144 cm²",hint:"Calculează mai întâi latura.",barem:"Latura = 48÷4 = 12 cm. Aria = 12² = 144 cm²."},
+  {id:47,cat:"Geometrie",dif:1,text:"Un dreptunghi are lungimea de 15 cm și lățimea de 8 cm. Calculați perimetrul și aria.",ans:"P=46 cm, A=120 cm²",hint:"P=2(l+L), A=l×L.",barem:"P=2×(15+8)=46 cm. A=15×8=120 cm²."},
+  {id:48,cat:"Geometrie",dif:2,text:"Un triunghi dreptunghic are catetele de 6 și 8 cm. Calculați ipotenuza.",ans:"10 cm",hint:"Teorema lui Pitagora: c²=a²+b².",barem:"c=√(36+64)=√100=10 cm."},
+  {id:49,cat:"Geometrie",dif:2,text:"Aria unui triunghi isoscel este 30 cm². Dacă baza este de 10 cm, cât măsoară înălțimea?",ans:"6 cm",hint:"Formula ariei: A = (baza × înălțimea) / 2.",barem:"30 = 10×h/2 → h = 6 cm."},
+  {id:50,cat:"Geometrie",dif:3,text:"Un pătrat cu latura de 10 cm. Prin unirea mijloacelor laturilor se obține un pătrat interior. Care este aria lui?",ans:"50 cm²",hint:"Latura pătratului interior este diagonala unui triunghi dreptunghic isoscel cu cateta 5.",barem:"Aria = d²/2 = 100/2 = 50 cm²."},
+  {id:51,cat:"Geometrie",dif:1,text:"Câte axe de simetrie are un dreptunghi care nu este pătrat?",ans:"2",hint:"Gândește-te la liniile care împart dreptunghiul în două jumătăți egale.",barem:"2 axe: una orizontală, una verticală."},
+  {id:52,cat:"Geometrie",dif:2,text:"Un triunghi echilateral are perimetrul de 36 cm și înălțimea de 10 cm. Calculați aria lui.",ans:"60 cm²",hint:"Aria = baza × înălțimea / 2.",barem:"Latura = 36÷3 = 12 cm. Aria = 12×10/2 = 60 cm²."},
+  {id:53,cat:"Geometrie",dif:2,text:"Un dreptunghi are perimetrul de 40 cm și lungimea de 3 ori lățimea. Găsiți dimensiunile.",ans:"15 cm și 5 cm",hint:"2(l+L)=40 și L=3l.",barem:"2(l+3l)=40 → l=5, L=15."},
+  {id:54,cat:"Geometrie",dif:3,text:"Pe toate fețele unui cub cu latura de 3 cm sunt desenate toate pătratele unitate. Câte pătrate unitate sunt în total?",ans:"54",hint:"Câte pătrate unitate are o față? Câte fețe are cubul?",barem:"O față: 3×3=9 pătrate. 6 fețe × 9 = 54 pătrate."},
+  {id:55,cat:"Geometrie",dif:1,text:"Un dreptunghi are latura mare de 9 cm și diagonala de 15 cm. Calculați latura mică și perimetrul.",ans:"12 cm; P=42 cm",hint:"Teorema lui Pitagora: latura_mică² + 9² = 15².",barem:"l²=225-81=144 → l=12 cm. P=2×(9+12)=42 cm."},
+  {id:56,cat:"Combinatorică",dif:1,text:"Câte moduri există de a aranja 4 elevi la un rând de 4 scaune?",ans:"24",hint:"Primul scaun: 4 variante, al doilea: 3, ...",barem:"4! = 4×3×2×1 = 24."},
+  {id:57,cat:"Combinatorică",dif:2,text:"Câte numere de 3 cifre distincte se pot forma cu cifrele 1, 2, 3, 4, 5, fără repetiție?",ans:"60",hint:"Prima cifră: 5 variante, a doua: 4, a treia: 3.",barem:"5×4×3 = 60."},
+  {id:58,cat:"Combinatorică",dif:2,text:"Dintr-un grup de 5 copii se selectează o echipă de 3. Câte echipe diferite se pot forma?",ans:"10",hint:"Ordinea în echipă nu contează: combinări de 5 luate câte 3.",barem:"C(5,3) = 10."},
+  {id:59,cat:"Combinatorică",dif:3,text:"Câte diagonale are un octogon, adică un poligon cu 8 laturi?",ans:"20",hint:"Formula: n×(n-3)/2.",barem:"8×5/2 = 20."},
+  {id:60,cat:"Combinatorică",dif:2,text:"Un meniu are 3 supe, 4 feluri principale și 2 deserturi. Câte meniuri complete se pot alege?",ans:"24",hint:"Înmulțește opțiunile pentru fiecare categorie.",barem:"3×4×2 = 24."},
+  {id:61,cat:"Combinatorică",dif:3,text:"Câte modalități există de a pune 5 bile distincte în 3 cutii distincte astfel încât nicio cutie să nu fie goală?",ans:"150",hint:"Folosește numerele Stirling: S(5,3) × 3!",barem:"S(5,3)=25. 25×6 = 150."},
+  {id:62,cat:"Combinatorică",dif:1,text:"Câte perechi de mănuși poți forma din 5 mănuși de stânga și 5 de dreapta, în 5 culori diferite?",ans:"25",hint:"Fiecare mănușă stângă se poate combina cu orice mănușă dreaptă.",barem:"5×5 = 25 perechi."},
+  {id:63,cat:"Combinatorică",dif:2,text:"La un turneu, fiecare echipă joacă cu fiecare altă echipă o singură dată. Au loc 15 meciuri. Câte echipe participă?",ans:"6",hint:"C(n,2)=15. Rezolvă ecuația.",barem:"n(n-1)/2=15 → n=6."},
+  {id:64,cat:"Algebră elementară",dif:1,text:"Găsiți x dacă: 5x + 3 = 23.",ans:"4",hint:"Scade 3 din ambele părți, apoi împarte la 5.",barem:"5x=20 → x=4."},
+  {id:65,cat:"Algebră elementară",dif:2,text:"Rezolvați sistemul: x+y=10, x-y=4.",ans:"x=7, y=3",hint:"Adună ecuațiile ca să elimini y.",barem:"2x=14 → x=7. y=3."},
+  {id:66,cat:"Algebră elementară",dif:1,text:"Dacă 3a=12 și 2b=10, calculați a+b.",ans:"9",hint:"Calculează a și b separat.",barem:"a=4, b=5. a+b=9."},
+  {id:67,cat:"Algebră elementară",dif:2,text:"Suma unui număr și a triplului său este 48. Găsiți numărul.",ans:"12",hint:"x + 3x = 48.",barem:"4x=48 → x=12."},
+  {id:68,cat:"Algebră elementară",dif:3,text:"Câte soluții în numere naturale are ecuația x + 2y = 20?",ans:"11",hint:"y poate lua valorile 0, 1, 2, ..., cât maxim?",barem:"y ∈ {0,1,...,10} → 11 soluții."},
+  {id:69,cat:"Algebră elementară",dif:2,text:"Tatăl are de 4 ori vârsta fiului. Peste 6 ani, tatăl va fi de 3 ori mai vârstnic decât fiul. Câți ani are tatăl acum?",ans:"48",hint:"T=4f și T+6=3(f+6).",barem:"4f+6=3f+18 → f=12 → T=48. Verificare: 54=3×18 ✓"},
+  {id:70,cat:"Algebră elementară",dif:1,text:"Un număr înmulțit cu 6 dă același rezultat ca numărul adunat cu 20. Găsiți numărul.",ans:"4",hint:"6x = x + 20.",barem:"5x=20 → x=4."},
+  {id:71,cat:"Algebră elementară",dif:3,text:"Găsiți toate perechile de numere naturale (x,y) cu x mai mic sau egal cu y și x×y = 2×(x+y).",ans:"(3,6) și (4,4)",hint:"Rescrie ca (x-2)(y-2)=4. Factorizează.",barem:"(x-2)(y-2)=4: cazuri (1,4)→(3,6) și (2,2)→(4,4). Verificare: 3×6=18=2×9 ✓"},
+  {id:72,cat:"Algebră elementară",dif:2,text:"Dacă a/3 = b/4 = c/5 și a+b+c = 36, găsiți a, b și c.",ans:"9, 12, 15",hint:"Fie a=3k, b=4k, c=5k.",barem:"12k=36 → k=3. a=9, b=12, c=15."},
+  {id:73,cat:"Probleme de logică",dif:2,text:"Într-o cutie sunt bile roșii, albastre și galbene, în total 54. Bilele albastre sunt de 2 ori mai multe decât cele roșii, iar galbene cu 6 mai puține decât albastre. Câte bile roșii sunt?",ans:"12",hint:"Fie roșii=x. Scrie albastre și galbene în funcție de x.",barem:"x+2x+(2x-6)=54 → 5x=60 → x=12."},
+  {id:74,cat:"Numere naturale",dif:2,text:"Câte numere de 2 cifre au suma cifrelor egală cu 7?",ans:"7",hint:"Enumeră: 16, 25, ...",barem:"16, 25, 34, 43, 52, 61, 70 = 7 numere."},
+  {id:75,cat:"Operații",dif:3,text:"Calculați suma: 1 pe 1×3 plus 1 pe 3×5 plus 1 pe 5×7 plus ... plus 1 pe 19×21.",ans:"10/21",hint:"Folosește telescoparea: fiecare termen se descompune în diferență de fracții.",barem:"(1/2)×(1-1/21) = 10/21."},
+  {id:76,cat:"Șiruri și șabloane",dif:2,text:"Primii 5 termeni ai unui șir sunt 1, 4, 9, 16, 25. Care este termenul al 10-lea?",ans:"100",hint:"Recunoști un șablon în 1, 4, 9, 16, 25?",barem:"Termenii sunt pătratele perfecte: n². Al 10-lea: 100."},
+  {id:77,cat:"Probleme de logică",dif:2,text:"Un tren de 200 m trece printr-un tunel de 300 m. Viteza trenului este 50 m/s. Cât durează traversarea?",ans:"10 secunde",hint:"Ce distanță parcurge trenul de la intrare până la ieșire completă?",barem:"Distanța totală: 200+300=500 m. Timp: 500÷50=10 s."},
+  {id:78,cat:"Combinatorică",dif:3,text:"Câte palindromuri de 5 cifre există?",ans:"900",hint:"Forma: abcba. Prima cifră nu poate fi 0.",barem:"9×10×10=900."},
+  {id:79,cat:"Numere naturale",dif:3,text:"Găsiți cel mai mic număr natural N astfel încât N împărțit la 2, 3, 4 și 5 lasă întotdeauna restul 1.",ans:"61",hint:"N-1 trebuie să fie multiplu comun al lui 2, 3, 4 și 5.",barem:"lcm(2,3,4,5)=60. N=61."},
+  {id:80,cat:"Geometrie",dif:2,text:"Un pătrat are diagonala de 10 cm. Calculați aria lui.",ans:"50 cm²",hint:"Aria pătratului = diagonala² / 2.",barem:"A = 100/2 = 50 cm²."},
+  {id:81,cat:"Fracții",dif:2,text:"O clasă are 30 de elevi. 2/5 sunt fete. Câți băieți sunt?",ans:"18",hint:"Calculează câte fete sunt, apoi scade din total.",barem:"Fete: 12. Băieți: 18."},
+  {id:82,cat:"Operații",dif:2,text:"Produsul a 3 numere naturale consecutive este 120. Găsiți numerele.",ans:"4, 5, 6",hint:"Încearcă numere în jurul lui 5.",barem:"4×5×6=120 ✓"},
+  {id:83,cat:"Probleme de logică",dif:2,text:"Ion este mai scund decât Maria, dar mai înalt decât Andrei. Petru este mai înalt decât Maria. Ordonați copiii de la cel mai scund la cel mai înalt.",ans:"Andrei, Ion, Maria, Petru",hint:"Construiește lanțul: Andrei < Ion < Maria < Petru.",barem:"Andrei < Ion < Maria < Petru."},
+  {id:84,cat:"Numere naturale",dif:1,text:"Care este cel mai mare număr de 4 cifre care se scrie numai cu cifre pare?",ans:"8888",hint:"Cifrele pare sunt: 0, 2, 4, 6, 8. Care e cea mai mare?",barem:"8888."},
+  {id:85,cat:"Algebră elementară",dif:3,text:"Există vreo valoare naturală a lui n pentru care (n+2)×(n+3) este pătrat perfect?",ans:"Nu există",hint:"Compară (n+2)(n+3) cu pătratele (n+2)² și (n+3)².",barem:"(n+2)(n+3) se află între (n+2)² și (n+3)², deci nu poate fi pătrat perfect."},
+  {id:86,cat:"Geometrie",dif:3,text:"Un dreptunghi are aria de 48 cm² și perimetrul de 28 cm. Calculați dimensiunile.",ans:"6 cm și 8 cm",hint:"l+L=14 și l×L=48. Formează o ecuație de gradul 2.",barem:"x²-14x+48=0 → (x-6)(x-8)=0 → 6 și 8 cm."},
+  {id:87,cat:"Șiruri și șabloane",dif:3,text:"Șirul 1, 2, 4, 8, 16, ... Calculați suma primilor 10 termeni.",ans:"1023",hint:"Suma unui șir geometric: S = a(r^n - 1)/(r-1).",barem:"S = 2^10 - 1 = 1023."},
+  {id:88,cat:"Probleme de logică",dif:2,text:"Mama are triplu vârstei fiicei. Peste 10 ani, mama va fi de 2 ori mai vârstnică decât fiica. Câți ani are mama acum?",ans:"30",hint:"M=3f și M+10=2(f+10).",barem:"3f+10=2f+20 → f=10 → M=30."},
+  {id:89,cat:"Combinatorică",dif:2,text:"Câte numere de 2 cifre conțin cel puțin o cifră de 7?",ans:"18",hint:"Numără separat cele cu 7 la zeci și 7 la unități.",barem:"7 la zeci: 10 numere. 7 la unități: 8. Total: 18."},
+  {id:90,cat:"Fracții",dif:3,text:"Calculați suma infinită: 1 minus 1/2 plus 1/4 minus 1/8 plus ...",ans:"2/3",hint:"Serie geometrică cu rație -1/2.",barem:"S = 1/(1+1/2) = 2/3."},
+  {id:91,cat:"Numere naturale",dif:2,text:"Suma cifrelor unui număr de 3 cifre este 15. Cifra sutelor este cu 2 mai mare decât a unităților, iar cifra zecilor este cu 1 mai mare decât a unităților. Găsiți numărul.",ans:"654",hint:"Fie unitățile=u. Exprimă celelalte cifre în funcție de u.",barem:"u+(u+1)+(u+2)=15 → u=4. Numărul: 654."},
+  {id:92,cat:"Operații",dif:1,text:"Cât este 25 la pătrat?",ans:"625",hint:"25²=(20+5)²=400+200+25.",barem:"25²=625."},
+  {id:93,cat:"Probleme de logică",dif:3,text:"5 pisici mănâncă 5 șoareci în 5 minute. Câte pisici sunt necesare pentru a mânca 100 de șoareci în 100 de minute?",ans:"5",hint:"Calculează câți șoareci mănâncă o pisică în 100 de minute.",barem:"O pisică mănâncă 20 șoareci în 100 min. 5 pisici → 100 șoareci."},
+  {id:94,cat:"Algebră elementară",dif:2,text:"Un număr la pătrat plus el însuși este 72. Găsiți numărul natural.",ans:"8",hint:"x(x+1)=72. Ce produs de două consecutive este 72?",barem:"8×9=72 ✓ → x=8."},
+  {id:95,cat:"Geometrie",dif:2,text:"Un cub are aria totală a tuturor fețelor de 96 cm². Calculați volumul lui.",ans:"64 cm³",hint:"6 fețe identice. Aria unei fețe = 96÷6.",barem:"Aria feței: 16 cm². Latura: 4 cm. V=64 cm³."},
+  {id:96,cat:"Combinatorică",dif:3,text:"Câte șiruri de 3 litere se pot forma cu A, B, C, D astfel încât nicio două litere consecutive să nu fie identice?",ans:"36",hint:"Prima literă: 4 opțiuni. A doua: câte diferite de prima? A treia: câte diferite de a doua?",barem:"4 × 3 × 3 = 36."},
+  {id:97,cat:"Numere naturale",dif:2,text:"Câte numere de 3 cifre conțin exact două cifre identice?",ans:"243",hint:"Alege cifra dublată, alege pozițiile, alege cifra unică.",barem:"243 numere."},
+  {id:98,cat:"Probleme de logică",dif:1,text:"Dacă ieri era marți, ce zi va fi poimâine?",ans:"vineri",hint:"Numără: ieri, azi, mâine, poimâine.",barem:"Ieri=marți → azi=miercuri → mâine=joi → poimâine=vineri."},
+  {id:99,cat:"Fracții",dif:1,text:"Simplificați fracția 36/48.",ans:"3/4",hint:"Găsește cel mai mare divizor comun al lui 36 și 48.",barem:"cmmdc(36,48)=12. Fracția: 3/4."},
+  {id:100,cat:"Șiruri și șabloane",dif:3,text:"Câte zerouri are 100 factorial la final?",ans:"24",hint:"Numărăm factorii de 5: 100 împărțit la 5 plus 100 împărțit la 25.",barem:"20+4=24 zerouri."},
+];
+
+// ── Supabase config ──
+const SUPABASE_URL = 'https://jfwqgaeepcrhmmmlaexj.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_2ktcPYlqjR220FdlGSCvfw_mp6n-Y1r';
+const EDGE_BASE = SUPABASE_URL + '/functions/v1';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+// ── State ──
+let currentUser = null, userProfile = null;
+let config = { count: 10, dif: 0, cat: '', voice: true };
+let session = { queue:[], current:0, correct:0, wrong:0, skipped:0, startTime:null, answered:false, history:[] };
+let timerInterval = null, voiceEnabled = true, elevenLabsAudio = null, currentExplanation = '';
+
+// ── Auth UI ──
+function switchTab(tab) {
+  document.getElementById('authFormLogin').style.display = tab==='login'?'block':'none';
+  document.getElementById('authFormRegister').style.display = tab==='register'?'block':'none';
+  document.getElementById('tabLogin').classList.toggle('active', tab==='login');
+  document.getElementById('tabRegister').classList.toggle('active', tab==='register');
+  document.getElementById('authMsg').className = 'auth-msg';
+}
+
+function setAuthMsg(msg, type) {
+  const el = document.getElementById('authMsg');
+  el.textContent = msg;
+  el.className = 'auth-msg ' + type;
+}
+
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass  = document.getElementById('loginPass').value;
+  if(!email||!pass) { setAuthMsg('Completează email-ul și parola.','err'); return; }
+  const btn = document.getElementById('btnLogin');
+  btn.disabled = true; btn.textContent = 'Se conectează...';
+  const {error} = await sb.auth.signInWithPassword({email, password:pass});
+  btn.disabled = false; btn.textContent = 'Conectează-te →';
+  if(error) setAuthMsg('Email sau parolă incorectă.','err');
+}
+
+async function doRegister() {
+  const name  = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass  = document.getElementById('regPass').value;
+  if(!name||!email||!pass) { setAuthMsg('Completează toate câmpurile.','err'); return; }
+  if(pass.length<6) { setAuthMsg('Parola trebuie să aibă minim 6 caractere.','err'); return; }
+  const btn = document.getElementById('btnRegister');
+  btn.disabled = true; btn.textContent = 'Se creează contul...';
+  const {error} = await sb.auth.signUp({email, password:pass, options:{data:{full_name:name}}});
+  btn.disabled = false; btn.textContent = 'Creează cont gratuit →';
+  if(error) { setAuthMsg(error.message,'err'); return; }
+  setAuthMsg('✓ Cont creat! Verifică email-ul pentru confirmare, apoi conectează-te.','ok');
+  setTimeout(()=>switchTab('login'), 3000);
+}
+
+async function doLogout() {
+  await sb.auth.signOut();
+}
+
+// ── Session count ──
+async function loadProfile() {
+  if(!currentUser) return;
+  const { data } = await sb.from('profiles').select('*').eq('id', currentUser.id).single();
+  userProfile = data;
+  updateSessionBadge();
+  updateStartButton();
+}
+
+function updateSessionBadge() {
+  const badge = document.getElementById('sessionCountBadge');
+  const text  = document.getElementById('sessionCountText');
+  if(!userProfile) { badge.style.display='none'; return; }
+  badge.style.display='flex';
+  const plan = userProfile.subscription_plan || 'free';
+  const used = userProfile.sessions_this_month || 0;
+  if(plan === 'paid') {
+    text.textContent = '∞ nelimitat';
+    badge.classList.remove('warn');
+  } else {
+    const left = Math.max(0, 20 - used);
+    text.textContent = `${left}/20 sesiuni`;
+    badge.classList.toggle('warn', left <= 5);
+  }
+}
+
+function updateStartButton() {
+  if(!userProfile) return;
+  const plan = userProfile.subscription_plan || 'free';
+  const used = userProfile.sessions_this_month || 0;
+  const canPlay = plan === 'paid' || used < 20;
+  document.getElementById('btnStart').disabled = !canPlay;
+  document.getElementById('limitBanner').classList.toggle('show', !canPlay);
+}
+
+// ── Auth state listener ──
+sb.auth.onAuthStateChange(async (event, session_data) => {
+  if(session_data?.user) {
+    currentUser = session_data.user;
+    document.getElementById('authOverlay').style.display = 'none';
+    document.getElementById('btnLogout').style.display = 'block';
+    await loadProfile();
+    updateVoiceStatus();
+    showScreen('start');
+  } else {
+    currentUser = null;
+    userProfile = null;
+    document.getElementById('authOverlay').style.display = 'flex';
+    document.getElementById('btnLogout').style.display = 'none';
+    document.getElementById('sessionCountBadge').style.display = 'none';
+  }
+});
+
+function updateVoiceStatus() {
+  const el = document.getElementById('voiceStatus');
+  if(!el) return;
+  // Vocea e activată prin Edge Function — întotdeauna disponibilă când e autentificat
+  if(currentUser) {
+    el.textContent = '● Voce activă prin server';
+    el.className = 'voice-status';
+  } else {
+    el.textContent = '○ Conectează-te pentru voce';
+    el.className = 'voice-status no-key';
+  }
+}
+
+// ── Config chips ──
+function setupChips() {
+  ['countConfig','difConfig','catConfig'].forEach(id => {
+    document.getElementById(id).addEventListener('click', e => {
+      if(!e.target.classList.contains('config-chip')) return;
+      document.querySelectorAll('#'+id+' .config-chip').forEach(c=>c.classList.remove('selected'));
+      e.target.classList.add('selected');
+      if(id==='countConfig') config.count = parseInt(e.target.dataset.val);
+      if(id==='difConfig') config.dif = parseInt(e.target.dataset.val);
+      if(id==='catConfig') config.cat = e.target.dataset.val;
+    });
+  });
+}
+
+function toggleVoice() {
+  voiceEnabled = !voiceEnabled;
+  document.getElementById('voiceToggle').classList.toggle('on', voiceEnabled);
+  if(!voiceEnabled) stopAudio();
+}
+
+// ── Session ──
+function startSession() {
+  let pool = PROBLEMS.filter(p => {
+    const catOk = !config.cat || p.cat === config.cat;
+    const difOk = config.dif === 0 || p.dif === config.dif;
+    return catOk && difOk;
+  });
+  if(!pool.length) { alert('Nu există probleme pentru filtrele selectate!'); return; }
+  pool = shuffle([...pool]);
+  session = { queue: pool.slice(0, Math.min(config.count, pool.length)), current:0, correct:0, wrong:0, skipped:0, startTime:Date.now(), answered:false, history:[] };
+  document.getElementById('headerStats').style.display = 'flex';
+  showScreen('session');
+  renderProblem();
+}
+
+function shuffle(a) { for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a; }
+
+function renderProblem() {
+  const p = session.queue[session.current];
+  const total = session.queue.length;
+  const idx = session.current;
+
+  document.getElementById('progressFill').style.width = (idx/total*100)+'%';
+  document.getElementById('progressLabel').textContent = `${idx+1} / ${total}`;
+
+  const row = document.getElementById('streakRow');
+  row.innerHTML = '';
+  for(let i=0;i<Math.min(total,10);i++){
+    const d=document.createElement('div');
+    const h=session.history[i];
+    if(i<idx) { d.className='streak-dot '+(h==='c'?'correct-dot':h==='w'?'wrong-dot':''); d.textContent=h==='c'?'✓':h==='w'?'✗':'—'; }
+    else if(i===idx) { d.className='streak-dot current-dot'; d.textContent='●'; }
+    else { d.className='streak-dot'; }
+    row.appendChild(d);
+  }
+
+  const difL=['','Ușor','Mediu','Greu'];
+  const difC=['','badge-dif-1','badge-dif-2','badge-dif-3'];
+  document.getElementById('pCat').textContent = p.cat;
+  document.getElementById('pDif').textContent = difL[p.dif];
+  document.getElementById('pDif').className = 'badge '+difC[p.dif];
+  document.getElementById('pNum').textContent = '#'+p.id;
+  document.getElementById('pText').textContent = p.text;
+
+  session.answered = false;
+  const inp = document.getElementById('answerInput');
+  inp.value=''; inp.className='answer-input'; inp.readOnly=false;
+  document.getElementById('feedbackCard').className='feedback-card';
+  document.getElementById('explanationBox').className='explanation-box';
+  document.getElementById('explanationText').innerHTML='<div class="explanation-loading">Profesorul explică <div class="loading-dots"><span></span><span></span><span></span></div></div>';
+  document.getElementById('nextBtn').className='btn-next';
+  document.getElementById('hintBox').className='hint-box';
+  document.getElementById('hintText').textContent=p.hint;
+  document.getElementById('checkBtn').disabled=false;
+  document.getElementById('statCorrect').textContent=session.correct;
+  document.getElementById('statQ').textContent=`${idx+1}/${total}`;
+
+  clearInterval(timerInterval);
+  let secs=0;
+  timerInterval=setInterval(()=>{
+    secs++;
+    const el=document.getElementById('timerMini');
+    el.textContent=`${String(Math.floor(secs/60)).padStart(2,'0')}:${String(secs%60).padStart(2,'0')}`;
+    el.className='timer-mini'+(secs>120?' warn':'');
+  },1000);
+  document.getElementById('timerMini').textContent='00:00';
+
+  if(voiceEnabled) setTimeout(()=>readProblem(), 600);
+  inp.focus();
+}
+
+function readProblem() {
+  if(!voiceEnabled) return;
+  const p = session.queue[session.current];
+  speak(p.text, 'readBtn', 'readBtnText', 'Ascultă problema', '🔊 Se citește...');
+}
+
+async function speak(text, btnId, textId, defaultText, activeText) {
+  if(!voiceEnabled) return;
+  stopAudio();
+  const btn = btnId ? document.getElementById(btnId) : null;
+  const lbl = textId ? document.getElementById(textId) : null;
+  if(btn) btn.classList.add('speaking');
+  if(lbl) lbl.textContent = activeText;
+  const done = () => { if(btn) btn.classList.remove('speaking'); if(lbl) lbl.textContent = defaultText; };
+
+  if(currentUser) {
+    try {
+      const { data: { session: authSession } } = await sb.auth.getSession();
+      const token = authSession?.access_token;
+      const resp = await fetch(EDGE_BASE + '/elevenlabs-proxy', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
+        body:JSON.stringify({text, voice_id:'oJbOo2uwdyVkwpZmgTkV', model_id:'eleven_multilingual_v2', voice_settings:{stability:0.55,similarity_boost:0.80,style:0.20,use_speaker_boost:true}})
+      });
+      if(!resp.ok) throw new Error(resp.status);
+      const url = URL.createObjectURL(await resp.blob());
+      elevenLabsAudio = new Audio(url);
+      elevenLabsAudio.onended = () => { URL.revokeObjectURL(url); done(); };
+      elevenLabsAudio.onerror = done;
+      await elevenLabsAudio.play();
+    } catch(e) { fallbackSpeak(text, done); }
+  } else { fallbackSpeak(text, done); }
+}
+
+function fallbackSpeak(text, done) {
+  if(!window.speechSynthesis) { done(); return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang='ro-RO'; u.rate=0.88; u.pitch=1.05;
+  u.onend = u.onerror = done;
+  window.speechSynthesis.speak(u);
+}
+
+function stopAudio() {
+  if(elevenLabsAudio) { elevenLabsAudio.pause(); elevenLabsAudio=null; }
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
+}
+
+function readExplanation() {
+  if(!currentExplanation) return;
+  const btn = document.getElementById('explainVoiceBtn');
+  speak(currentExplanation, 'explainVoiceBtn', null, '🔊 Ascultă', '⏸ Se citește...');
+  btn.textContent = '⏸ Se citește...';
+}
+
+function showHint() {
+  document.getElementById('hintBox').classList.add('show');
+  const t = document.getElementById('hintText').textContent;
+  if(voiceEnabled && t) speak('Indiciu: '+t, null, null, null, null);
+}
+
+function checkAnswer() {
+  if(session.answered) return;
+  const p = session.queue[session.current];
+  const inp = document.getElementById('answerInput');
+  const val = inp.value.trim();
+  if(!val) { inp.style.borderColor='var(--coral)'; setTimeout(()=>inp.style.borderColor='',800); return; }
+
+  clearInterval(timerInterval);
+  session.answered = true;
+  document.getElementById('checkBtn').disabled = true;
+
+  const clean = s => s.toLowerCase().replace(/\s/g,'').replace(/cm²|cm²|cm|h$/,'');
+  const valC = clean(val);
+  const isCorrect = p.ans.split(',').some(a => { const ac=clean(a); return valC===ac||valC.includes(ac)||ac.includes(valC); }) || valC===clean(p.ans);
+
+  session.history[session.current] = isCorrect ? 'c' : 'w';
+  if(isCorrect) { session.correct++; inp.className='answer-input correct'; showFeedback(true, p); }
+  else { session.wrong++; inp.className='answer-input wrong'; showFeedback(false, p); }
+
+  document.getElementById('statCorrect').textContent = session.correct;
+  document.getElementById('nextBtn').classList.add('show');
+  if(isCorrect && session.correct%3===0) triggerConfetti();
+  getExplanation(p, isCorrect, val);
+}
+
+function showFeedback(correct, p) {
+  const card = document.getElementById('feedbackCard');
+  card.className = 'feedback-card show '+(correct?'correct':'wrong');
+  document.getElementById('feedbackIcon').textContent = correct ? '✓' : '✗';
+  document.getElementById('feedbackTitle').textContent = correct ? 'Corect! Bravo!' : 'Nu este corect';
+  document.getElementById('feedbackAnswer').textContent = correct ? '' : 'Răspunsul corect: '+p.ans;
+  document.getElementById('explanationBox').classList.add('show');
+}
+
+async function getExplanation(p, isCorrect, userAnswer) {
+  const exBox = document.getElementById('explanationText');
+  if(!currentUser) {
+    currentExplanation = p.barem;
+    exBox.innerHTML = `<span style="font-size:.95rem;line-height:1.7;color:var(--ink-soft);font-weight:600">${p.barem}</span>`;
+    if(voiceEnabled) setTimeout(()=>speak(p.barem,'explainVoiceBtn',null,'🔊 Ascultă','⏸ Se citește...'),500);
+    return;
+  }
+  const prompt = isCorrect
+    ? `Ești un profesor de matematică pentru elevi de clasa a 4-a pregătitor Euclid. Elevul a răspuns CORECT. Problema: "${p.text}" Răspuns: ${p.ans} Barem: ${p.barem}\nExplică pas cu pas în 3-4 fraze, pe înțelesul unui copil de 9-10 ani. Felicită-l scurt. Fii cald. Răspunde DOAR în română, fără markdown.`
+    : `Ești un profesor de matematică pentru elevi de clasa a 4-a pregătitor Euclid. Elevul a răspuns GREȘIT. Problema: "${p.text}" Răspunsul elevului: "${userAnswer}" Răspuns corect: ${p.ans} Barem: ${p.barem}\nExplică pas cu pas în 3-4 fraze, pe înțelesul unui copil de 9-10 ani. Fii blând și ghidează. Răspunde DOAR în română, fără markdown.`;
+  try {
+    const { data: { session: authSession } } = await sb.auth.getSession();
+    const token = authSession?.access_token;
+    const resp = await fetch(EDGE_BASE + '/anthropic-proxy', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:400,messages:[{role:'user',content:prompt}]})
+    });
+    const data = await resp.json();
+    const text = data.content?.[0]?.text || p.barem;
+    currentExplanation = text;
+    exBox.innerHTML = `<span style="font-size:.95rem;line-height:1.7;color:var(--ink-soft);font-weight:600">${text}</span>`;
+    if(voiceEnabled) setTimeout(()=>speak(text,'explainVoiceBtn',null,'🔊 Ascultă','⏸ Se citește...'),500);
+  } catch(e) {
+    currentExplanation = p.barem;
+    exBox.innerHTML = `<span style="font-size:.95rem;line-height:1.7;color:var(--ink-soft);font-weight:600">${p.barem}</span>`;
+    if(voiceEnabled) setTimeout(()=>speak(p.barem,'explainVoiceBtn',null,'🔊 Ascultă','⏸ Se citește...'),500);
+  }
+}
+
+function skipProblem() {
+  if(session.answered) { nextProblem(); return; }
+  clearInterval(timerInterval);
+  session.history[session.current] = 's';
+  session.skipped++;
+  stopAudio();
+  nextProblem();
+}
+
+function nextProblem() {
+  stopAudio();
+  session.current++;
+  if(session.current>=session.queue.length) endSession();
+  else renderProblem();
+}
+
+async function endSession() {
+  clearInterval(timerInterval); stopAudio();
+  document.getElementById('headerStats').style.display='none';
+  const total=session.queue.length;
+  const pct=Math.round(session.correct/total*100);
+  const mins=Math.round((Date.now()-session.startTime)/60000);
+  document.getElementById('scoreNum').textContent=session.correct;
+  document.getElementById('scoreDen').textContent=`din ${total}`;
+  document.getElementById('rCorrect').textContent=session.correct;
+  document.getElementById('rWrong').textContent=session.wrong;
+  document.getElementById('rSkipped').textContent=session.skipped;
+  document.getElementById('rTime').textContent=mins||'<1';
+  const arc=document.getElementById('scoreArc');
+  setTimeout(()=>{
+    arc.style.strokeDashoffset=351.9-(351.9*pct/100);
+    arc.style.stroke=pct>=80?'var(--green)':pct>=50?'var(--amber)':'var(--coral)';
+  },300);
+  const msgs=[['Perfect! 🏆','Toate problemele corecte. Pregătit pentru Euclid!'],['Excelent! ⭐',`${pct}% corect. Foarte bine pregătit!`],['Bine! 👍',`${pct}% corect. Mai exersează problemele grele.`],['Continuă! 💪',`${pct}% corect. Practică regulat și vei progresa.`],['Nu-i bai! 📚',`${pct}% corect. Recitește baremele și încearcă din nou.`]];
+  const mi=pct===100?0:pct>=80?1:pct>=60?2:pct>=40?3:4;
+  document.getElementById('resultsTitle').textContent=msgs[mi][0];
+  document.getElementById('resultsSub').textContent=msgs[mi][1];
+  if(pct>=80) triggerConfetti();
+  showScreen('results');
+  // Salvează sesiunea în Supabase și actualizează contorul
+  if(currentUser) {
+    try {
+      const { data: { session: authSession } } = await sb.auth.getSession();
+      const token = authSession?.access_token;
+      await fetch(EDGE_BASE + '/save-session', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
+        body:JSON.stringify({
+          library_id: 'vasile-alecsandri',
+          config: { count: session.queue.length, dif: config.dif, cat: config.cat },
+          results: { correct: session.correct, wrong: session.wrong, skipped: session.skipped,
+                     total: session.queue.length, pct, duration_mins: mins }
+        })
+      });
+      // Reîncarcă profilul pentru contor actualizat
+      await loadProfile();
+    } catch(e) { console.warn('Save session failed:', e); }
+  }
+}
+
+function restartSession() { startSession(); }
+
+function showScreen(name) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function triggerConfetti() {
+  const colors=['#E8A020','#1B3F6B','#2E7D52','#D94F2B','#ffffff'];
+  for(let i=0;i<40;i++){
+    const el=document.createElement('div');
+    el.className='confetti-piece';
+    el.style.cssText=`left:${Math.random()*100}vw;background:${colors[i%colors.length]};animation-duration:${1.5+Math.random()*2}s;animation-delay:${Math.random()*0.5}s;transform:rotate(${Math.random()*360}deg);border-radius:${Math.random()>.5?'50%':'2px'}`;
+    document.body.appendChild(el);
+    el.addEventListener('animationend',()=>el.remove());
+  }
+}
+
+const PROBLEMS_URL = 'https://raw.githubusercontent.com/tudorgandu/Euclid-agent/main/data/problems.json';
+
+async function init() {
+  try {
+    const resp = await fetch(PROBLEMS_URL + '?t=' + Date.now());
+    if (resp.ok) {
+      const remote = await resp.json();
+      if (Array.isArray(remote) && remote.length > 0) {
+        PROBLEMS.length = 0;
+        PROBLEMS.push(...remote);
+        console.log('Librarie incarcata din GitHub: ' + remote.length + ' probleme');
+      }
+    }
+  } catch(e) {
+    console.warn('Fallback local:', e.message);
+  }
+  setupChips();
+  // Verifică sesiunea existentă Supabase
+  const { data: { session: existingSession } } = await sb.auth.getSession();
+  if(!existingSession) {
+    document.getElementById('authOverlay').style.display = 'flex';
+  }
+  // onAuthStateChange se ocupă de restul
+}
+
+init();
+</script>
+</body>
+</html>
