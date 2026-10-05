@@ -978,16 +978,18 @@ async function endSession() {
     try {
       const { data: { session: authSession } } = await sb.auth.getSession();
       const token = authSession?.access_token;
-      await fetch(EDGE_BASE + '/save-session', {
+      const saveRes = await fetch(EDGE_BASE + '/save-session', {
         method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+token,'apikey':SUPABASE_ANON},
         body:JSON.stringify({
           library_id: config.lib || 'mixed',
           config: { count: session.queue.length, dif: config.dif, cat: config.cat },
           results: { correct: session.correct, wrong: session.wrong, skipped: session.skipped,
-                     total: session.queue.length, pct, duration_mins: mins }
+                     total: session.queue.length, pct, duration_mins: mins,
+                     duration_sec: Math.round((Date.now()-session.startTime)/1000) }
         })
       });
+      if(!saveRes.ok) console.warn('Save session failed:', saveRes.status, await saveRes.text());
       // Reîncarcă profilul pentru contor actualizat
       await loadProfile();
     } catch(e) { console.warn('Save session failed:', e); }
