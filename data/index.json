@@ -7,7 +7,7 @@
       "icon": "🏫",
       "culoare": "#1B3F6B",
       "count": 100,
-      "actualizat": "2026-09-14"
+      "actualizat": "2026-10-05"
     },
     {
       "id": "colegiul-national-iasi",
@@ -15,8 +15,8 @@
       "descriere": "Concursul Alexandru Myller — Colegiul Național Iași",
       "icon": "🏛️",
       "culoare": "#0F6E56",
-      "count": 56,
-      "actualizat": "2026-09-14"
+      "count": 47,
+      "actualizat": "2026-10-05"
     },
     {
       "id": "emil-racovita-iasi",
@@ -25,7 +25,7 @@
       "icon": "🔬",
       "culoare": "#993C1D",
       "count": 25,
-      "actualizat": "2026-09-14"
+      "actualizat": "2026-10-05"
     },
     {
       "id": "dimitrie-cantemir-iasi",
@@ -34,7 +34,7 @@
       "icon": "📚",
       "culoare": "#534AB7",
       "count": 25,
-      "actualizat": "2026-09-14"
+      "actualizat": "2026-10-05"
     },
     {
       "id": "mihai-eminescu-iasi",
@@ -43,7 +43,7 @@
       "icon": "✏️",
       "culoare": "#3B6D11",
       "count": 25,
-      "actualizat": "2026-09-14"
+      "actualizat": "2026-10-05"
     },
     {
       "id": "costache-negruzzi-iasi",
@@ -51,8 +51,8 @@
       "descriere": "Concursul Traian Lalescu — CN Costache Negruzzi",
       "icon": "🖊️",
       "culoare": "#712B13",
-      "count": 25,
-      "actualizat": "2026-09-14"
+      "count": 23,
+      "actualizat": "2026-10-05"
     },
     {
       "id": "kangaroo",
@@ -61,7 +61,7 @@
       "icon": "🦘",
       "culoare": "#2E7D52",
       "count": 0,
-      "actualizat": "2026-09-14"
+      "actualizat": "2026-10-05"
     },
     {
       "id": "olimpiada-nationala",
@@ -70,7 +70,7 @@
       "icon": "🥇",
       "culoare": "#E8A020",
       "count": 0,
-      "actualizat": "2026-09-14"
+      "actualizat": "2026-10-05"
     },
     {
       "id": "generate",
@@ -79,7 +79,7 @@
       "icon": "🤖",
       "culoare": "#185FA5",
       "count": 0,
-      "actualizat": "2026-09-14"
+      "actualizat": "2026-10-05"
     }
   ],
   "actualizat": "2026-09-14",
