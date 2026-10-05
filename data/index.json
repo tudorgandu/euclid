@@ -1,0 +1,87 @@
+{
+  "librarii": [
+    {
+      "id": "vasile-alecsandri",
+      "nume": "Euclid · Vasile Alecsandri",
+      "descriere": "Concursul Euclid — CN Vasile Alecsandri Iași",
+      "icon": "🏫",
+      "culoare": "#1B3F6B",
+      "count": 100,
+      "actualizat": "2026-09-14"
+    },
+    {
+      "id": "colegiul-national-iasi",
+      "nume": "Alexandru Myller · CN Iași",
+      "descriere": "Concursul Alexandru Myller — Colegiul Național Iași",
+      "icon": "🏛️",
+      "culoare": "#0F6E56",
+      "count": 56,
+      "actualizat": "2026-09-14"
+    },
+    {
+      "id": "emil-racovita-iasi",
+      "nume": "Urmașii lui Moisil · Racovița",
+      "descriere": "Concursul Urmașii lui Moisil — Liceul Emil Racovița",
+      "icon": "🔬",
+      "culoare": "#993C1D",
+      "count": 25,
+      "actualizat": "2026-09-14"
+    },
+    {
+      "id": "dimitrie-cantemir-iasi",
+      "nume": "Cantemir Junior · Cantemir",
+      "descriere": "Concursul Cantemir Junior — Liceul Dimitrie Cantemir",
+      "icon": "📚",
+      "culoare": "#534AB7",
+      "count": 25,
+      "actualizat": "2026-09-14"
+    },
+    {
+      "id": "mihai-eminescu-iasi",
+      "nume": "EMINENT · CN Eminescu",
+      "descriere": "Concursul EMINENT — CN Mihai Eminescu Iași",
+      "icon": "✏️",
+      "culoare": "#3B6D11",
+      "count": 25,
+      "actualizat": "2026-09-14"
+    },
+    {
+      "id": "costache-negruzzi-iasi",
+      "nume": "Traian Lalescu · Negruzzi",
+      "descriere": "Concursul Traian Lalescu — CN Costache Negruzzi",
+      "icon": "🖊️",
+      "culoare": "#712B13",
+      "count": 25,
+      "actualizat": "2026-09-14"
+    },
+    {
+      "id": "kangaroo",
+      "nume": "Kangaroo",
+      "descriere": "Concursul internațional Kangaroo cls. IV",
+      "icon": "🦘",
+      "culoare": "#2E7D52",
+      "count": 0,
+      "actualizat": "2026-09-14"
+    },
+    {
+      "id": "olimpiada-nationala",
+      "nume": "Olimpiadă Națională",
+      "descriere": "Subiecte olimpiadă matematică cls. IV",
+      "icon": "🥇",
+      "culoare": "#E8A020",
+      "count": 0,
+      "actualizat": "2026-09-14"
+    },
+    {
+      "id": "generate",
+      "nume": "Generate AI",
+      "descriere": "Probleme generate automat de agentul Claude",
+      "icon": "🤖",
+      "culoare": "#185FA5",
+      "count": 0,
+      "actualizat": "2026-09-14"
+    }
+  ],
+  "actualizat": "2026-09-14",
+  "total": 256
+}
