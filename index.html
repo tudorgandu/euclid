@@ -845,6 +845,32 @@ function showHint() {
   if(voiceEnabled && t) speak('Indiciu: '+t, null, null, null, null);
 }
 
+// ===== Answer checker (strict, token-based) =====
+var ANS_FILLER_SET = null;
+function ansTokens(s, commaDecimal) {
+  const ANS_FILLER = ANS_FILLER_SET || (ANS_FILLER_SET = new Set(['cm','cm2','cm3','mm','dm','m','m2','m3','km','kg','g','l','lei','ban','bani','an','ani','ora','ore','h','min','minut','minute','s','sec','secunda','secunde','zi','zile','ziua','pagina','pagini','pom','pomi','mar','mere','carti','bile','grade','elevi','jucatori','numere','numarul','numerele','si','cu','in','la','de','este','sunt','are','au','al','a','mai','mult','putin','exista','raspuns','deci','sau','n','x','y','z','a','b','c','p','v','aria','arie','perimetrul','perimetru','lungimea','latimea','volumul','cel','cea','ale']));
+  let t = String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  t = t.replace(/[²³]/g,' ').replace(/(mm|cm|dm|km|m)[23]\b/g,'$1 ');
+  t = t.replace(/\((\d+)\s*[,;]\s*(\d+)\)/g,' $1p$2 ');           // pairs (a,b)
+  t = t.replace(/(\d+):00\b/g,'$1').replace(/(\d+):(\d\d)\b/g,'$1h$2');   // times
+  t = commaDecimal ? t.replace(/(\d),(\d)/g,'$1.$2') : t;
+  t = t.replace(/(\d)\s+(?=\d{3}\b)/g,'$1');                       // 10 301 -> 10301
+  const raw = t.match(/\d+(?:\.\d+)?(?:\/\d+)?(?:p\d+|h\d+)?|[a-z]+/g) || [];
+  return raw.filter(w => !ANS_FILLER.has(w)).map(w => /^\d+\.\d+$/.test(w) ? String(parseFloat(w)) : w.replace(/^0+(?=\d)/,''));
+}
+function isAnswerCorrect(userVal, p) {
+  const ordered = /ordon/i.test(p.text||'') || /[=:<]/.test(p.ans);
+  const target = ansTokens(p.ans, true);
+  if (!target.length) return false;
+  for (const cd of [true,false]) {
+    const u = ansTokens(userVal, cd);
+    if (u.length !== target.length) continue;
+    if (u.join('|') === target.join('|')) return true;
+    if (!ordered && [...u].sort().join('|') === [...target].sort().join('|')) return true;
+  }
+  return false;
+}
+
 function checkAnswer() {
   if(session.answered) return;
   const p = session.queue[session.current];
@@ -856,9 +882,7 @@ function checkAnswer() {
   session.answered = true;
   document.getElementById('checkBtn').disabled = true;
 
-  const clean = s => s.toLowerCase().replace(/\s/g,'').replace(/cm²|cm²|cm|h$/,'');
-  const valC = clean(val);
-  const isCorrect = p.ans.split(',').some(a => { const ac=clean(a); return valC===ac||valC.includes(ac)||ac.includes(valC); }) || valC===clean(p.ans);
+  const isCorrect = isAnswerCorrect(val, p);
 
   session.history[session.current] = isCorrect ? 'c' : 'w';
   if(isCorrect) { session.correct++; inp.className='answer-input correct'; showFeedback(true, p); }

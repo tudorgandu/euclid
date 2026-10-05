@@ -1012,7 +1012,7 @@
     "cat": "Algebră elementară",
     "dif": 3,
     "text": "Există vreo valoare naturală a lui n pentru care (n+2)×(n+3) este pătrat perfect?",
-    "ans": "Nu există",
+    "ans": "nu",
     "hint": "Compară (n+2)(n+3) cu pătratele (n+2)² și (n+3)².",
     "barem": "(n+2)(n+3) se află între (n+2)² și (n+3)², deci nu poate fi pătrat perfect.",
     "hash": "4adb25581756",

@@ -378,7 +378,7 @@
   },
   {
     "text": "Se consideră șirul de numere naturale 1, 2, 3, 5, 6, 7, 9, 10, 11, … \na) Stabiliți dacă numărul 100 este sau nu termen al șirului.",
-    "ans": "100 nu este termen al șirului",
+    "ans": "nu",
     "hint": "Observă că șirul păstrează câte 3 numere consecutive și sare unul — identifică ce numere lipsesc.",
     "barem": "Pasul 1: Șirul are grupuri de câte 3 termeni consecutivi: (1,2,3), (5,6,7), (9,10,11), … și se omite câte un număr (4, 8, 12, …). Pasul 2: Numerele omise sunt multiplii de 4: 4, 8, 12, 16, … adică numerele de forma 4k. Pasul 3: 100 = 4 × 25, deci 100 este multiplu de 4. Pasul 4: Concluzie: 100 NU este termen al șirului.",
     "cat": "Șiruri și șabloane",
@@ -417,7 +417,7 @@
   },
   {
     "text": "Trei coșuri conțin mere, în ultimele două la un loc fiind 65. Un sfert din numărul merelor din primul coș se mută în al doilea. Apoi, jumătate din merele din al doilea coș se mută în al treilea. Astfel, primele două coșuri conțin număr egal de mere, iar în al treilea coș sunt cu 15 mere mai mult decât în cel de-al doilea.\na) Arătați că în cel de-al treilea coș erau, la început, 15 mere.",
-    "ans": "15 mere în coșul 3 inițial",
+    "ans": "15",
     "hint": "Notează cu variabile merele inițiale din fiecare coș și scrie ecuații folosind condițiile finale.",
     "barem": "Pasul 1: Fie A, B, C merele inițiale; B+C=65. Pasul 2: După mutare A/4 în coșul 2: coș1=3A/4, coș2=B+A/4. Pasul 3: După mutare jumătate din coș2 în coș3: coș2_final=(B+A/4)/2, coș3_final=C+(B+A/4)/2. Pasul 4: Condiția 1 (coș1=coș2 final): 3A/4=(B+A/4)/2 → 3A/2=B+A/4 → 5A/4=B → B=5A/4. Pasul 5: Condiția 2 (coș3=coș2+15): C+(B+A/4)/2=(B+A/4)/2+15 → C=15. Deci în coșul 3 erau inițial 15 mere. ✓",
     "cat": "Algebră elementară",
