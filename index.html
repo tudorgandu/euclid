@@ -251,6 +251,65 @@
   .contest-score .sub { font-size: 0.95rem; font-weight: 700; color: var(--ink-soft); margin-top: 0.5rem; }
   .section-title { font-size: 1.05rem; font-weight: 900; color: var(--navy); margin: 1.25rem 0 0.7rem; }
 
+
+  /* ── Clase, teme, simulări ── */
+  .t-input { width: 100%; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 700; padding: 0.6rem 0.75rem; border: 2px solid var(--cream-dark); border-radius: var(--r-sm); background: var(--cream); color: var(--ink); outline: none; box-sizing: border-box; }
+  .t-input:focus { border-color: var(--navy-light); }
+  textarea.t-input { resize: vertical; }
+  .t-label { display: block; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); margin: 0.75rem 0 0.35rem; }
+  .t-row { display: flex; gap: 0.6rem; margin-top: 0.6rem; }
+  .t-row .t-input { flex: 1; }
+  .t-btn { flex: none; min-width: 0; }
+  .t-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.7rem; }
+  .t-err { color: var(--coral); font-weight: 800; font-size: 0.86rem; margin: 0.4rem 0; min-height: 1em; }
+  .t-muted { color: var(--ink-muted); font-weight: 700; font-size: 0.82rem; margin-top: 0.4rem; line-height: 1.5; }
+  .t-back { background: none; border: none; padding: 0.2rem 0; color: var(--navy-light); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.88rem; cursor: pointer; }
+  .t-danger { display: block; margin: 0.5rem auto 1rem; background: none; border: none; color: var(--coral); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.85rem; cursor: pointer; }
+  .t-danger.armed { background: var(--coral); color: white; padding: 0.45rem 0.9rem; border-radius: 8px; }
+  .t-link { display: block; margin: 1.25rem auto 0.5rem; background: none; border: none; color: var(--navy-light); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9rem; cursor: pointer; text-align: center; }
+  .t-item { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.7rem 0; border-top: 1px solid var(--border); }
+  .t-item:first-child { border-top: none; }
+  .t-item-main { min-width: 0; flex: 1; }
+  .t-item-title { font-weight: 900; color: var(--ink); font-size: 0.95rem; overflow-wrap: anywhere; }
+  .t-item-sub { font-weight: 700; color: var(--ink-muted); font-size: 0.8rem; margin-top: 0.15rem; line-height: 1.45; }
+  .t-item-actions { display: flex; gap: 0.4rem; flex: none; align-items: center; }
+  .t-small { padding: 0.45rem 0.75rem; border-radius: 8px; border: none; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.82rem; cursor: pointer; background: var(--navy); color: white; white-space: nowrap; }
+  .t-small.light { background: var(--cream-dark); color: var(--ink-soft); }
+  .t-small:disabled { background: var(--cream-dark); color: var(--ink-muted); cursor: default; }
+  .t-x { background: none; border: none; color: var(--ink-muted); font-size: 1rem; cursor: pointer; padding: 0.2rem 0.4rem; border-radius: 6px; font-family: 'Nunito', sans-serif; font-weight: 800; }
+  .t-x.armed { background: var(--coral); color: white; font-size: 0.75rem; }
+  .pill { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 20px; margin-right: 0.3rem; vertical-align: 1px; }
+  .pill.open { background: var(--green-soft); color: var(--green); }
+  .pill.soon { background: var(--amber-soft); color: #7a4500; }
+  .pill.done { background: var(--cream-dark); color: var(--ink-soft); }
+  .pill.late { background: var(--coral-soft); color: var(--coral); }
+  .code-box { display: flex; gap: 1rem; align-items: center; background: white; border: 2px dashed var(--navy-light); border-radius: var(--r); padding: 0.9rem 1.1rem; margin: 0.6rem 0 1.1rem; }
+  .code-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); }
+  .code-val { font-size: 1.7rem; font-weight: 900; letter-spacing: 0.18em; color: var(--navy); font-variant-numeric: tabular-nums; }
+  .code-help { font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); line-height: 1.45; }
+  .picker { max-height: 360px; overflow-y: auto; border: 1px solid var(--border); border-radius: var(--r-sm); margin-top: 0.6rem; }
+  .pick-row { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.6rem 0.7rem; border-top: 1px solid var(--border); }
+  .pick-row:first-child { border-top: none; }
+  .pick-text { flex: 1; font-size: 0.84rem; font-weight: 700; color: var(--ink); line-height: 1.45; }
+  .pick-meta { font-size: 0.72rem; color: var(--ink-muted); font-weight: 800; margin-top: 0.15rem; }
+  .res-wrap { overflow-x: auto; margin: 0 -0.25rem; }
+  .res-table { border-collapse: collapse; font-size: 0.82rem; min-width: 100%; }
+  .res-table th, .res-table td { padding: 0.4rem 0.45rem; text-align: center; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .res-table th { color: var(--ink-muted); font-weight: 800; font-size: 0.75rem; }
+  .res-table td.name, .res-table th.name { text-align: left; font-weight: 800; color: var(--ink); position: sticky; left: 0; background: white; max-width: 140px; overflow: hidden; text-overflow: ellipsis; }
+  .res-table td.score { font-weight: 900; color: var(--navy); }
+  .res-table td.cell { cursor: pointer; font-weight: 900; }
+  .res-table td.cell.c { color: var(--green); } .res-table td.cell.w { color: var(--coral); } .res-table td.cell.s { color: var(--ink-muted); }
+  .res-table tr.sum td { font-weight: 800; color: var(--ink-soft); border-bottom: none; }
+  .res-table td.pending { color: var(--ink-muted); font-weight: 700; font-style: italic; }
+  .cr-msg { display: none; background: var(--green-soft); color: var(--green); border-radius: var(--r-sm); padding: 0.9rem 1rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.5; }
+  .cr-msg.show { display: block; }
+  .cr-msg.error { background: var(--coral-soft); color: var(--coral); }
+  .contest-title { font-size: 1.15rem; font-weight: 900; color: var(--navy); margin: 0.3rem 0 0.2rem; }
+  .contest-desc { font-size: 0.86rem; font-weight: 700; color: var(--ink-soft); margin-bottom: 0.6rem; }
+  .class-head { font-size: 0.74rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin: 0.9rem 0 0.1rem; }
+  .class-head:first-child { margin-top: 0; }
+
   .confetti-piece { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti-fall linear forwards; border-radius: 2px; z-index: 999; pointer-events: none; }
   @keyframes confetti-fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
@@ -365,6 +424,21 @@
       <div class="start-sub">Sesiune de antrenament cu profesor virtual.<br>Ascultă problema, gândește, răspunde.</div>
     </div>
 
+    <div class="config-card" id="classCard" style="display:none">
+      <div class="config-label">📋 Clasa mea</div>
+      <div id="classList"></div>
+      <div class="t-muted" id="classMsg" style="color:var(--green)"></div>
+      <button class="t-back" id="joinToggle" style="display:none" onclick="sJoinOpen=true;renderStudentCard()">+ Intră în altă clasă</button>
+      <div id="joinForm">
+        <div class="t-grid">
+          <div><label class="t-label">Codul clasei</label><input class="t-input" id="joinCode" maxlength="6" autocomplete="off" style="text-transform:uppercase;letter-spacing:0.15em"></div>
+          <div><label class="t-label">Numele tău</label><input class="t-input" id="joinName" maxlength="60" placeholder="ex. Maria P." onkeydown="if(event.key==='Enter') joinClass()"></div>
+        </div>
+        <button class="btn btn-primary" style="width:100%;margin-top:0.7rem" onclick="joinClass()">Intră într-o clasă</button>
+        <div class="t-err" id="joinErr"></div>
+      </div>
+    </div>
+
     <div class="config-card">
       <div class="config-label">Mod</div>
       <div class="config-row" id="modeConfig">
@@ -433,6 +507,7 @@
       <button class="btn-upgrade" onclick="alert('Funcționalitate coming soon! Te vom notifica când va fi disponibil abonamentul.')">🚀 Upgrade la nelimitat</button>
     </div>
     <button class="btn-start" id="btnStart" onclick="startSession()">Începe sesiunea →</button>
+    <button class="t-link" id="teacherLink" style="display:none" onclick="openTeacher()">🏫 Ești profesor? Creează o clasă și trimite teme</button>
   </div>
 
   <!-- ══════ SESSION ══════ -->
@@ -526,6 +601,8 @@
 
   <!-- ══════ CONCURS ══════ -->
   <div class="screen" id="screen-contest">
+    <div class="contest-title" id="cTitle" style="display:none"></div>
+    <div class="contest-desc" id="cDesc" style="display:none"></div>
     <div class="contest-top">
       <div class="contest-timer" id="cTimer">00:00 <small>rămase</small></div>
       <button class="btn-submit" onclick="askSubmitContest()">Predă lucrarea</button>
@@ -567,10 +644,118 @@
       <div class="big" id="crPoints">0 <small>puncte</small></div>
       <div class="sub" id="crSub">-</div>
     </div>
-    <div class="section-title">Corectura</div>
+    <div class="cr-msg" id="crMsg"></div>
+    <button class="btn-restart" id="crRetry" style="display:none" onclick="sendAssignment()">Trimite din nou</button>
+    <div class="section-title" id="crReviewTitle">Corectura</div>
     <div id="crReview"></div>
-    <button class="btn-restart" onclick="startSession()">Încă o simulare →</button>
-    <button class="btn-restart secondary" onclick="showScreen('start')">Înapoi la start</button>
+    <button class="btn-restart" id="crAgain" onclick="startSession()">Încă o simulare →</button>
+    <button class="btn-restart secondary" onclick="goStart()">Înapoi la start</button>
+  </div>
+
+  <!-- ══════ PROFESOR: CLASELE MELE ══════ -->
+  <div class="screen" id="screen-teacher">
+    <div class="prog-title">Clasele mele</div>
+    <div class="prog-sub">Creezi o clasă, dai elevilor codul ei, apoi le trimiți teme și simulări.</div>
+    <div class="prog-card">
+      <h3>Clasă nouă</h3>
+      <div class="t-row">
+        <input class="t-input" id="tNewClass" maxlength="80" placeholder="ex. Clasa a IV-a B" onkeydown="if(event.key==='Enter') createClass()">
+        <button class="btn btn-primary t-btn" onclick="createClass()">Creează</button>
+      </div>
+      <div class="t-err" id="tClassErr"></div>
+    </div>
+    <div id="tClassList"></div>
+    <button class="btn-restart secondary" onclick="goStart()">Înapoi la start</button>
+  </div>
+
+  <!-- ══════ PROFESOR: O CLASĂ ══════ -->
+  <div class="screen" id="screen-class">
+    <button class="t-back" onclick="openTeacher()">← Clasele mele</button>
+    <div class="prog-title" id="clName">-</div>
+    <div class="code-box">
+      <div><div class="code-label">Codul clasei</div><div class="code-val" id="clCode">-</div></div>
+      <div class="code-help">Elevii deschid aplicația, apasă <b>„Intră într-o clasă”</b> și scriu acest cod.</div>
+    </div>
+    <div class="btn-row" style="margin-bottom:1.1rem">
+      <button class="btn btn-primary" onclick="openNewAssignment('tema')">📝 Temă nouă</button>
+      <button class="btn btn-primary" onclick="openNewAssignment('simulare')">🏆 Simulare nouă</button>
+    </div>
+    <div class="prog-card"><h3>Teme și simulări</h3><div id="clAssignments"></div></div>
+    <div class="prog-card"><h3 id="clStudentsTitle">Elevi</h3><div id="clStudents"></div></div>
+    <button class="t-danger" id="clDelete" onclick="deleteClass(this)">Șterge clasa</button>
+  </div>
+
+  <!-- ══════ PROFESOR: TEMĂ / SIMULARE NOUĂ ══════ -->
+  <div class="screen" id="screen-assign-new">
+    <button class="t-back" onclick="openClass(tClass.id)">← Înapoi la clasă</button>
+    <div class="prog-title" id="naTitle">Temă nouă</div>
+    <div class="prog-card">
+      <label class="t-label">Titlu</label>
+      <input class="t-input" id="naName" maxlength="120">
+      <label class="t-label">Instrucțiuni pentru elevi (opțional)</label>
+      <textarea class="t-input" id="naDesc" rows="2" maxlength="500" placeholder="ex. Lucrați singuri, fără calculator."></textarea>
+    </div>
+    <div class="prog-card">
+      <h3>Problemele</h3>
+      <div class="config-row" id="naPickMode" style="margin:0.6rem 0 0.9rem">
+        <div class="config-chip selected" data-val="auto" onclick="setPickMode('auto')">Alegere automată</div>
+        <div class="config-chip" data-val="manual" onclick="setPickMode('manual')">Le aleg eu</div>
+      </div>
+      <div id="naAuto">
+        <div class="t-grid">
+          <div><label class="t-label">Număr</label><select class="t-input" id="naCount"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></div>
+          <div><label class="t-label">Dificultate</label><select class="t-input" id="naDif"><option value="0">Mixt</option><option value="1">Ușor</option><option value="2">Mediu</option><option value="3">Greu</option></select></div>
+          <div><label class="t-label">Categorie</label><select class="t-input" id="naCat"></select></div>
+          <div><label class="t-label">Bibliotecă</label><select class="t-input" id="naLib"></select></div>
+        </div>
+        <button class="btn btn-secondary" style="width:100%;margin-top:0.6rem" onclick="autoPick()">🎲 Alege problemele</button>
+      </div>
+      <div id="naManual" style="display:none">
+        <div class="t-grid">
+          <div style="grid-column:1/-1"><input class="t-input" id="naSearch" placeholder="Caută în enunț…" oninput="renderPicker()"></div>
+          <div><select class="t-input" id="naMCat" onchange="renderPicker()"></select></div>
+          <div><select class="t-input" id="naMDif" onchange="renderPicker()"><option value="0">Orice dificultate</option><option value="1">Ușor</option><option value="2">Mediu</option><option value="3">Greu</option></select></div>
+        </div>
+        <div class="picker" id="naPicker"></div>
+      </div>
+      <div class="t-label" style="margin-top:1rem" id="naChosenTitle">Problemele alese (0)</div>
+      <div id="naChosen"><div class="t-muted">Încă nu ai ales nicio problemă.</div></div>
+    </div>
+    <div class="prog-card">
+      <h3 id="naWhenTitle">Termen</h3>
+      <div id="naTema">
+        <label class="t-label">Termen de predare</label>
+        <input class="t-input" type="datetime-local" id="naDue">
+      </div>
+      <div id="naSim" style="display:none">
+        <div class="t-grid">
+          <div><label class="t-label">Începe la</label><input class="t-input" type="datetime-local" id="naStart"></div>
+          <div><label class="t-label">Durata (minute)</label><input class="t-input" type="number" id="naDur" min="5" max="240" oninput="this.dataset.edited=1"></div>
+        </div>
+        <div class="t-muted">Toți elevii lucrează în același interval. Problemele devin vizibile abia la ora de start, iar lucrarea se predă automat la final.</div>
+      </div>
+    </div>
+    <div class="t-err" id="naErr"></div>
+    <button class="btn-restart" id="naSend" onclick="sendNewAssignment()">Trimite clasei →</button>
+  </div>
+
+  <!-- ══════ PROFESOR: REZULTATE ══════ -->
+  <div class="screen" id="screen-assign-results">
+    <button class="t-back" onclick="openClass(tClass.id)">← Înapoi la clasă</button>
+    <div class="prog-title" id="arTitle">-</div>
+    <div class="prog-sub" id="arSub">-</div>
+    <div class="prog-tiles" id="arTiles"></div>
+    <div class="prog-card">
+      <h3>Rezultate pe elevi</h3>
+      <div class="prog-note">✓ corect · ✗ greșit · – fără răspuns. Atinge o căsuță ca să vezi răspunsul elevului.</div>
+      <div class="res-wrap"><table class="res-table" id="arTable"></table></div>
+      <div class="t-muted" id="arCellInfo" style="margin-top:0.6rem"></div>
+    </div>
+    <div class="prog-card"><h3>Pe probleme</h3><div id="arProblems"></div></div>
+    <div class="btn-row" style="margin-bottom:1rem">
+      <button class="btn btn-primary" onclick="exportResults()">⬇ Exportă pentru Excel</button>
+      <button class="btn btn-secondary" onclick="openResults(tAssignment.id)">↻ Reîmprospătează</button>
+    </div>
   </div>
 
   <!-- ══════ PROGRES ══════ -->
@@ -794,6 +979,7 @@ sb.auth.onAuthStateChange((event, session_data) => {
     document.getElementById('authOverlay').style.display = 'none';
     document.getElementById('btnLogout').style.display = 'block';
     document.getElementById('btnProgress').style.display = 'block';
+    document.getElementById('teacherLink').style.display = 'block';
     // Reînnoirea tokenului sau revenirea pe tab nu trebuie să întrerupă sesiunea în curs
     if(wasLoggedIn) return;
     setTimeout(async () => {
@@ -801,6 +987,7 @@ sb.auth.onAuthStateChange((event, session_data) => {
       updateVoiceStatus();
       showScreen('start');
       loadProblemHistory();
+      loadStudentClasses();
     }, 0);
   } else {
     currentUser = null;
@@ -809,6 +996,8 @@ sb.auth.onAuthStateChange((event, session_data) => {
     document.getElementById('authOverlay').style.display = 'flex';
     document.getElementById('btnLogout').style.display = 'none';
     document.getElementById('btnProgress').style.display = 'none';
+    document.getElementById('teacherLink').style.display = 'none';
+    document.getElementById('classCard').style.display = 'none';
     document.getElementById('sessionCountBadge').style.display = 'none';
   }
 });
@@ -1270,7 +1459,7 @@ function renderProgress(rows) {
       const pct = r.nr_probleme ? Math.round(r.corecte / r.nr_probleme * 100) : 0;
       const mins = Math.max(1, Math.round(r.durata_sec / 60));
       return `<div class="sess-row"><div><div class="sess-when">${fmtDateTime(r.created_at)}</div>
-        <div class="sess-lib">${({concurs:'🏆 Simulare · ',repetare:'🔁 Repetare · '})[r.config?.mode] || ''}${escHtml(libLabel(r.library_id || r.sursa))} · ${mins} min</div></div>
+        <div class="sess-lib">${({concurs:'🏆 Simulare · ',repetare:'🔁 Repetare · ',tema:'📝 Temă la clasă · ','simulare-clasa':'🏫 Simulare la clasă · '})[r.config?.mode] || ''}${escHtml(libLabel(r.library_id || r.sursa))} · ${mins} min</div></div>
         <div class="sess-score">${r.corecte} din ${r.nr_probleme}<span>${pct}% · ${r.gresite} greșite · ${r.sarite} sărite</span></div></div>`;
     }).join('') + `</div>`;
 
@@ -1325,11 +1514,17 @@ function drawScoreChart(el, pts) {
 
 // ── Simulare de concurs ──
 let contestTimer = null;
-function startContest(queue) {
-  session = { mode:'concurs', queue, current:0, correct:0, wrong:0, skipped:0, startTime:Date.now(), answered:false, history:[], answers:new Array(queue.length).fill('') };
-  session.deadline = session.startTime + queue.length * CONTEST_MIN_PER_PROBLEM * 60000;
+function startContest(queue, opts = {}) {
+  session = { mode: opts.mode || 'concurs', assignment: opts.assignment || null, queue, current:0, correct:0, wrong:0, skipped:0,
+              startTime:Date.now(), answered:false, history:[], answers: opts.answers || new Array(queue.length).fill('') };
+  session.deadline = opts.deadline !== undefined ? opts.deadline : session.startTime + queue.length * CONTEST_MIN_PER_PROBLEM * 60000;
   document.getElementById('headerStats').style.display = 'none';
   document.getElementById('cConfirm').classList.remove('show');
+  const t = document.getElementById('cTitle');
+  t.textContent = session.assignment ? (session.assignment.kind === 'tema' ? '📝 ' : '🏆 ') + session.assignment.title : '';
+  t.style.display = session.assignment ? 'block' : 'none';
+  const d = document.getElementById('cDesc');
+  d.textContent = session.assignment?.description || ''; d.style.display = d.textContent ? 'block' : 'none';
   showScreen('contest');
   renderContest();
   clearInterval(contestTimer);
@@ -1337,9 +1532,14 @@ function startContest(queue) {
 }
 
 function tickContest() {
-  const left = Math.max(0, Math.round((session.deadline - Date.now())/1000));
   const el = document.getElementById('cTimer');
-  el.innerHTML = `${String(Math.floor(left/60)).padStart(2,'0')}:${String(left%60).padStart(2,'0')} <small>rămase</small>`;
+  if(session.deadline == null) {   // temă: fără cronometru, doar termenul
+    el.innerHTML = `<small>Termen: ${escHtml(fmtDT(session.assignment.closes_at))}</small>`;
+    el.classList.remove('warn'); return;
+  }
+  const left = Math.max(0, Math.round((session.deadline - Date.now())/1000));
+  const hh = Math.floor(left/3600), mm = Math.floor(left%3600/60), ss = left%60;
+  el.innerHTML = `${hh ? hh+':' : ''}${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')} <small>rămase</small>`;
   el.classList.toggle('warn', left <= 300);
   if(left === 0) submitContest();
 }
@@ -1372,6 +1572,7 @@ function renderContest() {
 function saveContestAnswer() {
   const i = session.current, v = document.getElementById('cAnswer').value;
   session.answers[i] = v;
+  if(session.assignment) { try { localStorage.setItem('ciorna:'+session.assignment.id, JSON.stringify(session.answers)); } catch(e) {} }
   document.getElementById('cSaved').textContent = v.trim() ? '✓ Răspuns salvat' : '';
   const btn = document.getElementById('cNav').children[i];
   if(btn) btn.classList.toggle('done', !!v.trim());
@@ -1398,7 +1599,7 @@ function readContestProblem() {
 }
 
 async function submitContest() {
-  if(session.mode !== 'concurs' || session.submitted) return;
+  if(!['concurs','tema','simulare-clasa'].includes(session.mode) || session.submitted) return;
   session.submitted = true; session.endTime = Date.now();
   clearInterval(contestTimer); stopAudio();
   session.queue.forEach((p, i) => {
@@ -1407,21 +1608,33 @@ async function submitContest() {
     session.history[i] = r;
     if(r === 'c') session.correct++; else if(r === 'w') session.wrong++; else session.skipped++;
   });
+  if(session.assignment) { await sendAssignment(); return; }
   renderContestResults();
   showScreen('contest-results');
   if(session.correct === session.queue.length) triggerConfetti();
   await saveSessionToServer();
 }
 
-function renderContestResults() {
+function renderContestResults(opts = {}) {
   const n = session.queue.length, c = session.correct;
+  document.getElementById('crAgain').style.display = session.assignment ? 'none' : 'block';
+  const msg = document.getElementById('crMsg');
+  msg.className = 'cr-msg' + (opts.msg ? ' show' + (opts.error ? ' error' : '') : '');
+  msg.textContent = opts.msg || '';
+  document.getElementById('crRetry').style.display = opts.error ? 'block' : 'none';
+  const hideReview = !!opts.hideReview;
+  document.getElementById('crReviewTitle').style.display = hideReview ? 'none' : 'block';
   const mins = Math.max(1, Math.round((session.endTime - session.startTime)/60000));
   document.getElementById('crPoints').innerHTML = `${c*10} <small>din ${n*10} puncte</small>`;
+  const timeTxt = session.assignment
+    ? (session.assignment.kind === 'tema' ? `${mins} min de lucru` : `${mins} min`)
+    : `${mins} din ${n*CONTEST_MIN_PER_PROBLEM} minute`;
   document.getElementById('crSub').textContent =
-    `${c} ${c===1?'corectă':'corecte'} · ${session.wrong} ${session.wrong===1?'greșită':'greșite'} · ${session.skipped} fără răspuns · ${mins} din ${n*CONTEST_MIN_PER_PROBLEM} minute`;
+    `${c} ${c===1?'corectă':'corecte'} · ${session.wrong} ${session.wrong===1?'greșită':'greșite'} · ${session.skipped} fără răspuns · ${timeTxt}`;
   const pct = c / n;
   document.getElementById('crTitle').textContent = pct === 1 ? 'Lucrare perfectă! 🏆' : pct >= 0.8 ? 'Foarte bine! ⭐' : pct >= 0.5 ? 'Lucrarea a fost corectată 👍' : 'Lucrarea a fost corectată 📚';
   const box = document.getElementById('crReview'); box.innerHTML = '';
+  if(hideReview) return;
   session.queue.forEach((p, i) => {
     const r = session.history[i], a = session.answers[i].trim();
     const item = document.createElement('div'); item.className = 'review-item';
@@ -1471,6 +1684,519 @@ function needsRepeat(h) {
 
 function repeatPool() {
   return PROBLEMS.filter(p => needsRepeat(problemHistory[probKey(p.lib_id, p.id)]));
+}
+
+
+// ══════════════════════════════════════════════════════════
+// ── Clase: teme și simulări pe clasă ──
+// ══════════════════════════════════════════════════════════
+const fmtDT = d => new Date(d).toLocaleString('ro-RO', { weekday:'short', day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' });
+const problemByKey = key => PROBLEMS.find(p => probKey(p.lib_id, p.id) === key);
+const pad2 = n => String(n).padStart(2, '0');
+const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+const sbErr = e => (e && (e.message || e.error_description)) || 'eroare necunoscută';
+
+function goStart() { stopAudio(); showScreen('start'); loadStudentClasses(); }
+
+// Buton în doi pași: primul click cere confirmare, al doilea execută.
+function armed(btn, labelArmed) {
+  if(btn.classList.contains('armed')) return true;
+  btn.dataset.label = btn.textContent; btn.textContent = labelArmed; btn.classList.add('armed');
+  setTimeout(() => { if(btn.isConnected && btn.classList.contains('armed')) { btn.classList.remove('armed'); btn.textContent = btn.dataset.label; } }, 4000);
+  return false;
+}
+
+function assignmentState(a, now = Date.now()) {
+  const o = new Date(a.opens_at).getTime(), c = new Date(a.closes_at).getTime();
+  if(now < o) return 'soon';
+  if(now <= c) return 'open';
+  return 'closed';
+}
+
+// ─────────────── PROFESOR ───────────────
+let tClass = null, tAssignment = null, tMembers = [], naKind = 'tema', naChosen = [], arTimer = null, arData = null;
+
+async function openTeacher() {
+  if(!currentUser) return;
+  stopAudio(); clearInterval(arTimer);
+  showScreen('teacher');
+  const box = document.getElementById('tClassList');
+  box.innerHTML = '<div class="t-muted">Se încarcă…</div>';
+  const { data: classes, error } = await sb.from('classes').select('id,name,join_code,created_at')
+    .eq('teacher_id', currentUser.id).order('created_at', { ascending: true });
+  if(error) { box.innerHTML = ''; document.getElementById('tClassErr').textContent = 'Nu am putut încărca clasele: ' + sbErr(error); return; }
+  const counts = {};
+  if(classes.length) {
+    const { data: mem } = await sb.from('class_members').select('class_id').in('class_id', classes.map(c => c.id));
+    (mem || []).forEach(m => counts[m.class_id] = (counts[m.class_id] || 0) + 1);
+  }
+  box.innerHTML = '';
+  if(!classes.length) { box.innerHTML = '<div class="prog-card prog-empty">🏫 Încă nu ai nicio clasă. Creează prima clasă mai sus.</div>'; return; }
+  const card = document.createElement('div'); card.className = 'prog-card';
+  card.innerHTML = '<h3>Clasele tale</h3>';
+  classes.forEach(c => {
+    const row = document.createElement('div'); row.className = 't-item';
+    row.innerHTML = `<div class="t-item-main"><div class="t-item-title"></div><div class="t-item-sub"></div></div>
+      <div class="t-item-actions"><button class="t-small">Deschide →</button></div>`;
+    row.querySelector('.t-item-title').textContent = c.name;
+    row.querySelector('.t-item-sub').textContent = `Cod ${c.join_code} · ${plural(counts[c.id] || 0, 'elev', 'elevi')}`;
+    row.querySelector('button').onclick = () => openClass(c.id);
+    card.appendChild(row);
+  });
+  box.appendChild(card);
+}
+
+async function createClass() {
+  const inp = document.getElementById('tNewClass'), err = document.getElementById('tClassErr');
+  err.textContent = '';
+  const name = inp.value.trim();
+  if(!name) { err.textContent = 'Scrie numele clasei.'; return; }
+  const { data, error } = await sb.rpc('create_class', { class_name: name });
+  if(error) { err.textContent = 'Nu am putut crea clasa: ' + sbErr(error); return; }
+  inp.value = '';
+  openClass(data.id);
+}
+
+async function openClass(id) {
+  stopAudio(); clearInterval(arTimer);
+  showScreen('class');
+  const { data: c, error } = await sb.from('classes').select('id,name,join_code').eq('id', id).single();
+  if(error) { document.getElementById('clName').textContent = 'Nu am putut încărca clasa'; return; }
+  tClass = c;
+  document.getElementById('clName').textContent = c.name;
+  document.getElementById('clCode').textContent = c.join_code;
+  const delBtn = document.getElementById('clDelete'); delBtn.classList.remove('armed'); delBtn.textContent = 'Șterge clasa';
+
+  const [{ data: mem }, { data: asg }] = await Promise.all([
+    sb.from('class_members').select('student_id,display_name,joined_at').eq('class_id', id).order('display_name'),
+    sb.from('assignments').select('id,kind,title,description,opens_at,closes_at,created_at').eq('class_id', id).order('opens_at', { ascending: false })
+  ]);
+  tMembers = mem || [];
+  const subCount = {};
+  if(asg && asg.length) {
+    const { data: subs } = await sb.from('submissions').select('assignment_id').in('assignment_id', asg.map(a => a.id));
+    (subs || []).forEach(s => subCount[s.assignment_id] = (subCount[s.assignment_id] || 0) + 1);
+  }
+
+  const aBox = document.getElementById('clAssignments'); aBox.innerHTML = '';
+  if(!asg || !asg.length) aBox.innerHTML = '<div class="t-muted">Nicio temă sau simulare încă. Folosește butoanele de mai sus.</div>';
+  (asg || []).forEach(a => {
+    const st = assignmentState(a);
+    const pill = a.kind === 'tema'
+      ? (st === 'closed' ? '<span class="pill done">Termen trecut</span>' : '<span class="pill open">Deschisă</span>')
+      : (st === 'soon' ? '<span class="pill soon">Programată</span>' : st === 'open' ? '<span class="pill open">În desfășurare</span>' : '<span class="pill done">Încheiată</span>');
+    const when = a.kind === 'tema' ? `termen ${fmtDT(a.closes_at)}` : `${fmtDT(a.opens_at)} – ${new Date(a.closes_at).toLocaleTimeString('ro-RO',{hour:'2-digit',minute:'2-digit'})}`;
+    const row = document.createElement('div'); row.className = 't-item';
+    row.innerHTML = `<div class="t-item-main"><div class="t-item-title"></div>
+        <div class="t-item-sub">${pill}${escHtml(when)} · ${subCount[a.id] || 0}/${tMembers.length} au predat</div></div>
+      <div class="t-item-actions"><button class="t-small">Rezultate</button><button class="t-x" title="Șterge">✕</button></div>`;
+    row.querySelector('.t-item-title').textContent = (a.kind === 'tema' ? '📝 ' : '🏆 ') + a.title;
+    row.querySelector('.t-small').onclick = () => openResults(a.id);
+    row.querySelector('.t-x').onclick = async e => {
+      if(!armed(e.currentTarget, 'Șterge?')) return;
+      const { error } = await sb.from('assignments').delete().eq('id', a.id);
+      if(error) { e.currentTarget.textContent = 'Eroare'; return; }
+      openClass(id);
+    };
+    aBox.appendChild(row);
+  });
+
+  document.getElementById('clStudentsTitle').textContent = `Elevi (${tMembers.length})`;
+  const sBox = document.getElementById('clStudents'); sBox.innerHTML = '';
+  if(!tMembers.length) sBox.innerHTML = `<div class="t-muted">Niciun elev încă. Dă-le codul <b>${escHtml(c.join_code)}</b>.</div>`;
+  tMembers.forEach(m => {
+    const row = document.createElement('div'); row.className = 't-item';
+    row.innerHTML = `<div class="t-item-main"><div class="t-item-title"></div><div class="t-item-sub"></div></div>
+      <div class="t-item-actions"><button class="t-x" title="Scoate din clasă">✕</button></div>`;
+    row.querySelector('.t-item-title').textContent = m.display_name;
+    row.querySelector('.t-item-sub').textContent = 'în clasă din ' + fmtDate(m.joined_at);
+    row.querySelector('.t-x').onclick = async e => {
+      if(!armed(e.currentTarget, 'Scoate?')) return;
+      const { error } = await sb.from('class_members').delete().eq('class_id', id).eq('student_id', m.student_id);
+      if(!error) openClass(id);
+    };
+    sBox.appendChild(row);
+  });
+}
+
+async function deleteClass(btn) {
+  if(!armed(btn, 'Sigur? Se șterg și temele și rezultatele. Apasă din nou.')) return;
+  const { error } = await sb.from('classes').delete().eq('id', tClass.id);
+  if(!error) openTeacher();
+}
+
+// ── Temă / simulare nouă ──
+function fillSelect(sel, items, first) {
+  sel.innerHTML = '';
+  [first, ...items].forEach(([v, t]) => { const o = document.createElement('option'); o.value = v; o.textContent = t; sel.appendChild(o); });
+}
+
+function openNewAssignment(kind) {
+  naKind = kind; naChosen = [];
+  showScreen('assign-new');
+  document.getElementById('naTitle').textContent = kind === 'tema' ? 'Temă nouă' : 'Simulare nouă';
+  document.getElementById('naName').value = kind === 'tema' ? 'Temă' : 'Simulare Euclid';
+  document.getElementById('naDesc').value = '';
+  document.getElementById('naErr').textContent = '';
+  document.getElementById('naTema').style.display = kind === 'tema' ? 'block' : 'none';
+  document.getElementById('naSim').style.display = kind === 'simulare' ? 'block' : 'none';
+  document.getElementById('naWhenTitle').textContent = kind === 'tema' ? 'Termen' : 'Când are loc';
+  const due = new Date(); due.setDate(due.getDate() + 7); due.setHours(18, 0, 0, 0);
+  document.getElementById('naDue').value = toLocalInput(due);
+  const start = new Date(); start.setDate(start.getDate() + 1); start.setHours(10, 0, 0, 0);
+  document.getElementById('naStart').value = toLocalInput(start);
+  const dur = document.getElementById('naDur'); dur.value = 50; delete dur.dataset.edited;
+  const cats = [...new Set(PROBLEMS.map(p => p.cat))].sort((a,b) => a.localeCompare(b, 'ro')).map(c => [c, c]);
+  fillSelect(document.getElementById('naCat'), cats, ['', 'Toate']);
+  fillSelect(document.getElementById('naMCat'), cats, ['', 'Toate categoriile']);
+  const libs = [...new Set(PROBLEMS.map(p => p.lib_id))].map(l => [l, LIB_NAMES[l] || l]);
+  fillSelect(document.getElementById('naLib'), libs, ['', 'Toate bibliotecile']);
+  document.getElementById('naSearch').value = '';
+  setPickMode('auto');
+  renderChosen();
+}
+
+function setPickMode(m) {
+  document.querySelectorAll('#naPickMode .config-chip').forEach(c => c.classList.toggle('selected', c.dataset.val === m));
+  document.getElementById('naAuto').style.display = m === 'auto' ? 'block' : 'none';
+  document.getElementById('naManual').style.display = m === 'manual' ? 'block' : 'none';
+  if(m === 'manual') renderPicker();
+}
+
+function autoPick() {
+  const n = +document.getElementById('naCount').value, dif = +document.getElementById('naDif').value;
+  const cat = document.getElementById('naCat').value, lib = document.getElementById('naLib').value;
+  const pool = shuffle(PROBLEMS.filter(p => (!cat || p.cat === cat) && (!dif || p.dif === dif) && (!lib || p.lib_id === lib)));
+  const err = document.getElementById('naErr');
+  if(!pool.length) { err.textContent = 'Nu există probleme cu aceste filtre.'; return; }
+  err.textContent = pool.length < n ? `Am găsit doar ${pool.length} probleme cu aceste filtre.` : '';
+  naChosen = pool.slice(0, n).map(p => probKey(p.lib_id, p.id));
+  if(naKind === 'tema') {
+    const parts = [cat, ['', 'ușor', 'mediu', 'greu'][dif]].filter(Boolean);
+    if(parts.length) document.getElementById('naName').value = 'Temă – ' + parts.join(', ');
+  }
+  renderChosen();
+}
+
+function renderPicker() {
+  const q = document.getElementById('naSearch').value.trim().toLowerCase();
+  const cat = document.getElementById('naMCat').value, dif = +document.getElementById('naMDif').value;
+  const list = PROBLEMS.filter(p => (!cat || p.cat === cat) && (!dif || p.dif === dif) && (!q || p.text.toLowerCase().includes(q)));
+  const box = document.getElementById('naPicker'); box.innerHTML = '';
+  if(!list.length) { box.innerHTML = '<div class="t-muted" style="padding:0.7rem">Nicio problemă găsită.</div>'; return; }
+  const difL = ['', 'Ușor', 'Mediu', 'Greu'];
+  list.slice(0, 80).forEach(p => {
+    const key = probKey(p.lib_id, p.id), on = naChosen.includes(key);
+    const row = document.createElement('div'); row.className = 'pick-row';
+    row.innerHTML = `<div class="pick-text"><div></div><div class="pick-meta"></div></div><button class="t-small ${on ? 'light' : ''}">${on ? '✓ Aleasă' : '+ Adaugă'}</button>`;
+    row.querySelector('.pick-text > div').textContent = p.text;
+    row.querySelector('.pick-meta').textContent = `${p.cat} · ${difL[p.dif]} · ${LIB_NAMES[p.lib_id] || p.lib_id}`;
+    row.querySelector('button').onclick = () => {
+      naChosen = on ? naChosen.filter(k => k !== key) : [...naChosen, key];
+      renderChosen(); renderPicker();
+    };
+    box.appendChild(row);
+  });
+  if(list.length > 80) box.insertAdjacentHTML('beforeend', `<div class="t-muted" style="padding:0.7rem">Încă ${list.length - 80} probleme — restrânge căutarea.</div>`);
+}
+
+function renderChosen() {
+  document.getElementById('naChosenTitle').textContent = `Problemele alese (${naChosen.length})`;
+  const dur = document.getElementById('naDur');
+  if(!dur.dataset.edited) dur.value = Math.max(5, naChosen.length * CONTEST_MIN_PER_PROBLEM || 50);
+  const box = document.getElementById('naChosen'); box.innerHTML = '';
+  if(!naChosen.length) { box.innerHTML = '<div class="t-muted">Încă nu ai ales nicio problemă.</div>'; return; }
+  naChosen.forEach((key, i) => {
+    const p = problemByKey(key); if(!p) return;
+    const row = document.createElement('div'); row.className = 't-item';
+    row.innerHTML = `<div class="t-item-main"><div class="t-item-sub" style="color:var(--ink);font-size:0.86rem"></div></div><button class="t-x" title="Scoate">✕</button>`;
+    row.querySelector('.t-item-sub').textContent = `${i+1}. ${p.text}`;
+    row.querySelector('.t-x').onclick = () => { naChosen = naChosen.filter(k => k !== key); renderChosen(); if(document.getElementById('naManual').style.display !== 'none') renderPicker(); };
+    box.appendChild(row);
+  });
+}
+
+async function sendNewAssignment() {
+  const err = document.getElementById('naErr'), btn = document.getElementById('naSend');
+  err.textContent = '';
+  const title = document.getElementById('naName').value.trim();
+  if(!title) { err.textContent = 'Scrie un titlu.'; return; }
+  if(!naChosen.length) { err.textContent = 'Alege cel puțin o problemă.'; return; }
+  let opens, closes;
+  if(naKind === 'tema') {
+    opens = new Date(); closes = new Date(document.getElementById('naDue').value);
+    if(isNaN(closes) || closes <= opens) { err.textContent = 'Termenul trebuie să fie în viitor.'; return; }
+  } else {
+    opens = new Date(document.getElementById('naStart').value);
+    const dur = +document.getElementById('naDur').value;
+    if(isNaN(opens)) { err.textContent = 'Alege data și ora de start.'; return; }
+    if(!(dur >= 5 && dur <= 240)) { err.textContent = 'Durata trebuie să fie între 5 și 240 de minute.'; return; }
+    if(opens.getTime() + dur*60000 <= Date.now()) { err.textContent = 'Simularea ar fi deja încheiată. Alege o oră din viitor.'; return; }
+    closes = new Date(opens.getTime() + dur*60000);
+  }
+  btn.disabled = true;
+  const { error } = await sb.from('assignments').insert({
+    class_id: tClass.id, kind: naKind, title, description: document.getElementById('naDesc').value.trim(),
+    problem_keys: naChosen, opens_at: opens.toISOString(), closes_at: closes.toISOString()
+  });
+  btn.disabled = false;
+  if(error) { err.textContent = 'Nu am putut trimite: ' + sbErr(error); return; }
+  openClass(tClass.id);
+}
+
+// ── Rezultate ──
+async function openResults(aid) {
+  showScreen('assign-results');
+  clearInterval(arTimer);
+  const { data: a, error } = await sb.from('assignments').select('id,class_id,kind,title,description,opens_at,closes_at').eq('id', aid).single();
+  if(error) { document.getElementById('arTitle').textContent = 'Nu am putut încărca rezultatele'; return; }
+  tAssignment = a;
+  const [{ data: keys }, { data: subs }, { data: mem }] = await Promise.all([
+    sb.rpc('get_assignment_problems', { aid }),
+    sb.from('submissions').select('student_id,answers,correct,total,started_at,submitted_at').eq('assignment_id', aid),
+    sb.from('class_members').select('student_id,display_name').eq('class_id', a.class_id).order('display_name')
+  ]);
+  arData = { a, keys: keys || [], subs: subs || [], mem: mem || [] };
+  renderResults();
+  if(assignmentState(a) !== 'closed')   // reîmprospătare automată cât timp lucrarea e în desfășurare
+    arTimer = setInterval(() => { if(document.getElementById('screen-assign-results').classList.contains('active')) openResults(aid); else clearInterval(arTimer); }, 30000);
+}
+
+// Corectura se recalculează aici, din răspunsurile salvate, cu verificarea actuală a aplicației.
+function gradeSubmission(sub, keys) {
+  const byKey = {}; (sub.answers || []).forEach(x => byKey[x.key] = x);
+  return keys.map(k => {
+    const x = byKey[k], a = (x?.a || '').trim(), p = problemByKey(k);
+    const r = !a ? 's' : p ? (isAnswerCorrect(a, p) ? 'c' : 'w') : (x?.r || 'w');
+    return { r, a };
+  });
+}
+
+function renderResults() {
+  const { a, keys, subs, mem } = arData;
+  const subBy = {}; subs.forEach(s => subBy[s.student_id] = s);
+  // elevi care au predat dar au părăsit clasa apar și ei
+  const rows = mem.map(m => ({ name: m.display_name, id: m.student_id }));
+  subs.forEach(s => { if(!rows.some(r => r.id === s.student_id)) rows.push({ name: '(a părăsit clasa)', id: s.student_id }); });
+  const graded = rows.map(r => { const s = subBy[r.id]; return { ...r, s, g: s ? gradeSubmission(s, keys) : null }; });
+  const done = graded.filter(r => r.s);
+  const st = assignmentState(a);
+
+  document.getElementById('arTitle').textContent = (a.kind === 'tema' ? '📝 ' : '🏆 ') + a.title;
+  document.getElementById('arSub').textContent = a.kind === 'tema'
+    ? `Temă · termen ${fmtDT(a.closes_at)}${st === 'closed' ? ' (trecut)' : ''}`
+    : `Simulare · ${fmtDT(a.opens_at)} – ${new Date(a.closes_at).toLocaleTimeString('ro-RO',{hour:'2-digit',minute:'2-digit'})} · ${({soon:'programată',open:'în desfășurare',closed:'încheiată'})[st]}`;
+  const avg = done.length ? done.reduce((t, r) => t + r.g.filter(x => x.r === 'c').length, 0) / done.length : 0;
+  const perProb = keys.map((k, i) => { const n = done.filter(r => r.g[i].r === 'c').length; return done.length ? Math.round(n / done.length * 100) : null; });
+  document.getElementById('arTiles').innerHTML = `
+    <div class="result-stat"><div class="result-stat-num">${done.length}/${rows.length}</div><div class="result-stat-label">Au predat</div></div>
+    <div class="result-stat"><div class="result-stat-num">${done.length ? avg.toFixed(1).replace('.', ',') : '–'}</div><div class="result-stat-label">Media (din ${keys.length})</div></div>
+    <div class="result-stat"><div class="result-stat-num">${done.length ? Math.round(avg / keys.length * 100) + '%' : '–'}</div><div class="result-stat-label">Corecte</div></div>
+    <div class="result-stat"><div class="result-stat-num">${done.filter(r => new Date(r.s.submitted_at) > new Date(a.closes_at)).length}</div><div class="result-stat-label">Întârziate</div></div>`;
+
+  const t = document.getElementById('arTable'); t.innerHTML = '';
+  const head = document.createElement('tr');
+  head.innerHTML = '<th class="name">Elev</th><th>Punctaj</th>' + keys.map((_, i) => `<th>P${i+1}</th>`).join('') + '<th>Predat</th>';
+  t.appendChild(head);
+  graded.forEach(r => {
+    const tr = document.createElement('tr');
+    const nameTd = document.createElement('td'); nameTd.className = 'name'; nameTd.textContent = r.name; nameTd.title = r.name; tr.appendChild(nameTd);
+    if(!r.s) {
+      tr.insertAdjacentHTML('beforeend', `<td class="pending" colspan="${keys.length + 2}">${st === 'soon' ? 'lucrarea nu a început' : 'nepredat'}</td>`);
+    } else {
+      const c = r.g.filter(x => x.r === 'c').length;
+      tr.insertAdjacentHTML('beforeend', `<td class="score">${c}/${keys.length}</td>`);
+      r.g.forEach((x, i) => {
+        const td = document.createElement('td'); td.className = 'cell ' + x.r; td.textContent = x.r === 'c' ? '✓' : x.r === 'w' ? '✗' : '–';
+        td.onclick = () => {
+          const p = problemByKey(keys[i]);
+          document.getElementById('arCellInfo').textContent = `${r.name}, problema ${i+1}: a răspuns „${x.a || '—'}”` + (p ? ` · corect: ${p.ans}` : '');
+        };
+        tr.appendChild(td);
+      });
+      const late = new Date(r.s.submitted_at) > new Date(a.closes_at);
+      tr.insertAdjacentHTML('beforeend', `<td>${escHtml(new Date(r.s.submitted_at).toLocaleString('ro-RO',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}))}${late ? ' <span class="pill late">întârziat</span>' : ''}</td>`);
+    }
+    t.appendChild(tr);
+  });
+  if(done.length) {
+    const sum = document.createElement('tr'); sum.className = 'sum';
+    sum.innerHTML = '<td class="name">% corect</td><td></td>' + perProb.map(v => `<td>${v}%</td>`).join('') + '<td></td>';
+    t.appendChild(sum);
+  }
+  document.getElementById('arCellInfo').textContent = '';
+
+  const pBox = document.getElementById('arProblems'); pBox.innerHTML = '';
+  keys.forEach((k, i) => {
+    const p = problemByKey(k);
+    const row = document.createElement('div'); row.className = 't-item';
+    row.innerHTML = `<div class="t-item-main"><div class="t-item-sub" style="color:var(--ink);font-size:0.86rem"></div><div class="t-item-sub"></div></div>
+      <div class="t-item-actions"><b style="color:var(--navy)">${perProb[i] == null ? '–' : perProb[i] + '%'}</b></div>`;
+    const [txt, meta] = row.querySelectorAll('.t-item-sub');
+    txt.textContent = `${i+1}. ${p ? p.text : '(problemă care nu mai există în bibliotecă)'}`;
+    meta.textContent = p ? `Răspuns corect: ${p.ans} · ${p.cat}` : '';
+    pBox.appendChild(row);
+  });
+}
+
+function exportResults() {
+  if(!arData) return;
+  const { a, keys, subs, mem } = arData;
+  const subBy = {}; subs.forEach(s => subBy[s.student_id] = s);
+  const q = v => { const s = String(v ?? ''); return /[";\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+  const lines = [];
+  lines.push([a.title].map(q).join(';'));
+  lines.push([a.kind === 'tema' ? `Temă, termen ${fmtDT(a.closes_at)}` : `Simulare, ${fmtDT(a.opens_at)} – ${fmtDT(a.closes_at)}`].map(q).join(';'));
+  lines.push('');
+  lines.push(['Elev', 'Status', 'Corecte', 'Din', 'Procent', 'Predat la', ...keys.map((_, i) => `P${i+1}`), ...keys.map((_, i) => `Răspuns P${i+1}`)].map(q).join(';'));
+  mem.forEach(m => {
+    const s = subBy[m.student_id];
+    if(!s) { lines.push([m.display_name, 'nepredat'].map(q).join(';')); return; }
+    const g = gradeSubmission(s, keys), c = g.filter(x => x.r === 'c').length;
+    const late = new Date(s.submitted_at) > new Date(a.closes_at);
+    lines.push([m.display_name, late ? 'predat cu întârziere' : 'predat', c, keys.length, Math.round(c / keys.length * 100) + '%',
+      new Date(s.submitted_at).toLocaleString('ro-RO'), ...g.map(x => x.r === 'c' ? 'corect' : x.r === 'w' ? 'greșit' : 'fără răspuns'), ...g.map(x => x.a)].map(q).join(';'));
+  });
+  lines.push('');
+  lines.push(['Problema', 'Enunț', 'Răspuns corect'].map(q).join(';'));
+  keys.forEach((k, i) => { const p = problemByKey(k); lines.push([`P${i+1}`, p ? p.text : '', p ? p.ans : ''].map(q).join(';')); });
+  const blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob), link = document.createElement('a');
+  const safe = a.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9 _-]/g, '').replace(/\s+/g, ' ').trim();
+  link.href = url; link.download = (safe || 'lucrare') + ' - rezultate.csv';
+  document.body.appendChild(link); link.click(); link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+// ─────────────── ELEV ───────────────
+let sClasses = [], sAssignments = [], sSubs = {}, sTick = null, sJoinOpen = false;
+
+async function loadStudentClasses() {
+  if(!currentUser) return;
+  const { data: mem, error } = await sb.from('class_members').select('class_id,display_name').eq('student_id', currentUser.id);
+  if(error) { console.warn('Clase:', error.message); renderStudentCard(); return; }
+  const ids = (mem || []).map(m => m.class_id);
+  if(ids.length) {
+    const [{ data: cls }, { data: asg }, { data: subs }] = await Promise.all([
+      sb.from('classes').select('id,name').in('id', ids),
+      sb.from('assignments').select('id,class_id,kind,title,description,opens_at,closes_at').in('class_id', ids).order('closes_at', { ascending: true }),
+      sb.from('submissions').select('assignment_id,correct,total,answers,started_at,submitted_at').eq('student_id', currentUser.id)
+    ]);
+    sClasses = cls || []; sAssignments = asg || [];
+    sSubs = {}; (subs || []).forEach(s => sSubs[s.assignment_id] = s);
+  } else { sClasses = []; sAssignments = []; sSubs = {}; }
+  renderStudentCard();
+  clearInterval(sTick);
+  sTick = setInterval(() => { if(document.getElementById('screen-start').classList.contains('active')) renderStudentCard(); }, 30000);
+}
+
+function renderStudentCard() {
+  const card = document.getElementById('classCard'), box = document.getElementById('classList');
+  card.style.display = currentUser ? 'block' : 'none';
+  document.getElementById('joinForm').style.display = (!sClasses.length || sJoinOpen) ? 'block' : 'none';
+  document.getElementById('joinToggle').style.display = sClasses.length && !sJoinOpen ? 'block' : 'none';
+  box.innerHTML = '';
+  if(!sClasses.length) { box.innerHTML = '<div class="t-muted" style="margin:0 0 0.4rem">Ai primit un cod de la profesor? Scrie-l mai jos.</div>'; return; }
+  const now = Date.now(), monthAgo = now - 30*24*3600*1000;
+  sClasses.forEach(c => {
+    box.insertAdjacentHTML('beforeend', `<div class="class-head">${escHtml(c.name)}</div>`);
+    const list = sAssignments.filter(a => a.class_id === c.id && (new Date(a.closes_at).getTime() > monthAgo || !sSubs[a.id]));
+    if(!list.length) { box.insertAdjacentHTML('beforeend', '<div class="t-muted">Nicio temă deocamdată.</div>'); return; }
+    list.forEach(a => box.appendChild(studentAssignmentRow(a, now)));
+  });
+}
+
+function studentAssignmentRow(a, now) {
+  const st = assignmentState(a, now), sub = sSubs[a.id], isTema = a.kind === 'tema';
+  const row = document.createElement('div'); row.className = 't-item';
+  row.innerHTML = `<div class="t-item-main"><div class="t-item-title"></div><div class="t-item-sub"></div></div><div class="t-item-actions"></div>`;
+  row.querySelector('.t-item-title').textContent = (isTema ? '📝 ' : '🏆 ') + a.title;
+  const sub$ = row.querySelector('.t-item-sub'), act = row.querySelector('.t-item-actions');
+  const btn = (label, fn, light) => { const b = document.createElement('button'); b.className = 't-small' + (light ? ' light' : ''); b.textContent = label; if(fn) b.onclick = fn; else b.disabled = true; act.appendChild(b); };
+  if(sub) {
+    sub$.innerHTML = `<span class="pill done">Predată</span>${sub.correct} din ${sub.total} corecte`;
+    if(st === 'closed') btn('Vezi corectura', () => viewCorrection(a.id), true);
+    else sub$.insertAdjacentHTML('beforeend', ` · corectura apare după ${escHtml(fmtDT(a.closes_at))}`);
+  } else if(st === 'soon') {
+    const mins = Math.round((new Date(a.opens_at) - now) / 60000);
+    sub$.innerHTML = `<span class="pill soon">Programată</span>${escHtml(fmtDT(a.opens_at))}${mins < 24*60 ? ` · peste ${mins >= 60 ? Math.floor(mins/60) + ' h ' : ''}${mins % 60} min` : ''}`;
+    btn('Încă nu a început', null, true);
+  } else if(st === 'open') {
+    sub$.innerHTML = isTema ? `<span class="pill open">De făcut</span>termen ${escHtml(fmtDT(a.closes_at))}`
+                            : `<span class="pill open">Acum</span>se încheie la ${escHtml(new Date(a.closes_at).toLocaleTimeString('ro-RO',{hour:'2-digit',minute:'2-digit'}))}`;
+    btn(isTema ? 'Începe tema' : 'Intră în simulare', () => startAssignment(a.id));
+  } else if(isTema) {
+    sub$.innerHTML = `<span class="pill late">Termen depășit</span>${escHtml(fmtDT(a.closes_at))}`;
+    btn('Predă cu întârziere', () => startAssignment(a.id), true);
+  } else {
+    sub$.innerHTML = '<span class="pill late">Încheiată</span>nepredată';
+  }
+  return row;
+}
+
+async function joinClass() {
+  const code = document.getElementById('joinCode').value.trim(), name = document.getElementById('joinName').value.trim();
+  const err = document.getElementById('joinErr'); err.textContent = '';
+  if(!code) { err.textContent = 'Scrie codul clasei.'; return; }
+  if(!name) { err.textContent = 'Scrie-ți numele, ca să te recunoască profesorul.'; return; }
+  const { data, error } = await sb.rpc('join_class', { code, student_name: name });
+  if(error) { err.textContent = sbErr(error).includes('Codul') ? 'Codul nu este corect. Verifică-l cu profesorul.' : 'Nu am putut intra în clasă: ' + sbErr(error); return; }
+  document.getElementById('joinCode').value = ''; sJoinOpen = false;
+  await loadStudentClasses();
+  err.textContent = '';
+  document.getElementById('classMsg').textContent = `Ai intrat în clasa „${data.name}”. 🎉`;
+  setTimeout(() => { document.getElementById('classMsg').textContent = ''; }, 6000);
+}
+
+async function startAssignment(aid) {
+  const a = sAssignments.find(x => x.id === aid); if(!a) return;
+  const { data: keys, error } = await sb.rpc('get_assignment_problems', { aid });
+  if(error || !keys) { document.getElementById('classMsg').textContent = 'Lucrarea nu a început încă.'; return; }
+  const found = keys.map(k => ({ k, p: problemByKey(k) })).filter(x => x.p);
+  if(!found.length) { document.getElementById('classMsg').textContent = 'Nu am găsit problemele acestei lucrări. Reîncarcă pagina.'; return; }
+  let answers = new Array(found.length).fill('');
+  try { const d = JSON.parse(localStorage.getItem('ciorna:' + aid) || 'null'); if(Array.isArray(d) && d.length === found.length) answers = d; } catch(e) {}
+  stopAudio();
+  startContest(found.map(x => x.p), {
+    mode: a.kind === 'tema' ? 'tema' : 'simulare-clasa', assignment: a, answers,
+    deadline: a.kind === 'simulare' ? new Date(a.closes_at).getTime() : null
+  });
+}
+
+async function sendAssignment() {
+  const a = session.assignment, n = session.queue.length;
+  const { error } = await sb.from('submissions').insert({
+    assignment_id: a.id,
+    answers: session.queue.map((p, i) => ({ key: probKey(p.lib_id, p.id), a: (session.answers[i] || '').trim(), r: session.history[i] })),
+    correct: session.correct, total: n, started_at: new Date(session.startTime).toISOString()
+  });
+  const closed = Date.now() > new Date(a.closes_at).getTime();
+  if(error && !/duplicate/i.test(sbErr(error))) {
+    renderContestResults({ hideReview: true, error: true,
+      msg: `Lucrarea NU a fost trimisă (${sbErr(error)}). Răspunsurile tale sunt păstrate pe acest dispozitiv. Verifică internetul și apasă „Trimite din nou”.` });
+    showScreen('contest-results');
+    return;
+  }
+  try { localStorage.removeItem('ciorna:' + a.id); } catch(e) {}
+  renderContestResults({ hideReview: !closed,
+    msg: closed ? 'Lucrarea a fost trimisă profesorului. ✓' : `Lucrarea a fost trimisă profesorului. ✓ Corectura cu explicații apare după ${fmtDT(a.closes_at)}.` });
+  showScreen('contest-results');
+  await saveSessionToServer();
+  loadStudentClasses();
+}
+
+async function viewCorrection(aid) {
+  const a = sAssignments.find(x => x.id === aid), sub = sSubs[aid]; if(!a || !sub) return;
+  const { data: keys } = await sb.rpc('get_assignment_problems', { aid });
+  const found = (keys || []).map(k => problemByKey(k)).filter(Boolean);
+  const g = gradeSubmission(sub, (keys || []).filter(k => problemByKey(k)));
+  session = { mode: a.kind === 'tema' ? 'tema' : 'simulare-clasa', assignment: a, queue: found, submitted: true,
+              answers: g.map(x => x.a), history: g.map(x => x.r),
+              correct: g.filter(x => x.r === 'c').length, wrong: g.filter(x => x.r === 'w').length, skipped: g.filter(x => x.r === 's').length,
+              startTime: new Date(sub.started_at || sub.submitted_at).getTime(), endTime: new Date(sub.submitted_at).getTime() };
+  renderContestResults({});
+  showScreen('contest-results');
 }
 
 function restartSession() { startSession(); }
