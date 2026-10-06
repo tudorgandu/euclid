@@ -11,7 +11,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ideea ascunsă este să adunăm 5 la număr. La împărțirea la 12 restul 7 devine 12, adică numărul se împarte exact, iar la împărțirea la 8 restul 3 devine 8, deci și aici se împarte exact. Așadar numărul plus 5 se împarte exact și la 12, și la 8, deci la 24. Cel mai mare multiplu al lui 24 care ne ajută este 24 ori 416, adică 9984, pentru că următorul, 10008, ar duce la un număr de 5 cifre. Scădem înapoi 5: 9984 minus 5 fac 9979. Numărul căutat este 9979."
   },
   {
     "cat": "Geometrie",
@@ -25,7 +26,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Pătratul are 4 laturi egale, deci latura este 48 împărțit la 4, adică 12 centimetri, iar aria este 12 ori 12, adică 144. La dreptunghi, lungimea plus lățimea fac 24, iar lungimea este cât 3 lățimi, deci 4 lățimi fac 24 și lățimea este 6, iar lungimea 18. Aria dreptunghiului este 18 ori 6, adică 108. Diferența este 144 minus 108, adică 36. Pătratul are aria mai mare, cu 36 de centimetri pătrați."
   },
   {
     "cat": "Fracții",
@@ -39,7 +41,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne imaginăm testul împărțit în 8 bucăți egale. O pătrime înseamnă 2 bucăți din 8, deci luni și marți a rezolvat 3 plus 2, adică 5 bucăți. Miercuri au rămas 8 minus 5, adică 3 bucăți, și acestea sunt cele 15 probleme. O bucată are 15 împărțit la 3, adică 5 probleme, iar tot testul are 8 ori 5, adică 40. Testul are 40 de probleme."
   },
   {
     "cat": "Operații",
@@ -53,7 +56,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Primele 20 de numere impare sunt 1, 3, 5 și așa mai departe, până la 39. Observăm o regulă frumoasă: 1 este 1 ori 1, 1 plus 3 fac 4, adică 2 ori 2, iar 1 plus 3 plus 5 fac 9, adică 3 ori 3. Suma primelor câteva numere impare este numărul lor înmulțit cu el însuși. Pentru 20 de numere, suma este 20 ori 20, adică 400."
   },
   {
     "cat": "Probleme de logică",
@@ -67,7 +71,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Peste 5 ani, și Maria, și mama vor fi cu câte 5 ani mai mari, deci suma lor crește cu 10. Acum suma vârstelor este 65 minus 10, adică 55. Mama are cu 15 ani mai mult, așa că dacă scădem 15 rămân două vârste egale cu a Mariei: 55 minus 15 fac 40. Maria are 40 împărțit la 2, adică 20 de ani, iar mama are 35. Maria are acum 20 de ani."
   },
   {
     "cat": "Numere naturale",
@@ -81,7 +86,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Un număr care se împarte exact și la 4, și la 6 se împarte exact la 12, cel mai mic număr care e multiplu al amândurora. Căutăm deci multiplii lui 12 care au două cifre: 12, 24, 36, 48, 60, 72, 84 și 96. Următorul, 108, are deja trei cifre. Le numărăm și găsim 8 numere."
   },
   {
     "cat": "Geometrie",
@@ -95,7 +101,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Un cub are 12 muchii, toate egale. Deci o muchie are 96 împărțit la 12, adică 8 centimetri. O față este un pătrat cu aria 8 ori 8, adică 64, iar cubul are 6 fețe, deci aria totală este 6 ori 64, adică 384 de centimetri pătrați. Volumul este 8 ori 8 ori 8, adică 512 centimetri cubi. Aria totală este 384 de centimetri pătrați, iar volumul este 512 centimetri cubi."
   },
   {
     "cat": "Combinatorică",
@@ -109,7 +116,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Literele diferite din cuvântul MATEMATICA sunt M, A, T, E, I și C, adică 6 litere. Dacă ar conta ordinea, prima literă s-ar alege în 6 feluri, a doua în 5, iar a treia în 4, adică 6 ori 5 ori 4, care fac 120. Dar același grup de 3 litere poate fi aranjat în 3 ori 2 ori 1, adică 6 ordini diferite, și noi îl vrem numărat o singură dată. De aceea împărțim: 120 împărțit la 6 fac 20. Sunt posibile 20 de alegeri."
   },
   {
     "cat": "Algebră elementară",
@@ -123,7 +131,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Două numere consecutive sunt foarte apropiate, deci fiecare este cam cât un număr care, înmulțit cu el însuși, dă aproape 1332. Încercăm: 36 ori 36 fac 1296, iar 37 ori 37 fac 1369, deci numerele sunt chiar 36 și 37. Verificăm: 36 ori 37 fac exact 1332. Numerele sunt 36 și 37."
   },
   {
     "cat": "Șiruri și șabloane",
@@ -137,7 +146,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Calculăm termenii pe rând, adunând mereu ultimii doi. Al treilea este 3 plus 5, adică 8, al patrulea este 5 plus 8, adică 13, iar al cincilea este 8 plus 13, adică 21. Al șaselea este 13 plus 21, adică 34, iar al șaptelea este 21 plus 34, adică 55. Al optulea este 34 plus 55, adică 89. Al 8-lea termen este 89."
   },
   {
     "cat": "Probleme de logică",
@@ -151,7 +161,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: dacă toate cele 15 kilograme ar fi fost pere, comerciantul ar fi încasat 15 ori 6, adică 90 de lei. El a încasat însă 76 de lei, adică cu 90 minus 76, deci 14 lei mai puțin. Fiecare kilogram de mere în loc de pere face încasarea mai mică cu 6 minus 4, adică 2 lei. Deci sunt 14 împărțit la 2, adică 7 kilograme de mere. Verificăm: 7 ori 4 plus 8 ori 6 fac 28 plus 48, adică 76. A vândut 7 kilograme de mere."
   },
   {
     "cat": "Numere naturale",
@@ -165,7 +176,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Un număr care este multiplu și al lui 3, și al lui 5 este multiplu al lui 15. Multiplii lui 15 mai mici decât 200 sunt 15, 30 și așa mai departe până la 195, adică 13 numere. Dintre ei îi scoatem pe cei care sunt și multipli ai lui 9, adică multiplii lui 45: 45, 90, 135 și 180, adică 4 numere. Rămân 13 minus 4, adică 9 numere."
   },
   {
     "cat": "Fracții",
@@ -179,7 +191,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Înmulțim toți numărătorii între ei și toți numitorii între ei. Sus avem 1 ori 2 ori 3 ori 4 ori 5, iar jos 2 ori 3 ori 4 ori 5 ori 6. Numerele 2, 3, 4 și 5 apar și sus, și jos, așa că se simplifică. Rămâne 1 sus și 6 jos. Rezultatul este o șesime, adică 1 supra 6."
   },
   {
     "cat": "Geometrie",
@@ -193,7 +206,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Notăm latura egală cu l. Baza este cu 3 mai mică, iar perimetrul înseamnă l plus l plus baza, deci 3 laturi l minus 3 fac 36. Atunci 3 laturi l fac 39, deci latura este 13 centimetri, iar baza este 13 minus 3, adică 10 centimetri. Aria triunghiului este baza ori înălțimea, împărțit la 2: 10 ori 12 fac 120, iar 120 împărțit la 2 fac 60. Aria este 60 de centimetri pătrați."
   },
   {
     "cat": "Operații",
@@ -207,7 +221,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Împărțim numerele în două grupe. De la 1 la 9 sunt 9 numere cu câte o cifră, deci 9 cifre. De la 10 la 50 sunt 41 de numere cu câte 2 cifre, deci 41 ori 2, adică 82 de cifre. În total, numărul N are 9 plus 82, adică 91 de cifre."
   },
   {
     "text": "Scrieți cel mai mare număr de șase cifre care are suma cifrelor egală cu 10 și cifra sutelor egală cu 3.",
@@ -221,7 +236,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Cifra sutelor este 3, deci celelalte cinci cifre trebuie să aibă împreună suma 10 minus 3, adică 7. Ca numărul să fie cât mai mare, punem cea mai mare cifră posibilă pe primul loc, cel din stânga. Putem pune acolo chiar 7, iar toate celelalte cifre devin 0. Numărul este 700300, iar suma cifrelor lui este 7 plus 3, adică 10."
   },
   {
     "text": "Ana are un număr natural. Dacă înmulțește numărul cu 4 și adaugă 17, obține 105. Care este numărul Anei?",
@@ -235,7 +251,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Mergem invers, de la rezultat spre numărul Anei. Ultimul pas a fost să adauge 17, deci scădem 17: 105 minus 17 fac 88. Înainte de asta a înmulțit cu 4, deci împărțim la 4: 88 împărțit la 4 fac 22. Verificăm: 22 ori 4 fac 88, iar 88 plus 17 fac 105. Numărul Anei este 22."
   },
   {
     "text": "Într-o clasă sunt 30 de elevi. Dintre aceștia, 18 știu să joace șah, 15 știu să joace tenis, iar 7 știu să joace ambele jocuri. Câți elevi nu știu să joace nici șah, nici tenis?",
@@ -249,7 +266,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Dacă adunăm 18 plus 15 obținem 33, dar cei 7 elevi care știu ambele jocuri au fost numărați de două ori. Îi scădem o dată: 33 minus 7 fac 26, adică 26 de elevi știu cel puțin un joc. Restul elevilor nu știu niciun joc: 30 minus 26 fac 4. Sunt 4 elevi care nu știu nici șah, nici tenis."
   },
   {
     "text": "Care este termenul al 8-lea al șirului: 3, 7, 13, 21, 31, ...?",
@@ -263,7 +281,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne uităm cu cât crește șirul de la un termen la altul: cu 4, apoi cu 6, cu 8 și cu 10. Creșterile se măresc de fiecare dată cu 2, deci următoarele vor fi 12, 14 și 16. Al șaselea termen este 31 plus 12, adică 43, al șaptelea este 43 plus 14, adică 57, iar al optulea este 57 plus 16, adică 73. Al 8-lea termen este 73."
   },
   {
     "text": "Un dreptunghi are perimetrul de 56 cm, iar lungimea este cu 8 cm mai mare decât lățimea. Calculați aria dreptunghiului.",
@@ -277,7 +296,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Perimetrul conține de două ori lungimea plus lățimea, deci lungimea plus lățimea fac 56 împărțit la 2, adică 28 de centimetri. Lungimea are cu 8 mai mult, așa că dacă scădem 8 rămân două lățimi: 28 minus 8 fac 20. Lățimea este 20 împărțit la 2, adică 10 centimetri, iar lungimea este 10 plus 8, adică 18 centimetri. Aria este 18 ori 10, adică 180 de centimetri pătrați."
   },
   {
     "text": "Calculați: 1 + 2 + 3 + ... + 50 − (1 + 3 + 5 + ... + 49)",
@@ -291,7 +311,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Prima sumă, de la 1 la 50, se calculează cu formula 50 ori 51 împărțit la 2, adică 1275. A doua sumă conține numerele impare de la 1 la 49, care sunt 25 de numere, iar suma lor este 25 ori 25, adică 625. Diferența este 1275 minus 625, adică 650. Altfel spus, când scădem numerele impare rămân doar numerele pare de la 2 la 50, care adunate dau tot 650. Rezultatul este 650."
   },
   {
     "text": "Mama are de 3 ori vârsta fiicei. Peste 12 ani, mama va avea de 2 ori vârsta fiicei. Câți ani are fiica acum?",
@@ -305,7 +326,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Fie vârsta fiicei acum o parte, iar mama are 3 astfel de părți. Peste 12 ani, mama va avea 3 părți plus 12, iar fiica o parte plus 12, iar dublul vârstei fiicei va fi 2 părți plus 24. Cum acestea trebuie să fie egale, 3 părți plus 12 este egal cu 2 părți plus 24, deci o parte este 24 minus 12, adică 12. Verificăm: acum fiica are 12 ani și mama 36, iar peste 12 ani vor avea 24 și 48, iar 48 este de 2 ori 24. Fiica are acum 12 ani."
   },
   {
     "text": "Ordonați crescător fracțiile: 5/6, 3/4, 7/9, 2/3.",
@@ -319,7 +341,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ca să comparăm fracțiile, le aducem la același numitor, 36. Cinci șesimi devin 30 supra 36, trei pătrimi devin 27 supra 36, șapte noimi devin 28 supra 36, iar două treimi devin 24 supra 36. Acum comparăm doar numărătorii: 24, 27, 28, 30. Ordinea crescătoare este: 2 supra 3, apoi 3 supra 4, apoi 7 supra 9, apoi 5 supra 6."
   },
   {
     "text": "Câte numere de trei cifre au cifra sutelor mai mare decât cifra zecilor, iar cifra zecilor mai mare decât cifra unităților?",
@@ -333,7 +356,8 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: dacă alegem oricare trei cifre diferite și le așezăm de la cea mai mare la cea mai mică, obținem exact un număr bun. Cifra 0, fiind cea mai mică, ajunge mereu la unități, deci numărul are într-adevăr trei cifre. Numărăm după cifra sutelor: celelalte două cifre se aleg dintre cifrele mai mici decât ea. Cifra sutelor 2 dă 1 număr, 3 dă 3, 4 dă 6, 5 dă 10, 6 dă 15, 7 dă 21, 8 dă 28, iar 9 dă 36. Adunăm: 1 plus 3 plus 6 plus 10 plus 15 plus 21 plus 28 plus 36 fac 120 de numere."
   },
   {
     "text": "Un pătrat are latura de 6 cm. În interiorul lui se trasează 4 pătrate mai mici congruente, fiecare cu latura de 3 cm, acoperind complet pătratul mare. Câte pătrate (de orice dimensiune) se pot număra în figura obținută?",
@@ -347,6 +371,7 @@
     "sursa": "dimitrie-cantemir-iasi",
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne uităm la ce pătrate putem vedea în desen. Mai întâi sunt cele 4 pătrate mici, fiecare cu latura de 3 centimetri. Apoi mai este pătratul mare, cu latura de 6 centimetri. Dacă luăm două pătrate mici alăturate, obținem un dreptunghi de 3 pe 6 centimetri, care nu este pătrat. Așadar avem 4 plus 1, adică 5 pătrate."
   }
 ]

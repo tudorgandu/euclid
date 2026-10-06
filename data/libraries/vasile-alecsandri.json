@@ -9,7 +9,8 @@
     "barem": "Numărul de grămezi trebuie să împartă exact pe 48, deci este un divizor al lui 48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. Variantele: 1 grămadă de 48, 2 de 24, 3 de 16, 4 de 12, 6 de 8, 8 de 6, 12 de 4, 16 de 3, 24 de 2, 48 de câte 1. Sunt 10 variante.",
     "hash": "9f89898a98b2",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ca toate grămezile să aibă același număr de cărți, numărul de grămezi trebuie să-l împartă exact pe 48. Numerele care îl împart exact pe 48 sunt 1, 2, 3, 4, 6, 8, 12, 16, 24 și 48. Variantele sunt: o grămadă de 48, 2 grămezi de 24, 3 de 16, 4 de 12, 6 de 8, 8 de 6, 12 de 4, 16 de 3, 24 de 2 și 48 de grămezi cu câte o carte. Răspunsul este 10 variante."
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "barem": "2+4+6+8+10+12+14+16+18 = 90. Formula: 9×(2+18)/2 = 90.",
     "hash": "59855c6a7da5",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Numerele pare mai mici decât 20 sunt 2, 4, 6, 8, 10, 12, 14, 16 și 18. Facem perechi: 2 plus 18 fac 20, 4 plus 16 fac 20, 6 plus 14 fac 20 și 8 plus 12 fac 20. Avem 4 perechi, deci 4 ori 20, adică 80. Rămâne singur numărul 10, cel din mijloc, iar 80 plus 10 fac 90. Răspunsul este 90."
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "barem": "Un număr care se împarte la 7 și la 9 se împarte la c.m.m.m.c.(7, 9) = 63. Cel mai mare multiplu al lui 63 cu 3 cifre: 63 × 15 = 945 (63 × 16 = 1008 are 4 cifre). Răspuns: 945.",
     "hash": "ce7aa8dfd4b7",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Un număr care se împarte exact și la 7, și la 9 se împarte exact la 7 ori 9, adică la 63. Căutăm cel mai mare număr de 3 cifre care se împarte la 63. 63 ori 15 fac 945, iar 63 ori 16 fac 1008, care are deja 4 cifre. Răspunsul este 945."
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "barem": "3n+3=111 → n=36. Cele trei numere sunt 36, 37, 38. Cel mai mare: 38.",
     "hash": "90034a366e58",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Trei numere consecutive sunt cel mic, cel cu 1 mai mare și cel cu 2 mai mare. Dacă scădem din sumă pe 1 și pe 2, adică 3, rămân trei numere egale cu cel mic: 111 minus 3 fac 108. Cel mic este 108 împărțit la 3, adică 36, deci numerele sunt 36, 37 și 38. Răspunsul este 38."
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "barem": "5y=120 → y=24, x=96. Verificare: 96+24=120 ✓",
     "hash": "325596bb1f3a",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim cu părți: numărul mic este o parte, iar cel mare este de 4 ori mai mare, adică 4 părți. Împreună fac 5 părți, adică 120. O parte este 120 împărțit la 5, adică 24, iar numărul mare este 4 ori 24, adică 96. Verificăm: 96 plus 24 fac 120. Răspunsul este 96 și 24."
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
     "barem": "Perechile: (2,6),(6,2),(3,4),(4,3). Numerele: 26, 62, 34, 43. Răspuns: 4.",
     "hash": "62bf770c5ff3",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Căutăm două cifre care înmulțite dau 12. Avem 2 ori 6 și 3 ori 4, iar 1 ori 12 nu merge, fiindcă 12 nu este o cifră. Fiecare pereche poate fi scrisă în două feluri, deci numerele sunt 26, 62, 34 și 43. Răspunsul este 4."
   },
   {
     "id": 7,
@@ -81,7 +87,8 @@
     "barem": "2^10 × 5^12 = 10^10 × 25 = 250.000.000.000 — 12 cifre.",
     "hash": "9730f3cf6f6a",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: un 2 înmulțit cu un 5 face 10. Avem zece de 2 și doisprezece de 5, deci formăm zece perechi, adică 1 urmat de 10 zerouri. Ne mai rămân doi de 5, adică 5 ori 5, care fac 25. Numărul este deci 25 urmat de 10 zerouri, adică 250 de miliarde. El are 2 plus 10, adică 12 cifre. Răspunsul este 12."
   },
   {
     "id": 8,
@@ -93,7 +100,8 @@
     "barem": "Div cu 3: 33. Div cu 5: 20. Div cu 15: 6. Total: 33+20-6 = 47.",
     "hash": "050cf616903f",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Numerele care se împart la 3 până la 100 sunt 33, iar cele care se împart la 5 sunt 20. Dar unele numere, ca 15, 30 sau 45, se împart și la 3, și la 5, adică la 15, și le-am numărat de două ori. Până la 100 sunt 6 astfel de numere, deci le scădem o dată. Total: 33 plus 20 minus 6 fac 47. Răspunsul este 47."
   },
   {
     "id": 9,
@@ -105,7 +113,8 @@
     "barem": "a+b=9 și 9(b-a)=27 → b-a=3. Deci a=3, b=6. Numărul: 36.",
     "hash": "328bd0c8abfd",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Când inversăm cifrele unui număr de două cifre, diferența dintre numere este de 9 ori diferența dintre cifre. Diferența este 27, iar 27 împărțit la 9 fac 3, deci cifra unităților este cu 3 mai mare decât cifra zecilor. Căutăm două cifre cu suma 9 și diferența 3: acestea sunt 3 și 6. Numărul inițial are cifra mai mică în față, deci este 36. Verificăm: 63 minus 36 fac 27. Răspunsul este 36."
   },
   {
     "id": 10,
@@ -117,7 +126,8 @@
     "barem": "Triplete posibile: (0,1,8),(0,2,7),(0,3,6),(0,4,5),(1,2,6),(1,3,5),(2,3,4). Aranjamente fără zero la sute: 34 numere.",
     "hash": "61b56ab5164f",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Mai întâi găsim grupele de trei cifre diferite cu suma 9. Cu cifra 0 avem 4 grupe: 0, 1, 8, apoi 0, 2, 7, apoi 0, 3, 6 și 0, 4, 5. Fiecare dintre ele dă 4 numere, pentru că 0 nu poate sta la sute, deci 4 ori 4 fac 16 numere. Fără 0 avem 3 grupe: 1, 2, 6, apoi 1, 3, 5 și 2, 3, 4, iar fiecare dă 6 numere, deci 3 ori 6 fac 18. Total: 16 plus 18 fac 34. Răspunsul este 34."
   },
   {
     "id": 11,
@@ -129,7 +139,8 @@
     "barem": "S = 50×51/2 = 1275.",
     "hash": "e542aa07b049",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: punem numerele în perechi, primul cu ultimul, al doilea cu penultimul și așa mai departe. 1 plus 50 fac 51, 2 plus 49 fac tot 51, și la fel toate perechile. Avem 50 de numere, deci 25 de perechi. 25 ori 51 fac 1275. Deci suma este 1275."
   },
   {
     "id": 12,
@@ -141,7 +152,8 @@
     "barem": "999×111 = (1000-1)×111 = 111000 - 111 = 110889.",
     "hash": "7375a156b195",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: 999 este cu 1 mai mic decât 1000. Atunci 999 ori 111 este 1000 ori 111, minus o dată 111. 1000 ori 111 fac 111000. 111000 minus 111 fac 110889. Deci rezultatul este 110889."
   },
   {
     "id": 13,
@@ -153,7 +165,8 @@
     "barem": "Grupăm termenii doi câte doi: (2-1)+(4-3)+(6-5)+...+(100-99). Fiecare paranteză este 1, iar de la 1 la 100 sunt 50 de perechi. Rezultat: 50 × 1 = 50.",
     "hash": "44bf0a1498e2",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: punem fiecare număr par lângă numărul impar de dinaintea lui. 2 minus 1 fac 1, 4 minus 3 fac 1, 6 minus 5 fac 1, și tot așa până la 100 minus 99, care face tot 1. De la 1 la 100 sunt 50 de astfel de perechi. 50 ori 1 fac 50. Deci rezultatul este 50."
   },
   {
     "id": 14,
@@ -165,7 +178,8 @@
     "barem": "3x+15-2x+2=27 → x+17=27 → x=10.",
     "hash": "f19ef86c5798",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Desfacem parantezele. 3 ori x plus 5 înseamnă 3 de x plus 15. Minus 2 ori x minus 1 înseamnă minus 2 de x plus 2, pentru că minus ori minus dă plus. Adunăm: 3 de x minus 2 de x rămâne un singur x, iar 15 plus 2 fac 17. Deci x plus 17 este egal cu 27, iar x este 27 minus 17, adică 10."
   },
   {
     "id": 15,
@@ -177,7 +191,8 @@
     "barem": "Cărți: 240/3=80. Rămân 160. Rechizite: 160/4=40. Rămân: 120 lei.",
     "hash": "4be681951710",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Mai întâi aflăm cât dă pe cărți: o treime din 240 este 240 împărțit la 3, adică 80 de lei. Îi rămân 240 minus 80, adică 160 de lei. Pe rechizite dă o pătrime din ce a rămas: 160 împărțit la 4 fac 40 de lei. Îi mai rămân 160 minus 40, adică 120 de lei."
   },
   {
     "id": 16,
@@ -189,7 +204,8 @@
     "barem": "2→4→16→256→65536→2^32. Exact 5 înmulțiri.",
     "hash": "70ddadbc62e8",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: de fiecare dată înmulțim rezultatul cu el însuși, ca să dublăm exponentul. 2 ori 2 fac 4, adică 2 la puterea 2. 4 ori 4 fac 16, adică 2 la puterea 4. 16 ori 16 fac 256, adică 2 la puterea 8, apoi 256 ori 256 fac 65536, adică 2 la puterea 16. În sfârșit, 65536 ori 65536 dă 2 la puterea 32. Am numărat 5 înmulțiri."
   },
   {
     "id": 17,
@@ -201,7 +217,8 @@
     "barem": "7×13+5 = 91+5 = 96.",
     "hash": "49c96e4c5157",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne amintim regula împărțirii cu rest: numărul este egal cu împărțitorul ori câtul, plus restul. Împărțitorul este 7, câtul 13 și restul 5. 7 ori 13 fac 91, iar 91 plus 5 fac 96. Restul 5 este mai mic decât 7, deci totul este în regulă. Numărul căutat este 96."
   },
   {
     "id": 18,
@@ -213,7 +230,8 @@
     "barem": "123×(9+1) = 123×10 = 1230.",
     "hash": "f7f5eed80bfc",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: 123 apare de 9 ori și încă o dată, deci de 9 plus 1 ori. 9 plus 1 fac 10. Atunci calculul devine 123 ori 10. 123 ori 10 fac 1230. Deci rezultatul este 1230."
   },
   {
     "id": 19,
@@ -225,7 +243,8 @@
     "barem": "Total cu 6 numere: 480. Al șaselea: 480-375 = 105.",
     "hash": "1259cbf99af4",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Media a 6 numere este 80, deci suma lor este 6 ori 80, adică 480. Primele 5 numere au împreună 375. Al șaselea număr este ce lipsește până la 480: 480 minus 375 fac 105. Deci al șaselea număr este 105."
   },
   {
     "id": 20,
@@ -237,7 +256,8 @@
     "barem": "(a-1)(b-1)=11. 11 este prim: a-1=1, b-1=11 → (2,12). Verificare: 2×12=24=2+12+10 ✓",
     "hash": "a988e92043de",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă din a ori b scădem a și scădem b, apoi adunăm 1, obținem a minus 1, ori b minus 1. Din condiție, a ori b minus a minus b este 10, deci a minus 1 ori b minus 1 fac 10 plus 1, adică 11. Numărul 11 este prim, se scrie ca produs doar 1 ori 11. Așa că a minus 1 este 1 și b minus 1 este 11, adică a este 2 și b este 12. Verificăm: 2 ori 12 fac 24, iar 2 plus 12 plus 10 fac tot 24. Singura pereche este a egal cu 2 și b egal cu 12."
   },
   {
     "id": 21,
@@ -249,7 +269,8 @@
     "barem": "240/8 = 30 piese/oră. În 5 ore: 30×5 = 150.",
     "hash": "795687624cb4",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Mai întâi aflăm câte piese face fabrica într-o oră. 240 împărțit la 8 fac 30 de piese pe oră. În 5 ore face de 5 ori mai multe: 30 ori 5 fac 150. Deci în 5 ore produce 150 de piese."
   },
   {
     "id": 22,
@@ -261,7 +282,8 @@
     "barem": "3×24 + 7 = 79 ore. 79×60 = 4740 minute.",
     "hash": "1f5e7bfa7b4c",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Mai întâi transformăm totul în ore. O zi are 24 de ore, deci 3 zile au 3 ori 24, adică 72 de ore. Cu cele 7 ore în plus, avem 72 plus 7, adică 79 de ore. O oră are 60 de minute, deci 79 ori 60 fac 4740. Deci sunt 4740 de minute."
   },
   {
     "id": 23,
@@ -273,7 +295,8 @@
     "barem": "3/6 + 2/6 + 1/6 = 6/6 = 1.",
     "hash": "c49eaa6a51e2",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ca să adunăm fracții, le aducem la același numitor, aici 6. O doime este trei șesimi, o treime este două șesimi, iar o șesime rămâne o șesime. Trei plus doi plus unu fac șase, deci avem șase șesimi. Șase șesimi înseamnă un întreg, adică 1."
   },
   {
     "id": 24,
@@ -285,7 +308,8 @@
     "barem": "Rămân 3/5 după prima luare. Din 3/5 mai rămân 2/3, adică 2/5 din total = 40 → total = 100.",
     "hash": "57b2d8922076",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim pe părți. După ce se iau două cincimi, rămân trei cincimi din bomboane. Apoi se ia o treime din ce rămânea, deci rămân două treimi din cele trei cincimi, adică două cincimi din total. Aceste două cincimi sunt 40 de bomboane, deci o cincime este 20, iar totalul este 5 ori 20, adică 100. La început erau 100 de bomboane."
   },
   {
     "id": 25,
@@ -297,7 +321,8 @@
     "barem": "7/12, 8/12, 9/12, 10/12. Ordinea: 7/12 < 2/3 < 3/4 < 5/6.",
     "hash": "4164080d341c",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ca să comparăm fracțiile, le aducem la același numitor, 12. Trei pătrimi sunt 9 supra 12, cinci șesimi sunt 10 supra 12, două treimi sunt 8 supra 12, iar 7 supra 12 rămâne la fel. Acum comparăm doar numărătorii: 7, 8, 9, 10. Ordinea crescătoare este: 7 supra 12, 2 supra 3, 3 supra 4, 5 supra 6."
   },
   {
     "id": 26,
@@ -309,7 +334,8 @@
     "barem": "Debit combinat: 1/4+1/6 = 5/12/oră. Timp: 12/5 = 2,4 ore = 2h 24min.",
     "hash": "ed9b675b2f14",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: într-o oră, prima țeavă umple o pătrime din rezervor, iar a doua o șesime. Împreună umplu într-o oră 3 supra 12 plus 2 supra 12, adică 5 supra 12 din rezervor. Pentru tot rezervorul le trebuie 12 împărțit la 5, adică 2 ore și două cincimi de oră. Două cincimi din 60 de minute înseamnă 24 de minute. Deci împreună umplu rezervorul în 2 ore și 24 de minute."
   },
   {
     "id": 27,
@@ -321,7 +347,8 @@
     "barem": "Sume telescopice: 1 - 1/10 = 9/10.",
     "hash": "d337b2cc2505",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: fiecare termen se poate scrie ca o diferență. 1 supra 1 ori 2 este 1 minus o doime, 1 supra 2 ori 3 este o doime minus o treime, și tot așa, până la 1 supra 9 ori 10, care este o nouăime minus o zecime. Când adunăm, fiecare fracție din mijloc apare o dată cu plus și o dată cu minus, deci se reduce. Rămâne doar 1 minus o zecime. Rezultatul este 9 supra 10."
   },
   {
     "id": 28,
@@ -333,7 +360,8 @@
     "barem": "3/8 × 80 = 30. Numărul = 80 - 30 = 50.",
     "hash": "608300af9038",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Mai întâi calculăm cât înseamnă trei optimi din 80. 80 împărțit la 8 fac 10, iar 10 ori 3 fac 30. Numărul este cu 30 mai mic decât 80. 80 minus 30 fac 50. Deci numărul este 50."
   },
   {
     "id": 29,
@@ -345,7 +373,8 @@
     "barem": "T10 = 3 + 9×4 = 39.",
     "hash": "61cfd2dd8702",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Observăm că fiecare termen este cu 4 mai mare decât cel dinainte. De la primul termen până la al zecelea facem 9 pași, iar la fiecare pas adunăm 4. 9 ori 4 fac 36. Pornim de la 3: 3 plus 36 fac 39. Al zecelea termen este 39."
   },
   {
     "id": 30,
@@ -357,7 +386,8 @@
     "barem": "T7 = 2 × 3^6 = 1458.",
     "hash": "a5e435e98de9",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Observăm că fiecare termen este de 3 ori mai mare decât cel dinainte. Continuăm șirul: după 54 vine 54 ori 3, adică 162. Apoi 162 ori 3 fac 486, iar 486 ori 3 fac 1458. Numărând, 1458 este al șaptelea termen."
   },
   {
     "id": 31,
@@ -369,7 +399,8 @@
     "barem": "S15 = 15² = 225.",
     "hash": "410c74f8c9ed",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Regula din enunț ne spune că suma primelor n numere impare este n ori n. Pentru primele 15 numere impare, suma este 15 ori 15. 15 ori 15 fac 225. Deci suma este 225."
   },
   {
     "id": 32,
@@ -381,7 +412,8 @@
     "barem": "n = (500-5)/5 + 1 = 100.",
     "hash": "ff61d1e15a7d",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: toți termenii sunt multipli de 5, adică 5 ori 1, 5 ori 2, și tot așa până la 5 ori 100, care este 500. Așa că fiecare termen are un număr de ordine de la 1 la 100. Altfel spus, de la 5 la 500 sunt 495, adică 99 de pași de câte 5, iar împreună cu primul termen avem 99 plus 1. Șirul are 100 de termeni."
   },
   {
     "id": 33,
@@ -393,7 +425,8 @@
     "barem": "1-9: 9×1=9. 10-99: 90×2=180. 100: 3 cifre. Total: 192.",
     "hash": "1575d2d14638",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Împărțim numerele în grupe după câte cifre au. De la 1 la 9 sunt 9 numere cu o cifră, deci 9 cifre. De la 10 la 99 sunt 90 de numere cu câte două cifre, deci 90 ori 2, adică 180 de cifre. Numărul 100 are 3 cifre. În total: 9 plus 180 plus 3 fac 192 de cifre."
   },
   {
     "id": 34,
@@ -405,7 +438,8 @@
     "barem": "Primele 13 grupuri: 91 termeni. Termenul 100 este în grupul 14, la poziția 9.",
     "hash": "93e0af9f9635",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim pe grupe: prima grupă are 1 termen, a doua are 2, a treia are 3 și așa mai departe. Primele 13 grupe au împreună 1 plus 2 plus ... plus 13, adică 91 de termeni. Până la 100 mai sunt 100 minus 91, adică 9 termeni. Deci al 100-lea termen este al nouălea termen din grupa a 14-a, care începe cu 1, 2, 3 și așa mai departe. Al nouălea număr din această grupă este 9."
   },
   {
     "id": 35,
@@ -417,7 +451,8 @@
     "barem": "16 × 2 = 32.",
     "hash": "f2e9a2ee2c38",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Observăm că fiecare număr este de 2 ori mai mare decât cel dinainte: 2, 4, 8, 16. După 16 vine 16 ori 2, adică 32. Verificăm: 32 ori 2 fac 64, exact numărul care urmează. Deci lipsește 32."
   },
   {
     "id": 36,
@@ -429,7 +464,8 @@
     "barem": "B+17 = 2B+10 → B=7. Ana: 19 ani. Verificare: 24=2×12 ✓",
     "hash": "3f957b9f051f",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă Bogdan are acum un anumit număr de ani, peste 5 ani va avea cu 5 mai mult, iar Ana va avea cu 12 mai mult decât el, adică vârsta lui de acum plus 17. Ana va avea dublul vârstei lui Bogdan de atunci, adică vârsta lui de acum, dublată, plus 10. Comparând, vârsta de acum a lui Bogdan plus 17 este egală cu de două ori vârsta lui plus 10, deci vârsta lui este 17 minus 10, adică 7 ani. Verificăm: Ana are acum 19 ani, peste 5 ani ea va avea 24, iar Bogdan 12, și 24 este dublul lui 12. Bogdan are acum 7 ani."
   },
   {
     "id": 37,
@@ -441,7 +477,8 @@
     "barem": "6x=48 → x=8. Cei trei: 8, 16, 24.",
     "hash": "e7a9b363478b",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim pe părți egale: primul are o parte, al doilea are 2 părți, iar al treilea are 3 părți. În total sunt 1 plus 2 plus 3, adică 6 părți. 6 părți fac 48 de cărți, deci o parte este 48 împărțit la 6, adică 8. Primul are 8 cărți, al doilea 8 ori 2, adică 16, iar al treilea 8 ori 3, adică 24. Răspunsul: 8, 16 și 24 de cărți."
   },
   {
     "id": 38,
@@ -453,7 +490,8 @@
     "barem": "50 bucăți rezultă din 49 tăieturi.",
     "hash": "aa13cde92b36",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Mai întâi aflăm câte bucăți rezultă: 100 împărțit la 2 fac 50 de bucăți. Ne gândim la o sfoară tăiată în 2 bucăți: e nevoie de o singură tăietură. La fel, pentru 50 de bucăți facem cu o tăietură mai puțin, adică 50 minus 1. Deci se fac 49 de tăieturi."
   },
   {
     "id": 39,
@@ -465,7 +503,8 @@
     "barem": "Dacă toate cele 10 farfurii ar avea câte 2 prăjituri, ar fi 10 × 2 = 20 de prăjituri. Sunt însă 25, adică cu 25 - 20 = 5 mai multe. Fiecare farfurie cu 3 prăjituri aduce în plus 1 prăjitură, deci sunt 5 farfurii cu 3 prăjituri. Farfurii cu 2 prăjituri: 10 - 5 = 5. Verificare: 5×2 + 5×3 = 10 + 15 = 25 ✓",
     "hash": "38e77e8e6130",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă toate cele 10 farfurii ar avea câte 2 prăjituri, ar fi 10 ori 2, adică 20 de prăjituri. Dar sunt 25, adică cu 25 minus 20, deci cu 5 mai multe. Fiecare farfurie cu 3 prăjituri aduce o prăjitură în plus, deci sunt 5 farfurii cu 3 prăjituri. Farfurii cu câte 2 prăjituri sunt 10 minus 5, adică 5. Verificăm: 5 ori 2 plus 5 ori 3 fac 10 plus 15, adică 25."
   },
   {
     "id": 40,
@@ -477,7 +516,8 @@
     "barem": "V1=12, V2=17, V3=26. Total: 55.",
     "hash": "9009c12eff5d",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Primul vagon are 12 pasageri. Al doilea are cu 5 mai mulți: 12 plus 5 fac 17. Primele două împreună au 12 plus 17, adică 29, iar al treilea are cu 3 mai puțini: 29 minus 3 fac 26. În total sunt 12 plus 17 plus 26, adică 55 de pasageri."
   },
   {
     "id": 41,
@@ -489,7 +529,8 @@
     "barem": "A 3-a din față = 2 copii înaintea ei.",
     "hash": "8a7ac4f6f7ea",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă Anca este a 3-a din față, înseamnă că înaintea ei sunt primul și al doilea copil. Ea însăși nu se numără, pentru că nu stă înaintea ei. Deci înaintea Ancăi sunt 3 minus 1, adică 2 copii."
   },
   {
     "id": 42,
@@ -501,7 +542,8 @@
     "barem": "În fiecare oră ceasul rămâne în urmă cu 5 minute. În 12 ore rămâne în urmă cu 12 × 5 = 60 de minute = 1 oră. După 12 ore reale, un ceas corect ar arăta din nou 12:00, dar ceasul nostru este cu 1 oră în urmă, deci arată 11:00.",
     "hash": "dd7efd3bcf23",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: în fiecare oră, ceasul rămâne în urmă cu 5 minute. În 12 ore rămâne în urmă cu 12 ori 5, adică 60 de minute, care înseamnă exact o oră. După 12 ore reale, un ceas corect ar arăta din nou ora 12:00. Ceasul nostru este însă cu o oră în urmă, deci arată ora 11:00."
   },
   {
     "id": 43,
@@ -513,7 +555,8 @@
     "barem": "Invers: 15×2=30, 30+2=32, 32÷4=8. Verificare: (8×4−2)÷2=15 ✓",
     "hash": "3442656d4e6b",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: pornim de la rezultat și facem pașii invers, de la coadă la cap. Ultimul pas a fost împărțirea la 2, așa că facem invers: 15 ori 2 fac 30. Înainte se scăzuse 2, deci adunăm: 30 plus 2 fac 32. La început numărul fusese înmulțit cu 4, deci împărțim: 32 împărțit la 4 fac 8. Verificăm: 8 ori 4 fac 32, minus 2 fac 30, împărțit la 2 fac 15. Ion a gândit numărul 8."
   },
   {
     "id": 44,
@@ -525,7 +568,8 @@
     "barem": "m+2m=30 → m=10. Cel mare: 20 ani.",
     "hash": "83f5ee91563d",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: vârsta celui mic este o parte, iar vârsta celui mare este de două ori mai mare, adică două părți. Împreună au trei părți egale, care fac 30 de ani. O parte este 30 împărțit la 3, adică 10 ani, deci cel mic are 10 ani. Cel mare are 2 ori 10, adică 20 de ani."
   },
   {
     "id": 45,
@@ -537,7 +581,8 @@
     "barem": "(4-3) × kg = 30 → kg = 30.",
     "hash": "d5a3d2409aef",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă ar fi vândut cu 4 lei kilogramul în loc de 3 lei, ar fi câștigat la fiecare kilogram cu 1 leu mai mult. Câștigul în plus a fost de 30 de lei. Dacă fiecare kilogram aduce un leu în plus, înseamnă că a vândut 30 de kilograme de mere."
   },
   {
     "id": 46,
@@ -549,7 +594,8 @@
     "barem": "Latura = 48÷4 = 12 cm. Aria = 12² = 144 cm².",
     "hash": "45f9fe4d2409",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Un pătrat are 4 laturi egale, iar perimetrul este suma lor. Deci o latură este 48 împărțit la 4, adică 12 centimetri. Aria pătratului este latura ori latura: 12 ori 12 fac 144. Aria este de 144 de centimetri pătrați."
   },
   {
     "id": 47,
@@ -561,7 +607,8 @@
     "barem": "P=2×(15+8)=46 cm. A=15×8=120 cm².",
     "hash": "24585b05b035",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Perimetrul este drumul din jurul dreptunghiului: două lungimi și două lățimi. Lungimea plus lățimea fac 15 plus 8, adică 23, iar de două ori 23 fac 46 de centimetri. Aria este lungimea ori lățimea: 15 ori 8 fac 120. Deci perimetrul este de 46 de centimetri, iar aria este de 120 de centimetri pătrați."
   },
   {
     "id": 48,
@@ -573,7 +620,8 @@
     "barem": "c=√(36+64)=√100=10 cm.",
     "hash": "9db6cb4e62a2",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Într-un triunghi dreptunghic există o regulă specială, numită teorema lui Pitagora. Înmulțim fiecare catetă cu ea însăși: 6 ori 6 fac 36, iar 8 ori 8 fac 64. Le adunăm: 36 plus 64 fac 100. Ipotenuza este numărul care, înmulțit cu el însuși, dă 100, adică 10, pentru că 10 ori 10 fac 100. Ipotenuza are 10 centimetri."
   },
   {
     "id": 49,
@@ -585,7 +633,8 @@
     "barem": "30 = 10×h/2 → h = 6 cm.",
     "hash": "53169af9dda7",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Aria unui triunghi se calculează așa: baza ori înălțimea, apoi împărțit la 2. Ne gândim invers: dacă aria este 30, atunci baza ori înălțimea face dublul, adică 60. Baza este 10, deci înălțimea este 60 împărțit la 10. Înălțimea măsoară 6 centimetri."
   },
   {
     "id": 50,
@@ -597,7 +646,8 @@
     "barem": "Unind mijloacele laturilor, din pătratul mare se taie 4 triunghiuri în colțuri. Fiecare triunghi are catetele de 5 cm și 5 cm (jumătăți de latură), deci aria 5×5÷2 = 12,5 cm². Cele 4 triunghiuri au împreună 4×12,5 = 50 cm². Aria pătratului mare este 10×10 = 100 cm². Aria pătratului interior = 100 − 50 = 50 cm².",
     "hash": "2a554171ad87",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: când unim mijloacele laturilor, din pătratul mare se taie 4 triunghiuri mici, câte unul în fiecare colț. Fiecare triunghi are două laturi de câte 5 centimetri, adică jumătăți de latură, deci aria lui este 5 ori 5 împărțit la 2, adică 12 virgulă 5 centimetri pătrați. Cele 4 triunghiuri au împreună 4 ori 12 virgulă 5, adică 50 de centimetri pătrați. Pătratul mare are aria 10 ori 10, adică 100. Pătratul din interior are aria 100 minus 50, adică 50 de centimetri pătrați."
   },
   {
     "id": 51,
@@ -609,7 +659,8 @@
     "barem": "2 axe: una orizontală, una verticală.",
     "hash": "f0f401c329b9",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "O axă de simetrie este o linie pe care, dacă împăturim figura, cele două jumătăți se suprapun perfect. La un dreptunghi putem împături pe linia verticală prin mijloc și pe linia orizontală prin mijloc. Pe diagonală nu merge, pentru că laturile nu sunt egale și colțurile nu s-ar potrivi. Deci dreptunghiul care nu este pătrat are 2 axe de simetrie."
   },
   {
     "id": 52,
@@ -621,7 +672,8 @@
     "barem": "Baza = 36 − 13 − 13 = 10 cm. Aria = baza × înălțimea ÷ 2 = 10 × 12 ÷ 2 = 60 cm².",
     "hash": "e219af9bfffc",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Mai întâi aflăm baza: din perimetru scădem cele două laturi egale, adică 36 minus 13 minus 13, care fac 10 centimetri. Aria unui triunghi este baza ori înălțimea, împărțit la 2. Avem 10 ori 12, adică 120, împărțit la 2, care fac 60. Aria triunghiului este de 60 de centimetri pătrați."
   },
   {
     "id": 53,
@@ -633,7 +685,8 @@
     "barem": "2(l+3l)=40 → l=5, L=15.",
     "hash": "785fdde4e0a0",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: lățimea este o parte, iar lungimea este de 3 ori mai mare, adică 3 părți. Jumătate din perimetru înseamnă o lungime plus o lățime, adică 40 împărțit la 2, care fac 20 de centimetri. Aceste 20 de centimetri sunt 4 părți, deci o parte este 20 împărțit la 4, adică 5 centimetri. Lățimea are 5 centimetri, iar lungimea are 3 ori 5, adică 15 centimetri."
   },
   {
     "id": 54,
@@ -645,7 +698,8 @@
     "barem": "O față: 3×3=9 pătrate. 6 fețe × 9 = 54 pătrate.",
     "hash": "2e50e59c2d8c",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Fiecare față a cubului este un pătrat cu latura de 3 centimetri. Pe o față se pot desena 3 rânduri a câte 3 pătrățele, adică 3 ori 3, care fac 9 pătrate unitate. Un cub are 6 fețe. În total sunt 6 ori 9, adică 54 de pătrate unitate."
   },
   {
     "id": 55,
@@ -657,7 +711,8 @@
     "barem": "Într-un dreptunghi, diagonala formează cu două laturi un triunghi dreptunghic. Din teorema lui Pitagora: l² + 9² = 15², deci l² = 225 − 81 = 144, l = 12 cm. Perimetrul = 2 × (12 + 9) = 42 cm.",
     "hash": "073a8918d724",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Diagonala împarte dreptunghiul în două triunghiuri dreptunghice, iar acolo folosim teorema lui Pitagora. Înmulțim diagonala cu ea însăși: 15 ori 15 fac 225, iar latura cunoscută: 9 ori 9 fac 81. Cealaltă latură, înmulțită cu ea însăși, dă 225 minus 81, adică 144, iar 12 ori 12 fac 144, deci latura este de 12 centimetri. Perimetrul este de două ori 12 plus 9, adică de două ori 21, care fac 42 de centimetri."
   },
   {
     "id": 56,
@@ -669,7 +724,8 @@
     "barem": "4! = 4×3×2×1 = 24.",
     "hash": "8869f0323e40",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim scaun cu scaun. Pe primul scaun poate sta oricare dintre cei 4 elevi. Pe al doilea rămân 3 variante, pe al treilea 2, iar pe ultimul rămâne un singur elev. Înmulțim: 4 ori 3 ori 2 ori 1 fac 24 de moduri."
   },
   {
     "id": 57,
@@ -681,7 +737,8 @@
     "barem": "5×4×3 = 60.",
     "hash": "f06f01b26d87",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim cifră cu cifră. Pentru cifra sutelor avem 5 variante. Pentru cifra zecilor rămân 4 variante, pentru că nu putem repeta cifra folosită. Pentru cifra unităților rămân 3 variante. Înmulțim: 5 ori 4 ori 3 fac 60 de numere."
   },
   {
     "id": 58,
@@ -693,7 +750,8 @@
     "barem": "C(5,3) = 10.",
     "hash": "9e3ab36ef41e",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă alegem copiii pe rând, primul are 5 variante, al doilea 4, al treilea 3, adică 5 ori 4 ori 3, care fac 60. Dar într-o echipă nu contează ordinea, iar aceiași 3 copii pot fi aleși în 6 ordini diferite. Deci fiecare echipă a fost numărată de 6 ori. Împărțim: 60 împărțit la 6 fac 10 echipe diferite."
   },
   {
     "id": 59,
@@ -705,7 +763,8 @@
     "barem": "8×5/2 = 20.",
     "hash": "02e26966c4fa",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "O diagonală unește două vârfuri care nu sunt vecine. Din fiecare vârf al octogonului pleacă diagonale spre toate celelalte vârfuri, mai puțin spre el însuși și spre cei 2 vecini, adică spre 5 vârfuri. Din 8 vârfuri ies 8 ori 5, adică 40 de diagonale. Dar fiecare diagonală a fost numărată de două ori, câte o dată din fiecare capăt, deci 40 împărțit la 2 fac 20 de diagonale."
   },
   {
     "id": 60,
@@ -717,7 +776,8 @@
     "barem": "3×4×2 = 24.",
     "hash": "00e5a3df8fbe",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Un meniu complet are o supă, un fel principal și un desert. Fiecare dintre cele 3 supe se poate pune cu oricare dintre cele 4 feluri principale, ceea ce dă 3 ori 4, adică 12 variante. Fiecare dintre acestea se poate termina cu oricare dintre cele 2 deserturi. În total sunt 12 ori 2, adică 24 de meniuri complete."
   },
   {
     "id": 61,
@@ -729,7 +789,8 @@
     "barem": "Împărțim cele 5 bile în 3 cutii nevide. Sunt două tipuri de împărțire: (3,1,1) sau (2,2,1). Cazul 3-1-1: alegem cutia cu 3 bile (3 moduri), alegem cele 3 bile (10 moduri), iar cele 2 bile rămase merg câte una în celelalte 2 cutii (2 moduri): 3×10×2 = 60. Cazul 2-2-1: alegem cutia cu o bilă (3 moduri), bila din ea (5 moduri), apoi din cele 4 bile rămase alegem 2 pentru prima cutie rămasă (6 moduri), restul merg în ultima: 3×5×6 = 90. Total: 60 + 90 = 150.",
     "hash": "ea3d597a686d",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: fiecare cutie trebuie să aibă măcar o bilă, deci bilele se pot împărți fie 3, 1 și 1, fie 2, 2 și 1. Pentru 3, 1 și 1: alegem cutia cu 3 bile în 3 moduri, alegem cele 3 bile din 5 în 10 moduri, iar cele 2 bile rămase le punem câte una în celelalte cutii în 2 moduri, adică 3 ori 10 ori 2, care fac 60. Pentru 2, 2 și 1: alegem cutia cu o bilă în 3 moduri și bila din ea în 5 moduri, apoi din cele 4 bile rămase alegem 2 pentru următoarea cutie în 6 moduri, iar restul merg în ultima, adică 3 ori 5 ori 6, care fac 90. Adunăm cele două cazuri: 60 plus 90 fac 150 de modalități."
   },
   {
     "id": 62,
@@ -741,7 +802,8 @@
     "barem": "Fiecare dintre cele 5 mănuși stângi poate fi pusă cu oricare dintre cele 5 mănuși drepte. Numărul de perechi = 5 × 5 = 25.",
     "hash": "740a120ff96a",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: luăm prima mănușă stângă și o putem pune cu oricare dintre cele 5 mănuși drepte, deci avem 5 perechi. La fel se întâmplă pentru fiecare dintre cele 5 mănuși stângi. În total avem 5 ori 5, adică 25 de perechi."
   },
   {
     "id": 63,
@@ -753,7 +815,8 @@
     "barem": "n(n-1)/2=15 → n=6.",
     "hash": "db7f20326e6c",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă sunt mai multe echipe, fiecare joacă cu toate celelalte. Încercăm cu 6 echipe: fiecare joacă 5 meciuri, deci 6 ori 5 fac 30. Dar fiecare meci a fost numărat de două ori, o dată pentru fiecare echipă, deci sunt 30 împărțit la 2, adică 15 meciuri. Exact cât spune problema, deci participă 6 echipe."
   },
   {
     "id": 64,
@@ -765,7 +828,8 @@
     "barem": "5x=20 → x=4.",
     "hash": "3ba2393690b9",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: un număr înmulțit cu 5, plus 3, face 23. Înainte să adunăm 3, rezultatul era 23 minus 3, adică 20. Deci 5 ori numărul face 20, iar numărul este 20 împărțit la 5. Așadar x este egal cu 4."
   },
   {
     "id": 65,
@@ -777,7 +841,8 @@
     "barem": "2x=14 → x=7. y=3.",
     "hash": "adf98bfca3fc",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: suma celor două numere este 10, iar diferența lor este 4. Dacă adunăm suma și diferența, numărul y dispare și obținem de două ori x: 10 plus 4 fac 14. Atunci x este 14 împărțit la 2, adică 7. Din suma 10, y este 10 minus 7, adică 3. Deci x este egal cu 7 și y este egal cu 3."
   },
   {
     "id": 66,
@@ -789,7 +854,8 @@
     "barem": "a=4, b=5. a+b=9.",
     "hash": "9f3a1bd74bd5",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Dacă 3 ori a fac 12, atunci a este 12 împărțit la 3, adică 4. Dacă 2 ori b fac 10, atunci b este 10 împărțit la 2, adică 5. Acum adunăm: 4 plus 5 fac 9. Deci a plus b este egal cu 9."
   },
   {
     "id": 67,
@@ -801,7 +867,8 @@
     "barem": "4x=48 → x=12.",
     "hash": "b2da7f968543",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: numărul este o parte, iar triplul lui înseamnă 3 părți. Împreună fac 4 părți egale, care dau 48. O parte este 48 împărțit la 4, adică 12. Numărul căutat este 12."
   },
   {
     "id": 68,
@@ -813,7 +880,8 @@
     "barem": "y ∈ {0,1,...,10} → 11 soluții.",
     "hash": "9ebdb2224304",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: alegem pe rând valori pentru y, iar x este ce rămâne, adică 20 minus de două ori y. Dacă y este 0, x este 20; dacă y este 1, x este 18; și tot așa, x scade cu câte 2. Ultima valoare bună este y egal cu 10, când x este 0, pentru că pentru y egal cu 11, 2 ori y ar depăși 20. Deci y poate fi orice număr de la 0 la 10, adică 11 valori. Ecuația are 11 soluții."
   },
   {
     "id": 69,
@@ -825,7 +893,8 @@
     "barem": "4f+6=3f+18 → f=12 → T=48. Verificare: 54=3×18 ✓",
     "hash": "8d4dcd9f1de8",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: vârsta fiului este o parte, iar tatăl are 4 părți. Peste 6 ani, tatăl va avea 4 părți plus 6, iar fiul o parte plus 6. Triplul vârstei fiului atunci va fi 3 părți plus 18, și asta trebuie să fie egal cu 4 părți plus 6. Diferența dintre ele este o parte, care face 18 minus 6, adică 12, deci fiul are 12 ani. Tatăl are 4 ori 12, adică 48 de ani; verificăm: peste 6 ani tatăl are 54, fiul 18, iar 3 ori 18 fac 54."
   },
   {
     "id": 70,
@@ -837,7 +906,8 @@
     "barem": "5x=20 → x=4.",
     "hash": "6c1e1563bbc4",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: numărul înmulțit cu 6 înseamnă 6 bucăți de număr, iar numărul plus 20 înseamnă o bucată plus 20. Dacă luăm câte o bucată din fiecare parte, rămâne că 5 bucăți fac 20. O bucată este 20 împărțit la 5, adică 4. Verificăm: 4 ori 6 fac 24, iar 4 plus 20 fac tot 24. Numărul este 4."
   },
   {
     "id": 71,
@@ -849,7 +919,8 @@
     "barem": "Verificăm întâi valorile mici ale lui x. Dacă x=0: 0 = 2y, deci y=0 → (0,0). Dacă x=1: y = 2+2y, imposibil. Dacă x=2: 2y = 4+2y, imposibil. Pentru x ≥ 3 (deci și y ≥ 3), relația xy = 2x + 2y se poate scrie (x−2)(y−2) = 4. Cu x−2 ≤ y−2: 1×4 → (3,6) și 2×2 → (4,4). Verificare: 3×6 = 18 = 2×9 ✓, 4×4 = 16 = 2×8 ✓. Soluții: (0,0), (3,6), (4,4).",
     "hash": "dbb97d917fa8",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Încercăm întâi numerele mici pentru x. Dacă x este 0, atunci 0 trebuie să fie egal cu 2 ori y, deci y este 0 și avem perechea 0 și 0. Dacă x este 1 sau 2, egalitatea nu poate fi adevărată niciodată. Pentru x de la 3 în sus folosim un truc: relația se poate scrie ca produsul dintre x minus 2 și y minus 2 este egal cu 4, iar 4 se scrie ca 1 ori 4 sau 2 ori 2, de unde ies perechile 3 și 6, respectiv 4 și 4. Verificăm: 3 ori 6 fac 18, iar 2 ori 9 fac 18; 4 ori 4 fac 16, iar 2 ori 8 fac 16. Soluțiile sunt perechile 0 și 0, 3 și 6, 4 și 4."
   },
   {
     "id": 72,
@@ -861,7 +932,8 @@
     "barem": "12k=36 → k=3. a=9, b=12, c=15.",
     "hash": "e74bc185cced",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: a, b și c sunt formate din părți egale, a are 3 părți, b are 4 părți, iar c are 5 părți. Împreună au 3 plus 4 plus 5, adică 12 părți, care fac 36. O parte este 36 împărțit la 12, adică 3. Deci a este 3 ori 3, adică 9, b este 4 ori 3, adică 12, iar c este 5 ori 3, adică 15."
   },
   {
     "id": 73,
@@ -873,7 +945,8 @@
     "barem": "x+2x+(2x-6)=54 → 5x=60 → x=12.",
     "hash": "f0aff3a89af2",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: notăm bilele roșii cu o parte. Bilele albastre sunt de 2 ori mai multe, deci 2 părți. Bilele galbene sunt cu 6 mai puține decât albastrele, deci 2 părți minus 6. Toate împreună fac 5 părți minus 6, iar asta este 54. Atunci 5 părți fac 54 plus 6, adică 60, și o parte este 60 împărțit la 5, adică 12. Verificăm: 12 roșii, 24 albastre și 18 galbene fac 54. Sunt 12 bile roșii."
   },
   {
     "id": 74,
@@ -885,7 +958,8 @@
     "barem": "16, 25, 34, 43, 52, 61, 70 = 7 numere.",
     "hash": "0ec0fa3238f4",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: cifra zecilor nu poate fi 0, iar cifra unităților trebuie să completeze până la 7. Dacă cifra zecilor este 1, unitățile sunt 6 și obținem 16. Continuăm la fel: 25, 34, 43, 52, 61 și 70. Cifra zecilor poate fi de la 1 până la 7, deci avem exact 7 numere."
   },
   {
     "id": 75,
@@ -897,7 +971,8 @@
     "barem": "(1/2)×(1-1/21) = 10/21.",
     "hash": "061122a9fb56",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: fiecare fracție se poate scrie ca jumătate dintr-o diferență. De exemplu, 1 supra 3 este jumătate din 1 minus o treime, iar 1 supra 15 este jumătate din o treime minus o cincime. Când adunăm toate aceste diferențe, termenii din mijloc se anulează unul pe altul: o treime apare o dată cu plus și o dată cu minus, la fel o cincime și așa mai departe. Rămâne doar jumătate din 1 minus 1 supra 21, adică jumătate din 20 supra 21. Suma este 10 supra 21."
   },
   {
     "id": 76,
@@ -909,7 +984,8 @@
     "barem": "Termenii sunt pătratele perfecte: n². Al 10-lea: 100.",
     "hash": "df82acc2befe",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: 1 este 1 ori 1, 4 este 2 ori 2, 9 este 3 ori 3, 16 este 4 ori 4 și 25 este 5 ori 5. Deci fiecare termen este numărul locului său înmulțit cu el însuși. Termenul al 10-lea este 10 ori 10, adică 100."
   },
   {
     "id": 77,
@@ -921,7 +997,8 @@
     "barem": "Distanța totală: 200+300=500 m. Timp: 500÷50=10 s.",
     "hash": "f2644dd41b01",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: traversarea se termină abia când și ultimul vagon a ieșit din tunel. Până atunci, locomotiva parcurge tot tunelul, de 300 de metri, și încă lungimea trenului, de 200 de metri. Distanța totală este 200 plus 300, adică 500 de metri. Trenul merge 50 de metri în fiecare secundă, deci are nevoie de 500 împărțit la 50, adică 10 secunde."
   },
   {
     "id": 78,
@@ -933,7 +1010,8 @@
     "barem": "9×10×10=900.",
     "hash": "69b499c01758",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Un palindrom se citește la fel de la stânga la dreapta și de la dreapta la stânga, de exemplu 12321. Ne gândim așa: la un număr de 5 cifre alegem doar primele trei cifre, iar ultimele două se copiază în oglindă. Prima cifră nu poate fi 0, deci are 9 variante, a doua are 10 variante, iar a treia tot 10 variante. În total sunt 9 ori 10 ori 10, adică 900 de palindromuri."
   },
   {
     "id": 79,
@@ -945,7 +1023,8 @@
     "barem": "Dacă N împărțit la 2, 3, 4 și 5 lasă restul 1, atunci N−1 se împarte exact la 2, 3, 4 și 5. Cel mai mic multiplu comun nenul al lor este c.m.m.m.c.(2,3,4,5)=60. Deci N−1=60, adică N=61. Verificare: 61=2×30+1=3×20+1=4×15+1=5×12+1.",
     "hash": "7c21001bbfd5",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă N lasă restul 1 la împărțirea la 2, 3, 4 și 5, atunci numărul de dinaintea lui, N minus 1, se împarte exact la toate acestea. Cel mai mic număr nenul care se împarte la 2, 3, 4 și 5 este 60. Deci N minus 1 este 60, iar N este 61. Verificăm: 61 este 60 plus 1, iar 60 se împarte exact la 2, la 3, la 4 și la 5. Răspunsul este 61."
   },
   {
     "id": 80,
@@ -957,7 +1036,8 @@
     "barem": "A = 100/2 = 50 cm².",
     "hash": "f7e47ead2137",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: desenăm în jurul pătratului un pătrat mai mare, cu laturile paralele cu diagonalele, deci cu latura de 10 centimetri. Pătratul mare are aria 10 ori 10, adică 100 de centimetri pătrați. Pătratul nostru ocupă exact jumătate din el, pentru că fiecare colț al pătratului mare este un triunghi la fel cu unul din interior. Deci aria este 100 împărțit la 2, adică 50 de centimetri pătrați."
   },
   {
     "id": 81,
@@ -969,7 +1049,8 @@
     "barem": "Fete: 12. Băieți: 18.",
     "hash": "e792179d1aef",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: împărțim cei 30 de elevi în 5 părți egale, deci o parte are 30 împărțit la 5, adică 6 elevi. Fetele sunt 2 părți, adică 2 ori 6, deci 12 fete. Băieții sunt restul: 30 minus 12, adică 18 băieți."
   },
   {
     "id": 82,
@@ -981,7 +1062,8 @@
     "barem": "4×5×6=120 ✓",
     "hash": "01a5947549e8",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: încercăm numere consecutive mici și ne uităm la produs. 3 ori 4 ori 5 fac 60, prea puțin. Următorul grup este 4, 5 și 6: 4 ori 5 fac 20, iar 20 ori 6 fac 120, exact cât trebuie. Numerele sunt 4, 5 și 6."
   },
   {
     "id": 83,
@@ -993,7 +1075,8 @@
     "barem": "Din «Ion este mai scund decât Maria, dar mai înalt decât Andrei» obținem: Andrei < Ion < Maria. Petru este mai înalt decât Maria, deci vine după ea: Andrei < Ion < Maria < Petru. Ordinea de la cel mai scund: Andrei, Ion, Maria, Petru.",
     "hash": "c22a9c0e266b",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: Ion este mai scund decât Maria, dar mai înalt decât Andrei, deci Ion stă între Andrei și Maria. Până acum avem ordinea Andrei, Ion, Maria. Petru este mai înalt decât Maria, deci îl punem după ea. Ordinea de la cel mai scund la cel mai înalt este Andrei, Ion, Maria, Petru."
   },
   {
     "id": 84,
@@ -1005,7 +1088,8 @@
     "barem": "8888.",
     "hash": "aff7f1d3792e",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Cifrele pare sunt 0, 2, 4, 6 și 8. Ne gândim așa: ca numărul să fie cât mai mare, punem pe fiecare loc cea mai mare cifră pară posibilă, adică 8. Începem cu miile, apoi sutele, zecile și unitățile. Cel mai mare număr este 8888."
   },
   {
     "id": 85,
@@ -1017,7 +1101,8 @@
     "barem": "(n+2)(n+3) se află între (n+2)² și (n+3)², deci nu poate fi pătrat perfect.",
     "hash": "4adb25581756",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: numerele n plus 2 și n plus 3 sunt vecine. Produsul lor este mai mare decât n plus 2 înmulțit cu el însuși, dar mai mic decât n plus 3 înmulțit cu el însuși, iar acestea sunt două pătrate perfecte vecine. Între două pătrate perfecte vecine nu mai există niciun alt pătrat perfect. De exemplu, pentru n egal cu 1, avem 3 ori 4, adică 12, care este între 9 și 16. Deci răspunsul este nu."
   },
   {
     "id": 86,
@@ -1029,7 +1114,8 @@
     "barem": "Perimetrul este 28 cm, deci lungimea + lățimea = 28:2 = 14 cm. Căutăm două numere cu suma 14 și produsul 48: 1+13 (13), 2+12 (24), 3+11 (33), 4+10 (40), 5+9 (45), 6+8 (48) ✓. Dimensiunile sunt 6 cm și 8 cm.",
     "hash": "5a57d7e1d6cd",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: perimetrul are de două ori lungimea și de două ori lățimea, deci lungimea plus lățimea fac 28 împărțit la 2, adică 14 centimetri. Căutăm două numere cu suma 14 și produsul 48. Încercăm pe rând: 4 și 10 dau produsul 40, 5 și 9 dau 45, iar 6 și 8 dau exact 48. Dimensiunile sunt 6 centimetri și 8 centimetri."
   },
   {
     "id": 87,
@@ -1041,7 +1127,8 @@
     "barem": "S = 2^10 - 1 = 1023.",
     "hash": "f94e0eadaf11",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: fiecare termen este dublul celui dinainte, iar al zecelea termen este 512. Observăm ceva frumos: 1 plus 2 fac 3, cu unu mai puțin decât 4, iar 1 plus 2 plus 4 fac 7, cu unu mai puțin decât 8. Suma termenilor este mereu cu 1 mai mică decât termenul următor. După 512 ar urma 1024, deci suma primilor 10 termeni este 1024 minus 1, adică 1023."
   },
   {
     "id": 88,
@@ -1053,7 +1140,8 @@
     "barem": "3f+10=2f+20 → f=10 → M=30.",
     "hash": "72d027c0c473",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: vârsta fiicei este o parte, iar a mamei este 3 părți. Peste 10 ani, mama va avea 3 părți plus 10, iar dublul vârstei fiicei va fi 2 părți plus 20. Acestea trebuie să fie egale, deci o parte este 20 minus 10, adică 10 ani. Fiica are 10 ani, iar mama are 3 ori 10, adică 30 de ani. Verificăm: peste 10 ani, mama va avea 40, iar fiica 20, exact de 2 ori mai puțin."
   },
   {
     "id": 89,
@@ -1065,7 +1153,8 @@
     "barem": "7 la zeci: 10 numere. 7 la unități: 8. Total: 18.",
     "hash": "e59f272c6690",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: mai întâi numărăm numerele cu 7 la zeci, de la 70 la 79, adică 10 numere. Apoi numerele cu 7 la unități: 17, 27, 37, 47, 57, 67, 77, 87 și 97, dar 77 l-am numărat deja, deci rămân 8 numere noi. În total sunt 10 plus 8, adică 18 numere."
   },
   {
     "id": 90,
@@ -1077,7 +1166,8 @@
     "barem": "Notăm suma cu S: S = 1 − 1/2 + 1/4 − 1/8 + ... Observăm că tot ce vine după primul 1 este exact jumătate din S, luată cu minus: 1/2 − 1/4 + 1/8 − ... = S:2. Deci S = 1 − S:2. Adunăm S:2 în ambele părți: S + S:2 = 1, adică trei jumătăți din S fac 1. Atunci o jumătate din S este 1/3, iar S = 2/3.",
     "hash": "c6c15e5be726",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: notăm toată suma cu S. Tot ce vine după primul 1 este exact jumătate din S, dar luată cu minus, pentru că fiecare termen s-a înjumătățit și și-a schimbat semnul. Deci S este 1 minus jumătate din S. Atunci S plus jumătate din S, adică trei jumătăți din S, fac 1. O jumătate din S este o treime, iar S este două treimi, adică 2 supra 3."
   },
   {
     "id": 91,
@@ -1089,7 +1179,8 @@
     "barem": "u+(u+1)+(u+2)=15 → u=4. Numărul: 654.",
     "hash": "17a36d467db7",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: notăm cifra unităților cu o parte. Cifra zecilor este partea plus 1, iar cifra sutelor este partea plus 2. Toate trei fac 3 părți plus 3, iar asta este 15, deci 3 părți fac 12 și o parte este 4. Unitățile sunt 4, zecile 5, sutele 6. Verificăm: 6 plus 5 plus 4 fac 15. Numărul este 654."
   },
   {
     "id": 92,
@@ -1101,7 +1192,8 @@
     "barem": "25²=625.",
     "hash": "9fe8b150176d",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "25 la pătrat înseamnă 25 ori 25. Ne gândim așa: 25 ori 20 fac 500, iar 25 ori 5 fac 125. Adunăm: 500 plus 125 fac 625."
   },
   {
     "id": 93,
@@ -1113,7 +1205,8 @@
     "barem": "O pisică mănâncă 20 șoareci în 100 min. 5 pisici → 100 șoareci.",
     "hash": "80074729db85",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă 5 pisici mănâncă 5 șoareci în 5 minute, atunci fiecare pisică mănâncă un șoarece în 5 minute. În 100 de minute sunt de 20 de ori câte 5 minute, deci o pisică mănâncă 20 de șoareci. Ca să fie mâncați 100 de șoareci, avem nevoie de 100 împărțit la 20, adică 5 pisici."
   },
   {
     "id": 94,
@@ -1125,7 +1218,8 @@
     "barem": "8×9=72 ✓ → x=8.",
     "hash": "491d67268e2d",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: un număr înmulțit cu el însuși, plus încă o dată numărul, este la fel ca numărul înmulțit cu următorul număr. Deci căutăm două numere consecutive al căror produs este 72. Știm că 8 ori 9 fac 72. Numărul este 8, și verificăm: 8 ori 8 fac 64, plus 8 fac 72."
   },
   {
     "id": 95,
@@ -1137,7 +1231,8 @@
     "barem": "Aria feței: 16 cm². Latura: 4 cm. V=64 cm³.",
     "hash": "b2095cb44ebf",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: un cub are 6 fețe, toate pătrate egale. Aria unei fețe este 96 împărțit la 6, adică 16 centimetri pătrați. Latura este 4 centimetri, pentru că 4 ori 4 fac 16. Volumul este 4 ori 4 ori 4, adică 64 de centimetri cubi."
   },
   {
     "id": 96,
@@ -1149,7 +1244,8 @@
     "barem": "4 × 3 × 3 = 36.",
     "hash": "6dfce6bb7f08",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: alegem literele pe rând. Prima literă poate fi oricare dintre cele 4. A doua trebuie să fie diferită de prima, deci are 3 variante. A treia trebuie să fie diferită de a doua, deci are tot 3 variante. În total sunt 4 ori 3 ori 3, adică 36 de șiruri."
   },
   {
     "id": 97,
@@ -1161,7 +1257,8 @@
     "barem": "Sunt 900 de numere de 3 cifre (100–999). Scădem pe cele cu toate cifrele diferite: prima cifră 9 variante (1–9), a doua 9 variante (orice cifră diferită de prima, inclusiv 0), a treia 8 variante: 9×9×8 = 648. Scădem și pe cele cu toate cifrele egale: 111, 222, ..., 999, adică 9 numere. Rămân 900 − 648 − 9 = 243 de numere cu exact două cifre identice.",
     "hash": "974f99dabea8",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: numerele de 3 cifre sunt de la 100 la 999, adică 900. Din ele scoatem pe cele cu toate cifrele diferite: prima cifră are 9 variante, a doua tot 9, pentru că acum poate fi și 0, iar a treia 8 variante, deci 9 ori 9 ori 8, adică 648. Scoatem și numerele cu toate cifrele la fel, de la 111 la 999, adică 9 numere. Rămân 900 minus 648 minus 9, adică 243 de numere cu exact două cifre identice."
   },
   {
     "id": 98,
@@ -1173,7 +1270,8 @@
     "barem": "Ieri=marți → azi=miercuri → mâine=joi → poimâine=vineri.",
     "hash": "a30e28ceddb8",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă ieri a fost marți, atunci azi este miercuri. Mâine va fi joi, iar poimâine, adică ziua de după mâine, va fi vineri."
   },
   {
     "id": 99,
@@ -1185,7 +1283,8 @@
     "barem": "cmmdc(36,48)=12. Fracția: 3/4.",
     "hash": "85376ca47f51",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: căutăm cel mai mare număr care împarte exact și pe 36, și pe 48, iar acesta este 12. Împărțim numărătorul: 36 împărțit la 12 fac 3. Împărțim numitorul: 48 împărțit la 12 fac 4. Fracția simplificată este 3 supra 4, adică trei pătrimi."
   },
   {
     "id": 100,
@@ -1197,6 +1296,7 @@
     "barem": "20+4=24 zerouri.",
     "hash": "86aebefe00b8",
     "sursa": "vasile-alecsandri",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: un zero la final apare din fiecare pereche 2 ori 5, iar factori de 2 sunt mult mai mulți, deci numărăm factorii de 5. Printre numerele de la 1 la 100 sunt 20 de multipli de 5, adică 100 împărțit la 5. Numerele 25, 50, 75 și 100 au câte un 5 în plus, pentru că se împart la 25, deci mai adăugăm 4. În total sunt 20 plus 4, adică 24 de zerouri."
   }
 ]

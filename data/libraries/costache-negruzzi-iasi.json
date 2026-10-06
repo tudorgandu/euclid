@@ -11,7 +11,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Perimetrul este de 240 de metri, deci o lungime plus o lățime fac jumătate, adică 120 de metri. Lungimea este cât 5 lățimi, așa că o lungime plus o lățime înseamnă 6 lățimi. O lățime este 120 împărțit la 6, adică 20 de metri, iar lungimea este 20 ori 5, adică 100 de metri. Aria este lungimea ori lățimea: 100 ori 20 fac 2000 de metri pătrați."
   },
   {
     "cat": "Numere naturale",
@@ -25,7 +26,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Numărul format din primele trei cifre este egal cu 28 ori suma ultimelor două cifre, plus 6, iar suma aceasta trebuie să fie mai mare decât restul 6. Cum prima cifră este 3, acest număr de trei cifre este între 300 și 399, deci suma ultimelor două cifre poate fi doar 11, 12, 13 sau 14. Pentru 11 obținem 314, cu ultimele cifre 4 și 7, adică numărul 3147, care merge. Pentru 12 obținem 342, dar ar trebui 2 plus 10, iar 10 nu e cifră, iar pentru 13 obținem 370, unde ar trebui 0 plus 13, tot imposibil. Pentru 14 obținem 398, cu 8 plus 6, adică numărul 3986, care merge. Deci există 2 numere."
   },
   {
     "cat": "Probleme de logică",
@@ -39,7 +41,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Mai întâi aflăm suma tuturor numerelor de la 1 la 16. Le putem împerechea: 1 cu 16, 2 cu 15 și așa mai departe, adică 8 perechi a câte 17, deci suma este 136. Cum grupele au aceeași sumă, împărțim totalul la 4. Așadar 136 împărțit la 4 fac 34."
   },
   {
     "cat": "Operații",
@@ -53,7 +56,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Facem întâi împărțirea din paranteză: 714 împărțit la 7 fac 102. Apoi, în paranteză, 16 plus 234 minus 102 fac 148. Înmulțim: 148 ori 18 fac 2664. La final scădem: 2664 minus 89 fac 2575."
   },
   {
     "cat": "Algebră elementară",
@@ -67,7 +71,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: x are 3 părți egale, y are 4 părți și z are 5 părți. Împreună au 3 plus 4 plus 5, adică 12 părți, care fac 48, deci o parte este 48 împărțit la 12, adică 4. Atunci x este 12, y este 16 și z este 20. Acum calculăm fiecare număr înmulțit cu el însuși: 12 ori 12 fac 144, 16 ori 16 fac 256 și 20 ori 20 fac 400. Suma este 144 plus 256 plus 400, adică 800."
   },
   {
     "cat": "Combinatorică",
@@ -81,7 +86,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Dintr-un vârf putem duce diagonale spre toate celelalte vârfuri, în afară de el însuși și de cei doi vecini, adică spre 12 minus 3, deci 9 vârfuri. Cum sunt 12 vârfuri, am număra 12 ori 9, adică 108 diagonale. Dar fiecare diagonală a fost numărată de două ori, câte o dată din fiecare capăt. Deci sunt 108 împărțit la 2, adică 54 de diagonale."
   },
   {
     "cat": "Fracții",
@@ -95,7 +101,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Într-o oră, conducta A umple o șesime din rezervor, iar conducta B o pătrime. O șesime înseamnă 2 supra 12, iar o pătrime înseamnă 3 supra 12, deci împreună umplu într-o oră 5 supra 12 din rezervor. Ca să umple tot rezervorul le trebuie 12 supra 5 ore, adică 2 ore întregi și încă 2 supra 5 dintr-o oră. Două cincimi din 60 de minute înseamnă 24 de minute, deci rezervorul se umple în 2 ore și 24 de minute."
   },
   {
     "cat": "Numere naturale",
@@ -109,7 +116,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Luăm pe rând cifra zecilor. Dacă este 1, cifra unităților poate fi doar 0, deci avem 1 număr. Dacă este 2, unitățile pot fi 0 sau 1, deci 2 numere, și tot așa, până la 9, când avem 9 numere. În total sunt 1 plus 2 plus 3 și așa mai departe până la 9, adică 45 de numere."
   },
   {
     "cat": "Probleme de logică",
@@ -123,7 +131,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Dacă adunăm 60 la sută cu 50 la sută, elevii care fac ambele activități sunt numărați de două ori. De aceea scădem o dată pe cei 20 la sută: 60 plus 50 minus 20 fac 90 la sută. Deci 90 la sută dintre elevi fac măcar una dintre activități. Restul, adică 100 minus 90, înseamnă 10 la sută, nu fac nici sport, nici muzică."
   },
   {
     "cat": "Șiruri și șabloane",
@@ -137,7 +146,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne folosim de regula din enunț: suma primelor n numere impare este n ori n. Suma primilor 20 de termeni este 20 ori 20, adică 400. Suma primilor 10 termeni este 10 ori 10, adică 100. Termenii de la al 11-lea la al 20-lea sunt exact ce rămâne când îi scoatem pe primii 10, deci suma lor este 400 minus 100, adică 300."
   },
   {
     "cat": "Operații",
@@ -151,7 +161,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Fiecare termen este dublul celui dinainte. Ne gândim așa: dacă adăugăm 1 la sumă, 1 plus 1 fac 2, 2 plus 2 fac 4, 4 plus 4 fac 8 și tot așa, până la 1024 plus 1024, care fac 2048. Deci suma noastră plus 1 este egală cu 2048. Atunci suma este 2048 minus 1, adică 2047."
   },
   {
     "cat": "Algebră elementară",
@@ -165,7 +176,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: 3n plus 5 este același lucru cu de 3 ori suma dintre n și 1, la care adăugăm încă 2. Deci fracția este egală cu 3, plus 2 împărțit la suma dintre n și 1. Ca rezultatul să fie număr natural, suma dintre n și 1 trebuie să-l împartă exact pe 2, deci această sumă este 1 sau 2. Rezultă n egal cu 0 sau n egal cu 1. Verificăm: pentru n egal cu 0 obținem 5 împărțit la 1, adică 5, iar pentru n egal cu 1 obținem 8 împărțit la 2, adică 4."
   },
   {
     "cat": "Geometrie",
@@ -179,7 +191,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Rombul are 4 laturi egale, deci o latură are 52 împărțit la 4, adică 13 cm. Diagonalele se taie în jumătăți și sunt perpendiculare, așa că apar triunghiuri dreptunghice cu o latură de 13 cm și una de 12 cm, jumătatea diagonalei de 24. Pentru a treia latură calculăm 13 ori 13 minus 12 ori 12, adică 169 minus 144, care fac 25, iar 25 este 5 ori 5, deci jumătatea celeilalte diagonale este 5 cm. Diagonala mică are 10 cm. Aria rombului este produsul diagonalelor împărțit la 2: 24 ori 10 împărțit la 2 fac 120 de centimetri pătrați."
   },
   {
     "text": "Suma a trei numere naturale consecutive este 2022. Care este cel mai mare dintre cele trei numere?",
@@ -193,7 +206,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Trei numere consecutive sunt un număr, apoi cu 1 mai mare, apoi cu 2 mai mare. Dacă scoatem aceste plusuri, adică 1 plus 2, deci 3, rămân trei numere egale cu cel mai mic. Așadar de 3 ori cel mai mic număr este 2022 minus 3, adică 2019, iar cel mai mic este 2019 împărțit la 3, adică 673. Cel mai mare număr este 673 plus 2, adică 675."
   },
   {
     "text": "Câte numere de 3 cifre au suma cifrelor egală cu 5 și cifra sutelor diferită de zero?",
@@ -207,7 +221,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Numărăm ordonat, după cifra sutelor, care poate fi de la 1 la 5. Dacă sutele sunt 1, zecile și unitățile au suma 4, și avem 5 variante: 104, 113, 122, 131, 140. Dacă sutele sunt 2, avem 4 variante, dacă sunt 3 avem 3, dacă sunt 4 avem 2, iar dacă sunt 5 avem doar 500. În total sunt 5 plus 4 plus 3 plus 2 plus 1, adică 15 numere."
   },
   {
     "text": "Un număr natural împărțit la 7 dă câtul 15 și restul 4. Care este numărul?",
@@ -221,7 +236,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: numărul conține de 15 ori pe 7 și încă un rest de 4. Mai întâi calculăm 7 ori 15, care fac 105. Apoi adăugăm restul: 105 plus 4 fac 109. Putem verifica: 109 împărțit la 7 dă câtul 15 și restul 4. Numărul este 109."
   },
   {
     "text": "Șirul următor respectă o regulă: 3, 7, 15, 31, 63, ... Care este al 7-lea termen al șirului?",
@@ -235,7 +251,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne uităm cum se trece de la un termen la următorul: 3 ori 2 plus 1 fac 7, 7 ori 2 plus 1 fac 15, iar 15 ori 2 plus 1 fac 31. Regula este: dublăm termenul și adăugăm 1. Al cincilea termen este 63, deci al șaselea este 63 ori 2 plus 1, adică 127. Al șaptelea este 127 ori 2 plus 1, adică 255. Al 7-lea termen este 255."
   },
   {
     "text": "Maria are 3/8 dintr-o panglică de 4 metri. Ioan are 5/6 dintr-o panglică de 3 metri. Cine are o panglică mai lungă și cu câți centimetri?",
@@ -249,7 +266,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ca să comparăm ușor, transformăm metrii în centimetri: 4 metri sunt 400 de centimetri, iar 3 metri sunt 300 de centimetri. Pentru Maria, o optime din 400 este 50, iar trei optimi sunt 50 ori 3, adică 150 de centimetri. Pentru Ioan, o șesime din 300 este 50, iar cinci șesimi sunt 50 ori 5, adică 250 de centimetri. Diferența este 250 minus 150, adică 100 de centimetri. Ioan are panglica mai lungă, cu 100 de centimetri."
   },
   {
     "text": "Într-o competiție au participat 5 echipe. Fiecare echipă joacă exact un meci cu fiecare altă echipă. Câte meciuri s-au disputat în total?",
@@ -263,7 +281,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: fiecare dintre cele 5 echipe joacă cu celelalte 4 echipe. Asta ar da 5 ori 4, adică 20. Dar așa fiecare meci a fost numărat de două ori, o dată pentru fiecare echipă care joacă în el. De aceea împărțim la 2: 20 împărțit la 2 fac 10. S-au disputat 10 meciuri."
   },
   {
     "text": "Perimetrul unui dreptunghi este 48 cm. Lungimea este de 3 ori mai mare decât lățimea. Care este aria dreptunghiului?",
@@ -277,7 +296,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Perimetrul înseamnă de două ori lungimea plus lățimea, deci lungimea plus lățimea fac 48 împărțit la 2, adică 24 de centimetri. Lungimea este cât 3 lățimi, așa că lungimea plus lățimea înseamnă 4 lățimi. Atunci o lățime este 24 împărțit la 4, adică 6 centimetri, iar lungimea este 6 ori 3, adică 18 centimetri. Aria este lungimea ori lățimea: 18 ori 6 fac 108. Aria dreptunghiului este 108 centimetri pătrați."
   },
   {
     "text": "Ana, Bogdan și Cristi au împreună 120 de cartonașe. Ana are de două ori mai multe decât Bogdan, iar Cristi are cu 10 mai puține decât Ana. Câte cartonașe are Bogdan?",
@@ -291,7 +311,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim la cartonașele lui Bogdan ca la o parte. Ana are două astfel de părți, iar Cristi are tot două părți, dar cu 10 cartonașe mai puțin. Împreună sunt 5 părți minus 10, și asta face 120. Deci 5 părți fac 120 plus 10, adică 130, iar o parte este 130 împărțit la 5, adică 26. Verificăm: Ana are 52, Cristi are 42, iar 26 plus 52 plus 42 fac 120. Bogdan are 26 de cartonașe."
   },
   {
     "text": "Pe o stradă sunt 20 de case numerotate de la 1 la 20. Câte cifre au fost folosite în total pentru a numerota toate casele?",
@@ -305,7 +326,8 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Împărțim casele în două grupe. Casele de la 1 la 9 au numere cu o singură cifră, deci folosim 9 cifre. Casele de la 10 la 20 sunt 11 case, iar fiecare număr are 2 cifre, deci folosim 11 ori 2, adică 22 de cifre. În total sunt 9 plus 22, adică 31 de cifre."
   },
   {
     "text": "Patru prieteni (Alex, Beti, Cristi, Diana) stau la o masă rotundă cu 4 scaune. Două așezări care se obțin una din alta prin rotirea tuturor în jurul mesei sunt considerate la fel. În câte moduri pot fi așezați dacă Alex și Beti trebuie să stea întotdeauna unul lângă altul?",
@@ -319,6 +341,7 @@
     "sursa": "costache-negruzzi-iasi",
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Pentru că rotirile nu contează, îl putem așeza pe Alex pe un scaun fix. Beti trebuie să stea lângă el, deci poate sta în stânga sau în dreapta lui, adică 2 variante. Pe cele 2 scaune rămase, Cristi și Diana se pot așeza în 2 moduri, schimbându-și locurile între ei. În total sunt 2 ori 2, adică 4 moduri."
   }
 ]

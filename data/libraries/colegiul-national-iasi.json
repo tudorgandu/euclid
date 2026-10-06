@@ -10,7 +10,8 @@
     "hash": "b5589f6a9a31",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim la ordinea operațiilor: întâi împărțirea din paranteză, apoi adunarea și scăderea din paranteză, apoi înmulțirea și la final scăderea. 714 împărțit la 7 fac 102. În paranteză avem 16 plus 234 minus 102, adică 148. Apoi 148 ori 18 fac 2664. La final, 2664 minus 89 fac 2575."
   },
   {
     "text": "Știind că 2a + b − 3c = 15 și a − 4b + 8c = 25, calculați 5a − 11b + 21c.",
@@ -23,7 +24,8 @@
     "hash": "dab7ee06d825",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: încercăm să construim expresia cerută din cele două relații pe care le cunoaștem. Dacă luăm prima relație o dată și a doua relație de 3 ori și le adunăm, obținem exact 5a minus 11b plus 21c. Verificăm: 2a plus 3a fac 5a, b minus 12b fac minus 11b, iar minus 3c plus 24c fac 21c. Deci rezultatul este 15 plus 3 ori 25, adică 15 plus 75, care fac 90."
   },
   {
     "text": "Alin dorește să cumpere câteva mașinuțe și câțiva roboței. Dacă ar cumpăra 3 mașinuțe și 4 roboței ar trebui să plătească 182 de lei, iar dacă ar cumpăra 4 mașinuțe și 2 roboței ar plăti 176 de lei. Câți lei ar trebui să plătească Alin dacă ar cumpăra 2 mașinuțe și 3 roboței?",
@@ -36,7 +38,8 @@
     "hash": "b64c8e22fa5e",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă Alin ar cumpăra de două ori 4 mașinuțe și 2 roboței, adică 8 mașinuțe și 4 roboței, ar plăti 352 de lei. Față de 3 mașinuțe și 4 roboței, care costă 182 de lei, are în plus 5 mașinuțe și plătește în plus 352 minus 182, adică 170 de lei. Deci o mașinuță costă 170 împărțit la 5, adică 34 de lei. Din 4 mașinuțe și 2 roboței la 176 de lei: 4 mașinuțe costă 136 de lei, deci 2 roboței costă 40 de lei și un roboțel costă 20 de lei. Pentru 2 mașinuțe și 3 roboței plătește 68 plus 60, adică 128 de lei."
   },
   {
     "text": "Împărțind numărul natural n la 5, obținem restul 3. Care este restul împărțirii dublului numărului n la 5?",
@@ -49,7 +52,8 @@
     "hash": "5904532f0c2d",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: numărul n este format din niște grupe de câte 5 și încă 3 în plus. Când îl dublăm, se dublează și grupele, care rămân grupe de câte 5, iar cele 3 în plus devin 6. Dar 6 înseamnă încă o grupă de 5 și 1 în plus. De exemplu, 8 împărțit la 5 dă restul 3, iar 16 împărțit la 5 dă restul 1. Deci restul împărțirii dublului lui n la 5 este 1."
   },
   {
     "text": "Determinați numărul natural $\\overline{abcd}$ care verifică relația $\\overline{abcd1} - \\overline{1abcd} = 8235$.",
@@ -62,7 +66,8 @@
     "hash": "e39b49d9b105",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: numărul de cinci cifre care se termină cu 1 este de 10 ori numărul nostru, plus 1. Numărul de cinci cifre care începe cu 1 este 10000 plus numărul nostru. Când le scădem, rămâne de 9 ori numărul nostru, minus 9999, și asta trebuie să fie 8235. Deci de 9 ori numărul este 8235 plus 9999, adică 18234, iar numărul este 18234 împărțit la 9, adică 2026. Verificăm: 20261 minus 12026 fac 8235. Numărul căutat este 2026."
   },
   {
     "text": "Aflați cel mai mic număr natural de două cifre care, împărțit la răsturnatul său, dă câtul 4 (împărțirea poate avea rest).",
@@ -75,7 +80,8 @@
     "hash": "eff827f3a068",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: numărul trebuie să fie de cel puțin 4 ori mai mare decât răsturnatul său, iar răsturnatul trebuie să aibă și el două cifre, deci cifra unităților nu poate fi 0. Dacă cifra unităților ar fi 2 sau mai mare, răsturnatul ar trece de 20, iar de 4 ori răsturnatul ar trece de 80. Atunci numărul ar începe cu 8 sau 9, deci răsturnatul ar fi cel puțin 28, iar 4 ori 28 fac 112, prea mult pentru un număr de două cifre. Deci cifra unităților este 1. Încercăm pe rând: 61 împărțit la 16 dă câtul doar 3, dar 71 împărțit la 17 dă câtul 4 și restul 3. Cel mai mic număr este 71."
   },
   {
     "text": "În prima zi s-au vândut jumătate din numărul de jucării și încă 10 jucării. Determinați câte jucării s-au vândut în prima zi, știind că au mai rămas 30 de jucării.",
@@ -88,7 +94,8 @@
     "hash": "59cc11b009bd",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: s-a vândut jumătate din jucării și încă 10. Asta înseamnă că cealaltă jumătate este formată din acele 10 jucării plus cele 30 care au rămas, adică 40 de jucării. Deci jumătate înseamnă 40, iar în total au fost 80 de jucării. În prima zi s-au vândut 40 plus 10, adică 50 de jucării. Verificăm: 80 minus 50 fac 30."
   },
   {
     "text": "Ana a cumpărat o planșă și un joc LEGO pentru care a plătit 55 de lei. Jumătate din prețul unui ceas este egală cu trei sferturi din prețul unui joc LEGO, iar prețul unei planșe este egal cu un sfert din prețul unui joc LEGO. Aflați prețul unui ceas.",
@@ -101,7 +108,8 @@
     "hash": "a1efc8248cb5",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: împărțim prețul jocului LEGO în 4 părți egale. Planșa costă cât o parte, deci planșa și jocul împreună fac 5 părți, adică 55 de lei, iar o parte este 11 lei. Trei sferturi din prețul jocului înseamnă 3 părți, adică 33 de lei. Aceasta este jumătate din prețul ceasului, deci ceasul costă 2 ori 33, adică 66 lei."
   },
   {
     "text": "Sunt 30 de planșe puse în vânzare numerotate de la 1 la 30. Fiecare planșă numerotată cu un număr impar care se împarte exact la 5 are câte două desene. Fiecare planșă numerotată cu un număr par, dar care nu se împarte exact la 5, are câte trei desene. Restul planșelor au câte un desen fiecare. Aflați câte desene sunt, în total, pe cele 30 de planșe.",
@@ -114,7 +122,8 @@
     "hash": "cbe2f38af0e9",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: împărțim planșele în trei grupe. Planșele impare care se împart la 5 sunt 5, 15 și 25, adică 3 planșe cu câte 2 desene, deci 6 desene. Numerele pare de la 1 la 30 sunt 15, dar 10, 20 și 30 se împart la 5, deci rămân 12 planșe cu câte 3 desene, adică 36 de desene. Celelalte 30 minus 3 minus 12, adică 15 planșe, au câte un desen, deci 15 desene. În total sunt 6 plus 36 plus 15, adică 57 de desene."
   },
   {
     "text": "Fiecare dintre primele 2028 de numere naturale (0, 1, 2, ..., 2027) se scrie pe câte un cartonaș colorat roșu sau verde. Numerele care, împărțite la 3, dau restul 2 sunt scrise pe cartonașe roșii, iar toate celelalte numere se află pe cartonașe verzi. Stabiliți ce culoare are cartonașul cu numărul 2026 și la care dintre cei trei băieți (Cosmin, Alex, Bogdan) este, știind că împărțirea se face în ordinea 0→Cosmin, 1→Alex, 2→Bogdan, 3→Cosmin, ...",
@@ -127,7 +136,8 @@
     "hash": "09ea15575349",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: totul depinde de restul împărțirii lui 2026 la 3. Avem 2026 egal cu 3 ori 675, plus 1, deci restul este 1. Roșii sunt doar cartonașele cu restul 2, așa că 2026 este pe un cartonaș verde. Băieții primesc pe rând: cei cu restul 0 merg la Cosmin, cei cu restul 1 la Alex, cei cu restul 2 la Bogdan. Deci cartonașul 2026 este verde și este la Alex."
   },
   {
     "text": "Fiecare dintre primele 2028 de numere naturale (0, 1, 2, ..., 2027) se scrie pe câte un cartonaș colorat roșu sau verde. Numerele care, împărțite la 3, dau restul 2 sunt scrise pe cartonașe roșii, iar toate celelalte numere se află pe cartonașe verzi. Calculați câte cartonașe roșii sunt.",
@@ -140,7 +150,8 @@
     "hash": "8892921f366d",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: cartonașele roșii sunt cele cu restul 2 la împărțirea la 3, adică 2, 5, 8 și așa mai departe, din 3 în 3. Ultimul dintre ele este 2027. De la 2 până la 2027 sunt 2025 de unități, iar 2025 împărțit la 3 fac 675 de pași de câte 3. Numărul de cartonașe este numărul de pași plus 1, pentru că îl numărăm și pe primul. Deci sunt 675 plus 1, adică 676 de cartonașe roșii."
   },
   {
     "text": "Fiecare dintre primele 2028 de numere naturale (0, 1, 2, ..., 2027) se scrie pe câte un cartonaș colorat roșu sau verde. Numerele care, împărțite la 3, dau restul 2 sunt scrise pe cartonașe roșii, iar toate celelalte numere se află pe cartonașe verzi. Cartonașele se împart la trei băieți, Cosmin, Alex și Bogdan, în ordinea: 0→Cosmin, 1→Alex, 2→Bogdan, 3→Cosmin, ... Determinați cel mai mic număr natural n, cu proprietatea că, după ce băieții și-au împărțit primele n cartonașe (numerele 0, 1, ..., n−1), Cosmin are cel puțin 100 de cartonașe verzi.",
@@ -153,7 +164,8 @@
     "hash": "b2726913c0e8",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: Cosmin primește cartonașele 0, 3, 6, 9 și așa mai departe, adică numerele care se împart exact la 3. Aceste numere au restul 0, deci toate cartonașele lui Cosmin sunt verzi. Al 100-lea cartonaș al lui Cosmin este 3 ori 99, adică 297, pentru că începem numărătoarea de la 0. Ca să ajungă la el, trebuie împărțite cartonașele de la 0 până la 297, adică 298 de cartonașe. Deci cel mai mic n este 298."
   },
   {
     "text": "În Săptămâna Altfel, un grup de elevi pleacă într-o excursie și sunt cazați la o pensiune. Dacă în fiecare cameră sunt cazați câte doi elevi, trei dintre ei rămân fără loc. Dacă sunt cazați câte trei într-o cameră, rămân trei camere libere. Aflați câți elevi au mers în excursie.",
@@ -166,7 +178,8 @@
     "hash": "a461122f8f9b",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 4/2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă stau câte 3 în cameră, 3 camere rămân goale, iar dacă stau câte 2, rămân 3 elevi fără loc. Comparăm cele două situații: ca să umplem cu câte 3 doar camerele ocupate, mutăm elevi astfel încât 3 camere să se golească. Cele 3 camere goale aveau câte 2 elevi, adică 6 elevi, plus cei 3 fără loc fac 9 elevi, care se mută câte unul în celelalte camere. Deci sunt 9 camere ocupate plus 3 libere, adică 12 camere. Elevii sunt 2 ori 12 plus 3, adică 27, și verificăm: 3 ori 9 fac tot 27."
   },
   {
     "text": "Considerăm cinci pătrate așezate în linie. În câte moduri putem să colorăm pătratele folosind patru culori, astfel încât oricare două pătrate vecine să fie de culori diferite?",
@@ -179,7 +192,8 @@
     "hash": "1a9f481d112f",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 4/2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: colorăm pătratele pe rând, de la stânga la dreapta. Primul pătrat poate avea oricare dintre cele 4 culori. Fiecare pătrat următor trebuie să fie diferit doar de vecinul din stânga, deci are 3 posibilități. Avem 4 ori 3 ori 3 ori 3 ori 3, adică 4 ori 81, care fac 324 de moduri."
   },
   {
     "text": "Alex are în sertar șosete albe, șosete negre, șosete verzi și șosete albastre. a) Care este cel mai mic număr de șosete pe care trebuie să le scoată Alex din sertar, fără a le privi, pentru a fi sigur că două dintre ele au aceeași culoare?",
@@ -192,7 +206,8 @@
     "hash": "4ebab0461332",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 4/2026",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim la cel mai ghinionist caz posibil. Alex ar putea scoate primele 4 șosete toate diferite, câte una din fiecare culoare: albă, neagră, verde și albastră. Cu 4 șosete nu este sigur că are două la fel. Dar a cincea șosetă trebuie să aibă una dintre cele 4 culori, deci se potrivește sigur cu una deja scoasă. Răspunsul este 5 șosete."
   },
   {
     "text": "Mihai este de trei ori mai tânăr decât tatăl său. Peste 15 ani, tatăl va fi de două ori mai în vârstă decât Mihai. Care este vârsta actuală a lui Mihai?",
@@ -205,7 +220,8 @@
     "hash": "fad401a79257",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă Mihai are o parte, tatăl are 3 părți, deci diferența dintre ei este de 2 părți. Peste 15 ani, Mihai va avea o parte plus 15, iar tatăl de două ori atât, adică 2 părți plus 30. Dar tatăl va avea și 3 părți plus 15. Comparând, o parte în plus înseamnă 15 ani în plus, deci o parte este 15. Mihai are acum 15 ani, iar tatăl 45; peste 15 ani vor avea 30 și 60, iar 60 este de două ori 30."
   },
   {
     "text": "George depune la bancă 5000 lei. Pentru fiecare 100 lei, banca îi adaugă încă 4 lei pe an. Ce sumă va avea în cont după un an?",
@@ -218,7 +234,8 @@
     "hash": "fca88dc098a0",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: banca dă 4 lei pentru fiecare 100 de lei. În 5000 de lei încap 5000 împărțit la 100, adică 50 de grupe de câte 100 de lei. Pentru ele, banca adaugă 50 ori 4, adică 200 de lei. După un an, George va avea 5000 plus 200, adică 5200 lei."
   },
   {
     "text": "3 copii udă 3 pomi în 3 minute. Câți pomi vor uda 12 copii în 12 minute?",
@@ -231,7 +248,8 @@
     "hash": "3d05792356d0",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă 3 copii udă 3 pomi în 3 minute, atunci fiecare copil udă un pom în 3 minute. În 12 minute, un copil are timp de 12 împărțit la 3, adică 4 pomi. Fiecare dintre cei 12 copii udă câte 4 pomi. Deci în total vor fi udați 12 ori 4, adică 48 pomi."
   },
   {
     "text": "Determină cel mai mare număr natural care, împărțit la 102, dă restul mai mare decât câtul împărțirii.",
@@ -244,7 +262,8 @@
     "hash": "b913f4b9412d",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: restul împărțirii la 102 poate fi cel mult 101. Câtul trebuie să fie mai mic decât restul, deci câtul poate fi cel mult 100. Ca numărul să fie cât mai mare, luăm câtul 100 și restul 101. Numărul este 102 ori 100 plus 101, adică 10200 plus 101, care fac 10301. Verificăm: 10301 împărțit la 102 dă câtul 100 și restul 101, iar 101 este mai mare decât 100."
   },
   {
     "text": "Câte numere de două cifre au produsul cifrelor un număr par?",
@@ -257,7 +276,8 @@
     "hash": "62c08ee25c2e",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: e mai ușor să numărăm numerele care nu au produsul cifrelor par. Produsul este impar doar când ambele cifre sunt impare: 1, 3, 5, 7 sau 9. Avem 5 variante pentru cifra zecilor și 5 pentru cifra unităților, deci 5 ori 5, adică 25 de numere. Numere de două cifre sunt de la 10 la 99, adică 90. Deci produsul cifrelor este par la 90 minus 25, adică 65 de numere."
   },
   {
     "text": "Pentru 3 kilograme de mere și 2 kilograme de banane Ana a plătit 19 lei. Pentru 5 kilograme de mere și 3 kilograme de banane, de același fel, Bogdan a plătit 30 de lei. Cât a costat un kilogram de mere?",
@@ -270,7 +290,8 @@
     "hash": "99d4e4956115",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: vrem să avem aceeași cantitate de banane în ambele cumpărături, ca să le putem compara. Luăm cumpărătura Anei de 3 ori: 9 kilograme de mere și 6 de banane costă 57 de lei. Luăm cumpărătura lui Bogdan de 2 ori: 10 kilograme de mere și 6 de banane costă 60 de lei. Diferența este exact un kilogram de mere, iar diferența de preț este 60 minus 57, adică 3 lei. Deci un kilogram de mere costă 3 lei."
   },
   {
     "text": "Pentru 3 kilograme de mere și 2 kilograme de banane Ana a plătit 19 lei. Pentru 5 kilograme de mere și 3 kilograme de banane, de același fel, Bogdan a plătit 30 de lei. Cât a costat un kilogram de banane?",
@@ -283,7 +304,8 @@
     "hash": "1e2baad77adf",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: întâi aflăm prețul merelor. Luăm cumpărătura Anei de 3 ori: 9 kilograme de mere și 6 de banane costă 57 de lei, iar cumpărătura lui Bogdan de 2 ori: 10 kilograme de mere și 6 de banane costă 60 de lei. Diferența este un kilogram de mere, care costă 3 lei. Ana a dat pe 3 kilograme de mere 9 lei, deci pe 2 kilograme de banane a dat 19 minus 9, adică 10 lei. Un kilogram de banane costă 5 lei."
   },
   {
     "text": "Pentru 3 kilograme de mere și 2 kilograme de banane Ana a plătit 19 lei. Pentru 5 kilograme de mere și 3 kilograme de banane Bogdan a plătit 30 de lei. Dacă Cezar a cumpărat 2 kilograme de mere și 2 kilograme de banane, de același fel, află cât au costat cumpărăturile celor trei buni prieteni.",
@@ -296,7 +318,8 @@
     "hash": "7f9fa1499ec6",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: întâi aflăm prețurile. Luăm cumpărătura Anei de 3 ori, adică 57 de lei, și pe a lui Bogdan de 2 ori, adică 60 de lei; diferența este un kilogram de mere, deci merele costă 3 lei kilogramul. Ana a plătit 9 lei pe mere, deci 10 lei pe 2 kilograme de banane, iar bananele costă 5 lei kilogramul. Cezar a plătit 2 ori 3 plus 2 ori 5, adică 6 plus 10, care fac 16 lei. Împreună, cei trei au plătit 19 plus 30 plus 16, adică 65 lei."
   },
   {
     "text": "Determinați cifra x, știind că numărul $\\overline{54x1}$ se împarte exact la 9.",
@@ -309,7 +332,8 @@
     "hash": "8f84c9addf84",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim la regula de împărțire la 9: un număr se împarte exact la 9 dacă suma cifrelor lui se împarte exact la 9. Suma cifrelor este 5 plus 4 plus 1, adică 10, plus cifra x. Cum x este o cifră de la 0 la 9, suma este între 10 și 19, iar singurul număr din acest interval care se împarte la 9 este 18. Deci x este 18 minus 10, adică 8. Verificăm: 5481 împărțit la 9 fac 609."
   },
   {
     "text": "Suma a două numere naturale este 108. Al doilea număr este cincimea primului. Aflați diferența dintre cele două numere.",
@@ -322,7 +346,8 @@
     "hash": "30592b1262d4",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă al doilea număr este o parte, atunci primul număr are 5 astfel de părți. Împreună au 6 părți, care fac 108, deci o parte este 108 împărțit la 6, adică 18. Primul număr este 5 ori 18, adică 90, iar al doilea este 18. Diferența dintre ele este 90 minus 18, adică 72."
   },
   {
     "text": "Calculați suma numerelor naturale care, împărțite la 3, dau câtul 10.",
@@ -335,7 +360,8 @@
     "hash": "c91a0207cd73",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: dacă împărțim la 3 și câtul este 10, numărul este 3 ori 10 plus restul. Restul trebuie să fie mai mic decât 3, deci poate fi 0, 1 sau 2. Numerele sunt 30, 31 și 32. Suma lor este 30 plus 31 plus 32, adică 93."
   },
   {
     "text": "Scrieți cel mai mare număr natural de forma abc cu proprietatea că a < b < c.",
@@ -348,7 +374,8 @@
     "hash": "74b7cfcf961e",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: vrem un număr de trei cifre cât mai mare, cu cifrele în ordine crescătoare de la stânga la dreapta. Cea mai importantă este cifra sutelor, dar ea trebuie să fie mai mică decât celelalte două. Ca să fie cât mai mare, alegem pentru cifra unităților 9, pentru cifra zecilor 8 și pentru cifra sutelor 7. Verificăm: 7 este mai mic decât 8, iar 8 este mai mic decât 9. Numărul este 789."
   },
   {
     "text": "Un pătrat mare este format dintr-un pătrat mijlociu cu perimetrul de 8 cm și cinci pătrate mici cu perimetrele de 4 cm fiecare. Determinați perimetrul pătratului mare.",
@@ -361,7 +388,8 @@
     "hash": "c0f59b79c3fd",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: un pătrat are 4 laturi egale, deci latura este perimetrul împărțit la 4. Pătratul mijlociu are latura 8 împărțit la 4, adică 2 centimetri, iar fiecare pătrat mic are latura 4 împărțit la 4, adică 1 centimetru. Punem pătratul mijlociu într-un colț, iar cele 5 pătrate mici completează un rând și o coloană în jurul lui. Așa, latura pătratului mare este 2 plus 1, adică 3 centimetri. Perimetrul pătratului mare este 4 ori 3, adică 12 cm."
   },
   {
     "text": "Daria citește 15 pagini într-o jumătate de oră, iar Darius citește 21 de pagini în trei sferturi de oră. Aflați câte pagini citesc la un loc, într-o oră, cei doi copii.",
@@ -374,7 +402,8 @@
     "hash": "3eef892b6f91",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: o oră are 60 de minute. Daria citește 15 pagini în 30 de minute, deci într-o oră citește de două ori mai mult, adică 30 de pagini. Darius citește 21 de pagini în 45 de minute, adică 7 pagini la fiecare sfert de oră, pentru că 21 împărțit la 3 fac 7; într-o oră, care are 4 sferturi, citește 4 ori 7, adică 28 de pagini. Împreună citesc 30 plus 28, adică 58 pagini."
   },
   {
     "text": "Se consideră șirul de numere naturale 1, 2, 3, 5, 6, 7, 9, 10, 11, … \na) Stabiliți dacă numărul 100 este sau nu termen al șirului.",
@@ -387,7 +416,8 @@
     "hash": "4be319e6cbd5",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: în șir apar câte trei numere la rând, apoi unul lipsește: lipsesc 4, 8, 12 și așa mai departe. Numerele care lipsesc sunt exact cele care se împart la 4. Numărul 100 se împarte la 4, pentru că 4 ori 25 fac 100. Deci 100 lipsește din șir, iar răspunsul este nu."
   },
   {
     "text": "Se consideră șirul de numere naturale 1, 2, 3, 5, 6, 7, 9, 10, 11, … \nb) Care este cel de-al 100-lea termen al șirului?",
@@ -400,7 +430,8 @@
     "hash": "411c50abbed3",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: șirul are grupe de câte trei numere: 1, 2, 3, apoi 5, 6, 7, apoi 9, 10, 11, și din fiecare grupă de patru numere lipsește ultimul. Avem 100 egal cu 33 ori 3 plus 1, deci după 33 de grupe complete, termenul al 100-lea este primul din grupa a 34-a. Cele 33 de grupe acoperă numerele până la 33 ori 4, adică 132. Primul număr din grupa următoare este 133. Al 100-lea termen este 133."
   },
   {
     "text": "Se consideră șirul de numere naturale 1, 2, 3, 5, 6, 7, 9, 10, 11, … \nc) Calculați suma primilor 100 de termeni ai șirului.",
@@ -413,7 +444,8 @@
     "hash": "08ba861641dd",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: din șir lipsesc numerele 4, 8, 12 și așa mai departe, deci termenii vin în grupe de câte trei: 1, 2, 3, apoi 5, 6, 7, apoi 9, 10, 11. Primii 99 de termeni formează 33 de grupe, iar al 100-lea termen este primul din grupa următoare, adică 133. Sumele grupelor sunt 6, 18, 30 și așa mai departe, fiecare cu 12 mai mare decât cea dinainte, deci grupa a k-a are suma 12 ori k minus 6. Adunând cele 33 de grupe obținem 12 ori suma numerelor de la 1 la 33, care este 561, minus 6 ori 33, adică 6732 minus 198, care fac 6534. La final adăugăm al 100-lea termen: 6534 plus 133 fac 6667."
   },
   {
     "text": "Trei coșuri conțin mere, în ultimele două la un loc fiind 65. Un sfert din numărul merelor din primul coș se mută în al doilea. Apoi, jumătate din merele din al doilea coș se mută în al treilea. Astfel, primele două coșuri conțin număr egal de mere, iar în al treilea coș sunt cu 15 mere mai mult decât în cel de-al doilea.\na) Arătați că în cel de-al treilea coș erau, la început, 15 mere.",
@@ -426,7 +458,8 @@
     "hash": "da5ef2816cb9",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim la a doua mutare: din al doilea coș se mută exact jumătate în al treilea. Asta înseamnă că în al doilea coș rămân tot atâtea mere câte au plecat în al treilea. Deci al treilea coș are la final merele lui de la început plus o cantitate egală cu tot ce are al doilea coș la final. Cum al treilea coș are cu 15 mai mult decât al doilea, diferența aceasta este chiar numărul merelor lui de la început. Așadar în al treilea coș erau la început 15 mere."
   },
   {
     "text": "Trei coșuri conțin mere, în ultimele două la un loc fiind 65. Un sfert din numărul merelor din primul coș se mută în al doilea. Apoi, jumătate din merele din al doilea coș se mută în al treilea. Astfel, primele două coșuri conțin număr egal de mere, iar în al treilea coș sunt cu 15 mere mai mult decât în cel de-al doilea.\nb) Câte mere erau la început în cel de-al doilea coș?",
@@ -439,7 +472,8 @@
     "hash": "935a00dc241d",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Știm că în ultimele două coșuri erau la un loc 65 de mere. De la punctul a am aflat că în al treilea coș erau 15 mere. Atunci în al doilea coș erau 65 minus 15, adică 50 de mere."
   },
   {
     "text": "Trei coșuri conțin mere, în ultimele două la un loc fiind 65. Un sfert din numărul merelor din primul coș se mută în al doilea. Apoi, jumătate din merele din al doilea coș se mută în al treilea. Astfel, primele două coșuri conțin număr egal de mere, iar în al treilea coș sunt cu 15 mere mai mult decât în cel de-al doilea.\nc) Câte mere erau la început în primul coș?",
@@ -452,7 +486,8 @@
     "hash": "183abace3b25",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Împărțim merele din primul coș în 4 sferturi egale. După prima mutare, în primul coș rămân 3 sferturi, iar al doilea coș are 50 de mere plus un sfert. După a doua mutare, al doilea coș păstrează jumătate, iar jumătatea aceasta este egală cu cele 3 sferturi din primul coș, deci întregul, adică 50 plus un sfert, înseamnă 6 sferturi. Rezultă că 50 de mere sunt 5 sferturi, deci un sfert este 50 împărțit la 5, adică 10 mere. Primul coș avea 4 sferturi, adică 10 ori 4, deci 40 de mere."
   },
   {
     "text": "Știind că a·b = 138 și c·a = 84, calculați a·(b−c):3.",
@@ -465,7 +500,8 @@
     "hash": "a83de6ce62c9",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim așa: a ori diferența dintre b și c este același lucru cu a ori b minus a ori c. Știm că a ori b este 138 și a ori c este 84. Deci a ori diferența dintre b și c este 138 minus 84, adică 54. La final împărțim la 3: 54 împărțit la 3 fac 18."
   },
   {
     "text": "Determinați cel mai mic număr natural de patru cifre având produsul cifrelor egal cu 16.",
@@ -478,7 +514,8 @@
     "hash": "2b9242524066",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Căutăm patru cifre care înmulțite dau 16. Variantele sunt 1, 1, 2, 8 sau 1, 1, 4, 4 sau 1, 2, 2, 4 sau 2, 2, 2, 2. Ca numărul să fie cât mai mic, punem cifrele de la cea mai mică la cea mai mare și vrem cât mai multe cifre de 1 la început. Obținem 1128, 1144, 1224 și 2222, iar cel mai mic dintre ele este 1128."
   },
   {
     "text": "Aflați câte numere naturale de trei cifre au cifrele distincte, scrise în ordine crescătoare, iar suma cifrelor este 10.",
@@ -491,7 +528,8 @@
     "hash": "d09651e6a71a",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Cifrele sunt diferite și scrise crescător, deci prima cifră este cea mai mică, iar ea nu poate fi 0. Dacă prima cifră este 1, celelalte două au suma 9 și obținem 127, 136 și 145. Dacă prima cifră este 2, celelalte au suma 8 și obținem doar 235, pentru că 244 are două cifre la fel. Dacă prima cifră ar fi 3, celelalte ar fi măcar 4 și 5, iar suma ar fi cel puțin 12, prea mult. Așadar sunt 3 plus 1, adică 4 numere."
   },
   {
     "text": "Un ciclist a parcurs un sfert din traseul stabilit. Dacă ar mai merge încă 16 km, ar mai avea de parcurs un sfert din traseu. Ce lungime are traseul?",
@@ -504,7 +542,8 @@
     "hash": "74ab0562f9af",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ciclistul a parcurs un sfert din traseu, deci mai are de parcurs trei sferturi. Dacă ar mai merge 16 km, i-ar rămâne doar un sfert. Înseamnă că cei 16 km reprezintă trei sferturi minus un sfert, adică două sferturi, care înseamnă jumătate din traseu. Dacă jumătate din traseu are 16 km, tot traseul are 16 ori 2, adică 32 km."
   },
   {
     "text": "Aflați cel mai mare număr natural care, împărțit la 100, dă un cât mai mic decât restul.",
@@ -517,7 +556,8 @@
     "hash": "f82b3ea73960",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Când împărțim la 100, restul poate fi cel mult 99. Numărul este egal cu 100 ori câtul plus restul, iar câtul trebuie să fie mai mic decât restul. Ca numărul să fie cât mai mare, luăm restul cel mai mare, 99, și câtul cel mai mare mai mic decât 99, adică 98. Numărul este 100 ori 98 plus 99, adică 9899. Verificăm: 9899 împărțit la 100 dă câtul 98 și restul 99."
   },
   {
     "text": "În clasa a IV-a C sunt 28 de elevi. Oricum am alege 15 elevi din clasă, printre ei se vor afla cel puțin 4 băieți. Aflați numărul minim al băieților din clasa a IV-a C.",
@@ -530,7 +570,8 @@
     "hash": "a0b39fbede18",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim la cazul cel mai rău: alegem în grupul de 15 cât mai multe fete. Ca să fie mereu măcar 4 băieți, fetele pot fi cel mult 15 minus 4, adică 11. Atunci băieții sunt cel puțin 28 minus 11, adică 17. Dacă ar fi doar 16 băieți, ar fi 12 fete, și am putea alege 12 fete și doar 3 băieți. Deci numărul minim de băieți este 17."
   },
   {
     "text": "Adrian și-a propus să rezolve 100 de probleme. În prima zi a rezolvat 2 probleme, în a doua zi a rezolvat cu 2 probleme mai mult decât în prima, în a treia zi cu 2 probleme mai mult decât în a doua și așa mai departe. În ultima zi, Adrian a rezolvat problemele rămase. a) Câte probleme a rezolvat Adrian în primele șapte zile?",
@@ -543,7 +584,8 @@
     "hash": "d775c3c0dab4",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "În fiecare zi Adrian rezolvă cu 2 probleme mai mult decât în ziua dinainte. Deci în primele șapte zile rezolvă 2, 4, 6, 8, 10, 12 și 14 probleme. Le adunăm: 2 plus 4 plus 6 plus 8 plus 10 plus 12 plus 14 fac 56. Așadar în primele șapte zile a rezolvat 56 de probleme."
   },
   {
     "text": "Adrian și-a propus să rezolve 100 de probleme. În prima zi a rezolvat 2 probleme, în a doua zi a rezolvat cu 2 probleme mai mult decât în prima, în a treia zi cu 2 probleme mai mult decât în a doua și așa mai departe. În ultima zi, Adrian a rezolvat problemele rămase. b) În a câta zi a terminat cele 100 de probleme?",
@@ -556,7 +598,8 @@
     "hash": "2f7e52135352",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Adrian rezolvă pe rând 2, 4, 6, 8 și așa mai departe probleme pe zi. Adunăm pas cu pas cât a strâns după fiecare zi: 2, 6, 12, 20, 30, 42, 56, 72, 90. După 9 zile a rezolvat 90 de probleme, deci mai are 100 minus 90, adică 10. În ziua a 10-a ar putea rezolva 20, dar îi mai trebuie doar 10, așa că termină în ziua a 10-a."
   },
   {
     "text": "Adrian și-a propus să rezolve 100 de probleme. În prima zi a rezolvat 2 probleme, în a doua zi a rezolvat cu 2 probleme mai mult decât în prima, în a treia zi cu 2 probleme mai mult decât în a doua și așa mai departe. În ultima zi, Adrian a rezolvat problemele rămase. c) Câte probleme a rezolvat în ultima zi?",
@@ -569,7 +612,8 @@
     "hash": "465a9a8605cf",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Adunăm problemele zi de zi: după fiecare zi, Adrian a rezolvat în total 2, 6, 12, 20, 30, 42, 56, 72, apoi 90 de probleme. Deci după primele 9 zile a rezolvat 90 de probleme. Ultima zi este ziua a 10-a, când rezolvă doar ce a rămas. Asta înseamnă 100 minus 90, adică 10 probleme."
   },
   {
     "text": "Trei prieteni participă la două concursuri de matematică. La primul concurs Andrei primește drept premiu cu 20 de lei mai mult decât Dragoș, iar Vasile cu 20 de lei mai mult decât Andrei. La al doilea concurs Dragoș primește cu 50 de lei mai mult decât la primul, Andrei cu 20 de lei mai puțin decât Dragoș, iar Vasile cu 20 de lei mai puțin decât Andrei. Cei trei copii au primit la cele două concursuri, în total, suma de 780 lei. a) Ce sumă de bani primește Dragoș la primul concurs?",
@@ -582,7 +626,8 @@
     "hash": "4b5bb9d31d13",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Ne gândim la suma lui Dragoș de la primul concurs ca la o bucată necunoscută. La primul concurs, Andrei are bucata plus 20, iar Vasile bucata plus 40. La al doilea concurs, Dragoș are bucata plus 50, Andrei bucata plus 30 și Vasile bucata plus 10. În total avem 6 bucăți plus 150 de lei, care fac 780, deci 6 bucăți fac 780 minus 150, adică 630. O bucată este 630 împărțit la 6, adică 105, deci Dragoș primește la primul concurs 105 lei."
   },
   {
     "text": "Trei prieteni participă la două concursuri de matematică. La primul concurs Andrei primește drept premiu cu 20 de lei mai mult decât Dragoș, iar Vasile cu 20 de lei mai mult decât Andrei. La al doilea concurs Dragoș primește cu 50 de lei mai mult decât la primul, Andrei cu 20 de lei mai puțin decât Dragoș, iar Vasile cu 20 de lei mai puțin decât Andrei. Cei trei copii au primit la cele două concursuri, în total, suma de 780 lei. b) Ce sumă de bani primește Andrei la primul concurs?",
@@ -595,7 +640,8 @@
     "hash": "95eb447ec09a",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "De la punctul a știm că Dragoș a primit la primul concurs 105 lei. La primul concurs, Andrei primește cu 20 de lei mai mult decât Dragoș. Deci Andrei primește 105 plus 20, adică 125 lei."
   },
   {
     "text": "Trei prieteni au primit în total 780 lei la două concursuri. Dacă ar cumpăra împreună 3 albume și 2 cărți, le-ar rămâne 80 lei din suma totală primită. Dacă ar cumpăra 2 albume și 3 cărți, le-ar mai trebui 80 lei. Cât costă un album și o carte împreună?",
@@ -608,6 +654,7 @@
     "hash": "2265bdef2622",
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
-    "adaugat": "2026-09-13"
+    "adaugat": "2026-09-13",
+    "explicatie": "Dacă le rămân 80 de lei, înseamnă că 3 albume și 2 cărți costă 780 minus 80, adică 700 de lei. Dacă le mai trebuie 80 de lei, înseamnă că 2 albume și 3 cărți costă 780 plus 80, adică 860 de lei. Punem cele două cumpărături împreună și avem 5 albume și 5 cărți, care costă 700 plus 860, adică 1560 de lei. Aceasta înseamnă de 5 ori un album și o carte, deci un album și o carte costă 1560 împărțit la 5, adică 312 lei."
   }
 ]

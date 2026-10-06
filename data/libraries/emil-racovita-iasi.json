@@ -11,7 +11,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim pe rând la cifra sutelor, care poate fi 1, 2, 3, 4 sau 5. Dacă cifra sutelor este 1, celelalte două cifre trebuie să facă împreună 4, și avem 5 numere: 104, 113, 122, 131, 140. Dacă este 2, avem 4 numere: 203, 212, 221, 230. Dacă este 3, avem 3 numere: 302, 311, 320, dacă este 4, avem 2 numere: 401 și 410, iar dacă este 5, doar numărul 500. În total sunt 5 plus 4 plus 3 plus 2 plus 1, adică 15 numere."
   },
   {
     "cat": "Operații",
@@ -25,7 +26,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Aici e bine să mergem de la coadă la cap și să desfacem pașii pe rând. Ultimul pas a fost adunarea lui 7, așa că îl scădem: 135 minus 7 fac 128. Înainte de asta numărul fusese înmulțit cu 4, așa că împărțim: 128 împărțit la 4 fac 32. Verificăm: 32 ori 4 fac 128, plus 7 fac 135. Numărul căutat este 32."
   },
   {
     "cat": "Probleme de logică",
@@ -39,7 +41,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne uităm cum se trece de la un termen la următorul: 3 ori 2 fac 6, plus 1 fac 7, iar 7 ori 2 fac 14, plus 1 fac 15. Deci regula este: dublăm termenul și adunăm 1. Al șaselea termen este 63 ori 2 plus 1, adică 127. Al șaptelea termen este 127 ori 2 plus 1, adică 255."
   },
   {
     "cat": "Operații",
@@ -53,7 +56,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Pornim de la bila pe care o cunoaștem, cea albastră, care are 15 grame. Bila roșie este de 3 ori mai grea, deci are 3 ori 15, adică 45 de grame. Bila verde este de 2 ori mai grea decât cea roșie, deci are 2 ori 45, adică 90 de grame. Împreună cântăresc 15 plus 45 plus 90, adică 150 de grame."
   },
   {
     "cat": "Numere naturale",
@@ -67,7 +71,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: un număr care se împarte și la 6, și la 9 se împarte la 18, cel mai mic număr care este multiplu și al lui 6, și al lui 9. Cel mai mare număr de patru cifre este 9999. Când împărțim 9999 la 18, obținem 555 și rest 9. Dacă scădem restul, 9999 minus 9, ajungem la 9990, care se împarte exact la 18. Verificare: 9990 este par, iar suma cifrelor lui este 27, care se împarte la 9. Răspunsul este 9990."
   },
   {
     "cat": "Geometrie",
@@ -81,7 +86,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Latura pătratului trebuie să încapă exact și în 24, și în 16, ca să nu rămână resturi. Cel mai mare număr care împarte exact și pe 24, și pe 16 este 8, deci pătratele au latura de 8 centimetri. Pe lungime încap 24 împărțit la 8, adică 3 pătrate, iar pe lățime încap 16 împărțit la 8, adică 2 pătrate. În total, Andrei obține 3 ori 2, adică 6 pătrate."
   },
   {
     "cat": "Probleme de logică",
@@ -95,7 +101,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Elevul cel mai înalt are locul fixat: stă mereu pe scaunul din mijloc. Mai rămân doi elevi și două scaune, cel din stânga și cel din dreapta. Primul elev poate sta în stânga și al doilea în dreapta, sau invers. Deci sunt 2 moduri."
   },
   {
     "cat": "Fracții",
@@ -109,7 +116,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Trei numere consecutive sunt unul lângă altul, iar cel din mijloc este exact media lor. Așa că împărțim suma la 3: 126 împărțit la 3 fac 42. Numerele sunt 41, 42 și 43, iar 41 plus 42 plus 43 fac într-adevăr 126. Cel mai mic este 41, cel mai mare este 43, iar produsul lor este 41 ori 43, adică 1763."
   },
   {
     "cat": "Numere naturale",
@@ -123,7 +131,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne imaginăm pizza tăiată în 12 felii egale, pentru că 12 se împarte și la 4, și la 3. O pătrime din pizza înseamnă 3 felii, iar o treime înseamnă 4 felii. Împreună, Maria și Ion au mâncat 3 plus 4, adică 7 felii din 12. Au rămas 12 minus 7, adică 5 felii, deci 5 supra 12 din pizza."
   },
   {
     "cat": "Șiruri și șabloane",
@@ -137,7 +146,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: dacă sunt n jucători, fiecare joacă cu ceilalți n minus 1 jucători. Dacă înmulțim n cu n minus 1, fiecare meci este numărat de două ori, câte o dată pentru fiecare jucător din meci. Deci n ori n minus 1 trebuie să fie dublul lui 45, adică 90. Căutăm două numere consecutive care înmulțite dau 90: 10 ori 9 fac 90. Așadar au participat 10 jucători."
   },
   {
     "cat": "Combinatorică",
@@ -151,7 +161,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Completăm numărul cifră cu cifră. Prima cifră trebuie să fie impară, deci poate fi 1, 3 sau 5, adică 3 variante. Pentru a doua cifră rămân 4 cifre nefolosite, pentru a treia rămân 3, iar pentru a patra rămân 2. Înmulțim variantele: 3 ori 4 ori 3 ori 2 fac 72 de numere."
   },
   {
     "cat": "Algebră elementară",
@@ -165,7 +176,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim la vârsta fiului ca la o parte, iar tatăl are 4 astfel de părți. Peste 6 ani, tatăl va avea 4 părți plus 6 ani, iar fiul va avea o parte plus 6 ani. Tatăl va avea atunci de 3 ori vârsta fiului, adică 3 părți plus 3 ori 6, adică 3 părți plus 18 ani. Comparăm: 4 părți plus 6 este egal cu 3 părți plus 18, deci o parte este 18 minus 6, adică 12 ani, vârsta fiului. Tatăl are acum 4 ori 12, adică 48 de ani."
   },
   {
     "cat": "Geometrie",
@@ -179,7 +191,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Aria unui triunghi dreptunghic este o catetă ori cealaltă catetă, împărțit la 2. Deci 6 ori cealaltă catetă, împărțit la 2, fac 24, adică 6 ori cealaltă catetă fac 48, iar cateta mare este 8 centimetri. Pentru ipotenuză folosim teorema lui Pitagora: 6 ori 6 fac 36, 8 ori 8 fac 64, iar 36 plus 64 fac 100. Numărul care înmulțit cu el însuși dă 100 este 10. Ipotenuza are 10 centimetri."
   },
   {
     "cat": "Numere naturale",
@@ -193,7 +206,8 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Cifrele pare sunt 0, 2, 4, 6 și 8, adică exact cinci cifre, deci le folosim pe toate o singură dată. Ca numărul să fie cât mai mare, punem cifrele cele mai mari în față. Le așezăm de la cea mai mare la cea mai mică: 8, 6, 4, 2, 0. Cifra 0 ajunge la final, deci numărul are cinci cifre. Numărul căutat este 86420."
   },
   {
     "cat": "Probleme de logică",
@@ -207,146 +221,7 @@
     "sursa": "emil-racovita-iasi",
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Câte numere de trei cifre au suma cifrelor egală cu 5?",
-    "ans": "15",
-    "hint": "Prima cifră poate fi 1, 2, 3, 4 sau 5. Pentru fiecare valoare a primei cifre, numără perechile (b,c) cu b+c = 5 - a, unde b,c ∈ {0,...,9}.",
-    "barem": "Cifra sutelor a poate fi 1, 2, 3, 4 sau 5; cifrele zecilor și unităților au suma 5 − a. a=1: suma 4 → 5 numere (104, 113, 122, 131, 140). a=2: suma 3 → 4 numere (203, 212, 221, 230). a=3: suma 2 → 3 numere (302, 311, 320). a=4: suma 1 → 2 numere (401, 410). a=5: suma 0 → 1 număr (500). Total: 5 + 4 + 3 + 2 + 1 = 15.",
-    "cat": "Numere naturale",
-    "dif": 2,
-    "id": 2001,
-    "hash": "eab1339dc310",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Un număr natural are proprietatea că dacă îl înmulțești cu 4 și aduni 7, obții 135. Care este numărul?",
-    "ans": "32",
-    "hint": "Scade 7 din 135, apoi împarte la 4.",
-    "barem": "Mergem invers: înainte de a aduna 7 aveam 135 − 7 = 128. Înainte de a înmulți cu 4 aveam 128 : 4 = 32. Verificare: 32 × 4 + 7 = 128 + 7 = 135. Numărul este 32.",
-    "cat": "Algebra elementara",
-    "dif": 1,
-    "id": 2002,
-    "hash": "3fab98aa946c",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Șirul de mai jos urmează un tipar: 3, 7, 15, 31, 63, ... Care este al 7-lea termen al șirului?",
-    "ans": "255",
-    "hint": "Fiecare termen se obține înmulțind termenul anterior cu 2 și adunând 1.",
-    "barem": "Fiecare termen = termenul anterior × 2 + 1: 3 → 7 → 15 → 31 → 63 → 63 × 2 + 1 = 127 (al 6-lea) → 127 × 2 + 1 = 255 (al 7-lea). Al 7-lea termen este 255.",
-    "cat": "Siruri si sabloane",
-    "dif": 2,
-    "id": 2003,
-    "hash": "c19f68cd80d9",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Într-o cutie se află o bilă roșie, o bilă albastră și o bilă verde. Bila roșie este de 3 ori mai grea decât bila albastră, iar bila verde este de 2 ori mai grea decât bila roșie. Dacă bila albastră cântărește 15 g, cât cântăresc împreună toate cele 3 bile?",
-    "ans": "150 g",
-    "hint": "Calculează mai întâi greutatea bilei roșii, apoi a celei verzi, după care adună toate trei.",
-    "barem": "Bila albastră: 15 g. Bila roșie: 3 × 15 = 45 g. Bila verde: 2 × 45 = 90 g. Împreună: 15 + 45 + 90 = 150 g.",
-    "cat": "Probleme de logica",
-    "dif": 1,
-    "id": 2004,
-    "hash": "0744491ea62a",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Care este cel mai mare număr de 4 cifre care este divizibil atât cu 6, cât și cu 9?",
-    "ans": "9990",
-    "hint": "Un număr divizibil cu 6 și 9 trebuie să fie divizibil cu c.m.m.m.c.(6,9) = 18. Cel mai mare număr de 4 cifre este 9999. Împarte 9999 la 18 și află câtul.",
-    "barem": "Un număr divizibil și cu 6, și cu 9 este divizibil cu 18 (cel mai mic multiplu comun al lui 6 și 9). Cel mai mare număr de 4 cifre este 9999. 9999 : 18 = 555 rest 9, deci 9999 − 9 = 9990 = 18 × 555. Verificare: 9990 este par și are suma cifrelor 27, divizibilă cu 9. Răspuns: 9990.",
-    "cat": "Numere naturale",
-    "dif": 2,
-    "id": 2005,
-    "hash": "a77e8051c580",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Andrei are o foaie de hârtie în formă de dreptunghi cu lungimea de 24 cm și lățimea de 16 cm. El taie din ea pătrate egale cât mai mari, fără să rămână resturi. Câte pătrate obține?",
-    "ans": "6",
-    "hint": "Latura pătratului este c.m.m.d.c.(24,16) = 8 cm. Câte astfel de pătrate încap pe lungime și pe lățime?",
-    "barem": "Latura pătratului trebuie să împartă exact și 24, și 16; cel mai mare astfel de număr este 8 (c.m.m.d.c.(24,16) = 8). Pe lungime încap 24 : 8 = 3 pătrate, pe lățime 16 : 8 = 2 pătrate. Total: 3 × 2 = 6 pătrate.",
-    "cat": "Geometrie",
-    "dif": 2,
-    "id": 2006,
-    "hash": "8007b8641e81",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "În câte moduri se pot așeza 3 elevi diferiți pe 3 scaune diferite, astfel încât elevul cel mai înalt să stea întotdeauna pe scaunul din mijloc?",
-    "ans": "2",
-    "hint": "Elevul cel mai înalt este fixat pe scaunul din mijloc. Câte variante mai există pentru ceilalți 2 elevi pe cele 2 scaune rămase?",
-    "barem": "Elevul cel mai înalt stă obligatoriu pe scaunul din mijloc. Ceilalți doi elevi, A și B, pot sta: A în stânga și B în dreapta, sau B în stânga și A în dreapta. Deci sunt 2 moduri.",
-    "cat": "Combinatorica",
-    "dif": 1,
-    "id": 2007,
-    "hash": "a5a331f3544d",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Suma a trei numere consecutive este 126. Care este produsul celui mai mic și celui mai mare dintre cele trei numere?",
-    "ans": "1763",
-    "hint": "Fie cele trei numere consecutive n-1, n, n+1. Suma lor este 3n = 126, deci n = 42. Produsul primului și ultimului este (n-1)(n+1) = n²-1.",
-    "barem": "Numărul din mijloc este 126 : 3 = 42, deci numerele sunt 41, 42, 43 (verificare: 41 + 42 + 43 = 126). Produsul celui mai mic și celui mai mare: 41 × 43 = 1763.",
-    "cat": "Algebra elementara",
-    "dif": 3,
-    "id": 2008,
-    "hash": "22a10cfd889b",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Maria a mâncat 1/4 dintr-o pizza, iar Ion a mâncat 1/3 din aceeași pizza. Ce fracție din pizza a mai rămas?",
-    "ans": "5/12",
-    "hint": "Adu cele două fracții la același numitor (12) și adună-le ca să afli cât s-a mâncat. Apoi scade din întreaga pizza (12/12).",
-    "barem": "Aducem la numitorul 12: 1/4 = 3/12, 1/3 = 4/12. Au mâncat împreună 3/12 + 4/12 = 7/12. A rămas 12/12 − 7/12 = 5/12 din pizza.",
-    "cat": "Fractii",
-    "dif": 1,
-    "id": 2009,
-    "hash": "39911d614346",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
-  },
-  {
-    "text": "Într-un turneu de șah, fiecare jucător joacă exact câte un meci cu fiecare dintre ceilalți jucători. Dacă s-au jucat în total 45 de meciuri, câți jucători au participat la turneu?",
-    "ans": "10",
-    "hint": "Numărul de meciuri este n×(n-1)/2 = 45, unde n este numărul de jucători. Rezolvă ecuația: n×(n-1) = 90.",
-    "barem": "Fiecare jucător joacă cu toți ceilalți n − 1 jucători. Dacă numărăm n × (n − 1), fiecare meci e numărat de două ori, deci meciurile sunt n × (n − 1) : 2 = 45, adică n × (n − 1) = 90. Căutăm două numere consecutive cu produsul 90: 10 × 9 = 90, deci n = 10 jucători.",
-    "cat": "Combinatorica",
-    "dif": 3,
-    "id": 2010,
-    "hash": "c897117084ca",
-    "sursa": "emil-racovita-iasi",
-    "sursa_label": "Urmasii lui Moisil",
-    "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: dacă sunt n participanți, fiecare joacă cu ceilalți n minus 1. Dacă înmulțim n cu n minus 1, fiecare meci este numărat de două ori, câte o dată pentru fiecare dintre cei doi jucători. Deci n ori n minus 1 trebuie să fie dublul lui 45, adică 90. Două numere consecutive care înmulțite dau 90 sunt 10 și 9. Așadar sunt 10 participanți."
   }
 ]

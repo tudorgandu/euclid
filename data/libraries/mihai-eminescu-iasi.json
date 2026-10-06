@@ -11,7 +11,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Luni elevul citește 2 cincimi din carte, deci rămân 3 cincimi necitite. Marți citește o treime din ce a rămas, adică o treime din 3 cincimi, care este o cincime. După marți rămân 3 cincimi minus o cincime, adică 2 cincimi. Așadar a mai rămas de citit 2 supra 5 din carte."
   },
   {
     "cat": "Numere naturale",
@@ -25,7 +26,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: dacă cel mai mic număr este n, celelalte sunt cu 1, cu 2 și cu 3 mai mari. Suma lor este 4 ori n, plus 1 plus 2 plus 3, adică 4 ori n plus 6. Deci 4 ori n fac 150 minus 6, adică 144, iar n este 144 împărțit la 4, adică 36. Numerele sunt 36, 37, 38 și 39, iar suma lor este într-adevăr 150."
   },
   {
     "cat": "Geometrie",
@@ -39,7 +41,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Diagonala taie dreptunghiul în două triunghiuri dreptunghice, iar diagonala este ipotenuza. Cu teorema lui Pitagora: lungimea înmulțită cu ea însăși este 65 ori 65 minus 25 ori 25, adică 4225 minus 625, care fac 3600. Numărul care înmulțit cu el însuși dă 3600 este 60, deci lungimea este 60 de centimetri. Perimetrul este de 2 ori suma dintre 60 și 25, adică 2 ori 85, care fac 170 de centimetri. Răspunsul: lungimea este 60 de centimetri, iar perimetrul este 170 de centimetri."
   },
   {
     "cat": "Operații",
@@ -53,7 +56,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Calculăm fiecare produs și apoi le adunăm pe rând. Produsele sunt 2, 6, 12, 20, 30, 42, 56, 72 și 90. Adunându-le, obținem pe rând 2, 8, 20, 40, 70, 112, 168, 240 și, la final, 330. Suma este 330."
   },
   {
     "cat": "Probleme de logică",
@@ -67,7 +71,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: trenul a trecut complet prin tunel abia când și ultimul vagon a ieșit afară. Deci locomotiva parcurge lungimea tunelului plus lungimea trenului, adică 1500 plus 250, care fac 1750 de metri. Viteza de 72 de kilometri pe oră înseamnă 72000 de metri în 3600 de secunde, adică 20 de metri în fiecare secundă. Timpul este 1750 împărțit la 20, care fac 87,5. Răspunsul este 87,5 secunde."
   },
   {
     "cat": "Algebră elementară",
@@ -81,7 +86,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim la a plus b înmulțit cu el însuși: 12 ori 12 fac 144. Când desfacem această înmulțire, obținem a ori a, plus b ori b, plus de două ori produsul a ori b. De două ori produsul înseamnă 2 ori 32, adică 64. Deci a ori a plus b ori b este 144 minus 64, care fac 80. Putem verifica: numerele sunt 4 și 8, iar 16 plus 64 fac tot 80. Răspunsul este 80."
   },
   {
     "cat": "Combinatorică",
@@ -95,7 +101,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim pe rând la fiecare loc de pe raft. Pe primul loc putem pune oricare dintre cele 5 cărți, pe al doilea oricare dintre cele 4 rămase, apoi 3, apoi 2, iar pe ultimul loc rămâne o singură carte. Numărul de moduri este 5 ori 4 ori 3 ori 2 ori 1, care fac 120. Răspunsul este 120."
   },
   {
     "cat": "Numere naturale",
@@ -109,7 +116,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Observăm că fiecare rest este cu 1 mai mic decât împărțitorul. Asta înseamnă că dacă adunăm 1 la numărul căutat, el se împarte exact și la 5, și la 7, și la 9. Cel mai mic număr care se împarte exact la toate trei este 5 ori 7 ori 9, adică 315. Deci numărul căutat este 315 minus 1, adică 314. Verificăm: 314 este 5 ori 62 plus 4, 7 ori 44 plus 6 și 9 ori 34 plus 8. Răspunsul este 314."
   },
   {
     "cat": "Geometrie",
@@ -123,7 +131,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Aria unui trapez se află adunând cele două baze, înmulțind cu înălțimea și împărțind la 2. Bazele adunate fac 10 plus 6, adică 16 centimetri. Apoi 16 ori 8 fac 128, iar 128 împărțit la 2 fac 64. Răspunsul este 64 de centimetri pătrați."
   },
   {
     "cat": "Fracții",
@@ -137,7 +146,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Mai întâi calculăm fiecare paranteză: 1 minus o doime este o doime, 1 minus o treime sunt două treimi, 1 minus o pătrime sunt trei pătrimi, și așa mai departe, până la 9 supra 10. Acum înmulțim: o doime ori două treimi ori trei pătrimi și tot așa. Ne gândim așa: numărătorul fiecărei fracții se simplifică cu numitorul fracției dinainte, 2 cu 2, 3 cu 3, până la 9 cu 9. Rămâne doar 1 sus, de la prima fracție, și 10 jos, de la ultima. Răspunsul este 1 supra 10, adică o zecime."
   },
   {
     "cat": "Șiruri și șabloane",
@@ -151,7 +161,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Numărăm pătratele după mărime. Pătrate mici de 1 pe 1 sunt 8 ori 8, adică 64. Pătrate de 2 pe 2 sunt 7 ori 7, adică 49, apoi de 3 pe 3 sunt 36, de 4 pe 4 sunt 25, de 5 pe 5 sunt 16, de 6 pe 6 sunt 9, de 7 pe 7 sunt 4 și un singur pătrat mare de 8 pe 8. Adunăm: 64 plus 49 plus 36 plus 25 plus 16 plus 9 plus 4 plus 1 fac 204. Răspunsul este 204 pătrate."
   },
   {
     "cat": "Probleme de logică",
@@ -165,7 +176,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Mergem pas cu pas, zi după zi. Alaltăieri a fost joi, deci ieri a fost vineri, iar azi este sâmbătă. Mâine va fi duminică, iar poimâine va fi luni. Răspunsul este luni."
   },
   {
     "cat": "Operații",
@@ -179,7 +191,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: dacă media a 8 numere este 45, atunci suma lor este 8 ori 45, adică 360. Adăugăm numărul 81 și suma devine 360 plus 81, adică 441. Acum avem 9 numere, deci noua medie este 441 împărțit la 9, care fac 49. Răspunsul este 49."
   },
   {
     "cat": "Algebră elementară",
@@ -193,7 +206,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Pătratul numărului înseamnă numărul înmulțit cu el însuși. Dacă din el scădem numărul o dată, rămâne numărul înmulțit cu numărul cu 1 mai mic. Deci căutăm două numere consecutive al căror produs este 56, iar acestea sunt 7 și 8. Numărul căutat este cel mai mare dintre ele, 8. Verificăm: 8 ori 8 fac 64, iar 64 minus 8 fac 56. Răspunsul este 8."
   },
   {
     "cat": "Numere naturale",
@@ -207,7 +221,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Un zero la final apare din fiecare înmulțire cu 10, adică dintr-un 2 și un 5 puși împreună. În produsul 1 ori 2 ori 3 până la 50, numere pare sunt foarte multe, așa că numărăm doar câți de 5 apar. Numerele care se împart la 5 până la 50 sunt 10. Numerele 25 și 50 conțin câte un 5 în plus, fiindcă se împart la 25, deci mai adăugăm 2. Total: 10 plus 2 fac 12. Răspunsul este 12 zerouri."
   },
   {
     "text": "Găsiți cel mai mare număr de 4 cifre care este divizibil cu 9 și are suma cifrelor egală cu 27.",
@@ -221,7 +236,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Un număr se împarte la 9 dacă suma cifrelor lui se împarte la 9, iar 27 este 9 ori 3, deci orice număr cu suma cifrelor 27 merge. Vrem cel mai mare număr, așa că punem primele cifre cât mai mari: 9, 9 și 9. Ele adunate fac deja 27, deci ultima cifră trebuie să fie 0. Răspunsul este 9990."
   },
   {
     "text": "Calculați: 1 + 3 + 5 + 7 + ... + 99 (suma primelor 50 de numere impare).",
@@ -235,7 +251,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim să facem perechi: primul cu ultimul, al doilea cu penultimul și așa mai departe. 1 plus 99 fac 100, 3 plus 97 fac 100, până la 49 plus 51, care fac tot 100. Sunt 50 de numere, deci 25 de perechi. Suma este 25 ori 100, adică 2500. Răspunsul este 2500."
   },
   {
     "text": "Maria a parcurs 3/5 din drumul spre școală, adică 360 de metri. Câți metri are drumul total și câți metri îi mai rămân de parcurs?",
@@ -249,7 +266,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Împărțim drumul în 5 bucăți egale, iar Maria a mers 3 dintre ele, adică 360 de metri. O bucată are 360 împărțit la 3, adică 120 de metri. Tot drumul are 5 bucăți, deci 5 ori 120, adică 600 de metri. Îi mai rămân 2 bucăți, adică 2 ori 120, care fac 240 de metri. Răspunsul este: drumul are 600 de metri și îi mai rămân 240 de metri."
   },
   {
     "text": "Găsiți termenul lipsă din șirul: 2, 6, 18, 54, ___, 486, 1458.",
@@ -263,7 +281,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne uităm cum crește șirul: 2 ori 3 fac 6, 6 ori 3 fac 18, 18 ori 3 fac 54. Deci fiecare termen este de 3 ori mai mare decât cel dinainte. Termenul lipsă este 54 ori 3, adică 162. Verificăm: 162 ori 3 fac 486, iar 486 ori 3 fac 1458. Răspunsul este 162."
   },
   {
     "text": "Ana, Bogdan și Cristi au împreună 120 de cărți. Ana are de două ori mai multe cărți decât Bogdan, iar Cristi are cu 10 mai puține decât Ana. Câte cărți are fiecare?",
@@ -277,7 +296,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim cu părți: Bogdan are o parte, Ana are 2 părți, iar Cristi are tot 2 părți, dar cu 10 cărți mai puțin. Împreună au 5 părți minus 10 cărți, adică 120. Atunci 5 părți fac 120 plus 10, adică 130, iar o parte este 130 împărțit la 5, adică 26. Bogdan are 26 de cărți, Ana are 2 ori 26, adică 52, iar Cristi are 52 minus 10, adică 42. Verificăm: 26 plus 52 plus 42 fac 120. Răspunsul este Bogdan 26, Ana 52 și Cristi 42 de cărți."
   },
   {
     "text": "În câte moduri pot fi aranjați 4 elevi diferiți în linie dreaptă pentru o fotografie?",
@@ -291,7 +311,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim la locurile din fotografie, pe rând. Pe primul loc poate sta oricare dintre cei 4 elevi, pe al doilea oricare dintre cei 3 rămași, pe al treilea oricare dintre cei 2 rămași, iar pe ultimul stă elevul care a rămas. Numărul de moduri este 4 ori 3 ori 2 ori 1, care fac 24. Răspunsul este 24."
   },
   {
     "text": "Găsiți valoarea lui ★ din egalitatea: ★ × (★ + 3) = 40, unde ★ este un număr natural.",
@@ -305,7 +326,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Căutăm un număr care, înmulțit cu numărul cu 3 mai mare decât el, dă 40. Încercăm pe rând: 1 ori 4 fac 4, 2 ori 5 fac 10, 3 ori 6 fac 18, 4 ori 7 fac 28, iar 5 ori 8 fac 40. Pentru numere mai mari produsul trece de 40, deci nu mai există alte soluții. Răspunsul este 5."
   },
   {
     "text": "Pe o tablă sunt scrise toate numerele naturale de la 1 la 100. Câte cifre de 7 apar în total?",
@@ -319,7 +341,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Numărăm separat cifra 7 de la unități și cifra 7 de la zeci. La unități o găsim în 7, 17, 27 și tot așa până la 97, adică de 10 ori. La zeci o găsim în numerele de la 70 la 79, tot de 10 ori. Numărul 77 are doi de 7, dar unul a fost numărat la unități și celălalt la zeci, deci e corect. Total: 10 plus 10 fac 20. Răspunsul este 20."
   },
   {
     "text": "Într-un turneu de șah, fiecare jucător joacă exact o partidă cu fiecare alt jucător. Dacă s-au jucat în total 45 de partide, câți jucători au participat la turneu?",
@@ -333,7 +356,8 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Ne gândim așa: fiecare jucător joacă cu toți ceilalți, deci cu un număr de jucători cu 1 mai mic decât totalul. Dacă înmulțim numărul de jucători cu acest număr, fiecare partidă este numărată de două ori, câte o dată pentru fiecare dintre cei doi jucători. Așadar numărul de jucători înmulțit cu numărul cu 1 mai mic trebuie să fie 45 ori 2, adică 90. Două numere consecutive cu produsul 90 sunt 9 și 10. Răspunsul este 10 jucători."
   },
   {
     "cat": "Operații",
@@ -347,6 +371,7 @@
     "sursa": "mihai-eminescu-iasi",
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-14",
-    "generat_ai": true
+    "generat_ai": true,
+    "explicatie": "Facem mai întâi înmulțirile. 125 ori 8 fac 1000, 250 ori 4 fac 1000 și 500 ori 2 fac tot 1000. Acum avem 1000 plus 1000 minus 1000, care fac 1000. Răspunsul este 1000."
   }
 ]
