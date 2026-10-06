@@ -179,6 +179,43 @@
   .btn-restart { width: 100%; padding: 1rem; background: var(--navy); color: white; border: none; border-radius: var(--r-sm); font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; margin-bottom: 0.65rem; }
   .btn-restart.secondary { background: white; color: var(--navy); border: 2px solid var(--navy); }
 
+
+  /* ── Progres ── */
+  .btn-progress { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 0.3rem 0.6rem; color: white; font-size: 0.75rem; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; }
+  .btn-progress:hover { background: rgba(255,255,255,0.2); }
+  .prog-title { font-size: 1.6rem; font-weight: 900; color: var(--navy); margin: 0.5rem 0 0.25rem; }
+  .prog-sub { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; margin-bottom: 1.25rem; }
+  .prog-card { background: white; border-radius: var(--r); padding: 1.25rem 1.25rem 1rem; margin-bottom: 1.1rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+  .prog-card h3 { font-size: 1rem; font-weight: 900; color: var(--navy); margin: 0 0 0.2rem; }
+  .prog-card .prog-note { font-size: 0.8rem; color: var(--ink-muted); font-weight: 600; margin-bottom: 0.8rem; }
+  .prog-tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem; margin-bottom: 1.1rem; }
+  .prog-tiles .result-stat { padding: 0.85rem 0.4rem; }
+  .prog-tiles .result-stat-num { font-size: 1.6rem; }
+  .prog-tiles .result-stat-label { font-size: 0.68rem; }
+  @media (max-width: 500px) { .prog-tiles { grid-template-columns: 1fr 1fr; } }
+  .prog-chart { position: relative; width: 100%; }
+  .prog-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .prog-tip { position: absolute; pointer-events: none; background: var(--navy-dark); color: white; font-size: 0.78rem; font-weight: 700; padding: 0.4rem 0.6rem; border-radius: 8px; white-space: nowrap; transform: translate(-50%, calc(-100% - 10px)); opacity: 0; transition: opacity 0.1s; z-index: 5; }
+  .prog-tip.show { opacity: 1; }
+  .cat-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 0.15rem 0.75rem; padding: 0.45rem 0; border-top: 1px solid var(--border); }
+  .cat-row:first-of-type { border-top: none; }
+  .cat-name { font-size: 0.88rem; font-weight: 800; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cat-val { font-size: 0.88rem; font-weight: 800; color: var(--ink); text-align: right; }
+  .cat-val span { color: var(--ink-muted); font-weight: 600; font-size: 0.78rem; }
+  .cat-bar { grid-column: 1 / -1; height: 8px; border-radius: 4px; background: var(--cream-dark); overflow: hidden; }
+  .cat-bar > div { height: 100%; border-radius: 4px; background: var(--navy); }
+  .sess-row { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.55rem 0; border-top: 1px solid var(--border); font-size: 0.86rem; }
+  .sess-row:first-of-type { border-top: none; }
+  .sess-when { font-weight: 800; color: var(--ink); }
+  .sess-lib { font-size: 0.76rem; color: var(--ink-muted); font-weight: 600; }
+  .sess-score { font-weight: 900; color: var(--navy); white-space: nowrap; text-align: right; }
+  .sess-score span { display: block; font-size: 0.74rem; color: var(--ink-muted); font-weight: 600; }
+  .prog-empty { text-align: center; padding: 2rem 1rem; color: var(--ink-soft); font-weight: 700; }
+  .prog-table-toggle { background: none; border: none; color: var(--navy-light); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.8rem; cursor: pointer; padding: 0.3rem 0 0; }
+  .prog-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 0.5rem; }
+  .prog-table th, .prog-table td { text-align: left; padding: 0.3rem 0.4rem; border-top: 1px solid var(--border); }
+  .prog-table th { color: var(--ink-muted); font-weight: 800; }
+
   .confetti-piece { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti-fall linear forwards; border-radius: 2px; z-index: 999; pointer-events: none; }
   @keyframes confetti-fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
@@ -278,6 +315,7 @@
       <div class="stat-pill"><div class="dot dot-amber"></div><span id="statQ">0/0</span></div>
     </div>
     <div class="session-count-badge" id="sessionCountBadge">📚 <span id="sessionCountText">— sesiuni</span></div>
+    <button class="btn-progress" id="btnProgress" style="display:none" onclick="openProgress()">📈 Progres</button>
     <button class="btn-logout" id="btnLogout" style="display:none" onclick="doLogout()">Ieșire</button>
   </div>
 </header>
@@ -436,112 +474,122 @@
     </div>
     <button class="btn-restart" onclick="restartSession()">Sesiune nouă →</button>
     <button class="btn-restart secondary" onclick="showScreen('start')">Schimbă configurația</button>
+    <button class="btn-restart secondary" onclick="openProgress()">📈 Vezi progresul</button>
+  </div>
+
+  <!-- ══════ PROGRES ══════ -->
+  <div class="screen" id="screen-progress">
+    <div class="prog-title">Progresul tău</div>
+    <div class="prog-sub" id="progSub">Se încarcă…</div>
+    <div id="progBody"></div>
+    <button class="btn-restart" onclick="showScreen('start')">Înapoi la antrenament →</button>
   </div>
 
 </div>
 
 <script>
+// Rezervă locală (copie a bibliotecii verificate vasile-alecsandri), folosită doar dacă GitHub nu răspunde
 const PROBLEMS = [
-  {id:1,cat:"Numere naturale",dif:1,text:"Pe o masă sunt 48 de cărți împărțite în grămezi egale. Câte grămezi se pot forma? Găsește toate variantele posibile.",ans:"10",hint:"Gândește-te la toți divizorii lui 48.",barem:"Divizorii lui 48 sunt: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48 — deci 10 variante posibile."},
-  {id:2,cat:"Numere naturale",dif:1,text:"Calculați suma numerelor naturale pare mai mici decât 20.",ans:"90",hint:"Numerele pare de la 2 la 18. Sunt 9 termeni. Folosește formula sumei.",barem:"2+4+6+8+10+12+14+16+18 = 90. Formula: 9×(2+18)/2 = 90."},
-  {id:3,cat:"Numere naturale",dif:2,text:"Găsiți cel mai mare număr de 3 cifre care se împarte exact la 7 și la 9.",ans:"945",hint:"Mai întâi calculează cel mai mic multiplu comun al lui 7 și 9.",barem:"lcm(7,9) = 63. Cel mai mare multiplu al lui 63 sub 1000: 63 × 15 = 945."},
-  {id:4,cat:"Numere naturale",dif:2,text:"Suma a trei numere naturale consecutive este 111. Care este cel mai mare dintre ele?",ans:"38",hint:"Dacă primul număr este n, atunci n+(n+1)+(n+2)=111.",barem:"3n+3=111 → n=36. Cele trei numere sunt 36, 37, 38. Cel mai mare: 38."},
-  {id:5,cat:"Numere naturale",dif:2,text:"Un număr natural este de 4 ori mai mare decât al doilea. Suma lor este 120. Găsiți cele două numere.",ans:"96 și 24",hint:"Dacă cel mic este y, cel mare este 4y. Suma lor este 5y.",barem:"5y=120 → y=24, x=96. Verificare: 96+24=120 ✓"},
-  {id:6,cat:"Numere naturale",dif:1,text:"Câte numere naturale de 2 cifre există al căror produs al cifrelor este 12?",ans:"4",hint:"Caută perechile de cifre (a,b) cu a×b=12 și a≥1.",barem:"Perechile: (2,6),(6,2),(3,4),(4,3). Numerele: 26, 62, 34, 43. Răspuns: 4."},
-  {id:7,cat:"Numere naturale",dif:3,text:"Câte cifre are numărul 2 la puterea 10 înmulțit cu 5 la puterea 12?",ans:"12",hint:"Rescrie ca 10 la puterea 10 înmulțit cu 25.",barem:"2^10 × 5^12 = 10^10 × 25 = 250.000.000.000 — 12 cifre."},
-  {id:8,cat:"Numere naturale",dif:2,text:"Dintre numerele 1, 2, 3, ..., 100, câte sunt divizibile cu 3 sau cu 5?",ans:"47",hint:"Folosește incluziunea-excluderea: |A∪B| = |A| + |B| - |A∩B|.",barem:"Div cu 3: 33. Div cu 5: 20. Div cu 15: 6. Total: 33+20-6 = 47."},
-  {id:9,cat:"Numere naturale",dif:1,text:"Suma cifrelor unui număr de 2 cifre este 9. Dacă inversăm cifrele, noul număr este cu 27 mai mare. Găsiți numărul inițial.",ans:"36",hint:"Fie cifrele a și b. Scrie două ecuații: a+b=9 și diferența inversatelor este 27.",barem:"a+b=9 și 9(b-a)=27 → b-a=3. Deci a=3, b=6. Numărul: 36."},
-  {id:10,cat:"Numere naturale",dif:3,text:"Câte numere naturale de 3 cifre au toate cifrele distincte și suma cifrelor egală cu 9?",ans:"34",hint:"Găsești mai întâi tripletele de cifre distincte cu suma 9, apoi numeri permutările.",barem:"Triplete posibile: (0,1,8),(0,2,7),(0,3,6),(0,4,5),(1,2,6),(1,3,5),(2,3,4). Aranjamente fără zero la sute: 34 numere."},
-  {id:11,cat:"Operații",dif:1,text:"Calculați: 1+2+3+...+50.",ans:"1275",hint:"Folosește formula lui Gauss: S = n(n+1)/2.",barem:"S = 50×51/2 = 1275."},
-  {id:12,cat:"Operații",dif:1,text:"Cât este 999 × 111?",ans:"110889",hint:"999 = 1000 - 1. Aplică proprietatea distributivă.",barem:"999×111 = (1000-1)×111 = 111000 - 111 = 110889."},
-  {id:13,cat:"Operații",dif:2,text:"Calculați: (1+3+5+7+...+99) - (2+4+6+8+...+100).",ans:"-50",hint:"Prima sumă are 50 termeni impari, a doua 50 termeni pari.",barem:"Prima sumă: 50² = 2500. A doua: 50×51 = 2550. Diferența: 2500-2550 = -50."},
-  {id:14,cat:"Operații",dif:2,text:"Aflați x dacă: 3×(x+5) − 2×(x−1) = 27.",ans:"10",hint:"Elimină parantezele, apoi adună termenii cu x.",barem:"3x+15-2x+2=27 → x+17=27 → x=10."},
-  {id:15,cat:"Operații",dif:1,text:"Maria are 240 de lei. Cheltuiește 1/3 pe cărți și 1/4 din ce rămâne pe rechizite. Cât îi mai rămâne?",ans:"120",hint:"Mai întâi calculează cât cheltuie pe cărți, apoi din rest calculează rechizitele.",barem:"Cărți: 240/3=80. Rămân 160. Rechizite: 160/4=40. Rămân: 120 lei."},
-  {id:16,cat:"Operații",dif:3,text:"Câte înmulțiri sunt necesare să calculezi 2 la puterea 32 folosind doar rezultate deja calculate?",ans:"5",hint:"Ridică la pătrat în mod repetat.",barem:"2→4→16→256→65536→2^32. Exact 5 înmulțiri prin ridicare succesivă la pătrat."},
-  {id:17,cat:"Operații",dif:2,text:"Un număr împărțit la 7 dă câtul 13 și restul 5. Găsiți numărul.",ans:"96",hint:"Formula: număr = împărțitor × cât + rest.",barem:"7×13+5 = 91+5 = 96."},
-  {id:18,cat:"Operații",dif:1,text:"Calculați: 123 × 9 + 123 × 1.",ans:"1230",hint:"Factorizează: 123×(9+1).",barem:"123×(9+1) = 123×10 = 1230."},
-  {id:19,cat:"Operații",dif:2,text:"Suma a 5 numere este 375. Dacă adăugăm un al șaselea număr, media devine 80. Găsiți al șaselea număr.",ans:"105",hint:"Media a 6 numere este 80, deci suma lor este 80×6.",barem:"Total cu 6 numere: 480. Al șaselea: 480-375 = 105."},
-  {id:20,cat:"Operații",dif:3,text:"Aflați toate perechile de numere naturale (a,b) cu a mai mic sau egal cu b pentru care a×b = a+b+10.",ans:"(2,12)",hint:"Rescrie ecuația ca (a-1)×(b-1) = 11. Ce știi despre 11?",barem:"(a-1)(b-1)=11. 11 este prim: a-1=1, b-1=11 → (2,12). Verificare: 2×12=24=2+12+10 ✓"},
-  {id:21,cat:"Operații",dif:2,text:"O fabrică produce 240 de piese pe zi în 8 ore. Câte piese produce în 5 ore?",ans:"150",hint:"Calculează câte piese produce pe oră.",barem:"240/8 = 30 piese/oră. În 5 ore: 30×5 = 150."},
-  {id:22,cat:"Operații",dif:1,text:"Câte minute sunt în 3 zile și 7 ore?",ans:"4740",hint:"Transformă totul în ore, apoi în minute.",barem:"3×24 + 7 = 79 ore. 79×60 = 4740 minute."},
-  {id:23,cat:"Fracții",dif:1,text:"Calculați: 1/2 + 1/3 + 1/6.",ans:"1",hint:"Aduce la numitor comun: 6.",barem:"3/6 + 2/6 + 1/6 = 6/6 = 1."},
-  {id:24,cat:"Fracții",dif:2,text:"Dintr-o cutie s-au luat 2/5 din bomboane, apoi 1/3 din ce rămânea. Au rămas 40 de bomboane. Câte erau la început?",ans:"100",hint:"Ce fracție din total rămâne după ambele luări?",barem:"Rămân 3/5 după prima luare. Din 3/5 mai rămân 2/3, adică 2/5 din total = 40 → total = 100."},
-  {id:25,cat:"Fracții",dif:1,text:"Ordonați crescător: 3/4, 5/6, 7/12, 2/3.",ans:"7/12, 2/3, 3/4, 5/6",hint:"Aduce toate la numitor comun 12.",barem:"7/12, 8/12, 9/12, 10/12. Ordinea: 7/12 < 2/3 < 3/4 < 5/6."},
-  {id:26,cat:"Fracții",dif:2,text:"Un rezervor se umple printr-o țeavă în 4 ore și printr-o alta în 6 ore. Cât durează dacă lucrează împreună?",ans:"2h 24min",hint:"Adună debitele: câtă parte din rezervor umple fiecare pe oră?",barem:"Debit combinat: 1/4+1/6 = 5/12/oră. Timp: 12/5 = 2,4 ore = 2h 24min."},
-  {id:27,cat:"Fracții",dif:3,text:"Calculați suma: 1 pe 1×2 plus 1 pe 2×3 plus 1 pe 3×4 plus ... plus 1 pe 9×10.",ans:"9/10",hint:"Scrie fiecare termen ca diferență: 1/(k×(k+1)) = 1/k - 1/(k+1).",barem:"Sume telescopice: 1 - 1/10 = 9/10."},
-  {id:28,cat:"Fracții",dif:2,text:"Un număr este cu 3/8 mai mic decât 80. Găsiți numărul.",ans:"50",hint:"3/8 din 80 este diferența. Scade din 80.",barem:"3/8 × 80 = 30. Numărul = 80 - 30 = 50."},
-  {id:29,cat:"Șiruri și șabloane",dif:1,text:"Care este al 10-lea termen al șirului: 3, 7, 11, 15, ...?",ans:"39",hint:"Șir aritmetic cu primul termen 3 și rație 4.",barem:"T10 = 3 + 9×4 = 3 + 36 = 39."},
-  {id:30,cat:"Șiruri și șabloane",dif:2,text:"Șirul: 2, 6, 18, 54, ... Care este al 7-lea termen?",ans:"1458",hint:"Șir geometric cu rație 3.",barem:"T7 = 2 × 3^6 = 2 × 729 = 1458."},
-  {id:31,cat:"Șiruri și șabloane",dif:2,text:"Suma primilor n termeni impari este n pătrat. Calculați suma primilor 15 termeni impari.",ans:"225",hint:"Aplică direct formula cu n=15.",barem:"S15 = 15² = 225."},
-  {id:32,cat:"Șiruri și șabloane",dif:3,text:"Câți termeni are șirul: 5, 10, 15, ..., 500?",ans:"100",hint:"Împarte ultimul termen la rație.",barem:"n = (500-5)/5 + 1 = 100."},
-  {id:33,cat:"Șiruri și șabloane",dif:2,text:"Numerele de la 1 la 100 sunt scrise pe hârtie. Câte cifre au fost scrise în total?",ans:"192",hint:"Împarte în grupuri: 1-9, 10-99, 100.",barem:"1-9: 9×1=9. 10-99: 90×2=180. 100: 3 cifre. Total: 192."},
-  {id:34,cat:"Șiruri și șabloane",dif:3,text:"Găsiți termenul al 100-lea al șirului: 1, apoi 1,2, apoi 1,2,3, apoi 1,2,3,4, și tot așa.",ans:"9",hint:"Structura: grupuri de 1,2,3,... termeni. Suma primelor k grupuri: k(k+1)/2.",barem:"Primele 13 grupuri: 91 termeni. Termenul 100 este în grupul 14, la poziția 9."},
-  {id:35,cat:"Șiruri și șabloane",dif:1,text:"Completați: 2, 4, 8, 16, ___, 64.",ans:"32",hint:"Fiecare termen se înmulțește cu 2.",barem:"16 × 2 = 32."},
-  {id:36,cat:"Probleme de logică",dif:1,text:"Ana are cu 12 ani mai mult decât Bogdan. Peste 5 ani, Ana va avea de 2 ori vârsta lui Bogdan. Câți ani are acum Bogdan?",ans:"7",hint:"Scrie două ecuații: A=B+12 și A+5=2(B+5).",barem:"B+17 = 2B+10 → B=7. Ana: 19 ani. Verificare: 24=2×12 ✓"},
-  {id:37,cat:"Probleme de logică",dif:2,text:"Trei prieteni au împreună 48 de cărți. Al doilea are de 2 ori mai multe ca primul, iar al treilea de 3 ori mai multe ca primul. Câte cărți are fiecare?",ans:"8, 16, 24",hint:"Dacă primul are x cărți, expresia totală este x+2x+3x.",barem:"6x=48 → x=8. Cei trei: 8, 16, 24."},
-  {id:38,cat:"Probleme de logică",dif:2,text:"O sfoară de 100 m este tăiată în bucăți de câte 2 m. Câte tăieturi se fac?",ans:"49",hint:"50 de bucăți necesită câte tăieturi?",barem:"50 bucăți rezultă din 49 tăieturi."},
-  {id:39,cat:"Probleme de logică",dif:2,text:"Pe o masă sunt farfurii cu 2 și 3 prăjituri, în total 25 de prăjituri și 10 farfurii. Câte farfurii au câte 2 prăjituri?",ans:"5",hint:"Fie a = farfurii cu 2 prăjituri, b = farfurii cu 3 prăjituri.",barem:"a+b=10 și 2a+3b=25. Scăzând: b=5, a=5."},
-  {id:40,cat:"Probleme de logică",dif:1,text:"Într-un tren sunt 3 vagoane. Primul are 12 pasageri, al doilea cu 5 mai mulți, al treilea cu 3 mai puțini decât primele două împreună. Câți pasageri sunt total?",ans:"55",hint:"Calculează fiecare vagon pe rând.",barem:"V1=12, V2=17, V3=26. Total: 55."},
-  {id:41,cat:"Probleme de logică",dif:3,text:"Cinci copii stau la rând. Anca este a 3-a din față. Câți copii sunt înaintea Ancăi?",ans:"2",hint:"A 3-a din față înseamnă că în fața ei sunt 2 copii.",barem:"A 3-a din față = 2 copii înaintea ei."},
-  {id:42,cat:"Probleme de logică",dif:2,text:"Un ceas întârzie cu 5 minute pe oră. Dacă îl potrivesc la 12:00, ce oră va arăta după 12 ore reale?",ans:"11:00",hint:"Câte minute pierde în total în 12 ore?",barem:"Pierde 5×12=60 minute = 1 oră. Arată 11:00."},
-  {id:43,cat:"Probleme de logică",dif:2,text:"Ion a gândit un număr. L-a înmulțit cu 4, a scăzut 2, a împărțit la 2 și a obținut 15. Ce număr a gândit?",ans:"8",hint:"Operează invers, de la final spre început.",barem:"Invers: 15×2=30, 30+2=32, 32÷4=8. Verificare: (8×4−2)÷2=15 ✓"},
-  {id:44,cat:"Probleme de logică",dif:2,text:"Doi frați au împreună 30 de ani. Cel mare are de 2 ori vârsta celui mic. Câți ani are cel mare?",ans:"20",hint:"Fie cel mic = m. Atunci cel mare = 2m.",barem:"m+2m=30 → m=10. Cel mare: 20 ani."},
-  {id:45,cat:"Probleme de logică",dif:2,text:"Un comerciant vinde mere cu 3 lei/kg. Dacă ar fi vândut cu 4 lei/kg, ar fi câștigat 30 lei în plus. Câte kg de mere a vândut?",ans:"30",hint:"Diferența de preț pe kg este 1 leu.",barem:"(4-3) × kg = 30 → kg = 30."},
-  {id:46,cat:"Geometrie",dif:1,text:"Perimetrul unui pătrat este 48 cm. Care este aria lui?",ans:"144 cm²",hint:"Calculează mai întâi latura.",barem:"Latura = 48÷4 = 12 cm. Aria = 12² = 144 cm²."},
-  {id:47,cat:"Geometrie",dif:1,text:"Un dreptunghi are lungimea de 15 cm și lățimea de 8 cm. Calculați perimetrul și aria.",ans:"P=46 cm, A=120 cm²",hint:"P=2(l+L), A=l×L.",barem:"P=2×(15+8)=46 cm. A=15×8=120 cm²."},
-  {id:48,cat:"Geometrie",dif:2,text:"Un triunghi dreptunghic are catetele de 6 și 8 cm. Calculați ipotenuza.",ans:"10 cm",hint:"Teorema lui Pitagora: c²=a²+b².",barem:"c=√(36+64)=√100=10 cm."},
-  {id:49,cat:"Geometrie",dif:2,text:"Aria unui triunghi isoscel este 30 cm². Dacă baza este de 10 cm, cât măsoară înălțimea?",ans:"6 cm",hint:"Formula ariei: A = (baza × înălțimea) / 2.",barem:"30 = 10×h/2 → h = 6 cm."},
-  {id:50,cat:"Geometrie",dif:3,text:"Un pătrat cu latura de 10 cm. Prin unirea mijloacelor laturilor se obține un pătrat interior. Care este aria lui?",ans:"50 cm²",hint:"Latura pătratului interior este diagonala unui triunghi dreptunghic isoscel cu cateta 5.",barem:"Aria = d²/2 = 100/2 = 50 cm²."},
-  {id:51,cat:"Geometrie",dif:1,text:"Câte axe de simetrie are un dreptunghi care nu este pătrat?",ans:"2",hint:"Gândește-te la liniile care împart dreptunghiul în două jumătăți egale.",barem:"2 axe: una orizontală, una verticală."},
-  {id:52,cat:"Geometrie",dif:2,text:"Un triunghi echilateral are perimetrul de 36 cm și înălțimea de 10 cm. Calculați aria lui.",ans:"60 cm²",hint:"Aria = baza × înălțimea / 2.",barem:"Latura = 36÷3 = 12 cm. Aria = 12×10/2 = 60 cm²."},
-  {id:53,cat:"Geometrie",dif:2,text:"Un dreptunghi are perimetrul de 40 cm și lungimea de 3 ori lățimea. Găsiți dimensiunile.",ans:"15 cm și 5 cm",hint:"2(l+L)=40 și L=3l.",barem:"2(l+3l)=40 → l=5, L=15."},
-  {id:54,cat:"Geometrie",dif:3,text:"Pe toate fețele unui cub cu latura de 3 cm sunt desenate toate pătratele unitate. Câte pătrate unitate sunt în total?",ans:"54",hint:"Câte pătrate unitate are o față? Câte fețe are cubul?",barem:"O față: 3×3=9 pătrate. 6 fețe × 9 = 54 pătrate."},
-  {id:55,cat:"Geometrie",dif:1,text:"Un dreptunghi are latura mare de 9 cm și diagonala de 15 cm. Calculați latura mică și perimetrul.",ans:"12 cm; P=42 cm",hint:"Teorema lui Pitagora: latura_mică² + 9² = 15².",barem:"l²=225-81=144 → l=12 cm. P=2×(9+12)=42 cm."},
-  {id:56,cat:"Combinatorică",dif:1,text:"Câte moduri există de a aranja 4 elevi la un rând de 4 scaune?",ans:"24",hint:"Primul scaun: 4 variante, al doilea: 3, ...",barem:"4! = 4×3×2×1 = 24."},
-  {id:57,cat:"Combinatorică",dif:2,text:"Câte numere de 3 cifre distincte se pot forma cu cifrele 1, 2, 3, 4, 5, fără repetiție?",ans:"60",hint:"Prima cifră: 5 variante, a doua: 4, a treia: 3.",barem:"5×4×3 = 60."},
-  {id:58,cat:"Combinatorică",dif:2,text:"Dintr-un grup de 5 copii se selectează o echipă de 3. Câte echipe diferite se pot forma?",ans:"10",hint:"Ordinea în echipă nu contează: combinări de 5 luate câte 3.",barem:"C(5,3) = 10."},
-  {id:59,cat:"Combinatorică",dif:3,text:"Câte diagonale are un octogon, adică un poligon cu 8 laturi?",ans:"20",hint:"Formula: n×(n-3)/2.",barem:"8×5/2 = 20."},
-  {id:60,cat:"Combinatorică",dif:2,text:"Un meniu are 3 supe, 4 feluri principale și 2 deserturi. Câte meniuri complete se pot alege?",ans:"24",hint:"Înmulțește opțiunile pentru fiecare categorie.",barem:"3×4×2 = 24."},
-  {id:61,cat:"Combinatorică",dif:3,text:"Câte modalități există de a pune 5 bile distincte în 3 cutii distincte astfel încât nicio cutie să nu fie goală?",ans:"150",hint:"Folosește numerele Stirling: S(5,3) × 3!",barem:"S(5,3)=25. 25×6 = 150."},
-  {id:62,cat:"Combinatorică",dif:1,text:"Câte perechi de mănuși poți forma din 5 mănuși de stânga și 5 de dreapta, în 5 culori diferite?",ans:"25",hint:"Fiecare mănușă stângă se poate combina cu orice mănușă dreaptă.",barem:"5×5 = 25 perechi."},
-  {id:63,cat:"Combinatorică",dif:2,text:"La un turneu, fiecare echipă joacă cu fiecare altă echipă o singură dată. Au loc 15 meciuri. Câte echipe participă?",ans:"6",hint:"C(n,2)=15. Rezolvă ecuația.",barem:"n(n-1)/2=15 → n=6."},
-  {id:64,cat:"Algebră elementară",dif:1,text:"Găsiți x dacă: 5x + 3 = 23.",ans:"4",hint:"Scade 3 din ambele părți, apoi împarte la 5.",barem:"5x=20 → x=4."},
-  {id:65,cat:"Algebră elementară",dif:2,text:"Rezolvați sistemul: x+y=10, x-y=4.",ans:"x=7, y=3",hint:"Adună ecuațiile ca să elimini y.",barem:"2x=14 → x=7. y=3."},
-  {id:66,cat:"Algebră elementară",dif:1,text:"Dacă 3a=12 și 2b=10, calculați a+b.",ans:"9",hint:"Calculează a și b separat.",barem:"a=4, b=5. a+b=9."},
-  {id:67,cat:"Algebră elementară",dif:2,text:"Suma unui număr și a triplului său este 48. Găsiți numărul.",ans:"12",hint:"x + 3x = 48.",barem:"4x=48 → x=12."},
-  {id:68,cat:"Algebră elementară",dif:3,text:"Câte soluții în numere naturale are ecuația x + 2y = 20?",ans:"11",hint:"y poate lua valorile 0, 1, 2, ..., cât maxim?",barem:"y ∈ {0,1,...,10} → 11 soluții."},
-  {id:69,cat:"Algebră elementară",dif:2,text:"Tatăl are de 4 ori vârsta fiului. Peste 6 ani, tatăl va fi de 3 ori mai vârstnic decât fiul. Câți ani are tatăl acum?",ans:"48",hint:"T=4f și T+6=3(f+6).",barem:"4f+6=3f+18 → f=12 → T=48. Verificare: 54=3×18 ✓"},
-  {id:70,cat:"Algebră elementară",dif:1,text:"Un număr înmulțit cu 6 dă același rezultat ca numărul adunat cu 20. Găsiți numărul.",ans:"4",hint:"6x = x + 20.",barem:"5x=20 → x=4."},
-  {id:71,cat:"Algebră elementară",dif:3,text:"Găsiți toate perechile de numere naturale (x,y) cu x mai mic sau egal cu y și x×y = 2×(x+y).",ans:"(3,6) și (4,4)",hint:"Rescrie ca (x-2)(y-2)=4. Factorizează.",barem:"(x-2)(y-2)=4: cazuri (1,4)→(3,6) și (2,2)→(4,4). Verificare: 3×6=18=2×9 ✓"},
-  {id:72,cat:"Algebră elementară",dif:2,text:"Dacă a/3 = b/4 = c/5 și a+b+c = 36, găsiți a, b și c.",ans:"9, 12, 15",hint:"Fie a=3k, b=4k, c=5k.",barem:"12k=36 → k=3. a=9, b=12, c=15."},
-  {id:73,cat:"Probleme de logică",dif:2,text:"Într-o cutie sunt bile roșii, albastre și galbene, în total 54. Bilele albastre sunt de 2 ori mai multe decât cele roșii, iar galbene cu 6 mai puține decât albastre. Câte bile roșii sunt?",ans:"12",hint:"Fie roșii=x. Scrie albastre și galbene în funcție de x.",barem:"x+2x+(2x-6)=54 → 5x=60 → x=12."},
-  {id:74,cat:"Numere naturale",dif:2,text:"Câte numere de 2 cifre au suma cifrelor egală cu 7?",ans:"7",hint:"Enumeră: 16, 25, ...",barem:"16, 25, 34, 43, 52, 61, 70 = 7 numere."},
-  {id:75,cat:"Operații",dif:3,text:"Calculați suma: 1 pe 1×3 plus 1 pe 3×5 plus 1 pe 5×7 plus ... plus 1 pe 19×21.",ans:"10/21",hint:"Folosește telescoparea: fiecare termen se descompune în diferență de fracții.",barem:"(1/2)×(1-1/21) = 10/21."},
-  {id:76,cat:"Șiruri și șabloane",dif:2,text:"Primii 5 termeni ai unui șir sunt 1, 4, 9, 16, 25. Care este termenul al 10-lea?",ans:"100",hint:"Recunoști un șablon în 1, 4, 9, 16, 25?",barem:"Termenii sunt pătratele perfecte: n². Al 10-lea: 100."},
-  {id:77,cat:"Probleme de logică",dif:2,text:"Un tren de 200 m trece printr-un tunel de 300 m. Viteza trenului este 50 m/s. Cât durează traversarea?",ans:"10 secunde",hint:"Ce distanță parcurge trenul de la intrare până la ieșire completă?",barem:"Distanța totală: 200+300=500 m. Timp: 500÷50=10 s."},
-  {id:78,cat:"Combinatorică",dif:3,text:"Câte palindromuri de 5 cifre există?",ans:"900",hint:"Forma: abcba. Prima cifră nu poate fi 0.",barem:"9×10×10=900."},
-  {id:79,cat:"Numere naturale",dif:3,text:"Găsiți cel mai mic număr natural N astfel încât N împărțit la 2, 3, 4 și 5 lasă întotdeauna restul 1.",ans:"61",hint:"N-1 trebuie să fie multiplu comun al lui 2, 3, 4 și 5.",barem:"lcm(2,3,4,5)=60. N=61."},
-  {id:80,cat:"Geometrie",dif:2,text:"Un pătrat are diagonala de 10 cm. Calculați aria lui.",ans:"50 cm²",hint:"Aria pătratului = diagonala² / 2.",barem:"A = 100/2 = 50 cm²."},
-  {id:81,cat:"Fracții",dif:2,text:"O clasă are 30 de elevi. 2/5 sunt fete. Câți băieți sunt?",ans:"18",hint:"Calculează câte fete sunt, apoi scade din total.",barem:"Fete: 12. Băieți: 18."},
-  {id:82,cat:"Operații",dif:2,text:"Produsul a 3 numere naturale consecutive este 120. Găsiți numerele.",ans:"4, 5, 6",hint:"Încearcă numere în jurul lui 5.",barem:"4×5×6=120 ✓"},
-  {id:83,cat:"Probleme de logică",dif:2,text:"Ion este mai scund decât Maria, dar mai înalt decât Andrei. Petru este mai înalt decât Maria. Ordonați copiii de la cel mai scund la cel mai înalt.",ans:"Andrei, Ion, Maria, Petru",hint:"Construiește lanțul: Andrei < Ion < Maria < Petru.",barem:"Andrei < Ion < Maria < Petru."},
-  {id:84,cat:"Numere naturale",dif:1,text:"Care este cel mai mare număr de 4 cifre care se scrie numai cu cifre pare?",ans:"8888",hint:"Cifrele pare sunt: 0, 2, 4, 6, 8. Care e cea mai mare?",barem:"8888."},
-  {id:85,cat:"Algebră elementară",dif:3,text:"Există vreo valoare naturală a lui n pentru care (n+2)×(n+3) este pătrat perfect?",ans:"Nu există",hint:"Compară (n+2)(n+3) cu pătratele (n+2)² și (n+3)².",barem:"(n+2)(n+3) se află între (n+2)² și (n+3)², deci nu poate fi pătrat perfect."},
-  {id:86,cat:"Geometrie",dif:3,text:"Un dreptunghi are aria de 48 cm² și perimetrul de 28 cm. Calculați dimensiunile.",ans:"6 cm și 8 cm",hint:"l+L=14 și l×L=48. Formează o ecuație de gradul 2.",barem:"x²-14x+48=0 → (x-6)(x-8)=0 → 6 și 8 cm."},
-  {id:87,cat:"Șiruri și șabloane",dif:3,text:"Șirul 1, 2, 4, 8, 16, ... Calculați suma primilor 10 termeni.",ans:"1023",hint:"Suma unui șir geometric: S = a(r^n - 1)/(r-1).",barem:"S = 2^10 - 1 = 1023."},
-  {id:88,cat:"Probleme de logică",dif:2,text:"Mama are triplu vârstei fiicei. Peste 10 ani, mama va fi de 2 ori mai vârstnică decât fiica. Câți ani are mama acum?",ans:"30",hint:"M=3f și M+10=2(f+10).",barem:"3f+10=2f+20 → f=10 → M=30."},
-  {id:89,cat:"Combinatorică",dif:2,text:"Câte numere de 2 cifre conțin cel puțin o cifră de 7?",ans:"18",hint:"Numără separat cele cu 7 la zeci și 7 la unități.",barem:"7 la zeci: 10 numere. 7 la unități: 8. Total: 18."},
-  {id:90,cat:"Fracții",dif:3,text:"Calculați suma infinită: 1 minus 1/2 plus 1/4 minus 1/8 plus ...",ans:"2/3",hint:"Serie geometrică cu rație -1/2.",barem:"S = 1/(1+1/2) = 2/3."},
-  {id:91,cat:"Numere naturale",dif:2,text:"Suma cifrelor unui număr de 3 cifre este 15. Cifra sutelor este cu 2 mai mare decât a unităților, iar cifra zecilor este cu 1 mai mare decât a unităților. Găsiți numărul.",ans:"654",hint:"Fie unitățile=u. Exprimă celelalte cifre în funcție de u.",barem:"u+(u+1)+(u+2)=15 → u=4. Numărul: 654."},
-  {id:92,cat:"Operații",dif:1,text:"Cât este 25 la pătrat?",ans:"625",hint:"25²=(20+5)²=400+200+25.",barem:"25²=625."},
-  {id:93,cat:"Probleme de logică",dif:3,text:"5 pisici mănâncă 5 șoareci în 5 minute. Câte pisici sunt necesare pentru a mânca 100 de șoareci în 100 de minute?",ans:"5",hint:"Calculează câți șoareci mănâncă o pisică în 100 de minute.",barem:"O pisică mănâncă 20 șoareci în 100 min. 5 pisici → 100 șoareci."},
-  {id:94,cat:"Algebră elementară",dif:2,text:"Un număr la pătrat plus el însuși este 72. Găsiți numărul natural.",ans:"8",hint:"x(x+1)=72. Ce produs de două consecutive este 72?",barem:"8×9=72 ✓ → x=8."},
-  {id:95,cat:"Geometrie",dif:2,text:"Un cub are aria totală a tuturor fețelor de 96 cm². Calculați volumul lui.",ans:"64 cm³",hint:"6 fețe identice. Aria unei fețe = 96÷6.",barem:"Aria feței: 16 cm². Latura: 4 cm. V=64 cm³."},
-  {id:96,cat:"Combinatorică",dif:3,text:"Câte șiruri de 3 litere se pot forma cu A, B, C, D astfel încât nicio două litere consecutive să nu fie identice?",ans:"36",hint:"Prima literă: 4 opțiuni. A doua: câte diferite de prima? A treia: câte diferite de a doua?",barem:"4 × 3 × 3 = 36."},
-  {id:97,cat:"Numere naturale",dif:2,text:"Câte numere de 3 cifre conțin exact două cifre identice?",ans:"243",hint:"Alege cifra dublată, alege pozițiile, alege cifra unică.",barem:"243 numere."},
-  {id:98,cat:"Probleme de logică",dif:1,text:"Dacă ieri era marți, ce zi va fi poimâine?",ans:"vineri",hint:"Numără: ieri, azi, mâine, poimâine.",barem:"Ieri=marți → azi=miercuri → mâine=joi → poimâine=vineri."},
-  {id:99,cat:"Fracții",dif:1,text:"Simplificați fracția 36/48.",ans:"3/4",hint:"Găsește cel mai mare divizor comun al lui 36 și 48.",barem:"cmmdc(36,48)=12. Fracția: 3/4."},
-  {id:100,cat:"Șiruri și șabloane",dif:3,text:"Câte zerouri are 100 factorial la final?",ans:"24",hint:"Numărăm factorii de 5: 100 împărțit la 5 plus 100 împărțit la 25.",barem:"20+4=24 zerouri."},
+{"id": 1, "cat": "Numere naturale", "dif": 1, "text": "Pe o masă sunt 48 de cărți. Le așezăm în grămezi cu același număr de cărți (și o singură grămadă cu toate cărțile se socotește). În câte variante putem face asta? Scrie toate variantele.", "ans": "10", "hint": "Gândește-te la toți divizorii lui 48.", "barem": "Numărul de grămezi trebuie să împartă exact pe 48, deci este un divizor al lui 48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. Variantele: 1 grămadă de 48, 2 de 24, 3 de 16, 4 de 12, 6 de 8, 8 de 6, 12 de 4, 16 de 3, 24 de 2, 48 de câte 1. Sunt 10 variante.", "lib_id": "vasile-alecsandri"},
+{"id": 2, "cat": "Numere naturale", "dif": 1, "text": "Calculați suma numerelor naturale pare mai mici decât 20.", "ans": "90", "hint": "Numerele pare de la 2 la 18. Sunt 9 termeni. Folosește formula sumei.", "barem": "2+4+6+8+10+12+14+16+18 = 90. Formula: 9×(2+18)/2 = 90.", "lib_id": "vasile-alecsandri"},
+{"id": 3, "cat": "Numere naturale", "dif": 2, "text": "Găsiți cel mai mare număr de 3 cifre care se împarte exact la 7 și la 9.", "ans": "945", "hint": "Mai întâi calculează cel mai mic multiplu comun al lui 7 și 9.", "barem": "Un număr care se împarte la 7 și la 9 se împarte la c.m.m.m.c.(7, 9) = 63. Cel mai mare multiplu al lui 63 cu 3 cifre: 63 × 15 = 945 (63 × 16 = 1008 are 4 cifre). Răspuns: 945.", "lib_id": "vasile-alecsandri"},
+{"id": 4, "cat": "Numere naturale", "dif": 2, "text": "Suma a trei numere naturale consecutive este 111. Care este cel mai mare dintre ele?", "ans": "38", "hint": "Dacă primul număr este n, atunci n+(n+1)+(n+2)=111.", "barem": "3n+3=111 → n=36. Cele trei numere sunt 36, 37, 38. Cel mai mare: 38.", "lib_id": "vasile-alecsandri"},
+{"id": 5, "cat": "Numere naturale", "dif": 2, "text": "Un număr natural este de 4 ori mai mare decât al doilea. Suma lor este 120. Găsiți cele două numere.", "ans": "96 și 24", "hint": "Dacă cel mic este y, cel mare este 4y. Suma lor este 5y.", "barem": "5y=120 → y=24, x=96. Verificare: 96+24=120 ✓", "lib_id": "vasile-alecsandri"},
+{"id": 6, "cat": "Numere naturale", "dif": 1, "text": "Câte numere naturale de 2 cifre există al căror produs al cifrelor este 12?", "ans": "4", "hint": "Caută perechile de cifre (a,b) cu a×b=12 și a≥1.", "barem": "Perechile: (2,6),(6,2),(3,4),(4,3). Numerele: 26, 62, 34, 43. Răspuns: 4.", "lib_id": "vasile-alecsandri"},
+{"id": 7, "cat": "Numere naturale", "dif": 3, "text": "Câte cifre are numărul 2 la puterea 10 înmulțit cu 5 la puterea 12?", "ans": "12", "hint": "Rescrie ca 10 la puterea 10 înmulțit cu 25.", "barem": "2^10 × 5^12 = 10^10 × 25 = 250.000.000.000 — 12 cifre.", "lib_id": "vasile-alecsandri"},
+{"id": 8, "cat": "Numere naturale", "dif": 2, "text": "Dintre numerele 1, 2, 3, ..., 100, câte sunt divizibile cu 3 sau cu 5?", "ans": "47", "hint": "Folosește incluziunea-excluderea: |A∪B| = |A| + |B| - |A∩B|.", "barem": "Div cu 3: 33. Div cu 5: 20. Div cu 15: 6. Total: 33+20-6 = 47.", "lib_id": "vasile-alecsandri"},
+{"id": 9, "cat": "Numere naturale", "dif": 1, "text": "Suma cifrelor unui număr de 2 cifre este 9. Dacă inversăm cifrele, noul număr este cu 27 mai mare. Găsiți numărul inițial.", "ans": "36", "hint": "Fie cifrele a și b. Scrie două ecuații: a+b=9 și diferența inversatelor este 27.", "barem": "a+b=9 și 9(b-a)=27 → b-a=3. Deci a=3, b=6. Numărul: 36.", "lib_id": "vasile-alecsandri"},
+{"id": 10, "cat": "Numere naturale", "dif": 3, "text": "Câte numere naturale de 3 cifre au toate cifrele distincte și suma cifrelor egală cu 9?", "ans": "34", "hint": "Găsești mai întâi tripletele de cifre distincte cu suma 9, apoi numeri permutările.", "barem": "Triplete posibile: (0,1,8),(0,2,7),(0,3,6),(0,4,5),(1,2,6),(1,3,5),(2,3,4). Aranjamente fără zero la sute: 34 numere.", "lib_id": "vasile-alecsandri"},
+{"id": 11, "cat": "Operații", "dif": 1, "text": "Calculați: 1+2+3+...+50.", "ans": "1275", "hint": "Folosește formula lui Gauss: S = n(n+1)/2.", "barem": "S = 50×51/2 = 1275.", "lib_id": "vasile-alecsandri"},
+{"id": 12, "cat": "Operații", "dif": 1, "text": "Cât este 999 × 111?", "ans": "110889", "hint": "999 = 1000 - 1. Aplică proprietatea distributivă.", "barem": "999×111 = (1000-1)×111 = 111000 - 111 = 110889.", "lib_id": "vasile-alecsandri"},
+{"id": 13, "cat": "Operații", "dif": 2, "text": "Calculați: (2+4+6+8+...+100) - (1+3+5+7+...+99).", "ans": "50", "hint": "Prima sumă are 50 de termeni pari, a doua 50 de termeni impari. Scade-i doi câte doi.", "barem": "Grupăm termenii doi câte doi: (2-1)+(4-3)+(6-5)+...+(100-99). Fiecare paranteză este 1, iar de la 1 la 100 sunt 50 de perechi. Rezultat: 50 × 1 = 50.", "lib_id": "vasile-alecsandri"},
+{"id": 14, "cat": "Operații", "dif": 2, "text": "Aflați x dacă: 3×(x+5) − 2×(x−1) = 27.", "ans": "10", "hint": "Elimină parantezele, apoi adună termenii cu x.", "barem": "3x+15-2x+2=27 → x+17=27 → x=10.", "lib_id": "vasile-alecsandri"},
+{"id": 15, "cat": "Operații", "dif": 1, "text": "Maria are 240 de lei. Cheltuiește 1/3 pe cărți și 1/4 din ce rămâne pe rechizite. Cât îi mai rămâne?", "ans": "120", "hint": "Mai întâi calculează cât cheltuie pe cărți, apoi din rest calculează rechizitele.", "barem": "Cărți: 240/3=80. Rămân 160. Rechizite: 160/4=40. Rămân: 120 lei.", "lib_id": "vasile-alecsandri"},
+{"id": 16, "cat": "Operații", "dif": 3, "text": "Câte înmulțiri sunt necesare să calculezi 2 la puterea 32 folosind doar rezultate deja calculate?", "ans": "5", "hint": "Ridică la pătrat în mod repetat.", "barem": "2→4→16→256→65536→2^32. Exact 5 înmulțiri.", "lib_id": "vasile-alecsandri"},
+{"id": 17, "cat": "Operații", "dif": 2, "text": "Un număr împărțit la 7 dă câtul 13 și restul 5. Găsiți numărul.", "ans": "96", "hint": "Formula: număr = împărțitor × cât + rest.", "barem": "7×13+5 = 91+5 = 96.", "lib_id": "vasile-alecsandri"},
+{"id": 18, "cat": "Operații", "dif": 1, "text": "Calculați: 123 × 9 + 123 × 1.", "ans": "1230", "hint": "Factorizează: 123×(9+1).", "barem": "123×(9+1) = 123×10 = 1230.", "lib_id": "vasile-alecsandri"},
+{"id": 19, "cat": "Operații", "dif": 2, "text": "Suma a 5 numere este 375. Dacă adăugăm un al șaselea număr, media devine 80. Găsiți al șaselea număr.", "ans": "105", "hint": "Media a 6 numere este 80, deci suma lor este 80×6.", "barem": "Total cu 6 numere: 480. Al șaselea: 480-375 = 105.", "lib_id": "vasile-alecsandri"},
+{"id": 20, "cat": "Operații", "dif": 3, "text": "Aflați toate perechile de numere naturale (a,b) cu a mai mic sau egal cu b pentru care a×b = a+b+10.", "ans": "(2,12)", "hint": "Rescrie ecuația ca (a-1)×(b-1) = 11. Ce știi despre 11?", "barem": "(a-1)(b-1)=11. 11 este prim: a-1=1, b-1=11 → (2,12). Verificare: 2×12=24=2+12+10 ✓", "lib_id": "vasile-alecsandri"},
+{"id": 21, "cat": "Operații", "dif": 2, "text": "O fabrică produce 240 de piese pe zi în 8 ore. Câte piese produce în 5 ore?", "ans": "150", "hint": "Calculează câte piese produce pe oră.", "barem": "240/8 = 30 piese/oră. În 5 ore: 30×5 = 150.", "lib_id": "vasile-alecsandri"},
+{"id": 22, "cat": "Operații", "dif": 1, "text": "Câte minute sunt în 3 zile și 7 ore?", "ans": "4740", "hint": "Transformă totul în ore, apoi în minute.", "barem": "3×24 + 7 = 79 ore. 79×60 = 4740 minute.", "lib_id": "vasile-alecsandri"},
+{"id": 23, "cat": "Fracții", "dif": 1, "text": "Calculați: 1/2 + 1/3 + 1/6.", "ans": "1", "hint": "Aduce la numitor comun: 6.", "barem": "3/6 + 2/6 + 1/6 = 6/6 = 1.", "lib_id": "vasile-alecsandri"},
+{"id": 24, "cat": "Fracții", "dif": 2, "text": "Dintr-o cutie s-au luat 2/5 din bomboane, apoi 1/3 din ce rămânea. Au rămas 40 de bomboane. Câte erau la început?", "ans": "100", "hint": "Ce fracție din total rămâne după ambele luări?", "barem": "Rămân 3/5 după prima luare. Din 3/5 mai rămân 2/3, adică 2/5 din total = 40 → total = 100.", "lib_id": "vasile-alecsandri"},
+{"id": 25, "cat": "Fracții", "dif": 1, "text": "Ordonați crescător: 3/4, 5/6, 7/12, 2/3.", "ans": "7/12, 2/3, 3/4, 5/6", "hint": "Aduce toate la numitor comun 12.", "barem": "7/12, 8/12, 9/12, 10/12. Ordinea: 7/12 < 2/3 < 3/4 < 5/6.", "lib_id": "vasile-alecsandri"},
+{"id": 26, "cat": "Fracții", "dif": 2, "text": "Un rezervor se umple printr-o țeavă în 4 ore și printr-o alta în 6 ore. Cât durează dacă lucrează împreună?", "ans": "2h 24min", "hint": "Adună debitele: câtă parte din rezervor umple fiecare pe oră?", "barem": "Debit combinat: 1/4+1/6 = 5/12/oră. Timp: 12/5 = 2,4 ore = 2h 24min.", "lib_id": "vasile-alecsandri"},
+{"id": 27, "cat": "Fracții", "dif": 3, "text": "Calculați suma: 1/(1×2) + 1/(2×3) + ... + 1/(9×10).", "ans": "9/10", "hint": "Scrie fiecare termen ca diferență: 1/(k×(k+1)) = 1/k - 1/(k+1).", "barem": "Sume telescopice: 1 - 1/10 = 9/10.", "lib_id": "vasile-alecsandri"},
+{"id": 28, "cat": "Fracții", "dif": 2, "text": "Un număr este cu 3/8 mai mic decât 80. Găsiți numărul.", "ans": "50", "hint": "3/8 din 80 este diferența. Scade din 80.", "barem": "3/8 × 80 = 30. Numărul = 80 - 30 = 50.", "lib_id": "vasile-alecsandri"},
+{"id": 29, "cat": "Șiruri și șabloane", "dif": 1, "text": "Care este al 10-lea termen al șirului: 3, 7, 11, 15, ...?", "ans": "39", "hint": "Șir aritmetic cu primul termen 3 și rație 4.", "barem": "T10 = 3 + 9×4 = 39.", "lib_id": "vasile-alecsandri"},
+{"id": 30, "cat": "Șiruri și șabloane", "dif": 2, "text": "Șirul: 2, 6, 18, 54, ... Care este al 7-lea termen?", "ans": "1458", "hint": "Șir geometric cu rație 3.", "barem": "T7 = 2 × 3^6 = 1458.", "lib_id": "vasile-alecsandri"},
+{"id": 31, "cat": "Șiruri și șabloane", "dif": 2, "text": "Suma primilor n termeni impari este n pătrat. Calculați suma primilor 15 termeni impari.", "ans": "225", "hint": "Aplică direct formula cu n=15.", "barem": "S15 = 15² = 225.", "lib_id": "vasile-alecsandri"},
+{"id": 32, "cat": "Șiruri și șabloane", "dif": 3, "text": "Câți termeni are șirul: 5, 10, 15, ..., 500?", "ans": "100", "hint": "Împarte ultimul termen la rație.", "barem": "n = (500-5)/5 + 1 = 100.", "lib_id": "vasile-alecsandri"},
+{"id": 33, "cat": "Șiruri și șabloane", "dif": 2, "text": "Numerele de la 1 la 100 sunt scrise pe hârtie. Câte cifre au fost scrise în total?", "ans": "192", "hint": "Împarte în grupuri: 1-9, 10-99, 100.", "barem": "1-9: 9×1=9. 10-99: 90×2=180. 100: 3 cifre. Total: 192.", "lib_id": "vasile-alecsandri"},
+{"id": 34, "cat": "Șiruri și șabloane", "dif": 3, "text": "Găsiți termenul al 100-lea al șirului: 1, 1,2, 1,2,3, 1,2,3,4, ...", "ans": "9", "hint": "Structura: grupuri de 1,2,3,... termeni. Suma primelor k grupuri: k(k+1)/2.", "barem": "Primele 13 grupuri: 91 termeni. Termenul 100 este în grupul 14, la poziția 9.", "lib_id": "vasile-alecsandri"},
+{"id": 35, "cat": "Șiruri și șabloane", "dif": 1, "text": "Completați: 2, 4, 8, 16, ___, 64.", "ans": "32", "hint": "Fiecare termen se înmulțește cu 2.", "barem": "16 × 2 = 32.", "lib_id": "vasile-alecsandri"},
+{"id": 36, "cat": "Probleme de logică", "dif": 1, "text": "Ana are cu 12 ani mai mult decât Bogdan. Peste 5 ani, Ana va avea de 2 ori vârsta lui Bogdan. Câți ani are acum Bogdan?", "ans": "7", "hint": "Scrie două ecuații: A=B+12 și A+5=2(B+5).", "barem": "B+17 = 2B+10 → B=7. Ana: 19 ani. Verificare: 24=2×12 ✓", "lib_id": "vasile-alecsandri"},
+{"id": 37, "cat": "Probleme de logică", "dif": 2, "text": "Trei prieteni au împreună 48 de cărți. Al doilea are de 2 ori mai multe ca primul, iar al treilea de 3 ori mai multe ca primul. Câte cărți are fiecare?", "ans": "8, 16, 24", "hint": "Dacă primul are x cărți, expresia totală este x+2x+3x.", "barem": "6x=48 → x=8. Cei trei: 8, 16, 24.", "lib_id": "vasile-alecsandri"},
+{"id": 38, "cat": "Probleme de logică", "dif": 2, "text": "O sfoară de 100 m este tăiată în bucăți de câte 2 m. Câte tăieturi se fac?", "ans": "49", "hint": "50 de bucăți necesită câte tăieturi?", "barem": "50 bucăți rezultă din 49 tăieturi.", "lib_id": "vasile-alecsandri"},
+{"id": 39, "cat": "Probleme de logică", "dif": 2, "text": "Pe o masă sunt farfurii cu 2 și 3 prăjituri, în total 25 de prăjituri și 10 farfurii. Câte farfurii au câte 2 prăjituri?", "ans": "5", "hint": "Fie a = farfurii cu 2 prăjituri, b = farfurii cu 3 prăjituri.", "barem": "Dacă toate cele 10 farfurii ar avea câte 2 prăjituri, ar fi 10 × 2 = 20 de prăjituri. Sunt însă 25, adică cu 25 - 20 = 5 mai multe. Fiecare farfurie cu 3 prăjituri aduce în plus 1 prăjitură, deci sunt 5 farfurii cu 3 prăjituri. Farfurii cu 2 prăjituri: 10 - 5 = 5. Verificare: 5×2 + 5×3 = 10 + 15 = 25 ✓", "lib_id": "vasile-alecsandri"},
+{"id": 40, "cat": "Probleme de logică", "dif": 1, "text": "Într-un tren sunt 3 vagoane. Primul are 12 pasageri, al doilea cu 5 mai mulți, al treilea cu 3 mai puțini decât primele două împreună. Câți pasageri sunt total?", "ans": "55", "hint": "Calculează fiecare vagon pe rând.", "barem": "V1=12, V2=17, V3=26. Total: 55.", "lib_id": "vasile-alecsandri"},
+{"id": 41, "cat": "Probleme de logică", "dif": 3, "text": "Cinci copii stau la rând. Anca este a 3-a din față. Câți copii sunt înaintea Ancăi?", "ans": "2", "hint": "A 3-a din față înseamnă că în fața ei sunt 2 copii.", "barem": "A 3-a din față = 2 copii înaintea ei.", "lib_id": "vasile-alecsandri"},
+{"id": 42, "cat": "Probleme de logică", "dif": 2, "text": "Un ceas cu limbi întârzie cu 5 minute pe oră. Dacă îl potrivesc la ora 12:00, ce oră va arăta după 12 ore reale?", "ans": "11:00", "hint": "Câte minute pierde în total în 12 ore?", "barem": "În fiecare oră ceasul rămâne în urmă cu 5 minute. În 12 ore rămâne în urmă cu 12 × 5 = 60 de minute = 1 oră. După 12 ore reale, un ceas corect ar arăta din nou 12:00, dar ceasul nostru este cu 1 oră în urmă, deci arată 11:00.", "lib_id": "vasile-alecsandri"},
+{"id": 43, "cat": "Probleme de logică", "dif": 2, "text": "Ion a gândit un număr. L-a înmulțit cu 4, a scăzut 2, a împărțit la 2 și a obținut 15. Ce număr a gândit?", "ans": "8", "hint": "Operează invers, de la final spre început.", "barem": "Invers: 15×2=30, 30+2=32, 32÷4=8. Verificare: (8×4−2)÷2=15 ✓", "lib_id": "vasile-alecsandri"},
+{"id": 44, "cat": "Probleme de logică", "dif": 2, "text": "Doi frați au împreună 30 de ani. Cel mare are de 2 ori vârsta celui mic. Câți ani are cel mare?", "ans": "20", "hint": "Fie cel mic = m. Atunci cel mare = 2m.", "barem": "m+2m=30 → m=10. Cel mare: 20 ani.", "lib_id": "vasile-alecsandri"},
+{"id": 45, "cat": "Probleme de logică", "dif": 2, "text": "Un comerciant vinde mere cu 3 lei/kg. Dacă ar fi vândut cu 4 lei/kg, ar fi câștigat 30 lei în plus. Câte kg de mere a vândut?", "ans": "30", "hint": "Diferența de preț pe kg este 1 leu.", "barem": "(4-3) × kg = 30 → kg = 30.", "lib_id": "vasile-alecsandri"},
+{"id": 46, "cat": "Geometrie", "dif": 1, "text": "Perimetrul unui pătrat este 48 cm. Care este aria lui?", "ans": "144 cm²", "hint": "Calculează mai întâi latura.", "barem": "Latura = 48÷4 = 12 cm. Aria = 12² = 144 cm².", "lib_id": "vasile-alecsandri"},
+{"id": 47, "cat": "Geometrie", "dif": 1, "text": "Un dreptunghi are lungimea de 15 cm și lățimea de 8 cm. Calculați perimetrul și aria.", "ans": "P=46 cm, A=120 cm²", "hint": "P=2(l+L), A=l×L.", "barem": "P=2×(15+8)=46 cm. A=15×8=120 cm².", "lib_id": "vasile-alecsandri"},
+{"id": 48, "cat": "Geometrie", "dif": 2, "text": "Un triunghi dreptunghic are catetele de 6 și 8 cm. Calculați ipotenuza.", "ans": "10 cm", "hint": "Teorema lui Pitagora: c²=a²+b².", "barem": "c=√(36+64)=√100=10 cm.", "lib_id": "vasile-alecsandri"},
+{"id": 49, "cat": "Geometrie", "dif": 2, "text": "Aria unui triunghi isoscel este 30 cm². Dacă baza este de 10 cm, cât măsoară înălțimea?", "ans": "6 cm", "hint": "Formula ariei: A = (baza × înălțimea) / 2.", "barem": "30 = 10×h/2 → h = 6 cm.", "lib_id": "vasile-alecsandri"},
+{"id": 50, "cat": "Geometrie", "dif": 3, "text": "Un pătrat cu latura de 10 cm. Prin unirea mijloacelor laturilor se obține un pătrat interior. Care este aria lui?", "ans": "50 cm²", "hint": "Pătratul interior lasă în colțurile pătratului mare 4 triunghiuri. Calculează aria lor și scad-o din aria pătratului mare.", "barem": "Unind mijloacele laturilor, din pătratul mare se taie 4 triunghiuri în colțuri. Fiecare triunghi are catetele de 5 cm și 5 cm (jumătăți de latură), deci aria 5×5÷2 = 12,5 cm². Cele 4 triunghiuri au împreună 4×12,5 = 50 cm². Aria pătratului mare este 10×10 = 100 cm². Aria pătratului interior = 100 − 50 = 50 cm².", "lib_id": "vasile-alecsandri"},
+{"id": 51, "cat": "Geometrie", "dif": 1, "text": "Câte axe de simetrie are un dreptunghi care nu este pătrat?", "ans": "2", "hint": "Gândește-te la liniile care împart dreptunghiul în două jumătăți egale.", "barem": "2 axe: una orizontală, una verticală.", "lib_id": "vasile-alecsandri"},
+{"id": 52, "cat": "Geometrie", "dif": 2, "text": "Un triunghi isoscel are perimetrul de 36 cm, laturile egale de câte 13 cm, iar înălțimea corespunzătoare bazei este de 12 cm. Calculați aria lui.", "ans": "60 cm²", "hint": "Aria = baza × înălțimea / 2.", "barem": "Baza = 36 − 13 − 13 = 10 cm. Aria = baza × înălțimea ÷ 2 = 10 × 12 ÷ 2 = 60 cm².", "lib_id": "vasile-alecsandri"},
+{"id": 53, "cat": "Geometrie", "dif": 2, "text": "Un dreptunghi are perimetrul de 40 cm și lungimea de 3 ori lățimea. Găsiți dimensiunile.", "ans": "15 cm și 5 cm", "hint": "2(l+L)=40 și L=3l.", "barem": "2(l+3l)=40 → l=5, L=15.", "lib_id": "vasile-alecsandri"},
+{"id": 54, "cat": "Geometrie", "dif": 3, "text": "Pe toate fețele unui cub cu latura de 3 cm sunt desenate toate pătratele unitate. Câte pătrate unitate sunt în total?", "ans": "54", "hint": "Câte pătrate unitate are o față? Câte fețe are cubul?", "barem": "O față: 3×3=9 pătrate. 6 fețe × 9 = 54 pătrate.", "lib_id": "vasile-alecsandri"},
+{"id": 55, "cat": "Geometrie", "dif": 1, "text": "Un dreptunghi are o latură de 9 cm și diagonala de 15 cm. Calculați cealaltă latură și perimetrul.", "ans": "12 cm; P=42 cm", "hint": "Diagonala împarte dreptunghiul în două triunghiuri dreptunghice. Teorema lui Pitagora: cealaltă latură² + 9² = 15².", "barem": "Într-un dreptunghi, diagonala formează cu două laturi un triunghi dreptunghic. Din teorema lui Pitagora: l² + 9² = 15², deci l² = 225 − 81 = 144, l = 12 cm. Perimetrul = 2 × (12 + 9) = 42 cm.", "lib_id": "vasile-alecsandri"},
+{"id": 56, "cat": "Combinatorică", "dif": 1, "text": "Câte moduri există de a aranja 4 elevi la un rând de 4 scaune?", "ans": "24", "hint": "Primul scaun: 4 variante, al doilea: 3, ...", "barem": "4! = 4×3×2×1 = 24.", "lib_id": "vasile-alecsandri"},
+{"id": 57, "cat": "Combinatorică", "dif": 2, "text": "Câte numere de 3 cifre distincte se pot forma cu cifrele 1, 2, 3, 4, 5, fără repetiție?", "ans": "60", "hint": "Prima cifră: 5 variante, a doua: 4, a treia: 3.", "barem": "5×4×3 = 60.", "lib_id": "vasile-alecsandri"},
+{"id": 58, "cat": "Combinatorică", "dif": 2, "text": "Dintr-un grup de 5 copii se selectează o echipă de 3. Câte echipe diferite se pot forma?", "ans": "10", "hint": "Ordinea în echipă nu contează: combinări de 5 luate câte 3.", "barem": "C(5,3) = 10.", "lib_id": "vasile-alecsandri"},
+{"id": 59, "cat": "Combinatorică", "dif": 3, "text": "Câte diagonale are un octogon, adică un poligon cu 8 laturi?", "ans": "20", "hint": "Formula: n×(n-3)/2.", "barem": "8×5/2 = 20.", "lib_id": "vasile-alecsandri"},
+{"id": 60, "cat": "Combinatorică", "dif": 2, "text": "Un meniu are 3 supe, 4 feluri principale și 2 deserturi. Câte meniuri complete se pot alege?", "ans": "24", "hint": "Înmulțește opțiunile pentru fiecare categorie.", "barem": "3×4×2 = 24.", "lib_id": "vasile-alecsandri"},
+{"id": 61, "cat": "Combinatorică", "dif": 3, "text": "Câte modalități există de a pune 5 bile distincte în 3 cutii distincte astfel încât nicio cutie să nu fie goală?", "ans": "150", "hint": "Cele 5 bile se pot împărți în cutii doar ca 3+1+1 sau 2+2+1. Numără separat fiecare caz.", "barem": "Împărțim cele 5 bile în 3 cutii nevide. Sunt două tipuri de împărțire: (3,1,1) sau (2,2,1). Cazul 3-1-1: alegem cutia cu 3 bile (3 moduri), alegem cele 3 bile (10 moduri), iar cele 2 bile rămase merg câte una în celelalte 2 cutii (2 moduri): 3×10×2 = 60. Cazul 2-2-1: alegem cutia cu o bilă (3 moduri), bila din ea (5 moduri), apoi din cele 4 bile rămase alegem 2 pentru prima cutie rămasă (6 moduri), restul merg în ultima: 3×5×6 = 90. Total: 60 + 90 = 150.", "lib_id": "vasile-alecsandri"},
+{"id": 62, "cat": "Combinatorică", "dif": 1, "text": "Ai 5 mănuși de stânga și 5 mănuși de dreapta, toate diferite între ele. Câte perechi formate dintr-o mănușă stângă și o mănușă dreaptă poți alcătui?", "ans": "25", "hint": "Fiecare mănușă stângă se poate combina cu orice mănușă dreaptă.", "barem": "Fiecare dintre cele 5 mănuși stângi poate fi pusă cu oricare dintre cele 5 mănuși drepte. Numărul de perechi = 5 × 5 = 25.", "lib_id": "vasile-alecsandri"},
+{"id": 63, "cat": "Combinatorică", "dif": 2, "text": "La un turneu, fiecare echipă joacă cu fiecare altă echipă o singură dată. Au loc 15 meciuri. Câte echipe participă?", "ans": "6", "hint": "C(n,2)=15. Rezolvă ecuația.", "barem": "n(n-1)/2=15 → n=6.", "lib_id": "vasile-alecsandri"},
+{"id": 64, "cat": "Algebră elementară", "dif": 1, "text": "Găsiți x dacă: 5x + 3 = 23.", "ans": "4", "hint": "Scade 3 din ambele părți, apoi împarte la 5.", "barem": "5x=20 → x=4.", "lib_id": "vasile-alecsandri"},
+{"id": 65, "cat": "Algebră elementară", "dif": 2, "text": "Rezolvați sistemul: x+y=10, x-y=4.", "ans": "x=7, y=3", "hint": "Adună ecuațiile ca să elimini y.", "barem": "2x=14 → x=7. y=3.", "lib_id": "vasile-alecsandri"},
+{"id": 66, "cat": "Algebră elementară", "dif": 1, "text": "Dacă 3a=12 și 2b=10, calculați a+b.", "ans": "9", "hint": "Calculează a și b separat.", "barem": "a=4, b=5. a+b=9.", "lib_id": "vasile-alecsandri"},
+{"id": 67, "cat": "Algebră elementară", "dif": 2, "text": "Suma unui număr și a triplului său este 48. Găsiți numărul.", "ans": "12", "hint": "x + 3x = 48.", "barem": "4x=48 → x=12.", "lib_id": "vasile-alecsandri"},
+{"id": 68, "cat": "Algebră elementară", "dif": 3, "text": "Câte soluții în numere naturale are ecuația x + 2y = 20?", "ans": "11", "hint": "y poate lua valorile 0, 1, 2, ..., cât maxim?", "barem": "y ∈ {0,1,...,10} → 11 soluții.", "lib_id": "vasile-alecsandri"},
+{"id": 69, "cat": "Algebră elementară", "dif": 2, "text": "Tatăl are de 4 ori vârsta fiului. Peste 6 ani, tatăl va fi de 3 ori mai vârstnic decât fiul. Câți ani are tatăl acum?", "ans": "48", "hint": "T=4f și T+6=3(f+6).", "barem": "4f+6=3f+18 → f=12 → T=48. Verificare: 54=3×18 ✓", "lib_id": "vasile-alecsandri"},
+{"id": 70, "cat": "Algebră elementară", "dif": 1, "text": "Un număr înmulțit cu 6 dă același rezultat ca numărul adunat cu 20. Găsiți numărul.", "ans": "4", "hint": "6x = x + 20.", "barem": "5x=20 → x=4.", "lib_id": "vasile-alecsandri"},
+{"id": 71, "cat": "Algebră elementară", "dif": 3, "text": "Găsiți toate perechile de numere naturale (x,y) cu x mai mic sau egal cu y și x×y = 2×(x+y).", "ans": "(0,0), (3,6) și (4,4)", "hint": "Rescrie ca (x-2)(y-2)=4. Factorizează.", "barem": "Verificăm întâi valorile mici ale lui x. Dacă x=0: 0 = 2y, deci y=0 → (0,0). Dacă x=1: y = 2+2y, imposibil. Dacă x=2: 2y = 4+2y, imposibil. Pentru x ≥ 3 (deci și y ≥ 3), relația xy = 2x + 2y se poate scrie (x−2)(y−2) = 4. Cu x−2 ≤ y−2: 1×4 → (3,6) și 2×2 → (4,4). Verificare: 3×6 = 18 = 2×9 ✓, 4×4 = 16 = 2×8 ✓. Soluții: (0,0), (3,6), (4,4).", "lib_id": "vasile-alecsandri"},
+{"id": 72, "cat": "Algebră elementară", "dif": 2, "text": "Dacă a/3 = b/4 = c/5 și a+b+c = 36, găsiți a, b și c.", "ans": "9, 12, 15", "hint": "Fie a=3k, b=4k, c=5k.", "barem": "12k=36 → k=3. a=9, b=12, c=15.", "lib_id": "vasile-alecsandri"},
+{"id": 73, "cat": "Probleme de logică", "dif": 2, "text": "Într-o cutie sunt bile roșii, albastre și galbene, în total 54. Bilele albastre sunt de 2 ori mai multe decât cele roșii, iar galbene cu 6 mai puține decât albastre. Câte bile roșii sunt?", "ans": "12", "hint": "Fie roșii=x. Scrie albastre și galbene în funcție de x.", "barem": "x+2x+(2x-6)=54 → 5x=60 → x=12.", "lib_id": "vasile-alecsandri"},
+{"id": 74, "cat": "Numere naturale", "dif": 2, "text": "Câte numere de 2 cifre au suma cifrelor egală cu 7?", "ans": "7", "hint": "Enumeră: 16, 25, ...", "barem": "16, 25, 34, 43, 52, 61, 70 = 7 numere.", "lib_id": "vasile-alecsandri"},
+{"id": 75, "cat": "Operații", "dif": 3, "text": "Calculați suma: 1/(1×3) + 1/(3×5) + 1/(5×7) + ... + 1/(19×21).", "ans": "10/21", "hint": "Folosește telescoparea: fiecare termen se descompune în diferență de fracții.", "barem": "(1/2)×(1-1/21) = 10/21.", "lib_id": "vasile-alecsandri"},
+{"id": 76, "cat": "Șiruri și șabloane", "dif": 2, "text": "Primii 5 termeni ai unui șir sunt 1, 4, 9, 16, 25. Care este termenul al 10-lea?", "ans": "100", "hint": "Recunoști un șablon în 1, 4, 9, 16, 25?", "barem": "Termenii sunt pătratele perfecte: n². Al 10-lea: 100.", "lib_id": "vasile-alecsandri"},
+{"id": 77, "cat": "Probleme de logică", "dif": 2, "text": "Un tren de 200 m trece printr-un tunel de 300 m. Viteza trenului este 50 m/s. Cât durează traversarea?", "ans": "10 secunde", "hint": "Ce distanță parcurge trenul de la intrare până la ieșire completă?", "barem": "Distanța totală: 200+300=500 m. Timp: 500÷50=10 s.", "lib_id": "vasile-alecsandri"},
+{"id": 78, "cat": "Combinatorică", "dif": 3, "text": "Câte palindromuri de 5 cifre există?", "ans": "900", "hint": "Forma: abcba. Prima cifră nu poate fi 0.", "barem": "9×10×10=900.", "lib_id": "vasile-alecsandri"},
+{"id": 79, "cat": "Numere naturale", "dif": 3, "text": "Găsiți cel mai mic număr natural N, mai mare decât 1, astfel încât N împărțit la 2, 3, 4 și 5 lasă de fiecare dată restul 1.", "ans": "61", "hint": "N-1 trebuie să fie multiplu comun al lui 2, 3, 4 și 5.", "barem": "Dacă N împărțit la 2, 3, 4 și 5 lasă restul 1, atunci N−1 se împarte exact la 2, 3, 4 și 5. Cel mai mic multiplu comun nenul al lor este c.m.m.m.c.(2,3,4,5)=60. Deci N−1=60, adică N=61. Verificare: 61=2×30+1=3×20+1=4×15+1=5×12+1.", "lib_id": "vasile-alecsandri"},
+{"id": 80, "cat": "Geometrie", "dif": 2, "text": "Un pătrat are diagonala de 10 cm. Calculați aria lui.", "ans": "50 cm²", "hint": "Aria pătratului = diagonala² / 2.", "barem": "A = 100/2 = 50 cm².", "lib_id": "vasile-alecsandri"},
+{"id": 81, "cat": "Fracții", "dif": 2, "text": "O clasă are 30 de elevi. 2/5 sunt fete. Câți băieți sunt?", "ans": "18", "hint": "Calculează câte fete sunt, apoi scade din total.", "barem": "Fete: 12. Băieți: 18.", "lib_id": "vasile-alecsandri"},
+{"id": 82, "cat": "Operații", "dif": 2, "text": "Produsul a 3 numere naturale consecutive este 120. Găsiți numerele.", "ans": "4, 5, 6", "hint": "Încearcă numere în jurul lui 5.", "barem": "4×5×6=120 ✓", "lib_id": "vasile-alecsandri"},
+{"id": 83, "cat": "Probleme de logică", "dif": 2, "text": "Ion este mai scund decât Maria, dar mai înalt decât Andrei. Petru este mai înalt decât Maria. Ordonați copiii de la cel mai scund la cel mai înalt.", "ans": "Andrei, Ion, Maria, Petru", "hint": "Pune întâi în ordine pe Andrei, Ion și Maria, apoi vezi unde intră Petru.", "barem": "Din «Ion este mai scund decât Maria, dar mai înalt decât Andrei» obținem: Andrei < Ion < Maria. Petru este mai înalt decât Maria, deci vine după ea: Andrei < Ion < Maria < Petru. Ordinea de la cel mai scund: Andrei, Ion, Maria, Petru.", "lib_id": "vasile-alecsandri"},
+{"id": 84, "cat": "Numere naturale", "dif": 1, "text": "Care este cel mai mare număr de 4 cifre care se scrie numai cu cifre pare?", "ans": "8888", "hint": "Cifrele pare sunt: 0, 2, 4, 6, 8. Care e cea mai mare?", "barem": "8888.", "lib_id": "vasile-alecsandri"},
+{"id": 85, "cat": "Algebră elementară", "dif": 3, "text": "Există vreo valoare naturală a lui n pentru care (n+2)×(n+3) este pătrat perfect?", "ans": "nu", "hint": "Compară (n+2)(n+3) cu pătratele (n+2)² și (n+3)².", "barem": "(n+2)(n+3) se află între (n+2)² și (n+3)², deci nu poate fi pătrat perfect.", "lib_id": "vasile-alecsandri"},
+{"id": 86, "cat": "Geometrie", "dif": 3, "text": "Un dreptunghi are aria de 48 cm² și perimetrul de 28 cm. Calculați dimensiunile.", "ans": "6 cm și 8 cm", "hint": "Din perimetru află cât fac lungimea și lățimea împreună. Apoi caută două numere cu această sumă și produsul 48.", "barem": "Perimetrul este 28 cm, deci lungimea + lățimea = 28:2 = 14 cm. Căutăm două numere cu suma 14 și produsul 48: 1+13 (13), 2+12 (24), 3+11 (33), 4+10 (40), 5+9 (45), 6+8 (48) ✓. Dimensiunile sunt 6 cm și 8 cm.", "lib_id": "vasile-alecsandri"},
+{"id": 87, "cat": "Șiruri și șabloane", "dif": 3, "text": "Șirul 1, 2, 4, 8, 16, ... Calculați suma primilor 10 termeni.", "ans": "1023", "hint": "Suma unui șir geometric: S = a(r^n - 1)/(r-1).", "barem": "S = 2^10 - 1 = 1023.", "lib_id": "vasile-alecsandri"},
+{"id": 88, "cat": "Probleme de logică", "dif": 2, "text": "Mama are triplu vârstei fiicei. Peste 10 ani, mama va fi de 2 ori mai vârstnică decât fiica. Câți ani are mama acum?", "ans": "30", "hint": "M=3f și M+10=2(f+10).", "barem": "3f+10=2f+20 → f=10 → M=30.", "lib_id": "vasile-alecsandri"},
+{"id": 89, "cat": "Combinatorică", "dif": 2, "text": "Câte numere de 2 cifre conțin cel puțin o cifră de 7?", "ans": "18", "hint": "Numără separat cele cu 7 la zeci și 7 la unități.", "barem": "7 la zeci: 10 numere. 7 la unități: 8. Total: 18.", "lib_id": "vasile-alecsandri"},
+{"id": 90, "cat": "Fracții", "dif": 3, "text": "Calculați suma infinită: 1 minus 1/2 plus 1/4 minus 1/8 plus ...", "ans": "2/3", "hint": "Notează suma cu S. Ce legătură are partea de după primul 1 cu S?", "barem": "Notăm suma cu S: S = 1 − 1/2 + 1/4 − 1/8 + ... Observăm că tot ce vine după primul 1 este exact jumătate din S, luată cu minus: 1/2 − 1/4 + 1/8 − ... = S:2. Deci S = 1 − S:2. Adunăm S:2 în ambele părți: S + S:2 = 1, adică trei jumătăți din S fac 1. Atunci o jumătate din S este 1/3, iar S = 2/3.", "lib_id": "vasile-alecsandri"},
+{"id": 91, "cat": "Numere naturale", "dif": 2, "text": "Suma cifrelor unui număr de 3 cifre este 15. Cifra sutelor este cu 2 mai mare decât a unităților, iar cifra zecilor este cu 1 mai mare decât a unităților. Găsiți numărul.", "ans": "654", "hint": "Fie unitățile=u. Exprimă celelalte cifre în funcție de u.", "barem": "u+(u+1)+(u+2)=15 → u=4. Numărul: 654.", "lib_id": "vasile-alecsandri"},
+{"id": 92, "cat": "Operații", "dif": 1, "text": "Cât este 25 la pătrat?", "ans": "625", "hint": "25²=(20+5)²=400+200+25.", "barem": "25²=625.", "lib_id": "vasile-alecsandri"},
+{"id": 93, "cat": "Probleme de logică", "dif": 3, "text": "5 pisici mănâncă 5 șoareci în 5 minute. Câte pisici sunt necesare pentru a mânca 100 de șoareci în 100 de minute?", "ans": "5", "hint": "Calculează câți șoareci mănâncă o pisică în 100 de minute.", "barem": "O pisică mănâncă 20 șoareci în 100 min. 5 pisici → 100 șoareci.", "lib_id": "vasile-alecsandri"},
+{"id": 94, "cat": "Algebră elementară", "dif": 2, "text": "Un număr la pătrat plus el însuși este 72. Găsiți numărul natural.", "ans": "8", "hint": "x(x+1)=72. Ce produs de două consecutive este 72?", "barem": "8×9=72 ✓ → x=8.", "lib_id": "vasile-alecsandri"},
+{"id": 95, "cat": "Geometrie", "dif": 2, "text": "Un cub are aria totală a tuturor fețelor de 96 cm². Calculați volumul lui.", "ans": "64 cm³", "hint": "6 fețe identice. Aria unei fețe = 96÷6.", "barem": "Aria feței: 16 cm². Latura: 4 cm. V=64 cm³.", "lib_id": "vasile-alecsandri"},
+{"id": 96, "cat": "Combinatorică", "dif": 3, "text": "Câte șiruri de 3 litere se pot forma cu A, B, C, D astfel încât nicio două litere consecutive să nu fie identice?", "ans": "36", "hint": "Prima literă: 4 opțiuni. A doua: câte diferite de prima? A treia: câte diferite de a doua?", "barem": "4 × 3 × 3 = 36.", "lib_id": "vasile-alecsandri"},
+{"id": 97, "cat": "Numere naturale", "dif": 2, "text": "Câte numere de 3 cifre conțin exact două cifre identice?", "ans": "243", "hint": "Alege cifra dublată, alege pozițiile, alege cifra unică.", "barem": "Sunt 900 de numere de 3 cifre (100–999). Scădem pe cele cu toate cifrele diferite: prima cifră 9 variante (1–9), a doua 9 variante (orice cifră diferită de prima, inclusiv 0), a treia 8 variante: 9×9×8 = 648. Scădem și pe cele cu toate cifrele egale: 111, 222, ..., 999, adică 9 numere. Rămân 900 − 648 − 9 = 243 de numere cu exact două cifre identice.", "lib_id": "vasile-alecsandri"},
+{"id": 98, "cat": "Probleme de logică", "dif": 1, "text": "Dacă ieri era marți, ce zi va fi poimâine?", "ans": "vineri", "hint": "Numără: ieri, azi, mâine, poimâine.", "barem": "Ieri=marți → azi=miercuri → mâine=joi → poimâine=vineri.", "lib_id": "vasile-alecsandri"},
+{"id": 99, "cat": "Fracții", "dif": 1, "text": "Simplificați fracția 36/48.", "ans": "3/4", "hint": "Găsește cel mai mare divizor comun al lui 36 și 48.", "barem": "cmmdc(36,48)=12. Fracția: 3/4.", "lib_id": "vasile-alecsandri"},
+{"id": 100, "cat": "Șiruri și șabloane", "dif": 3, "text": "Câte zerouri are 100 factorial la final?", "ans": "24", "hint": "Numărăm factorii de 5: 100 împărțit la 5 plus 100 împărțit la 25.", "barem": "20+4=24 zerouri.", "lib_id": "vasile-alecsandri"}
 ];
 
 // ── Supabase config ──
@@ -552,6 +600,7 @@ const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
 // ── State ──
 let currentUser = null, userProfile = null, currentAccessToken = null;
+const LIB_NAMES = {};
 let config = { count: 10, dif: 0, cat: '', lib: '', voice: true };
 let session = { queue:[], current:0, correct:0, wrong:0, skipped:0, startTime:null, answered:false, history:[] };
 let timerInterval = null, voiceEnabled = true, elevenLabsAudio = null, currentExplanation = '';
@@ -645,6 +694,7 @@ sb.auth.onAuthStateChange((event, session_data) => {
     currentAccessToken = session_data.access_token || null;
     document.getElementById('authOverlay').style.display = 'none';
     document.getElementById('btnLogout').style.display = 'block';
+    document.getElementById('btnProgress').style.display = 'block';
     // Reînnoirea tokenului sau revenirea pe tab nu trebuie să întrerupă sesiunea în curs
     if(wasLoggedIn) return;
     setTimeout(async () => {
@@ -658,6 +708,7 @@ sb.auth.onAuthStateChange((event, session_data) => {
     userProfile = null;
     document.getElementById('authOverlay').style.display = 'flex';
     document.getElementById('btnLogout').style.display = 'none';
+    document.getElementById('btnProgress').style.display = 'none';
     document.getElementById('sessionCountBadge').style.display = 'none';
   }
 });
@@ -699,6 +750,7 @@ async function loadLibraryChips() {
     const data = await resp.json();
     const container = document.getElementById('libConfig');
     (data.librarii || []).forEach(lib => {
+      LIB_NAMES[lib.id] = lib.nume;
       if (!lib.count || lib.count === 0) return; // skip librăriile goale
       const chip = document.createElement('div');
       chip.className = 'config-chip';
@@ -993,6 +1045,7 @@ async function endSession() {
         body:JSON.stringify({
           library_id: config.lib || 'mixed',
           config: { count: session.queue.length, dif: config.dif, cat: config.cat },
+          problems: session.queue.map((q,i) => ({ id: q.id, lib: q.lib_id || null, cat: q.cat, dif: q.dif, r: session.history[i] || 's' })),
           results: { correct: session.correct, wrong: session.wrong, skipped: session.skipped,
                      total: session.queue.length, pct, duration_mins: mins,
                      duration_sec: Math.round((Date.now()-session.startTime)/1000) }
@@ -1004,6 +1057,131 @@ async function endSession() {
       await loadProfile();
     } catch(e) { console.warn('Save session failed:', e); }
   }
+}
+
+
+// ── Progres ──
+const escHtml = t => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate = d => new Date(d).toLocaleDateString('ro-RO', { day:'numeric', month:'short' });
+const fmtDateTime = d => new Date(d).toLocaleString('ro-RO', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' });
+const libLabel = id => !id || id === 'mixed' ? 'Toate bibliotecile' : (LIB_NAMES[id] || id);
+
+async function openProgress() {
+  if(!currentUser) return;
+  showScreen('progress');
+  const sub = document.getElementById('progSub'), body = document.getElementById('progBody');
+  sub.textContent = 'Se încarcă…'; body.innerHTML = '';
+  const { data, error } = await sb.from('sessions')
+    .select('created_at,nr_probleme,corecte,gresite,sarite,durata_sec,sursa,library_id,problems')
+    .eq('user_id', currentUser.id).order('created_at', { ascending: true }).limit(500);
+  if(error) { sub.textContent = 'Nu am putut încărca progresul: ' + error.message; return; }
+  renderProgress(data || []);
+}
+
+function renderProgress(rows) {
+  const sub = document.getElementById('progSub'), body = document.getElementById('progBody');
+  if(!rows.length) {
+    sub.textContent = '';
+    body.innerHTML = '<div class="prog-card prog-empty">🦉 Încă nu ai nicio sesiune salvată.<br>Termină o sesiune și progresul apare aici.</div>';
+    return;
+  }
+  const tot = rows.reduce((a,r) => ({ n:a.n+r.nr_probleme, c:a.c+r.corecte, sec:a.sec+r.durata_sec }), { n:0, c:0, sec:0 });
+  const pctAll = tot.n ? Math.round(tot.c / tot.n * 100) : 0;
+  sub.textContent = `Din ${fmtDate(rows[0].created_at)} până azi`;
+
+  let html = `<div class="prog-tiles">
+    <div class="result-stat"><div class="result-stat-num">${rows.length}</div><div class="result-stat-label">Sesiuni</div></div>
+    <div class="result-stat"><div class="result-stat-num">${tot.n}</div><div class="result-stat-label">Probleme</div></div>
+    <div class="result-stat"><div class="result-stat-num">${pctAll}%</div><div class="result-stat-label">Corecte</div></div>
+    <div class="result-stat"><div class="result-stat-num">${Math.round(tot.sec/60)}</div><div class="result-stat-label">Minute</div></div>
+  </div>`;
+
+  // Scor pe sesiuni (ultimele 30)
+  const last = rows.slice(-30).map(r => ({ d:r.created_at, pct: r.nr_probleme ? Math.round(r.corecte / r.nr_probleme * 100) : 0, c:r.corecte, n:r.nr_probleme }));
+  html += `<div class="prog-card"><h3>Scorul pe sesiuni</h3>
+    <div class="prog-note">Procentul de răspunsuri corecte${rows.length > 30 ? ' · ultimele 30 de sesiuni' : ''}</div>
+    <div class="prog-chart" id="progChart"></div>
+    <button class="prog-table-toggle" onclick="toggleProgTable(this)">Arată ca tabel</button>
+    <table class="prog-table" style="display:none"><tr><th>Data</th><th>Corecte</th><th>Scor</th></tr>
+    ${last.slice().reverse().map(p => `<tr><td>${fmtDateTime(p.d)}</td><td>${p.c} din ${p.n}</td><td>${p.pct}%</td></tr>`).join('')}</table>
+  </div>`;
+
+  // Pe categorii
+  const cats = {};
+  rows.forEach(r => (Array.isArray(r.problems) ? r.problems : []).forEach(p => {
+    if(!p || !p.cat) return;
+    const k = cats[p.cat] || (cats[p.cat] = { c:0, n:0 });
+    k.n++; if(p.r === 'c') k.c++;
+  }));
+  const catList = Object.entries(cats).map(([name,v]) => ({ name, ...v, pct: Math.round(v.c / v.n * 100) }))
+    .sort((a,b) => a.pct - b.pct || b.n - a.n);
+  html += `<div class="prog-card"><h3>Pe categorii</h3>`;
+  if(catList.length) {
+    html += `<div class="prog-note">Începe cu categoriile unde greșește cel mai des</div>` +
+      catList.map(k => `<div class="cat-row" title="${escHtml(k.name)}: ${k.c} corecte din ${k.n}">
+        <div class="cat-name">${escHtml(k.name)}</div><div class="cat-val">${k.pct}% <span>· ${k.c} din ${k.n}</span></div>
+        <div class="cat-bar"><div style="width:${Math.max(k.pct, 2)}%"></div></div></div>`).join('');
+  } else {
+    html += `<div class="prog-note" style="margin:0">Apare de la următoarea sesiune: acum salvăm și categoria fiecărei probleme.</div>`;
+  }
+  html += `</div>`;
+
+  // Ultimele sesiuni
+  html += `<div class="prog-card"><h3>Ultimele sesiuni</h3>` +
+    rows.slice(-8).reverse().map(r => {
+      const pct = r.nr_probleme ? Math.round(r.corecte / r.nr_probleme * 100) : 0;
+      const mins = Math.max(1, Math.round(r.durata_sec / 60));
+      return `<div class="sess-row"><div><div class="sess-when">${fmtDateTime(r.created_at)}</div>
+        <div class="sess-lib">${escHtml(libLabel(r.library_id || r.sursa))} · ${mins} min</div></div>
+        <div class="sess-score">${r.corecte} din ${r.nr_probleme}<span>${pct}% · ${r.gresite} greșite · ${r.sarite} sărite</span></div></div>`;
+    }).join('') + `</div>`;
+
+  body.innerHTML = html;
+  drawScoreChart(document.getElementById('progChart'), last);
+}
+
+function toggleProgTable(btn) {
+  const t = btn.nextElementSibling, show = t.style.display === 'none';
+  t.style.display = show ? 'table' : 'none';
+  btn.textContent = show ? 'Ascunde tabelul' : 'Arată ca tabel';
+}
+
+function drawScoreChart(el, pts) {
+  const W = Math.max(280, el.clientWidth || 600), H = 200, L = 34, R = 14, T = 24, B = 26;
+  const iw = W - L - R, ih = H - T - B;
+  const x = i => L + (pts.length === 1 ? iw / 2 : i * iw / (pts.length - 1));
+  const y = v => T + ih - v / 100 * ih;
+  const ns = 'http://www.w3.org/2000/svg';
+  let g = '';
+  [0, 50, 100].forEach(v => {
+    g += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(27,63,107,0.12)" stroke-width="1"/>`;
+    g += `<text x="${L-6}" y="${y(v)+4}" text-anchor="end" font-size="11" font-weight="700" fill="#8a8a80">${v}%</text>`;
+  });
+  const step = Math.ceil(pts.length / 6);
+  pts.forEach((p,i) => { const isLast = i === pts.length-1;
+    if((i % step === 0 && (isLast || pts.length-1-i >= step*0.75)) || isLast)
+    g += `<text x="${x(i)}" y="${H-6}" text-anchor="middle" font-size="11" font-weight="700" fill="#8a8a80">${fmtDate(p.d)}</text>`; });
+  if(pts.length > 1) g += `<polyline fill="none" stroke="#1B3F6B" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" points="${pts.map((p,i)=>`${x(i)},${y(p.pct)}`).join(' ')}"/>`;
+  pts.forEach((p,i) => g += `<circle cx="${x(i)}" cy="${y(p.pct)}" r="4.5" fill="#1B3F6B" stroke="white" stroke-width="2"/>`);
+  const last = pts[pts.length-1];
+  g += `<text x="${x(pts.length-1)}" y="${y(last.pct) - 10}" text-anchor="${pts.length>1?'end':'middle'}" font-size="12" font-weight="900" fill="#1a1a18">${last.pct}%</text>`;
+  g += `<line id="progCross" x1="0" x2="0" y1="${T}" y2="${T+ih}" stroke="rgba(27,63,107,0.35)" stroke-width="1" style="display:none"/>`;
+  g += `<rect x="${L}" y="0" width="${iw}" height="${H}" fill="transparent" id="progHit"/>`;
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" xmlns="${ns}" role="img" aria-label="Scorul pe sesiuni">${g}</svg><div class="prog-tip" id="progTip"></div>`;
+  const svg = el.querySelector('svg'), tip = el.querySelector('#progTip'), cross = el.querySelector('#progCross');
+  const move = ev => {
+    const r = svg.getBoundingClientRect(), px = ((ev.touches ? ev.touches[0].clientX : ev.clientX) - r.left) * W / r.width;
+    let best = 0; pts.forEach((p,i) => { if(Math.abs(x(i)-px) < Math.abs(x(best)-px)) best = i; });
+    const p = pts[best];
+    cross.setAttribute('x1', x(best)); cross.setAttribute('x2', x(best)); cross.style.display = '';
+    tip.innerHTML = `${fmtDateTime(p.d)}<br>${p.c} din ${p.n} · ${p.pct}%`;
+    tip.style.left = (x(best) * r.width / W) + 'px'; tip.style.top = (y(p.pct) * r.height / H) + 'px';
+    tip.classList.add('show');
+  };
+  const hide = () => { tip.classList.remove('show'); cross.style.display = 'none'; };
+  const hit = el.querySelector('#progHit');
+  hit.addEventListener('mousemove', move); hit.addEventListener('touchstart', move, {passive:true});
+  hit.addEventListener('mouseleave', hide);
 }
 
 function restartSession() { startSession(); }
