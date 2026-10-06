@@ -216,6 +216,41 @@
   .prog-table th, .prog-table td { text-align: left; padding: 0.3rem 0.4rem; border-top: 1px solid var(--border); }
   .prog-table th { color: var(--ink-muted); font-weight: 800; }
 
+
+  /* ── Moduri: concurs & repetare ── */
+  .mode-note { margin-top: 0.8rem; font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); line-height: 1.5; }
+  .mode-note b { color: var(--navy); }
+  .config-card.dim { opacity: 0.45; pointer-events: none; }
+  .contest-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.9rem; }
+  .contest-timer { font-size: 1.5rem; font-weight: 900; color: var(--navy); font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 0.4rem; }
+  .contest-timer.warn { color: var(--coral); }
+  .contest-timer small { font-size: 0.75rem; font-weight: 700; color: var(--ink-muted); }
+  .btn-submit { padding: 0.6rem 1rem; background: var(--amber); color: #3d2600; border: none; border-radius: var(--r-sm); font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 900; cursor: pointer; }
+  .btn-submit:hover { filter: brightness(0.95); }
+  .contest-nav { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .cnav { width: 36px; height: 36px; border-radius: 10px; border: 2px solid var(--border); background: white; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.85rem; color: var(--ink-soft); cursor: pointer; }
+  .cnav.done { background: var(--navy-light); border-color: var(--navy-light); color: white; }
+  .cnav.cur { border-color: var(--amber); box-shadow: 0 0 0 2px var(--amber-soft); }
+  .contest-saved { font-size: 0.78rem; font-weight: 700; color: var(--ink-muted); margin-top: 0.5rem; min-height: 1.1em; }
+  .contest-confirm { display: none; background: var(--amber-soft); border: 1px solid #f3d27a; border-radius: var(--r-sm); padding: 1rem; margin-top: 1rem; }
+  .contest-confirm.show { display: block; }
+  .contest-confirm p { margin: 0 0 0.75rem; font-weight: 800; color: #5c3a00; font-size: 0.92rem; }
+  .review-item { background: white; border-radius: var(--r-sm); border: 1px solid var(--border); padding: 1rem 1.1rem; margin-bottom: 0.7rem; }
+  .review-head { display: flex; gap: 0.6rem; align-items: flex-start; }
+  .review-mark { flex: none; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; font-size: 0.9rem; }
+  .review-mark.c { background: var(--green); } .review-mark.w { background: var(--coral); } .review-mark.s { background: var(--ink-muted); }
+  .review-text { font-size: 0.9rem; font-weight: 700; color: var(--ink); line-height: 1.5; }
+  .review-ans { font-size: 0.84rem; font-weight: 700; color: var(--ink-soft); margin-top: 0.45rem; }
+  .review-ans span { color: var(--ink); }
+  .review-toggle { background: none; border: none; padding: 0.4rem 0 0; color: var(--navy-light); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.82rem; cursor: pointer; }
+  .review-expl { display: none; margin-top: 0.5rem; padding: 0.75rem 0.85rem; background: var(--cream); border-radius: var(--r-sm); font-size: 0.88rem; line-height: 1.65; color: var(--ink-soft); font-weight: 600; }
+  .review-expl.show { display: block; }
+  .contest-score { text-align: center; margin: 0.5rem 0 1.5rem; }
+  .contest-score .big { font-size: 3rem; font-weight: 900; color: var(--navy); line-height: 1; }
+  .contest-score .big small { font-size: 1.1rem; color: var(--ink-muted); }
+  .contest-score .sub { font-size: 0.95rem; font-weight: 700; color: var(--ink-soft); margin-top: 0.5rem; }
+  .section-title { font-size: 1.05rem; font-weight: 900; color: var(--navy); margin: 1.25rem 0 0.7rem; }
+
   .confetti-piece { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti-fall linear forwards; border-radius: 2px; z-index: 999; pointer-events: none; }
   @keyframes confetti-fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
@@ -331,6 +366,16 @@
     </div>
 
     <div class="config-card">
+      <div class="config-label">Mod</div>
+      <div class="config-row" id="modeConfig">
+        <div class="config-chip selected" data-val="antrenament">🎯 Antrenament</div>
+        <div class="config-chip" data-val="concurs">🏆 Simulare concurs</div>
+        <div class="config-chip" data-val="repetare">🔁 Repetă greșelile</div>
+      </div>
+      <div class="mode-note" id="modeNote"></div>
+    </div>
+
+    <div class="config-card" id="countCard">
       <div class="config-label">Număr de probleme</div>
       <div class="config-row" id="countConfig">
         <div class="config-chip" data-val="5">5 probleme</div>
@@ -339,7 +384,7 @@
       </div>
     </div>
 
-    <div class="config-card">
+    <div class="config-card" id="difCard">
       <div class="config-label">Dificultate</div>
       <div class="config-row" id="difConfig">
         <div class="config-chip dif-easy" data-val="1">Ușor</div>
@@ -349,7 +394,7 @@
       </div>
     </div>
 
-    <div class="config-card">
+    <div class="config-card" id="catCard">
       <div class="config-label">Categorie</div>
       <div class="config-row" id="catConfig">
         <div class="config-chip selected" data-val="">Toate</div>
@@ -359,10 +404,12 @@
         <div class="config-chip" data-val="Probleme de logică">Logică</div>
         <div class="config-chip" data-val="Fracții">Fracții</div>
         <div class="config-chip" data-val="Combinatorică">Combinatorică</div>
+        <div class="config-chip" data-val="Algebră elementară">Algebră</div>
+        <div class="config-chip" data-val="Șiruri și șabloane">Șiruri</div>
       </div>
     </div>
 
-    <div class="config-card">
+    <div class="config-card" id="libCard">
       <div class="config-label">Bibliotecă de probleme</div>
       <div class="config-row" id="libConfig" style="flex-direction:column; gap:0.45rem;">
         <div class="config-chip selected" data-val="" style="text-align:left; border-radius:10px; padding:0.55rem 1rem;">📚 Toate bibliotecile</div>
@@ -475,6 +522,55 @@
     <button class="btn-restart" onclick="restartSession()">Sesiune nouă →</button>
     <button class="btn-restart secondary" onclick="showScreen('start')">Schimbă configurația</button>
     <button class="btn-restart secondary" onclick="openProgress()">📈 Vezi progresul</button>
+  </div>
+
+  <!-- ══════ CONCURS ══════ -->
+  <div class="screen" id="screen-contest">
+    <div class="contest-top">
+      <div class="contest-timer" id="cTimer">00:00 <small>rămase</small></div>
+      <button class="btn-submit" onclick="askSubmitContest()">Predă lucrarea</button>
+    </div>
+    <div class="contest-nav" id="cNav"></div>
+    <div class="problem-card">
+      <div class="problem-meta">
+        <span class="badge badge-cat" id="cCat">-</span>
+        <span class="badge" id="cDif">-</span>
+        <span class="problem-num" id="cNum">-</span>
+      </div>
+      <div class="problem-text" id="cText">-</div>
+      <button class="voice-btn" id="cReadBtn" onclick="readContestProblem()">
+        <div class="voice-dot"></div>
+        <span id="cReadBtnText">Ascultă problema</span>
+      </button>
+    </div>
+    <div class="answer-card">
+      <div class="answer-label-row"><div class="answer-label">Răspunsul tău</div></div>
+      <input type="text" class="answer-input" id="cAnswer" placeholder="Scrie răspunsul…" oninput="saveContestAnswer()" onkeydown="if(event.key==='Enter') contestGo(1)">
+      <div class="contest-saved" id="cSaved"></div>
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="cPrev" onclick="contestGo(-1)">← Înapoi</button>
+        <button class="btn btn-primary" id="cNext" onclick="contestGo(1)">Următoarea →</button>
+      </div>
+      <div class="contest-confirm" id="cConfirm">
+        <p id="cConfirmText">-</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="submitContest()">Da, predau</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('cConfirm').classList.remove('show')">Mă mai uit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen" id="screen-contest-results">
+    <div class="prog-title" id="crTitle">Lucrarea a fost corectată</div>
+    <div class="contest-score">
+      <div class="big" id="crPoints">0 <small>puncte</small></div>
+      <div class="sub" id="crSub">-</div>
+    </div>
+    <div class="section-title">Corectura</div>
+    <div id="crReview"></div>
+    <button class="btn-restart" onclick="startSession()">Încă o simulare →</button>
+    <button class="btn-restart secondary" onclick="showScreen('start')">Înapoi la start</button>
   </div>
 
   <!-- ══════ PROGRES ══════ -->
@@ -601,7 +697,8 @@ const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 // ── State ──
 let currentUser = null, userProfile = null, currentAccessToken = null;
 const LIB_NAMES = {};
-let config = { count: 10, dif: 0, cat: '', lib: '', voice: true };
+let config = { count: 10, dif: 0, cat: '', lib: '', voice: true, mode: 'antrenament' };
+const CONTEST_MIN_PER_PROBLEM = 5;
 let session = { queue:[], current:0, correct:0, wrong:0, skipped:0, startTime:null, answered:false, history:[] };
 let timerInterval = null, voiceEnabled = true, elevenLabsAudio = null, currentExplanation = '';
 let audioGen = 0; // crește la fiecare oprire; o voce care s-a descărcat după oprire nu mai pornește
@@ -678,11 +775,12 @@ function updateSessionBadge() {
 }
 
 function updateStartButton() {
-  if(!userProfile) return;
+  if(!userProfile) { if(config.mode === 'repetare') document.getElementById('btnStart').disabled = !repeatPool().length; return; }
   const plan = userProfile.subscription_plan || 'free';
   const used = userProfile.sessions_this_month || 0;
   const canPlay = plan === 'paid' || used < 20;
-  document.getElementById('btnStart').disabled = !canPlay;
+  const repeatEmpty = config.mode === 'repetare' && !repeatPool().length;
+  document.getElementById('btnStart').disabled = !canPlay || repeatEmpty;
   document.getElementById('limitBanner').classList.toggle('show', !canPlay);
 }
 
@@ -702,6 +800,7 @@ sb.auth.onAuthStateChange((event, session_data) => {
       await loadProfile();
       updateVoiceStatus();
       showScreen('start');
+      loadProblemHistory();
     }, 0);
   } else {
     currentUser = null;
@@ -729,7 +828,7 @@ function updateVoiceStatus() {
 
 // ── Config chips ──
 function setupChips() {
-  ['countConfig','difConfig','catConfig','libConfig'].forEach(id => {
+  ['modeConfig','countConfig','difConfig','catConfig','libConfig'].forEach(id => {
     document.getElementById(id).addEventListener('click', e => {
       if(!e.target.classList.contains('config-chip')) return;
       document.querySelectorAll('#'+id+' .config-chip').forEach(c=>c.classList.remove('selected'));
@@ -738,8 +837,31 @@ function setupChips() {
       if(id==='difConfig')   config.dif   = parseInt(e.target.dataset.val);
       if(id==='catConfig')   config.cat   = e.target.dataset.val;
       if(id==='libConfig')   config.lib   = e.target.dataset.val;
+      if(id==='modeConfig')  config.mode  = e.target.dataset.val;
+      updateModeUI();
     });
   });
+  updateModeUI();
+}
+
+function updateModeUI() {
+  const note = document.getElementById('modeNote'), btn = document.getElementById('btnStart');
+  const rep = config.mode === 'repetare';
+  ['difCard','catCard','libCard'].forEach(id => document.getElementById(id).classList.toggle('dim', rep));
+  if(config.mode === 'concurs') {
+    note.innerHTML = `<b>${config.count} probleme · ${config.count*CONTEST_MIN_PER_PROBLEM} de minute</b> pentru toată lucrarea. Fără indicii și fără explicații în timpul probei; te poți întoarce la orice problemă. La final primești punctajul și corectura.`;
+    btn.textContent = 'Începe simularea →';
+  } else if(rep) {
+    const n = repeatPool().length;
+    note.innerHTML = n
+      ? `Ai <b>${n} ${n===1?'problemă':'probleme'}</b> de reluat: cele greșite sau sărite înainte. O problemă iese din listă după ce o rezolvi corect de 2 ori la rând.`
+      : 'Nu ai nicio problemă de reluat acum. 🎉 Problemele greșite sau sărite apar aici automat.';
+    btn.textContent = n ? 'Începe repetarea →' : 'Nimic de repetat';
+  } else {
+    note.textContent = 'Rezolvi pe rând, cu indicii, verificare imediată și explicația profesorului.';
+    btn.textContent = 'Începe sesiunea →';
+  }
+  updateStartButton();
 }
 
 const INDEX_URL = 'https://raw.githubusercontent.com/tudorgandu/euclid/main/data/index.json';
@@ -775,6 +897,13 @@ function toggleVoice() {
 
 // ── Session ──
 function startSession() {
+  stopAudio();
+  if(config.mode === 'repetare') {
+    const pool = shuffle(repeatPool());
+    if(!pool.length) { updateModeUI(); showScreen('start'); return; }
+    beginTraining(pool.slice(0, Math.min(config.count, pool.length)), 'repetare');
+    return;
+  }
   let pool = PROBLEMS.filter(p => {
     const catOk = !config.cat || p.cat === config.cat;
     const difOk = config.dif === 0 || p.dif === config.dif;
@@ -782,8 +911,13 @@ function startSession() {
     return catOk && difOk && libOk;
   });
   if(!pool.length) { alert('Nu există probleme pentru filtrele selectate!'); return; }
-  pool = shuffle([...pool]);
-  session = { queue: pool.slice(0, Math.min(config.count, pool.length)), current:0, correct:0, wrong:0, skipped:0, startTime:Date.now(), answered:false, history:[] };
+  pool = shuffle([...pool]).slice(0, Math.min(config.count, pool.length));
+  if(config.mode === 'concurs') { startContest(pool); return; }
+  beginTraining(pool, 'antrenament');
+}
+
+function beginTraining(queue, mode) {
+  session = { mode, queue, current:0, correct:0, wrong:0, skipped:0, startTime:Date.now(), answered:false, history:[], answers:[] };
   document.getElementById('headerStats').style.display = 'flex';
   showScreen('session');
   renderProblem();
@@ -950,6 +1084,7 @@ function checkAnswer() {
 
   const isCorrect = isAnswerCorrect(val, p);
 
+  session.answers[session.current] = val;
   session.history[session.current] = isCorrect ? 'c' : 'w';
   if(isCorrect) { session.correct++; inp.className='answer-input correct'; showFeedback(true, p); }
   else { session.wrong++; inp.className='answer-input wrong'; showFeedback(false, p); }
@@ -1027,7 +1162,16 @@ async function endSession() {
   document.getElementById('resultsSub').textContent=msgs[mi][1];
   if(pct>=80) triggerConfetti();
   showScreen('results');
-  // Salvează sesiunea în Supabase și actualizează contorul
+  await saveSessionToServer();
+}
+
+// Salvează sesiunea curentă în Supabase și actualizează contorul
+async function saveSessionToServer() {
+  const total = session.queue.length;
+  const pct = Math.round(session.correct/total*100);
+  const mins = Math.round((Date.now()-session.startTime)/60000);
+  const durSec = Math.round(((session.endTime || Date.now()) - session.startTime)/1000);
+  recordLocalHistory();
   if(currentUser) {
     try {
       console.info('[save-session] trimit sesiunea…');
@@ -1038,11 +1182,11 @@ async function endSession() {
         headers:{'Content-Type':'application/json','Authorization':'Bearer '+token,'apikey':SUPABASE_ANON},
         body:JSON.stringify({
           library_id: config.lib || 'mixed',
-          config: { count: session.queue.length, dif: config.dif, cat: config.cat },
-          problems: session.queue.map((q,i) => ({ id: q.id, lib: q.lib_id || null, cat: q.cat, dif: q.dif, r: session.history[i] || 's' })),
+          config: { count: session.queue.length, dif: config.dif, cat: config.cat, mode: session.mode || 'antrenament' },
+          problems: session.queue.map((q,i) => ({ id: q.id, lib: q.lib_id || null, cat: q.cat, dif: q.dif, r: session.history[i] || 's', a: session.answers?.[i] ?? null })),
           results: { correct: session.correct, wrong: session.wrong, skipped: session.skipped,
                      total: session.queue.length, pct, duration_mins: mins,
-                     duration_sec: Math.round((Date.now()-session.startTime)/1000) }
+                     duration_sec: durSec }
         })
       });
       if(!saveRes.ok) console.warn('[save-session] eșec:', saveRes.status, await saveRes.text());
@@ -1066,7 +1210,7 @@ async function openProgress() {
   const sub = document.getElementById('progSub'), body = document.getElementById('progBody');
   sub.textContent = 'Se încarcă…'; body.innerHTML = '';
   const { data, error } = await sb.from('sessions')
-    .select('created_at,nr_probleme,corecte,gresite,sarite,durata_sec,sursa,library_id,problems')
+    .select('created_at,nr_probleme,corecte,gresite,sarite,durata_sec,sursa,library_id,problems,config')
     .eq('user_id', currentUser.id).order('created_at', { ascending: true }).limit(500);
   if(error) { sub.textContent = 'Nu am putut încărca progresul: ' + error.message; return; }
   renderProgress(data || []);
@@ -1126,7 +1270,7 @@ function renderProgress(rows) {
       const pct = r.nr_probleme ? Math.round(r.corecte / r.nr_probleme * 100) : 0;
       const mins = Math.max(1, Math.round(r.durata_sec / 60));
       return `<div class="sess-row"><div><div class="sess-when">${fmtDateTime(r.created_at)}</div>
-        <div class="sess-lib">${escHtml(libLabel(r.library_id || r.sursa))} · ${mins} min</div></div>
+        <div class="sess-lib">${({concurs:'🏆 Simulare · ',repetare:'🔁 Repetare · '})[r.config?.mode] || ''}${escHtml(libLabel(r.library_id || r.sursa))} · ${mins} min</div></div>
         <div class="sess-score">${r.corecte} din ${r.nr_probleme}<span>${pct}% · ${r.gresite} greșite · ${r.sarite} sărite</span></div></div>`;
     }).join('') + `</div>`;
 
@@ -1176,6 +1320,157 @@ function drawScoreChart(el, pts) {
   const hit = el.querySelector('#progHit');
   hit.addEventListener('mousemove', move); hit.addEventListener('touchstart', move, {passive:true});
   hit.addEventListener('mouseleave', hide);
+}
+
+
+// ── Simulare de concurs ──
+let contestTimer = null;
+function startContest(queue) {
+  session = { mode:'concurs', queue, current:0, correct:0, wrong:0, skipped:0, startTime:Date.now(), answered:false, history:[], answers:new Array(queue.length).fill('') };
+  session.deadline = session.startTime + queue.length * CONTEST_MIN_PER_PROBLEM * 60000;
+  document.getElementById('headerStats').style.display = 'none';
+  document.getElementById('cConfirm').classList.remove('show');
+  showScreen('contest');
+  renderContest();
+  clearInterval(contestTimer);
+  tickContest(); contestTimer = setInterval(tickContest, 1000);
+}
+
+function tickContest() {
+  const left = Math.max(0, Math.round((session.deadline - Date.now())/1000));
+  const el = document.getElementById('cTimer');
+  el.innerHTML = `${String(Math.floor(left/60)).padStart(2,'0')}:${String(left%60).padStart(2,'0')} <small>rămase</small>`;
+  el.classList.toggle('warn', left <= 300);
+  if(left === 0) submitContest();
+}
+
+function renderContest() {
+  stopAudio();
+  const i = session.current, p = session.queue[i], n = session.queue.length;
+  const nav = document.getElementById('cNav'); nav.innerHTML = '';
+  session.queue.forEach((_, k) => {
+    const b = document.createElement('button');
+    b.className = 'cnav' + (session.answers[k].trim() ? ' done' : '') + (k === i ? ' cur' : '');
+    b.textContent = k + 1; b.title = `Problema ${k+1}`;
+    b.onclick = () => { session.current = k; renderContest(); };
+    nav.appendChild(b);
+  });
+  const difL=['','Ușor','Mediu','Greu'], difC=['','badge-dif-1','badge-dif-2','badge-dif-3'];
+  document.getElementById('cCat').textContent = p.cat;
+  document.getElementById('cDif').textContent = difL[p.dif];
+  document.getElementById('cDif').className = 'badge '+difC[p.dif];
+  document.getElementById('cNum').textContent = `Problema ${i+1} din ${n}`;
+  document.getElementById('cText').textContent = p.text;
+  const inp = document.getElementById('cAnswer');
+  inp.value = session.answers[i];
+  document.getElementById('cSaved').textContent = session.answers[i].trim() ? '✓ Răspuns salvat' : '';
+  document.getElementById('cPrev').disabled = i === 0;
+  document.getElementById('cNext').textContent = i === n-1 ? 'Predă lucrarea' : 'Următoarea →';
+  inp.focus();
+}
+
+function saveContestAnswer() {
+  const i = session.current, v = document.getElementById('cAnswer').value;
+  session.answers[i] = v;
+  document.getElementById('cSaved').textContent = v.trim() ? '✓ Răspuns salvat' : '';
+  const btn = document.getElementById('cNav').children[i];
+  if(btn) btn.classList.toggle('done', !!v.trim());
+}
+
+function contestGo(d) {
+  const n = session.queue.length, j = session.current + d;
+  if(j >= n) { askSubmitContest(); return; }
+  if(j < 0) return;
+  session.current = j; renderContest();
+}
+
+function askSubmitContest() {
+  const empty = session.answers.filter(a => !a.trim()).length;
+  document.getElementById('cConfirmText').textContent = empty
+    ? `Mai ai ${empty} ${empty===1?'problemă':'probleme'} fără răspuns. Sigur predai lucrarea?`
+    : 'Ai răspuns la toate problemele. Predai lucrarea?';
+  document.getElementById('cConfirm').classList.add('show');
+}
+
+function readContestProblem() {
+  const p = session.queue[session.current];
+  speak(p.text, 'cReadBtn', 'cReadBtnText', 'Ascultă problema', '🔊 Se citește...');
+}
+
+async function submitContest() {
+  if(session.mode !== 'concurs' || session.submitted) return;
+  session.submitted = true; session.endTime = Date.now();
+  clearInterval(contestTimer); stopAudio();
+  session.queue.forEach((p, i) => {
+    const a = session.answers[i].trim();
+    const r = !a ? 's' : isAnswerCorrect(a, p) ? 'c' : 'w';
+    session.history[i] = r;
+    if(r === 'c') session.correct++; else if(r === 'w') session.wrong++; else session.skipped++;
+  });
+  renderContestResults();
+  showScreen('contest-results');
+  if(session.correct === session.queue.length) triggerConfetti();
+  await saveSessionToServer();
+}
+
+function renderContestResults() {
+  const n = session.queue.length, c = session.correct;
+  const mins = Math.max(1, Math.round((session.endTime - session.startTime)/60000));
+  document.getElementById('crPoints').innerHTML = `${c*10} <small>din ${n*10} puncte</small>`;
+  document.getElementById('crSub').textContent =
+    `${c} ${c===1?'corectă':'corecte'} · ${session.wrong} ${session.wrong===1?'greșită':'greșite'} · ${session.skipped} fără răspuns · ${mins} din ${n*CONTEST_MIN_PER_PROBLEM} minute`;
+  const pct = c / n;
+  document.getElementById('crTitle').textContent = pct === 1 ? 'Lucrare perfectă! 🏆' : pct >= 0.8 ? 'Foarte bine! ⭐' : pct >= 0.5 ? 'Lucrarea a fost corectată 👍' : 'Lucrarea a fost corectată 📚';
+  const box = document.getElementById('crReview'); box.innerHTML = '';
+  session.queue.forEach((p, i) => {
+    const r = session.history[i], a = session.answers[i].trim();
+    const item = document.createElement('div'); item.className = 'review-item';
+    item.innerHTML = `<div class="review-head"><div class="review-mark ${r}">${r==='c'?'✓':r==='w'?'✗':'–'}</div>
+      <div><div class="review-text"></div><div class="review-ans"></div></div></div>
+      <button class="review-toggle">Vezi explicația</button><div class="review-expl"></div>`;
+    item.querySelector('.review-text').textContent = `${i+1}. ${p.text}`;
+    const ans = item.querySelector('.review-ans');
+    ans.innerHTML = `Răspunsul tău: <span></span>${r==='c' ? '' : ' · Corect: <span></span>'}`;
+    const spans = ans.querySelectorAll('span');
+    spans[0].textContent = a || '—'; if(spans[1]) spans[1].textContent = p.ans;
+    const ex = item.querySelector('.review-expl'); ex.textContent = p.explicatie || p.barem;
+    const t = item.querySelector('.review-toggle');
+    t.onclick = () => { const show = !ex.classList.contains('show'); ex.classList.toggle('show', show); t.textContent = show ? 'Ascunde explicația' : 'Vezi explicația'; };
+    box.appendChild(item);
+  });
+}
+
+// ── Repetă greșelile ──
+// Istoricul pe probleme: din sesiunile salvate (Supabase) + sesiunile din acest browser.
+let problemHistory = {};   // cheie "lib:id" -> ['c','w','s', ...] în ordine cronologică
+const probKey = (lib, id) => `${lib || 'vasile-alecsandri'}:${id}`;
+
+function addToHistory(list) {
+  list.forEach(p => { if(!p || p.id == null || !p.r) return; (problemHistory[probKey(p.lib, p.id)] ||= []).push(p.r); });
+}
+
+function recordLocalHistory() {
+  addToHistory(session.queue.map((q,i) => ({ id:q.id, lib:q.lib_id, r: session.history[i] || 's' })));
+  if(document.getElementById('screen-start')) updateModeUI();
+}
+
+async function loadProblemHistory() {
+  if(!currentUser) return;
+  const { data, error } = await sb.from('sessions').select('created_at,problems')
+    .eq('user_id', currentUser.id).order('created_at', { ascending: true }).limit(500);
+  if(error) { console.warn('Istoric probleme:', error.message); return; }
+  problemHistory = {};
+  (data || []).forEach(r => addToHistory(Array.isArray(r.problems) ? r.problems : []));
+  updateModeUI();
+}
+
+function needsRepeat(h) {
+  if(!h || !h.some(r => r !== 'c')) return false;           // n-a greșit niciodată
+  return !(h.length >= 2 && h[h.length-1] === 'c' && h[h.length-2] === 'c');
+}
+
+function repeatPool() {
+  return PROBLEMS.filter(p => needsRepeat(problemHistory[probKey(p.lib_id, p.id)]));
 }
 
 function restartSession() { startSession(); }
