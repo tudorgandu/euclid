@@ -39,7 +39,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: dacă Alin ar cumpăra de două ori 4 mașinuțe și 2 roboței, adică 8 mașinuțe și 4 roboței, ar plăti 352 de lei. Față de 3 mașinuțe și 4 roboței, care costă 182 de lei, are în plus 5 mașinuțe și plătește în plus 352 minus 182, adică 170 de lei. Deci o mașinuță costă 170 împărțit la 5, adică 34 de lei. Din 4 mașinuțe și 2 roboței la 176 de lei: 4 mașinuțe costă 136 de lei, deci 2 roboței costă 40 de lei și un roboțel costă 20 de lei. Pentru 2 mașinuțe și 3 roboței plătește 68 plus 60, adică 128 de lei."
+    "explicatie": "Ne gândim așa: dacă Alin ar cumpăra de două ori 4 mașinuțe și 2 roboței, adică 8 mașinuțe și 4 roboței, ar plăti 352 de lei. Față de 3 mașinuțe și 4 roboței, care costă 182 de lei, are în plus 5 mașinuțe și plătește în plus 352 minus 182, adică 170 de lei. Deci o mașinuță costă 170 împărțit la 5, adică 34 de lei. Din 4 mașinuțe și 2 roboței la 176 de lei: 4 mașinuțe costă 136 de lei, deci 2 roboței costă 40 de lei și un roboțel costă 20 de lei. Pentru 2 mașinuțe și 3 roboței plătește 68 plus 60, adică 128 de lei.",
+    "metoda": "comparatie"
   },
   {
     "text": "Împărțind numărul natural n la 5, obținem restul 3. Care este restul împărțirii dublului numărului n la 5?",
@@ -95,7 +96,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: s-a vândut jumătate din jucării și încă 10. Asta înseamnă că cealaltă jumătate este formată din acele 10 jucării plus cele 30 care au rămas, adică 40 de jucării. Deci jumătate înseamnă 40, iar în total au fost 80 de jucării. În prima zi s-au vândut 40 plus 10, adică 50 de jucării. Verificăm: 80 minus 50 fac 30."
+    "explicatie": "Ne gândim așa: s-a vândut jumătate din jucării și încă 10. Asta înseamnă că cealaltă jumătate este formată din acele 10 jucării plus cele 30 care au rămas, adică 40 de jucării. Deci jumătate înseamnă 40, iar în total au fost 80 de jucării. În prima zi s-au vândut 40 plus 10, adică 50 de jucării. Verificăm: 80 minus 50 fac 30.",
+    "metoda": "mers_invers"
   },
   {
     "text": "Ana a cumpărat o planșă și un joc LEGO pentru care a plătit 55 de lei. Jumătate din prețul unui ceas este egală cu trei sferturi din prețul unui joc LEGO, iar prețul unei planșe este egal cu un sfert din prețul unui joc LEGO. Aflați prețul unui ceas.",
@@ -109,7 +111,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller subiect 2026",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: împărțim prețul jocului LEGO în 4 părți egale. Planșa costă cât o parte, deci planșa și jocul împreună fac 5 părți, adică 55 de lei, iar o parte este 11 lei. Trei sferturi din prețul jocului înseamnă 3 părți, adică 33 de lei. Aceasta este jumătate din prețul ceasului, deci ceasul costă 2 ori 33, adică 66 lei."
+    "explicatie": "Ne gândim așa: împărțim prețul jocului LEGO în 4 părți egale. Planșa costă cât o parte, deci planșa și jocul împreună fac 5 părți, adică 55 de lei, iar o parte este 11 lei. Trei sferturi din prețul jocului înseamnă 3 părți, adică 33 de lei. Aceasta este jumătate din prețul ceasului, deci ceasul costă 2 ori 33, adică 66 lei.",
+    "metoda": "figurativa"
   },
   {
     "text": "Sunt 30 de planșe puse în vânzare numerotate de la 1 la 30. Fiecare planșă numerotată cu un număr impar care se împarte exact la 5 are câte două desene. Fiecare planșă numerotată cu un număr par, dar care nu se împarte exact la 5, are câte trei desene. Restul planșelor au câte un desen fiecare. Aflați câte desene sunt, în total, pe cele 30 de planșe.",
@@ -221,7 +224,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: dacă Mihai are o parte, tatăl are 3 părți, deci diferența dintre ei este de 2 părți. Peste 15 ani, Mihai va avea o parte plus 15, iar tatăl de două ori atât, adică 2 părți plus 30. Dar tatăl va avea și 3 părți plus 15. Comparând, o parte în plus înseamnă 15 ani în plus, deci o parte este 15. Mihai are acum 15 ani, iar tatăl 45; peste 15 ani vor avea 30 și 60, iar 60 este de două ori 30."
+    "explicatie": "Ne gândim așa: dacă Mihai are o parte, tatăl are 3 părți, deci diferența dintre ei este de 2 părți. Peste 15 ani, Mihai va avea o parte plus 15, iar tatăl de două ori atât, adică 2 părți plus 30. Dar tatăl va avea și 3 părți plus 15. Comparând, o parte în plus înseamnă 15 ani în plus, deci o parte este 15. Mihai are acum 15 ani, iar tatăl 45; peste 15 ani vor avea 30 și 60, iar 60 este de două ori 30.",
+    "metoda": "figurativa"
   },
   {
     "text": "George depune la bancă 5000 lei. Pentru fiecare 100 lei, banca îi adaugă încă 4 lei pe an. Ce sumă va avea în cont după un an?",
@@ -249,7 +253,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: dacă 3 copii udă 3 pomi în 3 minute, atunci fiecare copil udă un pom în 3 minute. În 12 minute, un copil are timp de 12 împărțit la 3, adică 4 pomi. Fiecare dintre cei 12 copii udă câte 4 pomi. Deci în total vor fi udați 12 ori 4, adică 48 pomi."
+    "explicatie": "Ne gândim așa: dacă 3 copii udă 3 pomi în 3 minute, atunci fiecare copil udă un pom în 3 minute. În 12 minute, un copil are timp de 12 împărțit la 3, adică 4 pomi. Fiecare dintre cei 12 copii udă câte 4 pomi. Deci în total vor fi udați 12 ori 4, adică 48 pomi.",
+    "metoda": "reducere_unitate"
   },
   {
     "text": "Determină cel mai mare număr natural care, împărțit la 102, dă restul mai mare decât câtul împărțirii.",
@@ -291,7 +296,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: vrem să avem aceeași cantitate de banane în ambele cumpărături, ca să le putem compara. Luăm cumpărătura Anei de 3 ori: 9 kilograme de mere și 6 de banane costă 57 de lei. Luăm cumpărătura lui Bogdan de 2 ori: 10 kilograme de mere și 6 de banane costă 60 de lei. Diferența este exact un kilogram de mere, iar diferența de preț este 60 minus 57, adică 3 lei. Deci un kilogram de mere costă 3 lei."
+    "explicatie": "Ne gândim așa: vrem să avem aceeași cantitate de banane în ambele cumpărături, ca să le putem compara. Luăm cumpărătura Anei de 3 ori: 9 kilograme de mere și 6 de banane costă 57 de lei. Luăm cumpărătura lui Bogdan de 2 ori: 10 kilograme de mere și 6 de banane costă 60 de lei. Diferența este exact un kilogram de mere, iar diferența de preț este 60 minus 57, adică 3 lei. Deci un kilogram de mere costă 3 lei.",
+    "metoda": "comparatie"
   },
   {
     "text": "Pentru 3 kilograme de mere și 2 kilograme de banane Ana a plătit 19 lei. Pentru 5 kilograme de mere și 3 kilograme de banane, de același fel, Bogdan a plătit 30 de lei. Cât a costat un kilogram de banane?",
@@ -305,7 +311,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: întâi aflăm prețul merelor. Luăm cumpărătura Anei de 3 ori: 9 kilograme de mere și 6 de banane costă 57 de lei, iar cumpărătura lui Bogdan de 2 ori: 10 kilograme de mere și 6 de banane costă 60 de lei. Diferența este un kilogram de mere, care costă 3 lei. Ana a dat pe 3 kilograme de mere 9 lei, deci pe 2 kilograme de banane a dat 19 minus 9, adică 10 lei. Un kilogram de banane costă 5 lei."
+    "explicatie": "Ne gândim așa: întâi aflăm prețul merelor. Luăm cumpărătura Anei de 3 ori: 9 kilograme de mere și 6 de banane costă 57 de lei, iar cumpărătura lui Bogdan de 2 ori: 10 kilograme de mere și 6 de banane costă 60 de lei. Diferența este un kilogram de mere, care costă 3 lei. Ana a dat pe 3 kilograme de mere 9 lei, deci pe 2 kilograme de banane a dat 19 minus 9, adică 10 lei. Un kilogram de banane costă 5 lei.",
+    "metoda": "comparatie"
   },
   {
     "text": "Pentru 3 kilograme de mere și 2 kilograme de banane Ana a plătit 19 lei. Pentru 5 kilograme de mere și 3 kilograme de banane Bogdan a plătit 30 de lei. Dacă Cezar a cumpărat 2 kilograme de mere și 2 kilograme de banane, de același fel, află cât au costat cumpărăturile celor trei buni prieteni.",
@@ -319,7 +326,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2025",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: întâi aflăm prețurile. Luăm cumpărătura Anei de 3 ori, adică 57 de lei, și pe a lui Bogdan de 2 ori, adică 60 de lei; diferența este un kilogram de mere, deci merele costă 3 lei kilogramul. Ana a plătit 9 lei pe mere, deci 10 lei pe 2 kilograme de banane, iar bananele costă 5 lei kilogramul. Cezar a plătit 2 ori 3 plus 2 ori 5, adică 6 plus 10, care fac 16 lei. Împreună, cei trei au plătit 19 plus 30 plus 16, adică 65 lei."
+    "explicatie": "Ne gândim așa: întâi aflăm prețurile. Luăm cumpărătura Anei de 3 ori, adică 57 de lei, și pe a lui Bogdan de 2 ori, adică 60 de lei; diferența este un kilogram de mere, deci merele costă 3 lei kilogramul. Ana a plătit 9 lei pe mere, deci 10 lei pe 2 kilograme de banane, iar bananele costă 5 lei kilogramul. Cezar a plătit 2 ori 3 plus 2 ori 5, adică 6 plus 10, care fac 16 lei. Împreună, cei trei au plătit 19 plus 30 plus 16, adică 65 lei.",
+    "metoda": "comparatie"
   },
   {
     "text": "Determinați cifra x, știind că numărul $\\overline{54x1}$ se împarte exact la 9.",
@@ -347,7 +355,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: dacă al doilea număr este o parte, atunci primul număr are 5 astfel de părți. Împreună au 6 părți, care fac 108, deci o parte este 108 împărțit la 6, adică 18. Primul număr este 5 ori 18, adică 90, iar al doilea este 18. Diferența dintre ele este 90 minus 18, adică 72."
+    "explicatie": "Ne gândim așa: dacă al doilea număr este o parte, atunci primul număr are 5 astfel de părți. Împreună au 6 părți, care fac 108, deci o parte este 108 împărțit la 6, adică 18. Primul număr este 5 ori 18, adică 90, iar al doilea este 18. Diferența dintre ele este 90 minus 18, adică 72.",
+    "metoda": "figurativa"
   },
   {
     "text": "Calculați suma numerelor naturale care, împărțite la 3, dau câtul 10.",
@@ -403,7 +412,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 1/2022",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: o oră are 60 de minute. Daria citește 15 pagini în 30 de minute, deci într-o oră citește de două ori mai mult, adică 30 de pagini. Darius citește 21 de pagini în 45 de minute, adică 7 pagini la fiecare sfert de oră, pentru că 21 împărțit la 3 fac 7; într-o oră, care are 4 sferturi, citește 4 ori 7, adică 28 de pagini. Împreună citesc 30 plus 28, adică 58 pagini."
+    "explicatie": "Ne gândim așa: o oră are 60 de minute. Daria citește 15 pagini în 30 de minute, deci într-o oră citește de două ori mai mult, adică 30 de pagini. Darius citește 21 de pagini în 45 de minute, adică 7 pagini la fiecare sfert de oră, pentru că 21 împărțit la 3 fac 7; într-o oră, care are 4 sferturi, citește 4 ori 7, adică 28 de pagini. Împreună citesc 30 plus 28, adică 58 pagini.",
+    "metoda": "reducere_unitate"
   },
   {
     "text": "Se consideră șirul de numere naturale 1, 2, 3, 5, 6, 7, 9, 10, 11, … \na) Stabiliți dacă numărul 100 este sau nu termen al șirului.",
@@ -627,7 +637,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim la suma lui Dragoș de la primul concurs ca la o bucată necunoscută. La primul concurs, Andrei are bucata plus 20, iar Vasile bucata plus 40. La al doilea concurs, Dragoș are bucata plus 50, Andrei bucata plus 30 și Vasile bucata plus 10. În total avem 6 bucăți plus 150 de lei, care fac 780, deci 6 bucăți fac 780 minus 150, adică 630. O bucată este 630 împărțit la 6, adică 105, deci Dragoș primește la primul concurs 105 lei."
+    "explicatie": "Ne gândim la suma lui Dragoș de la primul concurs ca la o bucată necunoscută. La primul concurs, Andrei are bucata plus 20, iar Vasile bucata plus 40. La al doilea concurs, Dragoș are bucata plus 50, Andrei bucata plus 30 și Vasile bucata plus 10. În total avem 6 bucăți plus 150 de lei, care fac 780, deci 6 bucăți fac 780 minus 150, adică 630. O bucată este 630 împărțit la 6, adică 105, deci Dragoș primește la primul concurs 105 lei.",
+    "metoda": "figurativa"
   },
   {
     "text": "Trei prieteni participă la două concursuri de matematică. La primul concurs Andrei primește drept premiu cu 20 de lei mai mult decât Dragoș, iar Vasile cu 20 de lei mai mult decât Andrei. La al doilea concurs Dragoș primește cu 50 de lei mai mult decât la primul, Andrei cu 20 de lei mai puțin decât Dragoș, iar Vasile cu 20 de lei mai puțin decât Andrei. Cei trei copii au primit la cele două concursuri, în total, suma de 780 lei. b) Ce sumă de bani primește Andrei la primul concurs?",
@@ -641,7 +652,8 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
     "adaugat": "2026-09-13",
-    "explicatie": "De la punctul a știm că Dragoș a primit la primul concurs 105 lei. La primul concurs, Andrei primește cu 20 de lei mai mult decât Dragoș. Deci Andrei primește 105 plus 20, adică 125 lei."
+    "explicatie": "De la punctul a știm că Dragoș a primit la primul concurs 105 lei. La primul concurs, Andrei primește cu 20 de lei mai mult decât Dragoș. Deci Andrei primește 105 plus 20, adică 125 lei.",
+    "metoda": "figurativa"
   },
   {
     "text": "Trei prieteni au primit în total 780 lei la două concursuri. Dacă ar cumpăra împreună 3 albume și 2 cărți, le-ar rămâne 80 lei din suma totală primită. Dacă ar cumpăra 2 albume și 3 cărți, le-ar mai trebui 80 lei. Cât costă un album și o carte împreună?",
@@ -655,6 +667,7 @@
     "sursa": "colegiul-national-iasi",
     "sursa_label": "Alexandru Myller model 2/2022",
     "adaugat": "2026-09-13",
-    "explicatie": "Dacă le rămân 80 de lei, înseamnă că 3 albume și 2 cărți costă 780 minus 80, adică 700 de lei. Dacă le mai trebuie 80 de lei, înseamnă că 2 albume și 3 cărți costă 780 plus 80, adică 860 de lei. Punem cele două cumpărături împreună și avem 5 albume și 5 cărți, care costă 700 plus 860, adică 1560 de lei. Aceasta înseamnă de 5 ori un album și o carte, deci un album și o carte costă 1560 împărțit la 5, adică 312 lei."
+    "explicatie": "Dacă le rămân 80 de lei, înseamnă că 3 albume și 2 cărți costă 780 minus 80, adică 700 de lei. Dacă le mai trebuie 80 de lei, înseamnă că 2 albume și 3 cărți costă 780 plus 80, adică 860 de lei. Punem cele două cumpărături împreună și avem 5 albume și 5 cărți, care costă 700 plus 860, adică 1560 de lei. Aceasta înseamnă de 5 ori un album și o carte, deci un album și o carte costă 1560 împărțit la 5, adică 312 lei.",
+    "metoda": "comparatie"
   }
 ]

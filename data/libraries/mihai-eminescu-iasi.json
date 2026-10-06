@@ -27,7 +27,8 @@
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Ne gândim așa: dacă cel mai mic număr este n, celelalte sunt cu 1, cu 2 și cu 3 mai mari. Suma lor este 4 ori n, plus 1 plus 2 plus 3, adică 4 ori n plus 6. Deci 4 ori n fac 150 minus 6, adică 144, iar n este 144 împărțit la 4, adică 36. Numerele sunt 36, 37, 38 și 39, iar suma lor este într-adevăr 150."
+    "explicatie": "Ne gândim așa: dacă cel mai mic număr este n, celelalte sunt cu 1, cu 2 și cu 3 mai mari. Suma lor este 4 ori n, plus 1 plus 2 plus 3, adică 4 ori n plus 6. Deci 4 ori n fac 150 minus 6, adică 144, iar n este 144 împărțit la 4, adică 36. Numerele sunt 36, 37, 38 și 39, iar suma lor este într-adevăr 150.",
+    "metoda": "figurativa"
   },
   {
     "cat": "Geometrie",
@@ -286,7 +287,7 @@
   },
   {
     "text": "Ana, Bogdan și Cristi au împreună 120 de cărți. Ana are de două ori mai multe cărți decât Bogdan, iar Cristi are cu 10 mai puține decât Ana. Câte cărți are fiecare?",
-    "ans": "Bogdan: 26, Ana: 52, Cristi: 42",
+    "ans": "Ana: 52, Bogdan: 26, Cristi: 42",
     "hint": "Notează cărțile lui Bogdan cu o parte. Atunci Ana are 2 părți, iar Cristi are 2 părți minus 10. Câte părți sunt în total?",
     "barem": "Bogdan are o parte, Ana are 2 părți, Cristi are 2 părți minus 10. Împreună: 5 părți − 10 = 120, deci 5 părți = 130 și o parte = 26. Bogdan: 26 cărți, Ana: 2 × 26 = 52 cărți, Cristi: 52 − 10 = 42 cărți. Verificare: 26 + 52 + 42 = 120 ✓.",
     "cat": "Probleme de logică",
@@ -297,7 +298,8 @@
     "sursa_label": "EMINENT",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Ne gândim cu părți: Bogdan are o parte, Ana are 2 părți, iar Cristi are tot 2 părți, dar cu 10 cărți mai puțin. Împreună au 5 părți minus 10 cărți, adică 120. Atunci 5 părți fac 120 plus 10, adică 130, iar o parte este 130 împărțit la 5, adică 26. Bogdan are 26 de cărți, Ana are 2 ori 26, adică 52, iar Cristi are 52 minus 10, adică 42. Verificăm: 26 plus 52 plus 42 fac 120. Răspunsul este Bogdan 26, Ana 52 și Cristi 42 de cărți."
+    "explicatie": "Ne gândim cu părți: Bogdan are o parte, Ana are 2 părți, iar Cristi are tot 2 părți, dar cu 10 cărți mai puțin. Împreună au 5 părți minus 10 cărți, adică 120. Atunci 5 părți fac 120 plus 10, adică 130, iar o parte este 130 împărțit la 5, adică 26. Bogdan are 26 de cărți, Ana are 2 ori 26, adică 52, iar Cristi are 52 minus 10, adică 42. Verificăm: 26 plus 52 plus 42 fac 120. Răspunsul este Bogdan 26, Ana 52 și Cristi 42 de cărți.",
+    "metoda": "figurativa"
   },
   {
     "text": "În câte moduri pot fi aranjați 4 elevi diferiți în linie dreaptă pentru o fotografie?",

@@ -12,7 +12,8 @@
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Perimetrul este de 240 de metri, deci o lungime plus o lățime fac jumătate, adică 120 de metri. Lungimea este cât 5 lățimi, așa că o lungime plus o lățime înseamnă 6 lățimi. O lățime este 120 împărțit la 6, adică 20 de metri, iar lungimea este 20 ori 5, adică 100 de metri. Aria este lungimea ori lățimea: 100 ori 20 fac 2000 de metri pătrați."
+    "explicatie": "Perimetrul este de 240 de metri, deci o lungime plus o lățime fac jumătate, adică 120 de metri. Lungimea este cât 5 lățimi, așa că o lungime plus o lățime înseamnă 6 lățimi. O lățime este 120 împărțit la 6, adică 20 de metri, iar lungimea este 20 ori 5, adică 100 de metri. Aria este lungimea ori lățimea: 100 ori 20 fac 2000 de metri pătrați.",
+    "metoda": "figurativa"
   },
   {
     "cat": "Numere naturale",
@@ -102,7 +103,8 @@
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Într-o oră, conducta A umple o șesime din rezervor, iar conducta B o pătrime. O șesime înseamnă 2 supra 12, iar o pătrime înseamnă 3 supra 12, deci împreună umplu într-o oră 5 supra 12 din rezervor. Ca să umple tot rezervorul le trebuie 12 supra 5 ore, adică 2 ore întregi și încă 2 supra 5 dintr-o oră. Două cincimi din 60 de minute înseamnă 24 de minute, deci rezervorul se umple în 2 ore și 24 de minute."
+    "explicatie": "Într-o oră, conducta A umple o șesime din rezervor, iar conducta B o pătrime. O șesime înseamnă 2 supra 12, iar o pătrime înseamnă 3 supra 12, deci împreună umplu într-o oră 5 supra 12 din rezervor. Ca să umple tot rezervorul le trebuie 12 supra 5 ore, adică 2 ore întregi și încă 2 supra 5 dintr-o oră. Două cincimi din 60 de minute înseamnă 24 de minute, deci rezervorul se umple în 2 ore și 24 de minute.",
+    "metoda": "reducere_unitate"
   },
   {
     "cat": "Numere naturale",
@@ -207,7 +209,8 @@
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Trei numere consecutive sunt un număr, apoi cu 1 mai mare, apoi cu 2 mai mare. Dacă scoatem aceste plusuri, adică 1 plus 2, deci 3, rămân trei numere egale cu cel mai mic. Așadar de 3 ori cel mai mic număr este 2022 minus 3, adică 2019, iar cel mai mic este 2019 împărțit la 3, adică 673. Cel mai mare număr este 673 plus 2, adică 675."
+    "explicatie": "Trei numere consecutive sunt un număr, apoi cu 1 mai mare, apoi cu 2 mai mare. Dacă scoatem aceste plusuri, adică 1 plus 2, deci 3, rămân trei numere egale cu cel mai mic. Așadar de 3 ori cel mai mic număr este 2022 minus 3, adică 2019, iar cel mai mic este 2019 împărțit la 3, adică 673. Cel mai mare număr este 673 plus 2, adică 675.",
+    "metoda": "figurativa"
   },
   {
     "text": "Câte numere de 3 cifre au suma cifrelor egală cu 5 și cifra sutelor diferită de zero?",
@@ -297,7 +300,8 @@
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Perimetrul înseamnă de două ori lungimea plus lățimea, deci lungimea plus lățimea fac 48 împărțit la 2, adică 24 de centimetri. Lungimea este cât 3 lățimi, așa că lungimea plus lățimea înseamnă 4 lățimi. Atunci o lățime este 24 împărțit la 4, adică 6 centimetri, iar lungimea este 6 ori 3, adică 18 centimetri. Aria este lungimea ori lățimea: 18 ori 6 fac 108. Aria dreptunghiului este 108 centimetri pătrați."
+    "explicatie": "Perimetrul înseamnă de două ori lungimea plus lățimea, deci lungimea plus lățimea fac 48 împărțit la 2, adică 24 de centimetri. Lungimea este cât 3 lățimi, așa că lungimea plus lățimea înseamnă 4 lățimi. Atunci o lățime este 24 împărțit la 4, adică 6 centimetri, iar lungimea este 6 ori 3, adică 18 centimetri. Aria este lungimea ori lățimea: 18 ori 6 fac 108. Aria dreptunghiului este 108 centimetri pătrați.",
+    "metoda": "figurativa"
   },
   {
     "text": "Ana, Bogdan și Cristi au împreună 120 de cartonașe. Ana are de două ori mai multe decât Bogdan, iar Cristi are cu 10 mai puține decât Ana. Câte cartonașe are Bogdan?",
@@ -312,7 +316,8 @@
     "sursa_label": "Traian Lalescu",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Ne gândim la cartonașele lui Bogdan ca la o parte. Ana are două astfel de părți, iar Cristi are tot două părți, dar cu 10 cartonașe mai puțin. Împreună sunt 5 părți minus 10, și asta face 120. Deci 5 părți fac 120 plus 10, adică 130, iar o parte este 130 împărțit la 5, adică 26. Verificăm: Ana are 52, Cristi are 42, iar 26 plus 52 plus 42 fac 120. Bogdan are 26 de cartonașe."
+    "explicatie": "Ne gândim la cartonașele lui Bogdan ca la o parte. Ana are două astfel de părți, iar Cristi are tot două părți, dar cu 10 cartonașe mai puțin. Împreună sunt 5 părți minus 10, și asta face 120. Deci 5 părți fac 120 plus 10, adică 130, iar o parte este 130 împărțit la 5, adică 26. Verificăm: Ana are 52, Cristi are 42, iar 26 plus 52 plus 42 fac 120. Bogdan are 26 de cartonașe.",
+    "metoda": "figurativa"
   },
   {
     "text": "Pe o stradă sunt 20 de case numerotate de la 1 la 20. Câte cifre au fost folosite în total pentru a numerota toate casele?",

@@ -27,7 +27,8 @@
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Pătratul are 4 laturi egale, deci latura este 48 împărțit la 4, adică 12 centimetri, iar aria este 12 ori 12, adică 144. La dreptunghi, lungimea plus lățimea fac 24, iar lungimea este cât 3 lățimi, deci 4 lățimi fac 24 și lățimea este 6, iar lungimea 18. Aria dreptunghiului este 18 ori 6, adică 108. Diferența este 144 minus 108, adică 36. Pătratul are aria mai mare, cu 36 de centimetri pătrați."
+    "explicatie": "Pătratul are 4 laturi egale, deci latura este 48 împărțit la 4, adică 12 centimetri, iar aria este 12 ori 12, adică 144. La dreptunghi, lungimea plus lățimea fac 24, iar lungimea este cât 3 lățimi, deci 4 lățimi fac 24 și lățimea este 6, iar lungimea 18. Aria dreptunghiului este 18 ori 6, adică 108. Diferența este 144 minus 108, adică 36. Pătratul are aria mai mare, cu 36 de centimetri pătrați.",
+    "metoda": "figurativa"
   },
   {
     "cat": "Fracții",
@@ -72,7 +73,8 @@
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Peste 5 ani, și Maria, și mama vor fi cu câte 5 ani mai mari, deci suma lor crește cu 10. Acum suma vârstelor este 65 minus 10, adică 55. Mama are cu 15 ani mai mult, așa că dacă scădem 15 rămân două vârste egale cu a Mariei: 55 minus 15 fac 40. Maria are 40 împărțit la 2, adică 20 de ani, iar mama are 35. Maria are acum 20 de ani."
+    "explicatie": "Peste 5 ani, și Maria, și mama vor fi cu câte 5 ani mai mari, deci suma lor crește cu 10. Acum suma vârstelor este 65 minus 10, adică 55. Mama are cu 15 ani mai mult, așa că dacă scădem 15 rămân două vârste egale cu a Mariei: 55 minus 15 fac 40. Maria are 40 împărțit la 2, adică 20 de ani, iar mama are 35. Maria are acum 20 de ani.",
+    "metoda": "figurativa"
   },
   {
     "cat": "Numere naturale",
@@ -162,7 +164,8 @@
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Ne gândim așa: dacă toate cele 15 kilograme ar fi fost pere, comerciantul ar fi încasat 15 ori 6, adică 90 de lei. El a încasat însă 76 de lei, adică cu 90 minus 76, deci 14 lei mai puțin. Fiecare kilogram de mere în loc de pere face încasarea mai mică cu 6 minus 4, adică 2 lei. Deci sunt 14 împărțit la 2, adică 7 kilograme de mere. Verificăm: 7 ori 4 plus 8 ori 6 fac 28 plus 48, adică 76. A vândut 7 kilograme de mere."
+    "explicatie": "Ne gândim așa: dacă toate cele 15 kilograme ar fi fost pere, comerciantul ar fi încasat 15 ori 6, adică 90 de lei. El a încasat însă 76 de lei, adică cu 90 minus 76, deci 14 lei mai puțin. Fiecare kilogram de mere în loc de pere face încasarea mai mică cu 6 minus 4, adică 2 lei. Deci sunt 14 împărțit la 2, adică 7 kilograme de mere. Verificăm: 7 ori 4 plus 8 ori 6 fac 28 plus 48, adică 76. A vândut 7 kilograme de mere.",
+    "metoda": "falsa_ipoteza"
   },
   {
     "cat": "Numere naturale",
@@ -207,7 +210,8 @@
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Notăm latura egală cu l. Baza este cu 3 mai mică, iar perimetrul înseamnă l plus l plus baza, deci 3 laturi l minus 3 fac 36. Atunci 3 laturi l fac 39, deci latura este 13 centimetri, iar baza este 13 minus 3, adică 10 centimetri. Aria triunghiului este baza ori înălțimea, împărțit la 2: 10 ori 12 fac 120, iar 120 împărțit la 2 fac 60. Aria este 60 de centimetri pătrați."
+    "explicatie": "Notăm latura egală cu l. Baza este cu 3 mai mică, iar perimetrul înseamnă l plus l plus baza, deci 3 laturi l minus 3 fac 36. Atunci 3 laturi l fac 39, deci latura este 13 centimetri, iar baza este 13 minus 3, adică 10 centimetri. Aria triunghiului este baza ori înălțimea, împărțit la 2: 10 ori 12 fac 120, iar 120 împărțit la 2 fac 60. Aria este 60 de centimetri pătrați.",
+    "metoda": "figurativa"
   },
   {
     "cat": "Operații",
@@ -252,7 +256,8 @@
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Mergem invers, de la rezultat spre numărul Anei. Ultimul pas a fost să adauge 17, deci scădem 17: 105 minus 17 fac 88. Înainte de asta a înmulțit cu 4, deci împărțim la 4: 88 împărțit la 4 fac 22. Verificăm: 22 ori 4 fac 88, iar 88 plus 17 fac 105. Numărul Anei este 22."
+    "explicatie": "Mergem invers, de la rezultat spre numărul Anei. Ultimul pas a fost să adauge 17, deci scădem 17: 105 minus 17 fac 88. Înainte de asta a înmulțit cu 4, deci împărțim la 4: 88 împărțit la 4 fac 22. Verificăm: 22 ori 4 fac 88, iar 88 plus 17 fac 105. Numărul Anei este 22.",
+    "metoda": "mers_invers"
   },
   {
     "text": "Într-o clasă sunt 30 de elevi. Dintre aceștia, 18 știu să joace șah, 15 știu să joace tenis, iar 7 știu să joace ambele jocuri. Câți elevi nu știu să joace nici șah, nici tenis?",
@@ -297,7 +302,8 @@
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Perimetrul conține de două ori lungimea plus lățimea, deci lungimea plus lățimea fac 56 împărțit la 2, adică 28 de centimetri. Lungimea are cu 8 mai mult, așa că dacă scădem 8 rămân două lățimi: 28 minus 8 fac 20. Lățimea este 20 împărțit la 2, adică 10 centimetri, iar lungimea este 10 plus 8, adică 18 centimetri. Aria este 18 ori 10, adică 180 de centimetri pătrați."
+    "explicatie": "Perimetrul conține de două ori lungimea plus lățimea, deci lungimea plus lățimea fac 56 împărțit la 2, adică 28 de centimetri. Lungimea are cu 8 mai mult, așa că dacă scădem 8 rămân două lățimi: 28 minus 8 fac 20. Lățimea este 20 împărțit la 2, adică 10 centimetri, iar lungimea este 10 plus 8, adică 18 centimetri. Aria este 18 ori 10, adică 180 de centimetri pătrați.",
+    "metoda": "figurativa"
   },
   {
     "text": "Calculați: 1 + 2 + 3 + ... + 50 − (1 + 3 + 5 + ... + 49)",
@@ -327,7 +333,8 @@
     "sursa_label": "Cantemir Junior",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Fie vârsta fiicei acum o parte, iar mama are 3 astfel de părți. Peste 12 ani, mama va avea 3 părți plus 12, iar fiica o parte plus 12, iar dublul vârstei fiicei va fi 2 părți plus 24. Cum acestea trebuie să fie egale, 3 părți plus 12 este egal cu 2 părți plus 24, deci o parte este 24 minus 12, adică 12. Verificăm: acum fiica are 12 ani și mama 36, iar peste 12 ani vor avea 24 și 48, iar 48 este de 2 ori 24. Fiica are acum 12 ani."
+    "explicatie": "Fie vârsta fiicei acum o parte, iar mama are 3 astfel de părți. Peste 12 ani, mama va avea 3 părți plus 12, iar fiica o parte plus 12, iar dublul vârstei fiicei va fi 2 părți plus 24. Cum acestea trebuie să fie egale, 3 părți plus 12 este egal cu 2 părți plus 24, deci o parte este 24 minus 12, adică 12. Verificăm: acum fiica are 12 ani și mama 36, iar peste 12 ani vor avea 24 și 48, iar 48 este de 2 ori 24. Fiica are acum 12 ani.",
+    "metoda": "figurativa"
   },
   {
     "text": "Ordonați crescător fracțiile: 5/6, 3/4, 7/9, 2/3.",

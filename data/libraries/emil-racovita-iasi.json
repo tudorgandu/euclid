@@ -27,7 +27,8 @@
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Aici e bine să mergem de la coadă la cap și să desfacem pașii pe rând. Ultimul pas a fost adunarea lui 7, așa că îl scădem: 135 minus 7 fac 128. Înainte de asta numărul fusese înmulțit cu 4, așa că împărțim: 128 împărțit la 4 fac 32. Verificăm: 32 ori 4 fac 128, plus 7 fac 135. Numărul căutat este 32."
+    "explicatie": "Aici e bine să mergem de la coadă la cap și să desfacem pașii pe rând. Ultimul pas a fost adunarea lui 7, așa că îl scădem: 135 minus 7 fac 128. Înainte de asta numărul fusese înmulțit cu 4, așa că împărțim: 128 împărțit la 4 fac 32. Verificăm: 32 ori 4 fac 128, plus 7 fac 135. Numărul căutat este 32.",
+    "metoda": "mers_invers"
   },
   {
     "cat": "Probleme de logică",
@@ -117,7 +118,8 @@
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Trei numere consecutive sunt unul lângă altul, iar cel din mijloc este exact media lor. Așa că împărțim suma la 3: 126 împărțit la 3 fac 42. Numerele sunt 41, 42 și 43, iar 41 plus 42 plus 43 fac într-adevăr 126. Cel mai mic este 41, cel mai mare este 43, iar produsul lor este 41 ori 43, adică 1763."
+    "explicatie": "Trei numere consecutive sunt unul lângă altul, iar cel din mijloc este exact media lor. Așa că împărțim suma la 3: 126 împărțit la 3 fac 42. Numerele sunt 41, 42 și 43, iar 41 plus 42 plus 43 fac într-adevăr 126. Cel mai mic este 41, cel mai mare este 43, iar produsul lor este 41 ori 43, adică 1763.",
+    "metoda": "figurativa"
   },
   {
     "cat": "Numere naturale",
@@ -177,7 +179,8 @@
     "sursa_label": "Urmașii lui Moisil",
     "adaugat": "2026-09-13",
     "generat_ai": true,
-    "explicatie": "Ne gândim la vârsta fiului ca la o parte, iar tatăl are 4 astfel de părți. Peste 6 ani, tatăl va avea 4 părți plus 6 ani, iar fiul va avea o parte plus 6 ani. Tatăl va avea atunci de 3 ori vârsta fiului, adică 3 părți plus 3 ori 6, adică 3 părți plus 18 ani. Comparăm: 4 părți plus 6 este egal cu 3 părți plus 18, deci o parte este 18 minus 6, adică 12 ani, vârsta fiului. Tatăl are acum 4 ori 12, adică 48 de ani."
+    "explicatie": "Ne gândim la vârsta fiului ca la o parte, iar tatăl are 4 astfel de părți. Peste 6 ani, tatăl va avea 4 părți plus 6 ani, iar fiul va avea o parte plus 6 ani. Tatăl va avea atunci de 3 ori vârsta fiului, adică 3 părți plus 3 ori 6, adică 3 părți plus 18 ani. Comparăm: 4 părți plus 6 este egal cu 3 părți plus 18, deci o parte este 18 minus 6, adică 12 ani, vârsta fiului. Tatăl are acum 4 ori 12, adică 48 de ani.",
+    "metoda": "figurativa"
   },
   {
     "cat": "Geometrie",

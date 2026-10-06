@@ -49,7 +49,8 @@
     "hash": "90034a366e58",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Trei numere consecutive sunt cel mic, cel cu 1 mai mare și cel cu 2 mai mare. Dacă scădem din sumă pe 1 și pe 2, adică 3, rămân trei numere egale cu cel mic: 111 minus 3 fac 108. Cel mic este 108 împărțit la 3, adică 36, deci numerele sunt 36, 37 și 38. Răspunsul este 38."
+    "explicatie": "Trei numere consecutive sunt cel mic, cel cu 1 mai mare și cel cu 2 mai mare. Dacă scădem din sumă pe 1 și pe 2, adică 3, rămân trei numere egale cu cel mic: 111 minus 3 fac 108. Cel mic este 108 împărțit la 3, adică 36, deci numerele sunt 36, 37 și 38. Răspunsul este 38.",
+    "metoda": "figurativa"
   },
   {
     "id": 5,
@@ -62,7 +63,8 @@
     "hash": "325596bb1f3a",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim cu părți: numărul mic este o parte, iar cel mare este de 4 ori mai mare, adică 4 părți. Împreună fac 5 părți, adică 120. O parte este 120 împărțit la 5, adică 24, iar numărul mare este 4 ori 24, adică 96. Verificăm: 96 plus 24 fac 120. Răspunsul este 96 și 24."
+    "explicatie": "Ne gândim cu părți: numărul mic este o parte, iar cel mare este de 4 ori mai mare, adică 4 părți. Împreună fac 5 părți, adică 120. O parte este 120 împărțit la 5, adică 24, iar numărul mare este 4 ori 24, adică 96. Verificăm: 96 plus 24 fac 120. Răspunsul este 96 și 24.",
+    "metoda": "figurativa"
   },
   {
     "id": 6,
@@ -270,7 +272,8 @@
     "hash": "795687624cb4",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Mai întâi aflăm câte piese face fabrica într-o oră. 240 împărțit la 8 fac 30 de piese pe oră. În 5 ore face de 5 ori mai multe: 30 ori 5 fac 150. Deci în 5 ore produce 150 de piese."
+    "explicatie": "Mai întâi aflăm câte piese face fabrica într-o oră. 240 împărțit la 8 fac 30 de piese pe oră. În 5 ore face de 5 ori mai multe: 30 ori 5 fac 150. Deci în 5 ore produce 150 de piese.",
+    "metoda": "reducere_unitate"
   },
   {
     "id": 22,
@@ -309,7 +312,8 @@
     "hash": "57b2d8922076",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim pe părți. După ce se iau două cincimi, rămân trei cincimi din bomboane. Apoi se ia o treime din ce rămânea, deci rămân două treimi din cele trei cincimi, adică două cincimi din total. Aceste două cincimi sunt 40 de bomboane, deci o cincime este 20, iar totalul este 5 ori 20, adică 100. La început erau 100 de bomboane."
+    "explicatie": "Ne gândim pe părți. După ce se iau două cincimi, rămân trei cincimi din bomboane. Apoi se ia o treime din ce rămânea, deci rămân două treimi din cele trei cincimi, adică două cincimi din total. Aceste două cincimi sunt 40 de bomboane, deci o cincime este 20, iar totalul este 5 ori 20, adică 100. La început erau 100 de bomboane.",
+    "metoda": "mers_invers"
   },
   {
     "id": 25,
@@ -335,7 +339,8 @@
     "hash": "ed9b675b2f14",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: într-o oră, prima țeavă umple o pătrime din rezervor, iar a doua o șesime. Împreună umplu într-o oră 3 supra 12 plus 2 supra 12, adică 5 supra 12 din rezervor. Pentru tot rezervorul le trebuie 12 împărțit la 5, adică 2 ore și două cincimi de oră. Două cincimi din 60 de minute înseamnă 24 de minute. Deci împreună umplu rezervorul în 2 ore și 24 de minute."
+    "explicatie": "Ne gândim așa: într-o oră, prima țeavă umple o pătrime din rezervor, iar a doua o șesime. Împreună umplu într-o oră 3 supra 12 plus 2 supra 12, adică 5 supra 12 din rezervor. Pentru tot rezervorul le trebuie 12 împărțit la 5, adică 2 ore și două cincimi de oră. Două cincimi din 60 de minute înseamnă 24 de minute. Deci împreună umplu rezervorul în 2 ore și 24 de minute.",
+    "metoda": "reducere_unitate"
   },
   {
     "id": 27,
@@ -465,7 +470,8 @@
     "hash": "3f957b9f051f",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: dacă Bogdan are acum un anumit număr de ani, peste 5 ani va avea cu 5 mai mult, iar Ana va avea cu 12 mai mult decât el, adică vârsta lui de acum plus 17. Ana va avea dublul vârstei lui Bogdan de atunci, adică vârsta lui de acum, dublată, plus 10. Comparând, vârsta de acum a lui Bogdan plus 17 este egală cu de două ori vârsta lui plus 10, deci vârsta lui este 17 minus 10, adică 7 ani. Verificăm: Ana are acum 19 ani, peste 5 ani ea va avea 24, iar Bogdan 12, și 24 este dublul lui 12. Bogdan are acum 7 ani."
+    "explicatie": "Ne gândim așa: dacă Bogdan are acum un anumit număr de ani, peste 5 ani va avea cu 5 mai mult, iar Ana va avea cu 12 mai mult decât el, adică vârsta lui de acum plus 17. Ana va avea dublul vârstei lui Bogdan de atunci, adică vârsta lui de acum, dublată, plus 10. Comparând, vârsta de acum a lui Bogdan plus 17 este egală cu de două ori vârsta lui plus 10, deci vârsta lui este 17 minus 10, adică 7 ani. Verificăm: Ana are acum 19 ani, peste 5 ani ea va avea 24, iar Bogdan 12, și 24 este dublul lui 12. Bogdan are acum 7 ani.",
+    "metoda": "figurativa"
   },
   {
     "id": 37,
@@ -478,7 +484,8 @@
     "hash": "e7a9b363478b",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim pe părți egale: primul are o parte, al doilea are 2 părți, iar al treilea are 3 părți. În total sunt 1 plus 2 plus 3, adică 6 părți. 6 părți fac 48 de cărți, deci o parte este 48 împărțit la 6, adică 8. Primul are 8 cărți, al doilea 8 ori 2, adică 16, iar al treilea 8 ori 3, adică 24. Răspunsul: 8, 16 și 24 de cărți."
+    "explicatie": "Ne gândim pe părți egale: primul are o parte, al doilea are 2 părți, iar al treilea are 3 părți. În total sunt 1 plus 2 plus 3, adică 6 părți. 6 părți fac 48 de cărți, deci o parte este 48 împărțit la 6, adică 8. Primul are 8 cărți, al doilea 8 ori 2, adică 16, iar al treilea 8 ori 3, adică 24. Răspunsul: 8, 16 și 24 de cărți.",
+    "metoda": "figurativa"
   },
   {
     "id": 38,
@@ -504,7 +511,8 @@
     "hash": "38e77e8e6130",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: dacă toate cele 10 farfurii ar avea câte 2 prăjituri, ar fi 10 ori 2, adică 20 de prăjituri. Dar sunt 25, adică cu 25 minus 20, deci cu 5 mai multe. Fiecare farfurie cu 3 prăjituri aduce o prăjitură în plus, deci sunt 5 farfurii cu 3 prăjituri. Farfurii cu câte 2 prăjituri sunt 10 minus 5, adică 5. Verificăm: 5 ori 2 plus 5 ori 3 fac 10 plus 15, adică 25."
+    "explicatie": "Ne gândim așa: dacă toate cele 10 farfurii ar avea câte 2 prăjituri, ar fi 10 ori 2, adică 20 de prăjituri. Dar sunt 25, adică cu 25 minus 20, deci cu 5 mai multe. Fiecare farfurie cu 3 prăjituri aduce o prăjitură în plus, deci sunt 5 farfurii cu 3 prăjituri. Farfurii cu câte 2 prăjituri sunt 10 minus 5, adică 5. Verificăm: 5 ori 2 plus 5 ori 3 fac 10 plus 15, adică 25.",
+    "metoda": "falsa_ipoteza"
   },
   {
     "id": 40,
@@ -556,7 +564,8 @@
     "hash": "3442656d4e6b",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: pornim de la rezultat și facem pașii invers, de la coadă la cap. Ultimul pas a fost împărțirea la 2, așa că facem invers: 15 ori 2 fac 30. Înainte se scăzuse 2, deci adunăm: 30 plus 2 fac 32. La început numărul fusese înmulțit cu 4, deci împărțim: 32 împărțit la 4 fac 8. Verificăm: 8 ori 4 fac 32, minus 2 fac 30, împărțit la 2 fac 15. Ion a gândit numărul 8."
+    "explicatie": "Ne gândim așa: pornim de la rezultat și facem pașii invers, de la coadă la cap. Ultimul pas a fost împărțirea la 2, așa că facem invers: 15 ori 2 fac 30. Înainte se scăzuse 2, deci adunăm: 30 plus 2 fac 32. La început numărul fusese înmulțit cu 4, deci împărțim: 32 împărțit la 4 fac 8. Verificăm: 8 ori 4 fac 32, minus 2 fac 30, împărțit la 2 fac 15. Ion a gândit numărul 8.",
+    "metoda": "mers_invers"
   },
   {
     "id": 44,
@@ -569,7 +578,8 @@
     "hash": "83f5ee91563d",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: vârsta celui mic este o parte, iar vârsta celui mare este de două ori mai mare, adică două părți. Împreună au trei părți egale, care fac 30 de ani. O parte este 30 împărțit la 3, adică 10 ani, deci cel mic are 10 ani. Cel mare are 2 ori 10, adică 20 de ani."
+    "explicatie": "Ne gândim așa: vârsta celui mic este o parte, iar vârsta celui mare este de două ori mai mare, adică două părți. Împreună au trei părți egale, care fac 30 de ani. O parte este 30 împărțit la 3, adică 10 ani, deci cel mic are 10 ani. Cel mare are 2 ori 10, adică 20 de ani.",
+    "metoda": "figurativa"
   },
   {
     "id": 45,
@@ -686,7 +696,8 @@
     "hash": "785fdde4e0a0",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: lățimea este o parte, iar lungimea este de 3 ori mai mare, adică 3 părți. Jumătate din perimetru înseamnă o lungime plus o lățime, adică 40 împărțit la 2, care fac 20 de centimetri. Aceste 20 de centimetri sunt 4 părți, deci o parte este 20 împărțit la 4, adică 5 centimetri. Lățimea are 5 centimetri, iar lungimea are 3 ori 5, adică 15 centimetri."
+    "explicatie": "Ne gândim așa: lățimea este o parte, iar lungimea este de 3 ori mai mare, adică 3 părți. Jumătate din perimetru înseamnă o lungime plus o lățime, adică 40 împărțit la 2, care fac 20 de centimetri. Aceste 20 de centimetri sunt 4 părți, deci o parte este 20 împărțit la 4, adică 5 centimetri. Lățimea are 5 centimetri, iar lungimea are 3 ori 5, adică 15 centimetri.",
+    "metoda": "figurativa"
   },
   {
     "id": 54,
@@ -868,7 +879,8 @@
     "hash": "b2da7f968543",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: numărul este o parte, iar triplul lui înseamnă 3 părți. Împreună fac 4 părți egale, care dau 48. O parte este 48 împărțit la 4, adică 12. Numărul căutat este 12."
+    "explicatie": "Ne gândim așa: numărul este o parte, iar triplul lui înseamnă 3 părți. Împreună fac 4 părți egale, care dau 48. O parte este 48 împărțit la 4, adică 12. Numărul căutat este 12.",
+    "metoda": "figurativa"
   },
   {
     "id": 68,
@@ -894,7 +906,8 @@
     "hash": "8d4dcd9f1de8",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: vârsta fiului este o parte, iar tatăl are 4 părți. Peste 6 ani, tatăl va avea 4 părți plus 6, iar fiul o parte plus 6. Triplul vârstei fiului atunci va fi 3 părți plus 18, și asta trebuie să fie egal cu 4 părți plus 6. Diferența dintre ele este o parte, care face 18 minus 6, adică 12, deci fiul are 12 ani. Tatăl are 4 ori 12, adică 48 de ani; verificăm: peste 6 ani tatăl are 54, fiul 18, iar 3 ori 18 fac 54."
+    "explicatie": "Ne gândim așa: vârsta fiului este o parte, iar tatăl are 4 părți. Peste 6 ani, tatăl va avea 4 părți plus 6, iar fiul o parte plus 6. Triplul vârstei fiului atunci va fi 3 părți plus 18, și asta trebuie să fie egal cu 4 părți plus 6. Diferența dintre ele este o parte, care face 18 minus 6, adică 12, deci fiul are 12 ani. Tatăl are 4 ori 12, adică 48 de ani; verificăm: peste 6 ani tatăl are 54, fiul 18, iar 3 ori 18 fac 54.",
+    "metoda": "figurativa"
   },
   {
     "id": 70,
@@ -907,7 +920,8 @@
     "hash": "6c1e1563bbc4",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: numărul înmulțit cu 6 înseamnă 6 bucăți de număr, iar numărul plus 20 înseamnă o bucată plus 20. Dacă luăm câte o bucată din fiecare parte, rămâne că 5 bucăți fac 20. O bucată este 20 împărțit la 5, adică 4. Verificăm: 4 ori 6 fac 24, iar 4 plus 20 fac tot 24. Numărul este 4."
+    "explicatie": "Ne gândim așa: numărul înmulțit cu 6 înseamnă 6 bucăți de număr, iar numărul plus 20 înseamnă o bucată plus 20. Dacă luăm câte o bucată din fiecare parte, rămâne că 5 bucăți fac 20. O bucată este 20 împărțit la 5, adică 4. Verificăm: 4 ori 6 fac 24, iar 4 plus 20 fac tot 24. Numărul este 4.",
+    "metoda": "figurativa"
   },
   {
     "id": 71,
@@ -946,7 +960,8 @@
     "hash": "f0aff3a89af2",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: notăm bilele roșii cu o parte. Bilele albastre sunt de 2 ori mai multe, deci 2 părți. Bilele galbene sunt cu 6 mai puține decât albastrele, deci 2 părți minus 6. Toate împreună fac 5 părți minus 6, iar asta este 54. Atunci 5 părți fac 54 plus 6, adică 60, și o parte este 60 împărțit la 5, adică 12. Verificăm: 12 roșii, 24 albastre și 18 galbene fac 54. Sunt 12 bile roșii."
+    "explicatie": "Ne gândim așa: notăm bilele roșii cu o parte. Bilele albastre sunt de 2 ori mai multe, deci 2 părți. Bilele galbene sunt cu 6 mai puține decât albastrele, deci 2 părți minus 6. Toate împreună fac 5 părți minus 6, iar asta este 54. Atunci 5 părți fac 54 plus 6, adică 60, și o parte este 60 împărțit la 5, adică 12. Verificăm: 12 roșii, 24 albastre și 18 galbene fac 54. Sunt 12 bile roșii.",
+    "metoda": "figurativa"
   },
   {
     "id": 74,
@@ -1141,7 +1156,8 @@
     "hash": "72d027c0c473",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: vârsta fiicei este o parte, iar a mamei este 3 părți. Peste 10 ani, mama va avea 3 părți plus 10, iar dublul vârstei fiicei va fi 2 părți plus 20. Acestea trebuie să fie egale, deci o parte este 20 minus 10, adică 10 ani. Fiica are 10 ani, iar mama are 3 ori 10, adică 30 de ani. Verificăm: peste 10 ani, mama va avea 40, iar fiica 20, exact de 2 ori mai puțin."
+    "explicatie": "Ne gândim așa: vârsta fiicei este o parte, iar a mamei este 3 părți. Peste 10 ani, mama va avea 3 părți plus 10, iar dublul vârstei fiicei va fi 2 părți plus 20. Acestea trebuie să fie egale, deci o parte este 20 minus 10, adică 10 ani. Fiica are 10 ani, iar mama are 3 ori 10, adică 30 de ani. Verificăm: peste 10 ani, mama va avea 40, iar fiica 20, exact de 2 ori mai puțin.",
+    "metoda": "figurativa"
   },
   {
     "id": 89,
@@ -1180,7 +1196,8 @@
     "hash": "17a36d467db7",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: notăm cifra unităților cu o parte. Cifra zecilor este partea plus 1, iar cifra sutelor este partea plus 2. Toate trei fac 3 părți plus 3, iar asta este 15, deci 3 părți fac 12 și o parte este 4. Unitățile sunt 4, zecile 5, sutele 6. Verificăm: 6 plus 5 plus 4 fac 15. Numărul este 654."
+    "explicatie": "Ne gândim așa: notăm cifra unităților cu o parte. Cifra zecilor este partea plus 1, iar cifra sutelor este partea plus 2. Toate trei fac 3 părți plus 3, iar asta este 15, deci 3 părți fac 12 și o parte este 4. Unitățile sunt 4, zecile 5, sutele 6. Verificăm: 6 plus 5 plus 4 fac 15. Numărul este 654.",
+    "metoda": "figurativa"
   },
   {
     "id": 92,
@@ -1206,7 +1223,8 @@
     "hash": "80074729db85",
     "sursa": "vasile-alecsandri",
     "adaugat": "2026-09-13",
-    "explicatie": "Ne gândim așa: dacă 5 pisici mănâncă 5 șoareci în 5 minute, atunci fiecare pisică mănâncă un șoarece în 5 minute. În 100 de minute sunt de 20 de ori câte 5 minute, deci o pisică mănâncă 20 de șoareci. Ca să fie mâncați 100 de șoareci, avem nevoie de 100 împărțit la 20, adică 5 pisici."
+    "explicatie": "Ne gândim așa: dacă 5 pisici mănâncă 5 șoareci în 5 minute, atunci fiecare pisică mănâncă un șoarece în 5 minute. În 100 de minute sunt de 20 de ori câte 5 minute, deci o pisică mănâncă 20 de șoareci. Ca să fie mâncați 100 de șoareci, avem nevoie de 100 împărțit la 20, adică 5 pisici.",
+    "metoda": "reducere_unitate"
   },
   {
     "id": 94,

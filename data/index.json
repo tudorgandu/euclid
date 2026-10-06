@@ -10,6 +10,15 @@
       "actualizat": "2026-10-05"
     },
     {
+      "id": "metode",
+      "nume": "Probleme pe metode",
+      "descriere": "Probleme verificate pentru metodele de rezolvare: falsa ipoteză, mersul invers, comparația, reducerea la unitate",
+      "icon": "🧭",
+      "culoare": "#7a4500",
+      "count": 25,
+      "actualizat": "2026-10-06"
+    },
+    {
       "id": "colegiul-national-iasi",
       "nume": "Alexandru Myller · CN Iași",
       "descriere": "Concursul Alexandru Myller — Colegiul Național Iași",
