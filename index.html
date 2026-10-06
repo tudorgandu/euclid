@@ -551,7 +551,7 @@ const EDGE_BASE = SUPABASE_URL + '/functions/v1';
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
 // ── State ──
-let currentUser = null, userProfile = null;
+let currentUser = null, userProfile = null, currentAccessToken = null;
 let config = { count: 10, dif: 0, cat: '', lib: '', voice: true };
 let session = { queue:[], current:0, correct:0, wrong:0, skipped:0, startTime:null, answered:false, history:[] };
 let timerInterval = null, voiceEnabled = true, elevenLabsAudio = null, currentExplanation = '';
@@ -637,16 +637,24 @@ function updateStartButton() {
 }
 
 // ── Auth state listener ──
-sb.auth.onAuthStateChange(async (event, session_data) => {
+// Nu folosim await pe alte apeluri Supabase direct în acest callback (supabase-js poate rămâne blocat).
+sb.auth.onAuthStateChange((event, session_data) => {
   if(session_data?.user) {
+    const wasLoggedIn = !!currentUser;
     currentUser = session_data.user;
+    currentAccessToken = session_data.access_token || null;
     document.getElementById('authOverlay').style.display = 'none';
     document.getElementById('btnLogout').style.display = 'block';
-    await loadProfile();
-    updateVoiceStatus();
-    showScreen('start');
+    // Reînnoirea tokenului sau revenirea pe tab nu trebuie să întrerupă sesiunea în curs
+    if(wasLoggedIn) return;
+    setTimeout(async () => {
+      await loadProfile();
+      updateVoiceStatus();
+      showScreen('start');
+    }, 0);
   } else {
     currentUser = null;
+    currentAccessToken = null;
     userProfile = null;
     document.getElementById('authOverlay').style.display = 'flex';
     document.getElementById('btnLogout').style.display = 'none';
@@ -976,8 +984,9 @@ async function endSession() {
   // Salvează sesiunea în Supabase și actualizează contorul
   if(currentUser) {
     try {
-      const { data: { session: authSession } } = await sb.auth.getSession();
-      const token = authSession?.access_token;
+      console.info('[save-session] trimit sesiunea…');
+      const token = currentAccessToken;
+      if(!token) throw new Error('Nu există token de autentificare');
       const saveRes = await fetch(EDGE_BASE + '/save-session', {
         method:'POST',
         headers:{'Content-Type':'application/json','Authorization':'Bearer '+token,'apikey':SUPABASE_ANON},
@@ -989,7 +998,8 @@ async function endSession() {
                      duration_sec: Math.round((Date.now()-session.startTime)/1000) }
         })
       });
-      if(!saveRes.ok) console.warn('Save session failed:', saveRes.status, await saveRes.text());
+      if(!saveRes.ok) console.warn('[save-session] eșec:', saveRes.status, await saveRes.text());
+      else console.info('[save-session] salvat ✓');
       // Reîncarcă profilul pentru contor actualizat
       await loadProfile();
     } catch(e) { console.warn('Save session failed:', e); }
