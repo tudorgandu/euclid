@@ -310,6 +310,22 @@
   .class-head { font-size: 0.74rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin: 0.9rem 0 0.1rem; }
   .class-head:first-child { margin-top: 0; }
 
+  /* ── Alegerea rolului ── */
+  .auth-q { font-size: 1.05rem; font-weight: 900; color: var(--ink); text-align: center; margin: -0.5rem 0 1rem; }
+  .role-card { display: flex; align-items: center; gap: 0.9rem; width: 100%; text-align: left; background: white; border: 2px solid var(--border); border-radius: var(--r); padding: 1rem 1.1rem; margin-bottom: 0.75rem; cursor: pointer; font-family: 'Nunito', sans-serif; transition: border-color 0.15s, transform 0.1s; }
+  .role-card:hover { border-color: var(--navy-light); }
+  .role-card:active { transform: scale(0.99); }
+  .role-card.current { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(27,63,107,0.08); }
+  .role-ico { flex: none; width: 52px; height: 52px; border-radius: 14px; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 28px; }
+  .role-card b { display: block; font-size: 1.05rem; font-weight: 900; color: var(--navy); }
+  .role-card small { display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); line-height: 1.4; margin-top: 0.15rem; }
+  .role-chosen { display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 800; color: var(--ink-soft); margin: -0.75rem 0 1.1rem; }
+  .role-chosen button { background: none; border: none; color: var(--navy-light); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.85rem; cursor: pointer; text-decoration: underline; padding: 0; }
+  .btn-header { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 0.3rem 0.6rem; color: white; font-size: 0.75rem; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; }
+  .btn-header:hover { background: rgba(255,255,255,0.2); }
+  body[data-role="profesor"] #sessionCountBadge, body[data-role="profesor"] #btnProgress, body[data-role="profesor"] #headerStats { display: none !important; }
+  body:not([data-role="profesor"]) #btnClasses { display: none !important; }
+
   .confetti-piece { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti-fall linear forwards; border-radius: 2px; z-index: 999; pointer-events: none; }
   @keyframes confetti-fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
@@ -363,6 +379,13 @@
       <div class="auth-logo-title">Euclid Meditații</div>
       <div class="auth-logo-sub">Pregătire pentru concursul Euclid · cls. IV</div>
     </div>
+    <div id="authStepRole">
+      <div class="auth-q">Cine folosește aplicația?</div>
+      <button class="role-card" onclick="pickAuthRole('elev')"><span class="role-ico">🎒</span><span><b>Elev sau părinte</b><small>Antrenament pentru Euclid, plus temele și simulările de la profesor</small></span></button>
+      <button class="role-card" onclick="pickAuthRole('profesor')"><span class="role-ico">🏫</span><span><b>Profesor</b><small>Clase, teme cu termen și simulări pe toată clasa</small></span></button>
+    </div>
+    <div id="authStepForm" style="display:none">
+    <div class="role-chosen"><span id="roleChosenTxt">-</span> · <button onclick="showAuthRoleStep()">schimbă</button></div>
     <div class="auth-tabs">
       <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Conectare</button>
       <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Cont nou</button>
@@ -380,7 +403,7 @@
     </div>
     <div id="authFormRegister" style="display:none">
       <div class="auth-field">
-        <label class="auth-label">Prenumele copilului</label>
+        <label class="auth-label" id="regNameLabel">Prenumele copilului</label>
         <input type="text" class="auth-input" id="regName" placeholder="ex: Maria" autocomplete="given-name">
       </div>
       <div class="auth-field">
@@ -394,7 +417,8 @@
       <button class="btn-auth" id="btnRegister" onclick="doRegister()">Creează cont gratuit →</button>
     </div>
     <div class="auth-msg" id="authMsg"></div>
-    <div class="auth-footer">🔒 Cont gratuit: 20 sesiuni/lună · Datele sunt securizate</div>
+    <div class="auth-footer" id="authFooter">🔒 Cont gratuit: 20 sesiuni/lună · Datele sunt securizate</div>
+    </div>
   </div>
 </div>
 
@@ -410,6 +434,7 @@
     </div>
     <div class="session-count-badge" id="sessionCountBadge">📚 <span id="sessionCountText">— sesiuni</span></div>
     <button class="btn-progress" id="btnProgress" style="display:none" onclick="openProgress()">📈 Progres</button>
+    <button class="btn-header" id="btnClasses" style="display:none" onclick="openTeacher()">🏫 Clasele mele</button>
     <button class="btn-logout" id="btnLogout" style="display:none" onclick="doLogout()">Ieșire</button>
   </div>
 </header>
@@ -507,7 +532,7 @@
       <button class="btn-upgrade" onclick="alert('Funcționalitate coming soon! Te vom notifica când va fi disponibil abonamentul.')">🚀 Upgrade la nelimitat</button>
     </div>
     <button class="btn-start" id="btnStart" onclick="startSession()">Începe sesiunea →</button>
-    <button class="t-link" id="teacherLink" style="display:none" onclick="openTeacher()">🏫 Ești profesor? Creează o clasă și trimite teme</button>
+    <button class="t-link" onclick="openRoleScreen()">Folosești aplicația ca elev sau părinte · Schimbă rolul</button>
   </div>
 
   <!-- ══════ SESSION ══════ -->
@@ -652,6 +677,18 @@
     <button class="btn-restart secondary" onclick="goStart()">Înapoi la start</button>
   </div>
 
+  <!-- ══════ ROL ══════ -->
+  <div class="screen" id="screen-role">
+    <div class="start-hero">
+      <div class="start-mascot">🦉</div>
+      <div class="start-title">Cine folosește aplicația?</div>
+      <div class="start-sub">Alegi o dată, iar aplicația ține minte. Poți schimba oricând.</div>
+    </div>
+    <button class="role-card" data-role="elev" onclick="setRole('elev')"><span class="role-ico">🎒</span><span><b>Elev sau părinte</b><small>Antrenament pentru Euclid, plus temele și simulările de la profesor</small></span></button>
+    <button class="role-card" data-role="profesor" onclick="setRole('profesor')"><span class="role-ico">🏫</span><span><b>Profesor</b><small>Clase, teme cu termen și simulări pe toată clasa</small></span></button>
+    <div class="t-err" id="roleErr"></div>
+  </div>
+
   <!-- ══════ PROFESOR: CLASELE MELE ══════ -->
   <div class="screen" id="screen-teacher">
     <div class="prog-title">Clasele mele</div>
@@ -665,7 +702,7 @@
       <div class="t-err" id="tClassErr"></div>
     </div>
     <div id="tClassList"></div>
-    <button class="btn-restart secondary" onclick="goStart()">Înapoi la start</button>
+    <button class="t-link" onclick="openRoleScreen()">Folosești aplicația ca profesor · Schimbă rolul</button>
   </div>
 
   <!-- ══════ PROFESOR: O CLASĂ ══════ -->
@@ -922,7 +959,7 @@ async function doRegister() {
   if(pass.length<6) { setAuthMsg('Parola trebuie să aibă minim 6 caractere.','err'); return; }
   const btn = document.getElementById('btnRegister');
   btn.disabled = true; btn.textContent = 'Se creează contul...';
-  const {error} = await sb.auth.signUp({email, password:pass, options:{data:{full_name:name}}});
+  const {error} = await sb.auth.signUp({email, password:pass, options:{data:{full_name:name, rol: pendingRole || 'elev'}}});
   btn.disabled = false; btn.textContent = 'Creează cont gratuit →';
   if(error) { setAuthMsg(error.message,'err'); return; }
   setAuthMsg('✓ Cont creat! Verifică email-ul pentru confirmare, apoi conectează-te.','ok');
@@ -979,16 +1016,10 @@ sb.auth.onAuthStateChange((event, session_data) => {
     document.getElementById('authOverlay').style.display = 'none';
     document.getElementById('btnLogout').style.display = 'block';
     document.getElementById('btnProgress').style.display = 'block';
-    document.getElementById('teacherLink').style.display = 'block';
+    document.getElementById('btnClasses').style.display = 'block';
     // Reînnoirea tokenului sau revenirea pe tab nu trebuie să întrerupă sesiunea în curs
     if(wasLoggedIn) return;
-    setTimeout(async () => {
-      await loadProfile();
-      updateVoiceStatus();
-      showScreen('start');
-      loadProblemHistory();
-      loadStudentClasses();
-    }, 0);
+    setTimeout(enterApp, 0);
   } else {
     currentUser = null;
     currentAccessToken = null;
@@ -996,8 +1027,10 @@ sb.auth.onAuthStateChange((event, session_data) => {
     document.getElementById('authOverlay').style.display = 'flex';
     document.getElementById('btnLogout').style.display = 'none';
     document.getElementById('btnProgress').style.display = 'none';
-    document.getElementById('teacherLink').style.display = 'none';
+    document.getElementById('btnClasses').style.display = 'none';
     document.getElementById('classCard').style.display = 'none';
+    currentRole = null; delete document.body.dataset.role;
+    showAuthStepForRemembered();
     document.getElementById('sessionCountBadge').style.display = 'none';
   }
 });
@@ -1697,7 +1730,7 @@ const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.g
 const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 const sbErr = e => (e && (e.message || e.error_description)) || 'eroare necunoscută';
 
-function goStart() { stopAudio(); showScreen('start'); loadStudentClasses(); }
+function goStart() { stopAudio(); if(currentRole === 'profesor') { openTeacher(); return; } showScreen('start'); loadStudentClasses(); }
 
 // Buton în doi pași: primul click cere confirmare, al doilea execută.
 function armed(btn, labelArmed) {
@@ -2199,6 +2232,76 @@ async function viewCorrection(aid) {
   showScreen('contest-results');
 }
 
+
+// ── Rol: profesor sau elev/părinte ──
+let currentRole = null, pendingRole = null;
+const ROLE_LABEL = { elev: '🎒 Elev sau părinte', profesor: '🏫 Profesor' };
+const rememberedRole = () => { try { return localStorage.getItem('rol-ales'); } catch(e) { return null; } };
+const rememberRole = r => { try { localStorage.setItem('rol-ales', r); } catch(e) {} };
+
+function pickAuthRole(r) {
+  pendingRole = r; rememberRole(r);
+  document.getElementById('authStepRole').style.display = 'none';
+  document.getElementById('authStepForm').style.display = 'block';
+  document.getElementById('roleChosenTxt').textContent = 'Intri ca ' + ROLE_LABEL[r];
+  const teacher = r === 'profesor';
+  document.getElementById('regNameLabel').textContent = teacher ? 'Numele dumneavoastră' : 'Prenumele copilului';
+  document.getElementById('regName').placeholder = teacher ? 'ex: Prof. Ana Ionescu' : 'ex: Maria';
+  document.getElementById('authFooter').textContent = teacher
+    ? '🔒 Gratuit pentru profesori · Elevii apar doar cu numele ales de ei'
+    : '🔒 Cont gratuit: 20 sesiuni/lună · Datele sunt securizate';
+  document.getElementById('authMsg').className = 'auth-msg';
+}
+
+function showAuthRoleStep() {
+  document.getElementById('authStepRole').style.display = 'block';
+  document.getElementById('authStepForm').style.display = 'none';
+}
+
+function showAuthStepForRemembered() {
+  const r = rememberedRole();
+  if(r === 'elev' || r === 'profesor') pickAuthRole(r); else showAuthRoleStep();
+}
+
+// După logare: rolul din cont; dacă tocmai a fost ales pe ecranul de logare, îl salvăm în cont.
+async function enterApp() {
+  await loadProfile();
+  updateVoiceStatus();
+  let role = currentUser?.user_metadata?.rol || null;
+  if(pendingRole && pendingRole !== role) {
+    const { data, error } = await sb.auth.updateUser({ data: { rol: pendingRole } });
+    if(!error) { role = pendingRole; if(data?.user) currentUser = data.user; }
+  }
+  pendingRole = null;
+  if(role !== 'elev' && role !== 'profesor') { openRoleScreen(); return; }
+  applyRole(role);
+}
+
+function applyRole(role) {
+  currentRole = role; rememberRole(role);
+  document.body.dataset.role = role;
+  updateSessionBadge();
+  if(role === 'profesor') { openTeacher(); return; }
+  showScreen('start');
+  loadProblemHistory();
+  loadStudentClasses();
+}
+
+function openRoleScreen() {
+  stopAudio();
+  document.querySelectorAll('#screen-role .role-card').forEach(c => c.classList.toggle('current', c.dataset.role === currentRole));
+  document.getElementById('roleErr').textContent = '';
+  showScreen('role');
+}
+
+async function setRole(r) {
+  const err = document.getElementById('roleErr'); err.textContent = '';
+  const { data, error } = await sb.auth.updateUser({ data: { rol: r } });
+  if(error) { err.textContent = 'Nu am putut salva alegerea: ' + sbErr(error); return; }
+  if(data?.user) currentUser = data.user;
+  applyRole(r);
+}
+
 function restartSession() { startSession(); }
 
 function showScreen(name) {
@@ -2252,6 +2355,7 @@ async function init() {
   // Verifică sesiunea existentă Supabase
   const { data: { session: existingSession } } = await sb.auth.getSession();
   if(!existingSession) {
+    showAuthStepForRemembered();
     document.getElementById('authOverlay').style.display = 'flex';
   }
   // onAuthStateChange se ocupă de restul
