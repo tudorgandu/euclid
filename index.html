@@ -971,6 +971,18 @@
       <button class="btn btn-primary" onclick="openNewAssignment('tema')">📝 Temă nouă</button>
       <button class="btn btn-primary" onclick="openNewAssignment('simulare')">🏆 Simulare nouă</button>
     </div>
+    <div class="prog-card"><h3>📢 Anunț pentru clasă</h3>
+      <label class="t-label">Titlu</label>
+      <input class="t-input" id="anTitlu" maxlength="120">
+      <label class="t-label">Mesaj (opțional)</label>
+      <textarea class="t-input" id="anText" rows="3" maxlength="1000"></textarea>
+      <label class="t-label">Link (opțional, începe cu https://)</label>
+      <input class="t-input" id="anLink" maxlength="300">
+      <div class="btn-row" style="margin-top:0.8rem"><button class="btn btn-primary" id="anBtn" onclick="trimiteAnunt()">📢 Trimite elevilor</button></div>
+      <div class="t-muted lb-help" id="anMsg"></div>
+      <h3 style="margin-top:1.2rem">Anunțuri trimise</h3>
+      <div id="anBox"></div>
+    </div>
     <div class="prog-card"><h3>Teme și simulări</h3><div id="clAssignments"></div></div>
     <div class="prog-card"><h3 id="clStudentsTitle">Elevi</h3><div id="clStudents"></div></div>
     <div class="prog-card"><h3>🏅 Clasament</h3><div id="clLeaderboard"></div></div>
@@ -1237,21 +1249,26 @@ async function loadProfile() {
 }
 
 // ── Notificări (calendarul concursurilor etc.) ──
-let notifRows = [], notifRead = new Set();
+let notifRows = [], notifRead = new Set(), anRows = [], anRead = new Set();
 async function loadNotificari() {
   if(!currentUser) return;
   try {
-    const [n, r] = await Promise.all([
+    const [n, r, a, ar] = await Promise.all([
       sb.from('notificari').select('*').order('creat_la', { ascending: false }).limit(50),
-      sb.from('notificari_citite').select('notificare_id').eq('user_id', currentUser.id)
+      sb.from('notificari_citite').select('notificare_id').eq('user_id', currentUser.id),
+      // anunțurile profesorilor (profesorul nu e cititor al propriilor anunțuri)
+      sb.from('anunturi').select('*').neq('teacher_id', currentUser.id).order('creat_la', { ascending: false }).limit(50),
+      sb.from('anunturi_citite').select('anunt_id').eq('user_id', currentUser.id)
     ]);
     notifRows = n.data || [];
     notifRead = new Set((r.data || []).map(x => x.notificare_id));
-  } catch(e) { notifRows = []; }
+    anRows = a.data || [];
+    anRead = new Set((ar.data || []).map(x => x.anunt_id));
+  } catch(e) { notifRows = []; anRows = []; }
   paintNotifBadge();
 }
 function paintNotifBadge() {
-  const unread = notifRows.filter(n => !notifRead.has(n.id)).length;
+  const unread = notifRows.filter(n => !notifRead.has(n.id)).length + anRows.filter(a => !anRead.has(a.id)).length;
   const b = document.getElementById('navNotifBadge');
   if(!b) return;
   b.textContent = unread; b.classList.toggle('show', unread > 0);
@@ -1264,26 +1281,64 @@ async function openNotificari() {
   document.getElementById('notifEmailMsg').textContent = '';
   renderNotificari();
   // marcăm ca citite cele afișate acum
-  const unread = notifRows.filter(n => !notifRead.has(n.id));
-  if(unread.length && currentUser) {
-    const rows = unread.map(n => ({ user_id: currentUser.id, notificare_id: n.id }));
-    const { error } = await sb.from('notificari_citite').insert(rows);
-    if(!error) { unread.forEach(n => notifRead.add(n.id)); paintNotifBadge(); renderNotificari(); }
-  }
+  const unNotif = notifRows.filter(n => !notifRead.has(n.id));
+  const unAn = anRows.filter(a => !anRead.has(a.id));
+  if(!currentUser) return;
+  const [r1, r2] = await Promise.all([
+    unNotif.length ? sb.from('notificari_citite').insert(unNotif.map(n => ({ user_id: currentUser.id, notificare_id: n.id }))) : { error: null },
+    unAn.length ? sb.from('anunturi_citite').insert(unAn.map(a => ({ user_id: currentUser.id, anunt_id: a.id }))) : { error: null }
+  ]);
+  if(!r1.error) unNotif.forEach(n => notifRead.add(n.id));
+  if(!r2.error) unAn.forEach(a => anRead.add(a.id));
+  if(!r1.error || !r2.error) { paintNotifBadge(); renderNotificari(); }
 }
 function renderNotificari() {
   const box = document.getElementById('notifList');
-  if(!notifRows.length) { box.innerHTML = '<div class="t-muted">Nu ai notificări încă.</div>'; return; }
-  box.innerHTML = notifRows.map(n => {
-    const isNew = !notifRead.has(n.id);
+  const items = [
+    ...notifRows.map(n => ({ titlu: n.titlu, text: n.text, link: n.link, creat_la: n.creat_la, isNew: !notifRead.has(n.id), sursa: 'Calendarul concursurilor' })),
+    ...anRows.map(a => ({ titlu: a.titlu, text: a.text, link: a.link, creat_la: a.creat_la, isNew: !anRead.has(a.id), sursa: 'De la profesor' }))
+  ].sort((x, y) => (y.creat_la || '').localeCompare(x.creat_la || ''));
+  if(!items.length) { box.innerHTML = '<div class="t-muted">Nu ai notificări încă.</div>'; return; }
+  box.innerHTML = items.map(n => {
     const link = safeUrl(n.link) ? `<a href="${safeUrl(n.link)}" target="_blank" rel="noopener">Vezi detalii ↗</a>` : '';
     const when = n.creat_la ? new Date(n.creat_la).toLocaleDateString('ro-RO', { day:'numeric', month:'short', year:'numeric' }) : '';
-    return `<div class="notif-item ${isNew ? 'new' : ''}">
-      <div class="notif-head">${isNew ? '<span class="notif-dot"></span>' : ''}<b>${escHtml(n.titlu)}</b></div>
+    return `<div class="notif-item ${n.isNew ? 'new' : ''}">
+      <div class="notif-head">${n.isNew ? '<span class="notif-dot"></span>' : ''}<b>${escHtml(n.titlu)}</b></div>
       <div class="notif-text">${escHtml(n.text)}</div>
-      <div class="notif-meta">${when} ${link}</div>
+      <div class="notif-meta"><span>${escHtml(n.sursa)}</span><span>${when}</span> ${link}</div>
     </div>`;
   }).join('');
+}
+
+// ── Anunțuri către clasă (profesor) ──
+async function loadAnunturiProf(cid) {
+  const box = document.getElementById('anBox');
+  box.innerHTML = '<div class="t-muted">Se încarcă…</div>';
+  const { data, error } = await sb.rpc('anunturi_statistici', { cid });
+  if(error) { box.innerHTML = '<div class="t-muted">Nu am putut încărca anunțurile.</div>'; return; }
+  const rows = data || [];
+  box.innerHTML = rows.length ? rows.map(a => `<div class="notif-item">
+      <div class="notif-head"><b>${escHtml(a.titlu)}</b></div>
+      ${a.text ? `<div class="notif-text">${escHtml(a.text)}</div>` : ''}
+      <div class="notif-meta"><span>${new Date(a.creat_la).toLocaleDateString('ro-RO', { day:'numeric', month:'short' })}</span><span>Citit de ${a.citiri} din ${a.membri} elevi</span></div>
+    </div>`).join('') : '<div class="t-muted">Niciun anunț încă.</div>';
+}
+async function trimiteAnunt() {
+  const msg = document.getElementById('anMsg');
+  const cid = tClass?.id;
+  const titlu = document.getElementById('anTitlu').value.trim();
+  const text = document.getElementById('anText').value.trim();
+  const link = document.getElementById('anLink').value.trim();
+  if(!cid) return;
+  if(!titlu) { msg.textContent = 'Scrie un titlu.'; return; }
+  if(link && !/^https:\/\//.test(link)) { msg.textContent = 'Linkul trebuie să înceapă cu https://'; return; }
+  const btn = document.getElementById('anBtn'); btn.disabled = true;
+  const { error } = await sb.from('anunturi').insert({ class_id: cid, teacher_id: currentUser.id, titlu, text, link: link || null });
+  btn.disabled = false;
+  if(error) { msg.textContent = 'Nu am putut trimite anunțul. Încearcă din nou.'; return; }
+  document.getElementById('anTitlu').value = ''; document.getElementById('anText').value = ''; document.getElementById('anLink').value = '';
+  msg.textContent = 'Anunțul a fost trimis elevilor clasei.';
+  loadAnunturiProf(cid);
 }
 async function setNotifEmail(on) {
   const msg = document.getElementById('notifEmailMsg');
@@ -2173,6 +2228,8 @@ async function openClass(id) {
   document.getElementById('clName').textContent = c.name;
   document.getElementById('clCode').textContent = c.join_code;
   showLeaderboard('clLeaderboard', c.id);
+  loadAnunturiProf(c.id);
+  document.getElementById('anMsg').textContent = '';
   const delBtn = document.getElementById('clDelete'); delBtn.classList.remove('armed'); delBtn.textContent = 'Șterge clasa';
 
   const [{ data: mem }, { data: asg }] = await Promise.all([
