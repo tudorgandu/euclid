@@ -459,6 +459,15 @@
   .lb-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .lb-pts { font-variant-numeric: tabular-nums; color: var(--navy); }
   .lb-help { font-size: 0.78rem; margin-top: 0.6rem; }
+  /* Calendar concursuri */
+  .cal-item { padding: 0.85rem 0; border-bottom: 1px solid var(--cream-dark); }
+  .cal-item:last-child { border-bottom: none; }
+  .cal-top { display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-muted); }
+  .cal-name { font-weight: 900; color: var(--navy); font-size: 1rem; margin: 0.25rem 0 0.15rem; }
+  .cal-meta { font-size: 0.85rem; color: var(--ink-soft); }
+  .cal-when { font-weight: 800; margin: 0.35rem 0; font-size: 0.92rem; }
+  .cal-item a { color: var(--navy-light); font-weight: 800; font-size: 0.85rem; text-decoration: none; }
+  .cal-item a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -542,6 +551,7 @@
   <button class="nav-item nav-t" data-screen="teacher" onclick="navTo('teacher')"><span class="nav-ico">🏫</span>Clasele mele</button>
   <button class="nav-item nav-t" data-screen="lucrari" onclick="navTo('lucrari')"><span class="nav-ico">📝</span>Teme și simulări<b class="nav-badge" id="navLiveBadge"></b></button>
   <button class="nav-item nav-t" data-screen="biblioteca" onclick="navTo('biblioteca')"><span class="nav-ico">📚</span>Problemele</button>
+  <button class="nav-item" data-screen="calendar" onclick="navTo('calendar')"><span class="nav-ico">🗓️</span>Calendar concursuri</button>
   <div class="nav-foot">
     <button class="nav-link" onclick="closeNav(); openRoleScreen()">Schimbă rolul</button>
     <button class="nav-link" onclick="closeNav(); doLogout()">Ieșire</button>
@@ -902,6 +912,16 @@
   </div>
 
   <!-- ══════ PROFESOR: PROBLEMELE ══════ -->
+  <div class="screen" id="screen-calendar">
+    <div class="prog-title">🗓️ Calendarul concursurilor</div>
+    <div class="prog-sub">Admitere, olimpiade și concursuri. Datele sunt verificate din surse publice.</div>
+    <div class="config-card">
+      <div class="config-row" id="calFilter"></div>
+      <div id="calList"></div>
+      <div class="t-muted lb-help" id="calNote"></div>
+    </div>
+  </div>
+
   <div class="screen" id="screen-biblioteca">
     <div class="prog-title">📚 Problemele</div>
     <div class="prog-sub" id="lbSub">Toate problemele din aplicație, verificate, cu răspuns, indiciu și explicație.</div>
@@ -3097,7 +3117,7 @@ async function generateMissingVoice() {
 // ── Meniul din stânga pentru elev / părinte ──
 const NAV_FOCUS = ['session', 'contest', 'results', 'contest-results', 'role'];   // fără meniu, ca să nu iasă din lucrare
 const NAV_OF = { start: 'start', clasa: 'clasa', metode: 'metode', method: 'metode', progress: 'progress',
-                 teacher: 'teacher', lucrari: 'lucrari', biblioteca: 'biblioteca' };
+                 teacher: 'teacher', lucrari: 'lucrari', biblioteca: 'biblioteca', calendar: 'calendar' };
 function updateNav(name) {
   document.body.classList.toggle('has-nav', currentRole === 'elev' || currentRole === 'profesor');
   document.body.classList.toggle('focus', NAV_FOCUS.includes(name));
@@ -3107,6 +3127,43 @@ function updateNav(name) {
 }
 function openNav() { document.getElementById('sideNav').classList.add('open'); document.getElementById('navBackdrop').classList.add('open'); }
 function closeNav() { document.getElementById('sideNav')?.classList.remove('open'); document.getElementById('navBackdrop')?.classList.remove('open'); }
+// ── Calendarul concursurilor (date din data/calendar.json, actualizat săptămânal) ──
+let calData = null, calYear = null;
+const CAL_TIP = { admitere: 'Admitere', olimpiada: 'Olimpiadă', concurs: 'Concurs' };
+const CAL_STATUS = { publicat: ['✓ Confirmat', '#2E7D52'], de_verificat: ['⚠ De verificat', '#9a6400'], nepublicat: ['Nepublicat', '#8a8a80'] };
+const safeUrl = u => /^https:\/\//.test(u || '') ? escHtml(u) : null;
+async function openCalendar() {
+  showScreen('calendar');
+  if(!calData) {
+    try { calData = await (await fetch('data/calendar.json', { cache: 'no-cache' })).json(); }
+    catch(e) { document.getElementById('calList').innerHTML = '<div class="t-muted">Calendarul nu se poate încărca acum.</div>'; return; }
+  }
+  renderCalendar();
+}
+function renderCalendar() {
+  const years = [...new Set(calData.intrari.map(e => e.an_scolar))].sort().reverse();
+  if(!calYear || !years.includes(calYear)) calYear = years[0];   // implicit: cel mai recent an școlar
+  document.getElementById('calFilter').innerHTML = years.map(y => `<div class="config-chip ${y === calYear ? 'selected' : ''}" onclick="calYear='${y}';renderCalendar()">An școlar ${y}</div>`).join('');
+  const items = calData.intrari.filter(e => e.an_scolar === calYear)
+    .sort((a, b) => (a.data || '9999').localeCompare(b.data || '9999'));
+  const fd = d => fmtDate(d + 'T12:00:00');
+  document.getElementById('calList').innerHTML = items.map(e => {
+    const [lab, col] = CAL_STATUS[e.status] || CAL_STATUS.nepublicat;
+    const when = e.data ? fd(e.data) : (e.data_text ? escHtml(e.data_text) : 'Nepublicat încă');
+    const ins = e.inscriere ? `<div class="cal-meta">✍️ Înscriere: ${e.inscriere.de ? fd(e.inscriere.de) : '—'} – ${e.inscriere.pana ? fd(e.inscriere.pana) : '—'}${e.inscriere.nota ? ' · ' + escHtml(e.inscriere.nota) : ''}</div>` : '';
+    const link = safeUrl(e.link_inscriere) ? `<a href="${safeUrl(e.link_inscriere)}" target="_blank" rel="noopener">Înscriere online ↗</a>` : '';
+    const site = safeUrl(e.site) ? `<a href="${safeUrl(e.site)}" target="_blank" rel="noopener">Site-ul școlii ↗</a>` : '';
+    const links = [link, site].filter(Boolean).join(' · ');
+    return `<div class="cal-item">
+      <div class="cal-top"><span>${CAL_TIP[e.tip] || e.tip}</span><span style="color:${col}">${lab}</span></div>
+      <div class="cal-name">${escHtml(e.nume)}</div>
+      <div class="cal-meta">${escHtml([e.scoala, e.oras].filter(Boolean).join(' · '))}${e.clase ? ' · cls. ' + escHtml(e.clase) : ''}</div>
+      <div class="cal-when">📅 ${when}</div>${ins}${links ? `<div style="margin-top:0.35rem">${links}</div>` : ''}
+    </div>`;
+  }).join('') || '<div class="t-muted">Nimic încă pentru acest an școlar.</div>';
+  document.getElementById('calNote').textContent = calData.nota ? `Actualizat ${fd(calData.actualizat)} · ${calData.nota}` : '';
+}
+
 function navTo(name) {
   stopAudio(); closeNav();
   if(name === 'progress') { openProgress(); return; }
@@ -3115,6 +3172,7 @@ function navTo(name) {
   if(name === 'teacher') { openTeacher(); return; }
   if(name === 'lucrari') { openAllAssignments(); return; }
   if(name === 'biblioteca') { openLibrary(); return; }
+  if(name === 'calendar') { openCalendar(); return; }
   goStart();
 }
 
