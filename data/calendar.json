@@ -422,61 +422,6 @@
       "link_inscriere": null,
       "surse": [],
       "verificat_la": "2026-10-07"
-    },
-    {
-      "id": "mihoc-2026",
-      "tip": "concurs",
-      "nume": "Concursul interjudețean „Gheorghe Mihoc” (ediția a XXIX-a)",
-      "scoala": null,
-      "oras": "Slobozia (interjudețean)",
-      "clase": "V–XII",
-      "an_scolar": "2025-2026",
-      "data": "2026-03-21",
-      "data_text": "21 martie 2026, 9:30–12:30 (concursul se desfășoară 20–22 martie 2026)",
-      "status": "publicat",
-      "site": null,
-      "inscriere": null,
-      "link_inscriere": null,
-      "surse": [
-        "https://cnmvslobozia.ro/wp-content/uploads/2026/03/PROGRAM-MIHOC-2026.pdf"
-      ],
-      "verificat_la": "2026-10-07"
-    },
-    {
-      "id": "mihoc-2027",
-      "tip": "concurs",
-      "nume": "Concursul interjudețean „Gheorghe Mihoc”",
-      "scoala": null,
-      "oras": "Slobozia (interjudețean)",
-      "clase": "V–XII",
-      "an_scolar": "2026-2027",
-      "data": null,
-      "data_text": null,
-      "status": "nepublicat",
-      "site": null,
-      "inscriere": null,
-      "link_inscriere": null,
-      "surse": [],
-      "verificat_la": "2026-10-07"
-    },
-    {
-      "id": "matex-2026",
-      "tip": "concurs",
-      "nume": "Concursul „MatEx” (județul Suceava)",
-      "scoala": null,
-      "oras": "Suceava (județ)",
-      "clase": "II–IV",
-      "an_scolar": "2025-2026",
-      "data": "2026-04-18",
-      "data_text": "18 aprilie 2026, de la 9:00, la Școala Gimnazială Nr. 1 Suceava. Doar pentru elevii din județul Suceava",
-      "status": "publicat",
-      "site": null,
-      "inscriere": null,
-      "link_inscriere": null,
-      "surse": [
-        "https://scoala1suceava.ro/wp-content/uploads/2026/03/Regulament-Matex-2026-1.pdf"
-      ],
-      "verificat_la": "2026-10-07"
     }
   ]
 }
