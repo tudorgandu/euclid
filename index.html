@@ -379,6 +379,16 @@
   .nav-backdrop { display: none; }
   body.has-nav:not(.focus) .side-nav { display: flex; }
   body[data-role="elev"] #btnProgress, body[data-role="elev"] #btnLogout { display: none !important; }
+  body[data-role="profesor"] #btnClasses, body[data-role="profesor"] #btnLogout { display: none !important; }
+  body[data-role="profesor"] .nav-s, body[data-role="elev"] .nav-t { display: none; }
+  .lib-item { border-top: 1px solid var(--border); padding: 0.7rem 0; }
+  .lib-item:first-child { border-top: none; }
+  .lib-head { display: flex; gap: 0.6rem; align-items: flex-start; cursor: pointer; }
+  .lib-text { flex: 1; font-size: 0.9rem; font-weight: 700; color: var(--ink); line-height: 1.5; }
+  .lib-meta { font-size: 0.74rem; font-weight: 800; color: var(--ink-muted); margin-top: 0.25rem; }
+  .lib-more { display: none; margin-top: 0.6rem; background: var(--cream); border-radius: var(--r-sm); padding: 0.75rem 0.85rem; font-size: 0.86rem; line-height: 1.6; color: var(--ink-soft); font-weight: 600; }
+  .lib-more.show { display: block; }
+  .lib-more b { color: var(--navy); }
   @media (min-width: 960px) {
     body.has-nav:not(.focus) .stage { margin-left: 220px; }
   }
@@ -510,10 +520,13 @@
 <div class="nav-backdrop" id="navBackdrop" onclick="closeNav()"></div>
 <nav class="side-nav" id="sideNav" aria-label="Meniu">
   <div class="nav-head"><span>Meniu</span><button class="nav-close" onclick="closeNav()" aria-label="Închide meniul">✕</button></div>
-  <button class="nav-item" data-screen="start" onclick="navTo('start')"><span class="nav-ico">🎯</span>Antrenament</button>
-  <button class="nav-item" data-screen="clasa" onclick="navTo('clasa')"><span class="nav-ico">📋</span>Clasa mea<b class="nav-badge" id="navClassBadge"></b></button>
-  <button class="nav-item" data-screen="metode" onclick="navTo('metode')"><span class="nav-ico">🧭</span>Metode</button>
-  <button class="nav-item" data-screen="progress" onclick="navTo('progress')"><span class="nav-ico">📈</span>Progres</button>
+  <button class="nav-item nav-s" data-screen="start" onclick="navTo('start')"><span class="nav-ico">🎯</span>Antrenament</button>
+  <button class="nav-item nav-s" data-screen="clasa" onclick="navTo('clasa')"><span class="nav-ico">📋</span>Clasa mea<b class="nav-badge" id="navClassBadge"></b></button>
+  <button class="nav-item nav-s" data-screen="metode" onclick="navTo('metode')"><span class="nav-ico">🧭</span>Metode</button>
+  <button class="nav-item nav-s" data-screen="progress" onclick="navTo('progress')"><span class="nav-ico">📈</span>Progres</button>
+  <button class="nav-item nav-t" data-screen="teacher" onclick="navTo('teacher')"><span class="nav-ico">🏫</span>Clasele mele</button>
+  <button class="nav-item nav-t" data-screen="lucrari" onclick="navTo('lucrari')"><span class="nav-ico">📝</span>Teme și simulări<b class="nav-badge" id="navLiveBadge"></b></button>
+  <button class="nav-item nav-t" data-screen="biblioteca" onclick="navTo('biblioteca')"><span class="nav-ico">📚</span>Problemele</button>
   <div class="nav-foot">
     <button class="nav-link" onclick="closeNav(); openRoleScreen()">Schimbă rolul</button>
     <button class="nav-link" onclick="closeNav(); doLogout()">Ieșire</button>
@@ -843,7 +856,38 @@
       <div class="t-err" id="tClassErr"></div>
     </div>
     <div id="tClassList"></div>
-    <button class="t-link" onclick="openRoleScreen()">Folosești aplicația ca profesor · Schimbă rolul</button>
+  </div>
+
+  <!-- ══════ PROFESOR: TOATE TEMELE ȘI SIMULĂRILE ══════ -->
+  <div class="screen" id="screen-lucrari">
+    <div class="prog-title">📝 Teme și simulări</div>
+    <div class="prog-sub">Toate lucrările trimise claselor tale.</div>
+    <div class="prog-card" id="lwNew">
+      <h3>Lucrare nouă</h3>
+      <label class="t-label">Pentru clasa</label>
+      <select class="t-input" id="lwClass"></select>
+      <div class="btn-row" style="margin-top:0.8rem">
+        <button class="btn btn-primary" onclick="newFromList('tema')">📝 Temă nouă</button>
+        <button class="btn btn-primary" onclick="newFromList('simulare')">🏆 Simulare nouă</button>
+      </div>
+    </div>
+    <div id="lwLists"></div>
+  </div>
+
+  <!-- ══════ PROFESOR: PROBLEMELE ══════ -->
+  <div class="screen" id="screen-biblioteca">
+    <div class="prog-title">📚 Problemele</div>
+    <div class="prog-sub" id="lbSub">Toate problemele din aplicație, verificate, cu răspuns, indiciu și explicație.</div>
+    <div class="prog-card">
+      <input class="t-input" id="lbSearch" placeholder="Caută în enunț…" oninput="renderLibrary()">
+      <div class="t-grid" style="margin-top:0.2rem">
+        <div><label class="t-label">Bibliotecă</label><select class="t-input" id="lbLib" onchange="renderLibrary()"></select></div>
+        <div><label class="t-label">Categorie</label><select class="t-input" id="lbCat" onchange="renderLibrary()"></select></div>
+        <div><label class="t-label">Dificultate</label><select class="t-input" id="lbDif" onchange="renderLibrary()"><option value="0">Oricare</option><option value="1">Ușor</option><option value="2">Mediu</option><option value="3">Greu</option></select></div>
+        <div><label class="t-label">Metodă</label><select class="t-input" id="lbMet" onchange="renderLibrary()"></select></div>
+      </div>
+    </div>
+    <div class="prog-card"><div class="prog-note" id="lbCount"></div><div id="lbList"></div></div>
   </div>
 
   <!-- ══════ PROFESOR: O CLASĂ ══════ -->
@@ -2062,7 +2106,7 @@ async function deleteClass(btn) {
 // ── Temă / simulare nouă ──
 function fillSelect(sel, items, first) {
   sel.innerHTML = '';
-  [first, ...items].forEach(([v, t]) => { const o = document.createElement('option'); o.value = v; o.textContent = t; sel.appendChild(o); });
+  (first ? [first, ...items] : items).forEach(([v, t]) => { const o = document.createElement('option'); o.value = v; o.textContent = t; sel.appendChild(o); });
 }
 
 function openNewAssignment(kind) {
@@ -2493,9 +2537,9 @@ async function enterApp() {
 function applyRole(role) {
   currentRole = role; rememberRole(role);
   document.body.dataset.role = role;
-  document.body.classList.toggle('has-nav', role === 'elev');
+  document.body.classList.toggle('has-nav', role === 'elev' || role === 'profesor');
   updateSessionBadge();
-  if(role === 'profesor') { openTeacher(); return; }
+  if(role === 'profesor') { openTeacher(); refreshLiveBadge(); return; }
   showScreen('start');
   renderMethodGrid();
   loadProblemHistory();
@@ -2946,11 +2990,13 @@ async function generateMissingVoice() {
 
 // ── Meniul din stânga pentru elev / părinte ──
 const NAV_FOCUS = ['session', 'contest', 'results', 'contest-results', 'role'];   // fără meniu, ca să nu iasă din lucrare
-const NAV_OF = { start: 'start', clasa: 'clasa', metode: 'metode', method: 'metode', progress: 'progress' };
+const NAV_OF = { start: 'start', clasa: 'clasa', metode: 'metode', method: 'metode', progress: 'progress',
+                 teacher: 'teacher', lucrari: 'lucrari', biblioteca: 'biblioteca' };
 function updateNav(name) {
-  document.body.classList.toggle('has-nav', currentRole === 'elev');
+  document.body.classList.toggle('has-nav', currentRole === 'elev' || currentRole === 'profesor');
   document.body.classList.toggle('focus', NAV_FOCUS.includes(name));
-  document.querySelectorAll('#sideNav .nav-item').forEach(b => b.classList.toggle('active', b.dataset.screen === NAV_OF[name]));
+  // ecranele interioare (o clasă, rezultate, temă nouă) păstrează secțiunea din care s-a intrat
+  if(NAV_OF[name]) document.querySelectorAll('#sideNav .nav-item').forEach(b => b.classList.toggle('active', b.dataset.screen === NAV_OF[name]));
   closeNav();
 }
 function openNav() { document.getElementById('sideNav').classList.add('open'); document.getElementById('navBackdrop').classList.add('open'); }
@@ -2960,7 +3006,109 @@ function navTo(name) {
   if(name === 'progress') { openProgress(); return; }
   if(name === 'clasa') { showScreen('clasa'); loadStudentClasses(); return; }
   if(name === 'metode') { showScreen('metode'); renderMethodGrid(); return; }
+  if(name === 'teacher') { openTeacher(); return; }
+  if(name === 'lucrari') { openAllAssignments(); return; }
+  if(name === 'biblioteca') { openLibrary(); return; }
   goStart();
+}
+
+
+// ── Profesor: toate temele și simulările ──
+let lwClasses = [];
+async function openAllAssignments() {
+  stopAudio(); clearInterval(arTimer);
+  showScreen('lucrari');
+  const box = document.getElementById('lwLists'); box.innerHTML = '<div class="t-muted">Se încarcă…</div>';
+  const { data: classes } = await sb.from('classes').select('id,name,join_code').eq('teacher_id', currentUser.id).order('created_at', { ascending: true });
+  lwClasses = classes || [];
+  fillSelect(document.getElementById('lwClass'), lwClasses.map(c => [c.id, c.name]), null);
+  document.getElementById('lwNew').style.display = lwClasses.length ? 'block' : 'none';
+  if(!lwClasses.length) { box.innerHTML = '<div class="prog-card prog-empty">🏫 Creează întâi o clasă din „Clasele mele”.</div>'; return; }
+  const ids = lwClasses.map(c => c.id);
+  const [{ data: asg }, { data: mem }] = await Promise.all([
+    sb.from('assignments').select('id,class_id,kind,title,opens_at,closes_at').in('class_id', ids).order('opens_at', { ascending: false }),
+    sb.from('class_members').select('class_id').in('class_id', ids)
+  ]);
+  const members = {}; (mem || []).forEach(m => members[m.class_id] = (members[m.class_id] || 0) + 1);
+  const subs = {};
+  if(asg && asg.length) { const { data: sd } = await sb.from('submissions').select('assignment_id').in('assignment_id', asg.map(a => a.id)); (sd || []).forEach(x => subs[x.assignment_id] = (subs[x.assignment_id] || 0) + 1); }
+  const cname = Object.fromEntries(lwClasses.map(c => [c.id, c.name]));
+  const now = Date.now(), monthAgo = now - 30*864e5;
+  const groups = [
+    ['În desfășurare', (asg || []).filter(a => assignmentState(a, now) === 'open')],
+    ['Programate', (asg || []).filter(a => assignmentState(a, now) === 'soon').reverse()],
+    ['Încheiate (ultimele 30 de zile)', (asg || []).filter(a => assignmentState(a, now) === 'closed' && new Date(a.closes_at) > monthAgo)]
+  ];
+  const live = groups[0][1].length; const badge = document.getElementById('navLiveBadge');
+  badge.textContent = live; badge.classList.toggle('show', live > 0);
+  box.innerHTML = '';
+  groups.forEach(([title, list]) => {
+    const card = document.createElement('div'); card.className = 'prog-card';
+    card.innerHTML = `<h3>${escHtml(title)} (${list.length})</h3>`;
+    if(!list.length) card.insertAdjacentHTML('beforeend', '<div class="t-muted">Nimic aici.</div>');
+    list.forEach(a => {
+      const when = a.kind === 'tema' ? `termen ${fmtDT(a.closes_at)}` : `${fmtDT(a.opens_at)} – ${new Date(a.closes_at).toLocaleTimeString('ro-RO',{hour:'2-digit',minute:'2-digit'})}`;
+      const row = document.createElement('div'); row.className = 't-item';
+      row.innerHTML = `<div class="t-item-main"><div class="t-item-title"></div><div class="t-item-sub"></div></div><div class="t-item-actions"><button class="t-small">Rezultate</button></div>`;
+      row.querySelector('.t-item-title').textContent = (a.kind === 'tema' ? '📝 ' : '🏆 ') + a.title;
+      row.querySelector('.t-item-sub').textContent = `${cname[a.class_id] || ''} · ${when} · ${subs[a.id] || 0}/${members[a.class_id] || 0} au predat`;
+      row.querySelector('.t-small').onclick = () => { tClass = lwClasses.find(c => c.id === a.class_id); openResults(a.id); };
+      card.appendChild(row);
+    });
+    box.appendChild(card);
+  });
+}
+
+async function refreshLiveBadge() {
+  if(currentRole !== 'profesor' || !currentUser) return;
+  const { data: classes } = await sb.from('classes').select('id').eq('teacher_id', currentUser.id);
+  if(!classes || !classes.length) return;
+  const { data: asg } = await sb.from('assignments').select('id,opens_at,closes_at').in('class_id', classes.map(c => c.id));
+  const live = (asg || []).filter(a => assignmentState(a) === 'open').length;
+  const badge = document.getElementById('navLiveBadge'); badge.textContent = live; badge.classList.toggle('show', live > 0);
+}
+
+function newFromList(kind) {
+  tClass = lwClasses.find(c => c.id === document.getElementById('lwClass').value);
+  if(tClass) openNewAssignment(kind);
+}
+
+// ── Profesor: biblioteca de probleme ──
+function openLibrary() {
+  stopAudio(); clearInterval(arTimer);
+  showScreen('biblioteca');
+  const cats = [...new Set(PROBLEMS.map(p => p.cat))].sort((a, b) => a.localeCompare(b, 'ro')).map(c => [c, c]);
+  const libs = [...new Set(PROBLEMS.map(p => p.lib_id))].map(l => [l, LIB_NAMES[l] || l]);
+  const keep = id => document.getElementById(id).value;
+  const prev = { lib: keep('lbLib'), cat: keep('lbCat'), met: keep('lbMet') };
+  fillSelect(document.getElementById('lbLib'), libs, ['', 'Toate']);
+  fillSelect(document.getElementById('lbCat'), cats, ['', 'Toate']);
+  fillSelect(document.getElementById('lbMet'), METODE.map(m => [m.id, m.icon + ' ' + m.nume]), ['', 'Oricare']);
+  document.getElementById('lbLib').value = prev.lib || ''; document.getElementById('lbCat').value = prev.cat || ''; document.getElementById('lbMet').value = prev.met || '';
+  renderLibrary();
+}
+
+function renderLibrary() {
+  const q = document.getElementById('lbSearch').value.trim().toLowerCase();
+  const lib = document.getElementById('lbLib').value, cat = document.getElementById('lbCat').value;
+  const dif = +document.getElementById('lbDif').value, met = document.getElementById('lbMet').value;
+  const list = PROBLEMS.filter(p => (!lib || p.lib_id === lib) && (!cat || p.cat === cat) && (!dif || p.dif === dif) && (!met || p.metoda === met) && (!q || p.text.toLowerCase().includes(q)));
+  document.getElementById('lbSub').textContent = `${PROBLEMS.length} de probleme verificate, cu răspuns, indiciu și explicație.`;
+  document.getElementById('lbCount').textContent = `${list.length} ${list.length === 1 ? 'problemă găsită' : 'probleme găsite'} · atinge una ca să vezi răspunsul și explicația`;
+  const box = document.getElementById('lbList'); box.innerHTML = '';
+  const difL = ['', 'ușor', 'mediu', 'greu'];
+  list.slice(0, 60).forEach(p => {
+    const met = METODE.find(m => m.id === p.metoda);
+    const item = document.createElement('div'); item.className = 'lib-item';
+    item.innerHTML = `<div class="lib-head"><div style="flex:1"><div class="lib-text"></div><div class="lib-meta"></div></div></div>
+      <div class="lib-more"><div><b>Răspuns:</b> <span class="a"></span></div><div><b>Indiciu:</b> <span class="h"></span></div><div style="margin-top:0.4rem"><b>Explicație:</b> <span class="e"></span></div></div>`;
+    item.querySelector('.lib-text').textContent = p.text;
+    item.querySelector('.lib-meta').textContent = [LIB_NAMES[p.lib_id] || p.lib_id, p.cat, difL[p.dif], met ? met.icon + ' ' + met.nume : ''].filter(Boolean).join(' · ');
+    item.querySelector('.a').textContent = p.ans; item.querySelector('.h').textContent = p.hint || '—'; item.querySelector('.e').textContent = p.explicatie || p.barem;
+    item.querySelector('.lib-head').onclick = () => item.querySelector('.lib-more').classList.toggle('show');
+    box.appendChild(item);
+  });
+  if(list.length > 60) box.insertAdjacentHTML('beforeend', `<div class="t-muted" style="padding-top:0.6rem">Încă ${list.length - 60} probleme — restrânge filtrele sau caută în enunț.</div>`);
 }
 
 function restartSession() { if(session.mode === 'metoda' && session.metoda) { practiceMethod(session.metoda); return; } startSession(); }
