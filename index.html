@@ -444,6 +444,21 @@
   .limit-banner-title { font-size: 1rem; font-weight: 900; color: var(--coral); margin-bottom: 0.3rem; }
   .limit-banner-text { font-size: 0.85rem; color: #7a2010; font-weight: 600; line-height: 1.5; }
   .btn-upgrade { display: inline-block; margin-top: 0.65rem; background: var(--coral); color: white; border: none; border-radius: 8px; padding: 0.5rem 1rem; font-family: 'Nunito', sans-serif; font-size: 0.85rem; font-weight: 800; cursor: pointer; }
+  /* Problema zilei */
+  .daily-card { border-left: 4px solid var(--amber); }
+  .daily-head { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .daily-tag { font-weight: 900; color: var(--navy); font-size: 1rem; }
+  .daily-streak { font-size: 0.8rem; font-weight: 800; color: #9a6400; }
+  .daily-text { font-size: 0.95rem; line-height: 1.55; color: var(--ink); margin-bottom: 0.9rem; white-space: pre-line; }
+  .daily-done { font-weight: 800; color: var(--green); font-size: 0.92rem; }
+  /* Clasament */
+  .lb-chips { margin: 0.2rem 0 0.7rem; }
+  .lb-row { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.4rem; border-bottom: 1px solid var(--cream-dark); }
+  .lb-row.me { background: var(--amber-soft); border-radius: 8px; font-weight: 800; border-bottom-color: transparent; }
+  .lb-pos { width: 2rem; text-align: center; font-weight: 900; color: var(--navy); flex-shrink: 0; }
+  .lb-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lb-pts { font-variant-numeric: tabular-nums; color: var(--navy); }
+  .lb-help { font-size: 0.78rem; margin-top: 0.6rem; }
 </style>
 </head>
 <body>
@@ -544,6 +559,13 @@
     </div>
     <button class="todo-banner" id="todoBanner" style="display:none" onclick="navTo('clasa')"></button>
 
+    <div class="config-card daily-card" id="dailyCard" style="display:none">
+      <div class="daily-head"><span class="daily-tag">⏰ Problema zilei</span><span class="daily-streak" id="dailyStreak"></span></div>
+      <div class="daily-text" id="dailyText"></div>
+      <button class="btn btn-primary" id="dailyBtn" style="width:100%" onclick="startDaily()">Rezolvă-o acum</button>
+      <div class="daily-done" id="dailyDone" style="display:none">✓ Ai rezolvat problema de azi. Revino mâine!</div>
+    </div>
+
     <div class="config-card">
       <div class="config-label">Mod</div>
       <div class="config-row" id="modeConfig">
@@ -618,6 +640,11 @@
   <div class="screen" id="screen-clasa">
     <div class="prog-title">📋 Clasa mea</div>
     <div class="prog-sub">Temele și simulările primite de la profesor.</div>
+    <div class="config-card" id="lbCard" style="display:none">
+      <div class="config-label">🏅 Clasament</div>
+      <div id="lbPick"></div>
+      <div id="lbBox"></div>
+    </div>
     <div class="config-card" id="classCard" style="display:none">
       <div class="config-label">Teme și simulări</div>
       <div id="classList"></div>
@@ -904,6 +931,7 @@
     </div>
     <div class="prog-card"><h3>Teme și simulări</h3><div id="clAssignments"></div></div>
     <div class="prog-card"><h3 id="clStudentsTitle">Elevi</h3><div id="clStudents"></div></div>
+    <div class="prog-card"><h3>🏅 Clasament</h3><div id="clLeaderboard"></div></div>
     <button class="t-danger" id="clDelete" onclick="deleteClass(this)">Șterge clasa</button>
   </div>
 
@@ -2043,6 +2071,7 @@ async function openClass(id) {
   tClass = c;
   document.getElementById('clName').textContent = c.name;
   document.getElementById('clCode').textContent = c.join_code;
+  showLeaderboard('clLeaderboard', c.id);
   const delBtn = document.getElementById('clDelete'); delBtn.classList.remove('armed'); delBtn.textContent = 'Șterge clasa';
 
   const [{ data: mem }, { data: asg }] = await Promise.all([
@@ -2350,6 +2379,82 @@ function exportResults() {
 // ─────────────── ELEV ───────────────
 let sClasses = [], sAssignments = [], sSubs = {}, sTick = null, sJoinOpen = false;
 
+// ── Problema zilei ──
+// Aceeași problemă pentru toți în aceeași zi. Ordinea e amestecată determinist,
+// deci problemele nu se repetă timp de aproape un an (câte probleme avem în bibliotecă).
+const dayKey = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+const shiftKey = (key, n) => { const [y, m, d] = key.split('-').map(Number); return dayKey(new Date(y, m - 1, d + n)); };
+const dayNumber = key => { const [y, m, d] = key.split('-').map(Number); return Math.floor(Date.UTC(y, m - 1, d) / 864e5); };
+let dailyOrder = null;
+function dailyOrderList() {
+  if(dailyOrder) return dailyOrder;
+  let seed = 20261007;
+  const rnd = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
+  const arr = [...PROBLEMS].sort((a, b) => (a.lib_id + '|' + a.id).localeCompare(b.lib_id + '|' + b.id));
+  for(let i = arr.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
+  return dailyOrder = arr;
+}
+function dailyProblem(key = dayKey(new Date())) {
+  const arr = dailyOrderList();
+  return arr[((dayNumber(key) % arr.length) + arr.length) % arr.length];
+}
+function startDaily() {
+  stopAudio();
+  beginTraining([dailyProblem()], 'zilei');
+}
+async function renderDailyCard() {
+  const card = document.getElementById('dailyCard');
+  if(!card) return;
+  if(!currentUser || currentRole === 'profesor') { card.style.display = 'none'; return; }
+  await whenProblemsLoaded();
+  card.style.display = 'block';
+  const today = dayKey(new Date());
+  document.getElementById('dailyText').textContent = dailyProblem(today).text;
+  // Zilele în care a rezolvat problema zilei (sesiunile salvate cu modul „zilei”)
+  const { data } = await sb.from('sessions').select('created_at,config').order('created_at', { ascending: false }).limit(400);
+  const days = new Set((data || []).filter(s => s.config && s.config.mode === 'zilei').map(s => dayKey(new Date(s.created_at))));
+  const doneToday = days.has(today);
+  let cur = doneToday ? today : shiftKey(today, -1), streak = 0;
+  while(days.has(cur)) { streak++; cur = shiftKey(cur, -1); }
+  document.getElementById('dailyBtn').style.display = doneToday ? 'none' : 'block';
+  document.getElementById('dailyDone').style.display = doneToday ? 'block' : 'none';
+  document.getElementById('dailyStreak').textContent = streak ? `🔥 ${streak} ${streak === 1 ? 'zi' : 'zile'} la rând` : '';
+}
+
+// ── Clasament (puncte = răspunsuri corecte) ──
+let lbWin = 'week', lbCtx = null;
+const LB_MEDAL = ['🥇', '🥈', '🥉'];
+function showLeaderboard(boxId, cid) { lbCtx = { boxId, cid }; return paintLeaderboard(); }
+function setLbWin(w) { lbWin = w; if(lbCtx) paintLeaderboard(); }
+async function paintLeaderboard() {
+  const ctx = lbCtx;
+  if(!ctx) return;
+  const box = document.getElementById(ctx.boxId);
+  if(!box) return;
+  const chips = `<div class="config-row lb-chips"><div class="config-chip ${lbWin === 'week' ? 'selected' : ''}" onclick="setLbWin('week')">Săptămâna aceasta</div><div class="config-chip ${lbWin === 'all' ? 'selected' : ''}" onclick="setLbWin('all')">De la început</div></div>`;
+  box.innerHTML = chips + '<div class="t-muted">Se încarcă…</div>';
+  const since = lbWin === 'week' ? new Date(Date.now() - 7 * 864e5).toISOString() : null;
+  const { data, error } = await sb.rpc('get_leaderboard', { cid: ctx.cid, since });
+  if(lbCtx !== ctx) return;   // între timp s-a deschis alt clasament
+  if(error) { box.innerHTML = chips + `<div class="t-muted">Clasamentul nu este disponibil încă. (${escHtml(error.message)})</div>`; return; }
+  const rows = Array.isArray(data) ? data : [];
+  if(!rows.length) { box.innerHTML = chips + '<div class="t-muted">Nimeni nu are puncte încă. Rezolvă o problemă ca să apari primul.</div>'; return; }
+  box.innerHTML = chips + '<div class="lb-list">' + rows.map((r, i) =>
+    `<div class="lb-row${r.is_me ? ' me' : ''}"><span class="lb-pos">${LB_MEDAL[i] || (i + 1)}</span><span class="lb-name">${escHtml(r.display_name)}${r.is_me ? ' <small>(tu)</small>' : ''}</span><b class="lb-pts">${r.points}</b></div>`
+  ).join('') + '</div><div class="t-muted lb-help">1 punct = 1 răspuns corect, la antrenament, simulare sau temă.</div>';
+}
+function renderLeaderboardCard() {
+  const card = document.getElementById('lbCard');
+  if(!card) return;
+  card.style.display = sClasses.length ? 'block' : 'none';
+  if(!sClasses.length) return;
+  const keep = lbCtx && lbCtx.boxId === 'lbBox' && sClasses.some(c => c.id === lbCtx.cid) ? lbCtx.cid : sClasses[0].id;
+  document.getElementById('lbPick').innerHTML = sClasses.length > 1
+    ? `<select class="t-input" style="margin-bottom:0.6rem" onchange="showLeaderboard('lbBox', this.value)">${sClasses.map(c => `<option value="${c.id}" ${c.id === keep ? 'selected' : ''}>${escHtml(c.name)}</option>`).join('')}</select>`
+    : '';
+  showLeaderboard('lbBox', keep);
+}
+
 async function loadStudentClasses() {
   if(!currentUser) return;
   const { data: mem, error } = await sb.from('class_members').select('class_id,display_name').eq('student_id', currentUser.id);
@@ -2365,6 +2470,7 @@ async function loadStudentClasses() {
     sSubs = {}; (subs || []).forEach(s => sSubs[s.assignment_id] = s);
   } else { sClasses = []; sAssignments = []; sSubs = {}; }
   renderStudentCard();
+  renderLeaderboardCard();
   clearInterval(sTick);
   sTick = setInterval(() => { if(document.getElementById('screen-start').classList.contains('active')) renderStudentCard(); }, 30000);
 }
@@ -3117,6 +3223,7 @@ function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-'+name).classList.add('active');
   updateNav(name);
+  if(name === 'start') renderDailyCard();
   window.scrollTo(0,0);
 }
 
