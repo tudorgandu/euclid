@@ -468,6 +468,15 @@
   .cal-when { font-weight: 800; margin: 0.35rem 0; font-size: 0.92rem; }
   .cal-item a { color: var(--navy-light); font-weight: 800; font-size: 0.85rem; text-decoration: none; }
   .cal-item a:hover { text-decoration: underline; }
+  .notif-opt { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.95rem; line-height: 1.4; cursor: pointer; }
+  .notif-opt input { margin-top: 0.25rem; }
+  .notif-item { padding: 0.8rem 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .notif-item:last-child { border-bottom: none; }
+  .notif-item.new { background: rgba(232,160,32,0.08); margin: 0 -0.6rem; padding: 0.8rem 0.6rem; border-radius: 10px; }
+  .notif-head { display: flex; align-items: center; gap: 0.45rem; }
+  .notif-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
+  .notif-text { margin-top: 0.3rem; font-size: 0.93rem; line-height: 1.45; }
+  .notif-meta { margin-top: 0.35rem; font-size: 0.8rem; opacity: 0.75; display: flex; gap: 0.8rem; flex-wrap: wrap; }
 </style>
 </head>
 <body>
@@ -552,6 +561,7 @@
   <button class="nav-item nav-t" data-screen="lucrari" onclick="navTo('lucrari')"><span class="nav-ico">📝</span>Teme și simulări<b class="nav-badge" id="navLiveBadge"></b></button>
   <button class="nav-item nav-t" data-screen="biblioteca" onclick="navTo('biblioteca')"><span class="nav-ico">📚</span>Problemele</button>
   <button class="nav-item" data-screen="calendar" onclick="navTo('calendar')"><span class="nav-ico">🗓️</span>Calendar concursuri</button>
+  <button class="nav-item" data-screen="notificari" onclick="navTo('notificari')"><span class="nav-ico">🔔</span>Notificări<b class="nav-badge" id="navNotifBadge"></b></button>
   <div class="nav-foot">
     <button class="nav-link" onclick="closeNav(); openRoleScreen()">Schimbă rolul</button>
     <button class="nav-link" onclick="closeNav(); doLogout()">Ieșire</button>
@@ -922,6 +932,18 @@
     </div>
   </div>
 
+  <div class="screen" id="screen-notificari">
+    <div class="prog-title">🔔 Notificări</div>
+    <div class="prog-sub">Schimbări în calendarul concursurilor și alte anunțuri.</div>
+    <div class="config-card">
+      <label class="notif-opt"><input type="checkbox" id="notifEmailOpt" onchange="setNotifEmail(this.checked)"> Trimiteți-mi un email când se schimbă calendarul concursurilor. Mă pot retrage oricând, debifând această căsuță.</label>
+      <div class="t-muted lb-help" id="notifEmailMsg"></div>
+    </div>
+    <div class="config-card" style="margin-top:0.8rem">
+      <div id="notifList"><div class="t-muted">Se încarcă…</div></div>
+    </div>
+  </div>
+
   <div class="screen" id="screen-biblioteca">
     <div class="prog-title">📚 Problemele</div>
     <div class="prog-sub" id="lbSub">Toate problemele din aplicație, verificate, cu răspuns, indiciu și explicație.</div>
@@ -1211,6 +1233,65 @@ async function loadProfile() {
   userProfile = data;
   updateSessionBadge();
   updateStartButton();
+  loadNotificari();
+}
+
+// ── Notificări (calendarul concursurilor etc.) ──
+let notifRows = [], notifRead = new Set();
+async function loadNotificari() {
+  if(!currentUser) return;
+  try {
+    const [n, r] = await Promise.all([
+      sb.from('notificari').select('*').order('creat_la', { ascending: false }).limit(50),
+      sb.from('notificari_citite').select('notificare_id').eq('user_id', currentUser.id)
+    ]);
+    notifRows = n.data || [];
+    notifRead = new Set((r.data || []).map(x => x.notificare_id));
+  } catch(e) { notifRows = []; }
+  paintNotifBadge();
+}
+function paintNotifBadge() {
+  const unread = notifRows.filter(n => !notifRead.has(n.id)).length;
+  const b = document.getElementById('navNotifBadge');
+  if(!b) return;
+  b.textContent = unread; b.classList.toggle('show', unread > 0);
+}
+async function openNotificari() {
+  showScreen('notificari');
+  await loadNotificari();
+  document.getElementById('notifEmailOpt').checked = !!userProfile?.notificari_email;
+  document.getElementById('notifEmailOpt').disabled = !userProfile;
+  document.getElementById('notifEmailMsg').textContent = '';
+  renderNotificari();
+  // marcăm ca citite cele afișate acum
+  const unread = notifRows.filter(n => !notifRead.has(n.id));
+  if(unread.length && currentUser) {
+    const rows = unread.map(n => ({ user_id: currentUser.id, notificare_id: n.id }));
+    const { error } = await sb.from('notificari_citite').insert(rows);
+    if(!error) { unread.forEach(n => notifRead.add(n.id)); paintNotifBadge(); renderNotificari(); }
+  }
+}
+function renderNotificari() {
+  const box = document.getElementById('notifList');
+  if(!notifRows.length) { box.innerHTML = '<div class="t-muted">Nu ai notificări încă.</div>'; return; }
+  box.innerHTML = notifRows.map(n => {
+    const isNew = !notifRead.has(n.id);
+    const link = safeUrl(n.link) ? `<a href="${safeUrl(n.link)}" target="_blank" rel="noopener">Vezi detalii ↗</a>` : '';
+    const when = n.creat_la ? new Date(n.creat_la).toLocaleDateString('ro-RO', { day:'numeric', month:'short', year:'numeric' }) : '';
+    return `<div class="notif-item ${isNew ? 'new' : ''}">
+      <div class="notif-head">${isNew ? '<span class="notif-dot"></span>' : ''}<b>${escHtml(n.titlu)}</b></div>
+      <div class="notif-text">${escHtml(n.text)}</div>
+      <div class="notif-meta">${when} ${link}</div>
+    </div>`;
+  }).join('');
+}
+async function setNotifEmail(on) {
+  const msg = document.getElementById('notifEmailMsg');
+  if(!currentUser) return;
+  const { error } = await sb.from('profiles').update({ notificari_email: on }).eq('id', currentUser.id);
+  if(error) { msg.textContent = 'Nu am putut salva preferința. Încearcă din nou.'; document.getElementById('notifEmailOpt').checked = !on; return; }
+  if(userProfile) userProfile.notificari_email = on;
+  msg.textContent = on ? 'Ai activat emailurile. Le vei primi când se schimbă calendarul.' : 'Emailurile au fost dezactivate.';
 }
 
 function updateSessionBadge() {
@@ -3117,7 +3198,7 @@ async function generateMissingVoice() {
 // ── Meniul din stânga pentru elev / părinte ──
 const NAV_FOCUS = ['session', 'contest', 'results', 'contest-results', 'role'];   // fără meniu, ca să nu iasă din lucrare
 const NAV_OF = { start: 'start', clasa: 'clasa', metode: 'metode', method: 'metode', progress: 'progress',
-                 teacher: 'teacher', lucrari: 'lucrari', biblioteca: 'biblioteca', calendar: 'calendar' };
+                 teacher: 'teacher', lucrari: 'lucrari', biblioteca: 'biblioteca', calendar: 'calendar', notificari: 'notificari' };
 function updateNav(name) {
   document.body.classList.toggle('has-nav', currentRole === 'elev' || currentRole === 'profesor');
   document.body.classList.toggle('focus', NAV_FOCUS.includes(name));
@@ -3173,6 +3254,7 @@ function navTo(name) {
   if(name === 'lucrari') { openAllAssignments(); return; }
   if(name === 'biblioteca') { openLibrary(); return; }
   if(name === 'calendar') { openCalendar(); return; }
+  if(name === 'notificari') { openNotificari(); return; }
   goStart();
 }
 
