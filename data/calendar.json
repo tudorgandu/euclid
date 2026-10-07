@@ -126,7 +126,7 @@
       "an_scolar": "2026-2027",
       "data": "2026-05-09",
       "data_text": null,
-      "status": "de_verificat",
+      "status": "publicat",
       "site": "https://colegiulnationaliasi.ro",
       "inscriere": null,
       "link_inscriere": null,
@@ -269,12 +269,13 @@
       "clase": "V–XII",
       "an_scolar": "2025-2026",
       "data": "2026-01-30",
-      "data_text": "30 ianuarie – 21 februarie 2026, în funcție de județ",
+      "data_text": "30 ianuarie 2026 (etapa locală, Iași; calendarul pe județe a fost retras de SSMR)",
       "status": "publicat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
+        "https://colegiulnationaliasi.ro/wp-content/uploads/2026/02/subiecte-clasa-6-onm-locala-2026.pdf",
         "https://www.edupedu.ro/calendarul-olimpiadei-nationale-de-matematica-2026-etapa-locala-este-anuntat-de-societatea-de-stiinte-matematice-inainte-ca-ministerul-educatiei-sa-publice-calendarul-oficial-al-competitiilor-si-oli/"
       ],
       "verificat_la": "2026-10-07"
