@@ -21,3 +21,5 @@ jobs:
           version: latest
       - name: Deploy save-session
         run: supabase functions deploy save-session --project-ref "$PROJECT_REF"
+      - name: Deploy voce
+        run: supabase functions deploy voce --project-ref "$PROJECT_REF"
