@@ -312,6 +312,80 @@
       "link_inscriere": null,
       "surse": [],
       "verificat_la": "2026-10-07"
+    },
+    {
+      "id": "en-iv-2026",
+      "tip": "testare",
+      "nume": "Evaluarea Națională — clasa a IV-a",
+      "scoala": null,
+      "oras": "Național (toate școlile)",
+      "clase": "IV",
+      "an_scolar": "2025-2026",
+      "data": "2026-05-19",
+      "data_text": "19–21 mai 2026: limba română (19), matematică și științe ale naturii (20), limba maternă (21)",
+      "status": "publicat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.digi24.ro/stiri/actualitate/educatie/evaluarea-nationala-2026-clasa-a-iv-a-subiecte-la-matematica-si-stiinte-ale-naturii-cand-afla-elevii-notele-finale-3774637"
+      ],
+      "verificat_la": "2026-10-07"
+    },
+    {
+      "id": "en-iv-2027",
+      "tip": "testare",
+      "nume": "Evaluarea Națională — clasa a IV-a",
+      "scoala": null,
+      "oras": "Național (toate școlile)",
+      "clase": "IV",
+      "an_scolar": "2026-2027",
+      "data": null,
+      "data_text": null,
+      "status": "nepublicat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [],
+      "verificat_la": "2026-10-07"
+    },
+    {
+      "id": "en-vi-2026",
+      "tip": "testare",
+      "nume": "Evaluarea Națională — clasa a VI-a",
+      "scoala": null,
+      "oras": "Național (toate școlile)",
+      "clase": "VI",
+      "an_scolar": "2025-2026",
+      "data": "2026-05-26",
+      "data_text": "26–28 mai 2026 (proiect de calendar, încă în consultare publică)",
+      "status": "de_verificat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.edupedu.ro/proiect-calendar-evaluarea-nationala-pentru-clasele-a-ii-a-a-iv-a-si-a-vi-a-in-2026/"
+      ],
+      "verificat_la": "2026-10-07"
+    },
+    {
+      "id": "simulare-viii-iasi-2026",
+      "tip": "testare",
+      "nume": "Simulare Evaluarea Națională — clasa a VIII-a (județul Iași)",
+      "scoala": null,
+      "oras": "Iași (județ)",
+      "clase": "VIII",
+      "an_scolar": "2025-2026",
+      "data": "2026-03-16",
+      "data_text": "din 16 martie 2026 (sursele dau zile diferite pentru probele de matematică și limba maternă)",
+      "status": "de_verificat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.bzi.ro/simularile-examenelor-nationale-2026-incep-pe-16-martie-aproape-13-000-de-elevi-din-iasi-sustin-testarile-din-martie-5479518"
+      ],
+      "verificat_la": "2026-10-07"
     }
   ]
 }
