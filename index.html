@@ -363,6 +363,36 @@
   @keyframes lzIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
   .badge-met { background: var(--amber); color: #3d2600; }
 
+  /* ── Meniul din stânga (elev / părinte) ── */
+  .nav-burger { display: none; background: none; border: none; color: white; font-size: 1.35rem; cursor: pointer; padding: 0 0.35rem 0 0; line-height: 1; }
+  .side-nav { display: none; position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: white; border-right: 1px solid var(--border); padding: 76px 0.85rem 1rem; flex-direction: column; gap: 0.3rem; z-index: 90; }
+  .nav-head { display: none; }
+  .nav-item { display: flex; align-items: center; gap: 0.65rem; width: 100%; text-align: left; background: none; border: none; border-radius: 12px; padding: 0.75rem 0.85rem; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; color: var(--ink-soft); cursor: pointer; }
+  .nav-item:hover { background: var(--cream); color: var(--navy); }
+  .nav-item.active { background: var(--navy); color: white; }
+  .nav-ico { font-size: 1.15rem; width: 1.5rem; text-align: center; }
+  .nav-badge { margin-left: auto; background: var(--coral); color: white; font-size: 0.72rem; font-weight: 900; border-radius: 20px; padding: 0.1rem 0.5rem; display: none; }
+  .nav-badge.show { display: inline-block; }
+  .nav-foot { margin-top: auto; border-top: 1px solid var(--border); padding-top: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem; }
+  .nav-link { background: none; border: none; text-align: left; padding: 0.45rem 0.85rem; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.85rem; color: var(--ink-muted); cursor: pointer; border-radius: 8px; }
+  .nav-link:hover { background: var(--cream); color: var(--navy); }
+  .nav-backdrop { display: none; }
+  body.has-nav:not(.focus) .side-nav { display: flex; }
+  body[data-role="elev"] #btnProgress, body[data-role="elev"] #btnLogout { display: none !important; }
+  @media (min-width: 960px) {
+    body.has-nav:not(.focus) .stage { margin-left: 220px; }
+  }
+  @media (max-width: 959px) {
+    body.has-nav:not(.focus) .nav-burger { display: inline-block; }
+    .side-nav { z-index: 300; width: 260px; max-width: 82vw; padding-top: 1rem; transform: translateX(-105%); transition: transform 0.22s ease; box-shadow: 4px 0 24px rgba(0,0,0,0.12); }
+    .side-nav.open { transform: none; }
+    .nav-head { display: flex; align-items: center; justify-content: space-between; font-weight: 900; color: var(--navy); font-size: 1.05rem; padding: 0.2rem 0.85rem 0.8rem; }
+    .nav-close { background: none; border: none; font-size: 1.1rem; color: var(--ink-muted); cursor: pointer; }
+    .nav-backdrop.open { display: block; position: fixed; inset: 0; background: rgba(17,40,64,0.35); z-index: 250; }
+  }
+  .todo-banner { display: block; width: 100%; text-align: left; background: var(--amber-soft); border: 1px solid #f3d27a; border-radius: var(--r); padding: 0.9rem 1.1rem; margin-bottom: 1.1rem; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; color: #5c3a00; cursor: pointer; }
+  .todo-banner:hover { filter: brightness(0.98); }
+
   .confetti-piece { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti-fall linear forwards; border-radius: 2px; z-index: 999; pointer-events: none; }
   @keyframes confetti-fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
@@ -461,6 +491,7 @@
 
 <header class="app-header">
   <div class="logo">
+    <button class="nav-burger" id="navBurger" onclick="openNav()" aria-label="Meniu">☰</button>
     <div class="logo-icon">📐</div>
     Euclid Meditații
   </div>
@@ -476,35 +507,29 @@
   </div>
 </header>
 
+<div class="nav-backdrop" id="navBackdrop" onclick="closeNav()"></div>
+<nav class="side-nav" id="sideNav" aria-label="Meniu">
+  <div class="nav-head"><span>Meniu</span><button class="nav-close" onclick="closeNav()" aria-label="Închide meniul">✕</button></div>
+  <button class="nav-item" data-screen="start" onclick="navTo('start')"><span class="nav-ico">🎯</span>Antrenament</button>
+  <button class="nav-item" data-screen="clasa" onclick="navTo('clasa')"><span class="nav-ico">📋</span>Clasa mea<b class="nav-badge" id="navClassBadge"></b></button>
+  <button class="nav-item" data-screen="metode" onclick="navTo('metode')"><span class="nav-ico">🧭</span>Metode</button>
+  <button class="nav-item" data-screen="progress" onclick="navTo('progress')"><span class="nav-ico">📈</span>Progres</button>
+  <div class="nav-foot">
+    <button class="nav-link" onclick="closeNav(); openRoleScreen()">Schimbă rolul</button>
+    <button class="nav-link" onclick="closeNav(); doLogout()">Ieșire</button>
+  </div>
+</nav>
+
 <div class="stage">
 
   <!-- ══════ START ══════ -->
   <div class="screen active" id="screen-start">
     <div class="start-hero">
       <div class="start-mascot">🦉</div>
-      <div class="start-title">Pregătire Euclid</div>
-      <div class="start-sub">Sesiune de antrenament cu profesor virtual.<br>Ascultă problema, gândește, răspunde.</div>
+      <div class="start-title">Antrenament</div>
+      <div class="start-sub">Sesiune cu profesor virtual.<br>Ascultă problema, gândește, răspunde.</div>
     </div>
-
-    <div class="config-card" id="classCard" style="display:none">
-      <div class="config-label">📋 Clasa mea</div>
-      <div id="classList"></div>
-      <div class="t-muted" id="classMsg" style="color:var(--green)"></div>
-      <button class="t-back" id="joinToggle" style="display:none" onclick="sJoinOpen=true;renderStudentCard()">+ Intră în altă clasă</button>
-      <div id="joinForm">
-        <div class="t-grid">
-          <div><label class="t-label">Codul clasei</label><input class="t-input" id="joinCode" maxlength="6" autocomplete="off" style="text-transform:uppercase;letter-spacing:0.15em"></div>
-          <div><label class="t-label">Numele tău</label><input class="t-input" id="joinName" maxlength="60" placeholder="ex. Maria P." onkeydown="if(event.key==='Enter') joinClass()"></div>
-        </div>
-        <button class="btn btn-primary" style="width:100%;margin-top:0.7rem" onclick="joinClass()">Intră într-o clasă</button>
-        <div class="t-err" id="joinErr"></div>
-      </div>
-    </div>
-
-    <div class="config-card" id="methodsCard">
-      <div class="config-label">🧭 Metode de rezolvare</div>
-      <div class="m-grid" id="methodGrid"></div>
-    </div>
+    <button class="todo-banner" id="todoBanner" style="display:none" onclick="navTo('clasa')"></button>
 
     <div class="config-card">
       <div class="config-label">Mod</div>
@@ -574,7 +599,37 @@
       <button class="btn-upgrade" onclick="alert('Funcționalitate coming soon! Te vom notifica când va fi disponibil abonamentul.')">🚀 Upgrade la nelimitat</button>
     </div>
     <button class="btn-start" id="btnStart" onclick="startSession()">Începe sesiunea →</button>
-    <button class="t-link" onclick="openRoleScreen()">Folosești aplicația ca elev sau părinte · Schimbă rolul</button>
+  </div>
+
+  <!-- ══════ CLASA MEA ══════ -->
+  <div class="screen" id="screen-clasa">
+    <div class="prog-title">📋 Clasa mea</div>
+    <div class="prog-sub">Temele și simulările primite de la profesor.</div>
+    <div class="config-card" id="classCard" style="display:none">
+      <div class="config-label">Teme și simulări</div>
+      <div id="classList"></div>
+      <div class="t-muted" id="classMsg" style="color:var(--green)"></div>
+      <button class="t-back" id="joinToggle" style="display:none" onclick="sJoinOpen=true;renderStudentCard()">+ Intră în altă clasă</button>
+      <div id="joinForm">
+        <div class="t-grid">
+          <div><label class="t-label">Codul clasei</label><input class="t-input" id="joinCode" maxlength="6" autocomplete="off" style="text-transform:uppercase;letter-spacing:0.15em"></div>
+          <div><label class="t-label">Numele tău</label><input class="t-input" id="joinName" maxlength="60" placeholder="ex. Maria P." onkeydown="if(event.key==='Enter') joinClass()"></div>
+        </div>
+        <button class="btn btn-primary" style="width:100%;margin-top:0.7rem" onclick="joinClass()">Intră într-o clasă</button>
+        <div class="t-err" id="joinErr"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════ METODE ══════ -->
+  <div class="screen" id="screen-metode">
+    <div class="prog-title">🧭 Metode de rezolvare</div>
+    <div class="prog-sub">Fiecare metodă are o lecție cu exemple desenate pas cu pas și un traseu de probleme, de la ușor la greu.</div>
+    <div class="config-card" id="methodsCard">
+            <div class="m-grid" id="methodGrid"></div>
+    </div>
+
   </div>
 
   <!-- ══════ SESSION ══════ -->
@@ -722,7 +777,7 @@
 
   <!-- ══════ METODĂ ══════ -->
   <div class="screen" id="screen-method">
-    <button class="t-back" onclick="goStart()">← Înapoi</button>
+    <button class="t-back" onclick="navTo('metode')">← Toate metodele</button>
     <div class="m-head"><span class="m-icon" id="mIcon"></span>
       <div><div class="prog-title" id="mName" style="margin:0"></div><div class="prog-sub" id="mShort" style="margin:0.2rem 0 0"></div></div></div>
     <div class="prog-card"><h3>Când o folosim</h3><div class="m-text" id="mCand"></div><div class="m-signs" id="mSemne"></div></div>
@@ -797,7 +852,7 @@
     <div class="prog-title" id="clName">-</div>
     <div class="code-box">
       <div><div class="code-label">Codul clasei</div><div class="code-val" id="clCode">-</div></div>
-      <div class="code-help">Elevii deschid aplicația, apasă <b>„Intră într-o clasă”</b> și scriu acest cod.</div>
+      <div class="code-help">Elevii deschid în aplicație <b>„Clasa mea”</b> din meniu și scriu acest cod.</div>
     </div>
     <div class="btn-row" style="margin-bottom:1.1rem">
       <button class="btn btn-primary" onclick="openNewAssignment('tema')">📝 Temă nouă</button>
@@ -1117,6 +1172,7 @@ sb.auth.onAuthStateChange((event, session_data) => {
     document.getElementById('btnClasses').style.display = 'none';
     document.getElementById('classCard').style.display = 'none';
     currentRole = null; delete document.body.dataset.role;
+    document.body.classList.remove('has-nav'); closeNav();
     showAuthStepForRemembered();
     document.getElementById('sessionCountBadge').style.display = 'none';
   }
@@ -2269,7 +2325,18 @@ async function loadStudentClasses() {
   sTick = setInterval(() => { if(document.getElementById('screen-start').classList.contains('active')) renderStudentCard(); }, 30000);
 }
 
+function updateTodo() {
+  const now = Date.now();
+  const n = sAssignments.filter(a => !sSubs[a.id] && assignmentState(a, now) === 'open').length;
+  const badge = document.getElementById('navClassBadge');
+  badge.textContent = n; badge.classList.toggle('show', n > 0);
+  const banner = document.getElementById('todoBanner');
+  banner.style.display = n ? 'block' : 'none';
+  banner.textContent = n === 1 ? '📋 Ai o lucrare de la profesor de făcut. Vezi Clasa mea →' : `📋 Ai ${n} lucrări de la profesor de făcut. Vezi Clasa mea →`;
+}
+
 function renderStudentCard() {
+  updateTodo();
   const card = document.getElementById('classCard'), box = document.getElementById('classList');
   card.style.display = currentUser ? 'block' : 'none';
   document.getElementById('joinForm').style.display = (!sClasses.length || sJoinOpen) ? 'block' : 'none';
@@ -2426,6 +2493,7 @@ async function enterApp() {
 function applyRole(role) {
   currentRole = role; rememberRole(role);
   document.body.dataset.role = role;
+  document.body.classList.toggle('has-nav', role === 'elev');
   updateSessionBadge();
   if(role === 'profesor') { openTeacher(); return; }
   showScreen('start');
@@ -2875,11 +2943,32 @@ async function generateMissingVoice() {
   renderVoiceStats(voiceStop ? `Oprit după ${done} clipuri.` : `Gata: ${done} clipuri generate${errors ? `, ${errors} erori` : ''}.`);
 }
 
+
+// ── Meniul din stânga pentru elev / părinte ──
+const NAV_FOCUS = ['session', 'contest', 'results', 'contest-results', 'role'];   // fără meniu, ca să nu iasă din lucrare
+const NAV_OF = { start: 'start', clasa: 'clasa', metode: 'metode', method: 'metode', progress: 'progress' };
+function updateNav(name) {
+  document.body.classList.toggle('has-nav', currentRole === 'elev');
+  document.body.classList.toggle('focus', NAV_FOCUS.includes(name));
+  document.querySelectorAll('#sideNav .nav-item').forEach(b => b.classList.toggle('active', b.dataset.screen === NAV_OF[name]));
+  closeNav();
+}
+function openNav() { document.getElementById('sideNav').classList.add('open'); document.getElementById('navBackdrop').classList.add('open'); }
+function closeNav() { document.getElementById('sideNav')?.classList.remove('open'); document.getElementById('navBackdrop')?.classList.remove('open'); }
+function navTo(name) {
+  stopAudio(); closeNav();
+  if(name === 'progress') { openProgress(); return; }
+  if(name === 'clasa') { showScreen('clasa'); loadStudentClasses(); return; }
+  if(name === 'metode') { showScreen('metode'); renderMethodGrid(); return; }
+  goStart();
+}
+
 function restartSession() { if(session.mode === 'metoda' && session.metoda) { practiceMethod(session.metoda); return; } startSession(); }
 
 function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-'+name).classList.add('active');
+  updateNav(name);
   window.scrollTo(0,0);
 }
 
