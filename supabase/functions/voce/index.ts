@@ -1,6 +1,6 @@
 // Voce cu salvare: fiecare text se generează o singură dată la ElevenLabs,
 // apoi se păstrează în Supabase Storage (bucket public „voce”) și se refolosește.
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.4'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -10,6 +10,10 @@ const corsHeaders = {
 }
 const BUCKET = 'voce'
 const MAX_CHARS = 2500
+// Câte caractere NOI (negăsite în cache) poate genera un utilizator pe zi. Se poate schimba din Secrets.
+const LIMITA_ZI = Number(Deno.env.get('VOCE_LIMITA_ZI') ?? 20000)
+// ID-urile (uuid) administratorilor care pot genera în masă din pagina ?admin=voce, fără limită.
+const ADMINI = (Deno.env.get('VOCE_ADMINI') ?? '').split(',').map(s => s.trim()).filter(Boolean)
 // Numele sub care poate fi salvată cheia ElevenLabs în Supabase → Edge Functions → Secrets
 const KEY_NAMES = ['ELEVENLABS_API_KEY', 'ELEVEN_LABS_API_KEY', 'ELEVENLABS_KEY', 'ELEVEN_API_KEY', 'XI_API_KEY']
 
@@ -64,15 +68,23 @@ Deno.serve(async (req) => {
       return new Response(existing, { headers: { ...corsHeaders, 'Content-Type': 'audio/mpeg', 'x-voce-cache': 'hit' } })
     }
 
-    // 2. Generează la ElevenLabs
+    // 2. Generează la ElevenLabs (doar în limita zilnică a utilizatorului)
     const apiKey = KEY_NAMES.map(n => Deno.env.get(n)).find(Boolean)
-    if (!apiKey) return json({ error: 'Nu găsesc cheia ElevenLabs în Secrets (încercat: ' + KEY_NAMES.join(', ') + ')' }, 500)
+    if (!apiKey) { console.error('Lipsește cheia ElevenLabs în Secrets (' + KEY_NAMES.join(', ') + ')'); return json({ error: 'Vocea nu este disponibilă acum' }, 503) }
+    if (!ADMINI.includes(userData.user.id)) {
+      const { data: ok, error: eLim } = await admin.rpc('voce_rezerva', { uid: userData.user.id, n: text.length, limita: LIMITA_ZI })
+      if (eLim) { console.error('voce_rezerva:', eLim.message); return json({ error: 'Vocea nu este disponibilă acum' }, 503) }
+      if (!ok) return json({ error: 'Ai atins limita zilnică de voce. Mâine poți asculta din nou.' }, 429)
+    }
     const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`, {
       method: 'POST',
       headers: { 'xi-api-key': apiKey, 'Content-Type': 'application/json', 'Accept': 'audio/mpeg' },
       body: JSON.stringify({ text, model_id: modelId, voice_settings: vs }),
     })
-    if (!r.ok) return json({ error: 'ElevenLabs: ' + r.status + ' ' + (await r.text()).slice(0, 300) }, 502)
+    if (!r.ok) {
+      console.error('ElevenLabs', r.status, (await r.text()).slice(0, 300))
+      return json({ error: 'Vocea nu este disponibilă acum' }, 502)
+    }
     const audio = new Uint8Array(await r.arrayBuffer())
 
     // 3. Salvează (creează bucket-ul public la prima folosire)
@@ -89,6 +101,6 @@ Deno.serve(async (req) => {
     })
   } catch (err) {
     console.error('voce error:', err)
-    return json({ error: (err as Error).message }, 500)
+    return json({ error: 'Eroare internă' }, 500)
   }
 })

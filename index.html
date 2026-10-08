@@ -1598,7 +1598,7 @@ async function ttsKey(text) {
 
 const authHeaders = () => ({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + currentAccessToken, 'apikey': SUPABASE_ANON });
 
-// 1) fișierul deja salvat (gratuit, instant)  2) funcția „voce” (generează o dată și salvează)  3) vechiul proxy
+// 1) fișierul deja salvat (gratuit, instant)  2) funcția „voce” (generează o dată și salvează, cu limită zilnică)
 async function getVoiceUrl(text, onlyCached = false) {
   text = String(text || '').trim();
   if(!text) return null;
@@ -1607,9 +1607,6 @@ async function getVoiceUrl(text, onlyCached = false) {
   try { const r = await fetch(VOICE_PUBLIC + (await ttsKey(text)) + '.mp3'); if(r.ok) blob = await r.blob(); } catch(e) {}
   if(!blob && !onlyCached && currentAccessToken) {
     try { const r = await fetch(EDGE_BASE + '/voce', { method: 'POST', headers: authHeaders(), body: JSON.stringify({ text, ...TTS }) }); if(r.ok) blob = await r.blob(); else console.warn('[voce]', r.status, await r.text()); } catch(e) {}
-    if(!blob) {
-      try { const r = await fetch(EDGE_BASE + '/elevenlabs-proxy', { method: 'POST', headers: authHeaders(), body: JSON.stringify({ text, ...TTS }) }); if(r.ok) blob = await r.blob(); } catch(e) {}
-    }
   }
   if(!blob) return null;
   const url = URL.createObjectURL(blob);
@@ -2509,7 +2506,10 @@ function exportResults() {
   if(!arData) return;
   const { a, keys, subs, mem } = arData;
   const subBy = {}; subs.forEach(s => subBy[s.student_id] = s);
-  const q = v => { const s = String(v ?? ''); return /[";\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+  // celulele care încep cu = + - @ pot fi interpretate ca formule în Excel (în afară de numere simple ca -3)
+  const q = v => { let s = String(v ?? '');
+    if(/^[=+\-@\t\r]/.test(s) && !/^[+-]?\d+([.,]\d+)?$/.test(s)) s = "'" + s;
+    return /[";\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
   const lines = [];
   lines.push([a.title].map(q).join(';'));
   lines.push([a.kind === 'tema' ? `Temă, termen ${fmtDT(a.closes_at)}` : `Simulare, ${fmtDT(a.opens_at)} – ${fmtDT(a.closes_at)}`].map(q).join(';'));
@@ -3242,7 +3242,7 @@ async function generateMissingVoice() {
     try {
       const r = await fetch(EDGE_BASE + '/voce', { method: 'POST', headers: authHeaders(), body: JSON.stringify({ text: it.text, ...TTS }) });
       if(r.ok) { await r.arrayBuffer(); it.ok = true; done++; }
-      else { errors++; const msg = await r.text(); document.getElementById('vErr').textContent = `Eroare (${r.status}): ${msg.slice(0, 200)}`; if(r.status === 404 || r.status === 401 || r.status === 500 && /cheia/i.test(msg)) voiceStop = true; }
+      else { errors++; const msg = await r.text(); document.getElementById('vErr').textContent = `Eroare (${r.status}): ${msg.slice(0, 200)}`; if(r.status === 404 || r.status === 401 || r.status === 429 || r.status === 503) voiceStop = true; }
     } catch(e) { errors++; }
     renderVoiceStats(`Generez… ${done} din ${todo.length}${errors ? ` · ${errors} erori` : ''}`);
   } };

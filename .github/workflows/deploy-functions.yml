@@ -23,3 +23,5 @@ jobs:
         run: supabase functions deploy save-session --project-ref "$PROJECT_REF"
       - name: Deploy voce
         run: supabase functions deploy voce --project-ref "$PROJECT_REF"
+      - name: Deploy sincronizeaza-calendar
+        run: supabase functions deploy sincronizeaza-calendar --project-ref "$PROJECT_REF" --no-verify-jwt

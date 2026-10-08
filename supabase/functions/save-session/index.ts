@@ -1,4 +1,4 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.4'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -38,7 +38,7 @@ Deno.serve(async (req) => {
     const { data: userData, error: userError } = await admin.auth.getUser(token)
     const user = userData?.user
     if (userError || !user) {
-      return json({ error: 'Token invalid: ' + (userError?.message ?? 'utilizator negăsit') }, 401)
+      return json({ error: 'Token invalid' }, 401)
     }
 
     const body = await req.json().catch(() => ({}))
@@ -48,6 +48,10 @@ Deno.serve(async (req) => {
     const gresite = num(r.wrong ?? r.gresite)
     const sarite = num(r.skipped ?? r.sarite)
     const total = num(r.total ?? r.nr_probleme) || corecte + gresite + sarite
+    // Valori imposibile = cerere falsificată sau defectă: nu le salvăm.
+    if (total > 200 || corecte + gresite + sarite > total) {
+      return json({ error: 'Rezultate invalide' }, 400)
+    }
     const durataSec = r.duration_sec != null
       ? num(r.duration_sec)
       : num(r.duration_mins) * 60
@@ -72,12 +76,12 @@ Deno.serve(async (req) => {
     const { data, error } = await admin.from('sessions').insert(row).select().single()
     if (error) {
       console.error('DB error:', error)
-      return json({ error: error.message, details: error.details ?? null }, 500)
+      return json({ error: 'Sesiunea nu a putut fi salvată' }, 500)
     }
 
     return json({ success: true, session: data })
   } catch (err) {
     console.error('Unexpected error:', err)
-    return json({ error: (err as Error).message }, 500)
+    return json({ error: 'Eroare internă' }, 500)
   }
 })
