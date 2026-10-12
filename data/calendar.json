@@ -1,5 +1,5 @@
 {
-  "actualizat": "2026-10-07",
+  "actualizat": "2026-10-12",
   "nota": "Date verificate din surse publice. Status: publicat = confirmat din sursă; de_verificat = sursă contradictorie sau incompletă; nepublicat = nu există încă anunț oficial.",
   "intrari": [
     {
@@ -270,14 +270,15 @@
       "an_scolar": "2025-2026",
       "data": "2026-01-30",
       "data_text": "30 ianuarie – 21 februarie 2026, în funcție de județ",
-      "status": "publicat",
+      "status": "de_verificat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
-        "https://www.edupedu.ro/calendarul-olimpiadei-nationale-de-matematica-2026-etapa-locala-este-anuntat-de-societatea-de-stiinte-matematice-inainte-ca-ministerul-educatiei-sa-publice-calendarul-oficial-al-competitiilor-si-oli/"
+        "https://www.edupedu.ro/calendarul-olimpiadei-nationale-de-matematica-2026-etapa-locala-este-anuntat-de-societatea-de-stiinte-matematice-inainte-ca-ministerul-educatiei-sa-publice-calendarul-oficial-al-competitiilor-si-oli/",
+        "https://www.edupedu.ro/societatea-de-stiinte-matematice-din-romania-a-retras-de-pe-site-fara-nicio-explicatie-datele-etapei-locale-a-olimpiadei-nationale-de-matematica-2026/"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-10-12"
     },
     {
       "id": "onm-2027-local",
@@ -328,9 +329,10 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
-        "https://www.digi24.ro/stiri/actualitate/educatie/evaluarea-nationala-2026-clasa-a-iv-a-subiecte-la-matematica-si-stiinte-ale-naturii-cand-afla-elevii-notele-finale-3774637"
+        "https://www.digi24.ro/stiri/actualitate/educatie/evaluarea-nationala-2026-clasa-a-iv-a-subiecte-la-matematica-si-stiinte-ale-naturii-cand-afla-elevii-notele-finale-3774637",
+        "https://www.edu.ro/EN_II_IV_VI"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-10-12"
     },
     {
       "id": "en-iv-2027",
@@ -357,16 +359,17 @@
       "oras": "Național (toate școlile)",
       "clase": "VI",
       "an_scolar": "2025-2026",
-      "data": "2026-05-26",
-      "data_text": "26–28 mai 2026 (proiect de calendar, încă în consultare publică)",
-      "status": "de_verificat",
+      "data": "2026-05-27",
+      "data_text": "27 mai 2026: matematică și științe ale naturii (calendar oficial MEN)",
+      "status": "publicat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
+        "https://www.edu.ro/EN_II_IV_VI",
         "https://www.edupedu.ro/proiect-calendar-evaluarea-nationala-pentru-clasele-a-ii-a-a-iv-a-si-a-vi-a-in-2026/"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-10-12"
     },
     {
       "id": "simulare-viii-iasi-2026",
