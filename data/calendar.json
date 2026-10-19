@@ -1,5 +1,5 @@
 {
-  "actualizat": "2026-10-07",
+  "actualizat": "2026-10-19",
   "nota": "Date verificate din surse publice. Status: publicat = confirmat din sursă; de_verificat = sursă contradictorie sau incompletă; nepublicat = nu există încă anunț oficial.",
   "intrari": [
     {
@@ -358,15 +358,15 @@
       "clase": "VI",
       "an_scolar": "2025-2026",
       "data": "2026-05-26",
-      "data_text": "26–28 mai 2026 (proiect de calendar, încă în consultare publică)",
-      "status": "de_verificat",
+      "data_text": "26–28 mai 2026: limba română (26), matematică și științe ale naturii (27), limba maternă (28)",
+      "status": "publicat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
-        "https://www.edupedu.ro/proiect-calendar-evaluarea-nationala-pentru-clasele-a-ii-a-a-iv-a-si-a-vi-a-in-2026/"
+        "https://www.edupedu.ro/oficial-calendar-evaluare-nationala-pentru-clasele-a-ii-a-a-iv-a-si-a-vi-a-in-anul-scolar-2025-2026/"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-10-19"
     },
     {
       "id": "simulare-viii-iasi-2026",
@@ -386,6 +386,44 @@
         "https://www.bzi.ro/simularile-examenelor-nationale-2026-incep-pe-16-martie-aproape-13-000-de-elevi-din-iasi-sustin-testarile-din-martie-5479518"
       ],
       "verificat_la": "2026-10-07"
+    },
+    {
+      "id": "en-viii-2027",
+      "tip": "testare",
+      "nume": "Evaluarea Națională — clasa a VIII-a",
+      "scoala": null,
+      "oras": "Național (toate școlile)",
+      "clase": "VIII",
+      "an_scolar": "2026-2027",
+      "data": "2027-06-24",
+      "data_text": "22–25 iunie 2027 (proiect de calendar MEC, în consultare publică): limba română (22), matematică (24), limba maternă (25); rezultate inițiale 30 iunie, finale 7 iulie 2027",
+      "status": "de_verificat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.edupedu.ro/ultima-ora-calendar-evaluarea-nationala-2027-elevii-vor-sustine-probele-in-perioada-22-25-iunie/"
+      ],
+      "verificat_la": "2026-10-19"
+    },
+    {
+      "id": "simulare-viii-iasi-2027",
+      "tip": "testare",
+      "nume": "Simulare Evaluarea Națională — clasa a VIII-a (județul Iași)",
+      "scoala": null,
+      "oras": "Iași (județ)",
+      "clase": "VIII",
+      "an_scolar": "2026-2027",
+      "data": "2027-03-17",
+      "data_text": "16–18 martie 2027 (proiect de calendar MEC): limba română (16), matematică (17), limba maternă (18); rezultate 30 martie 2027. Nu e confirmat încă pentru județul Iași",
+      "status": "de_verificat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.edupedu.ro/simulare-evaluarea-nationala-2027-probele-scrise-vor-avea-loc-in-perioada-16-18-martie-2027-iar-rezultatele-vor-fi-comunicate-elevilor-pe-30-martie/"
+      ],
+      "verificat_la": "2026-10-19"
     },
     {
       "id": "lumina-math-2024",
