@@ -1,5 +1,5 @@
 {
-  "actualizat": "2026-10-07",
+  "actualizat": "2026-10-26",
   "nota": "Date verificate din surse publice. Status: publicat = confirmat din sursă; de_verificat = sursă contradictorie sau incompletă; nepublicat = nu există încă anunț oficial.",
   "intrari": [
     {
@@ -269,15 +269,16 @@
       "clase": "V–XII",
       "an_scolar": "2025-2026",
       "data": "2026-01-30",
-      "data_text": "30 ianuarie – 21 februarie 2026, în funcție de județ",
-      "status": "publicat",
+      "data_text": "30 ianuarie – 21 februarie 2026, în funcție de județ. ATENȚIE: SSMR a retras datele de pe site și de pe Facebook (fără explicație); MEN nu publicase calendarul oficial la 28 ianuarie 2026.",
+      "status": "de_verificat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
-        "https://www.edupedu.ro/calendarul-olimpiadei-nationale-de-matematica-2026-etapa-locala-este-anuntat-de-societatea-de-stiinte-matematice-inainte-ca-ministerul-educatiei-sa-publice-calendarul-oficial-al-competitiilor-si-oli/"
+        "https://www.edupedu.ro/calendarul-olimpiadei-nationale-de-matematica-2026-etapa-locala-este-anuntat-de-societatea-de-stiinte-matematice-inainte-ca-ministerul-educatiei-sa-publice-calendarul-oficial-al-competitiilor-si-oli/",
+        "https://www.edupedu.ro/societatea-de-stiinte-matematice-din-romania-a-retras-de-pe-site-fara-nicio-explicatie-datele-etapei-locale-a-olimpiadei-nationale-de-matematica-2026/"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-10-26"
     },
     {
       "id": "onm-2027-local",
@@ -297,6 +298,25 @@
       "verificat_la": "2026-10-07"
     },
     {
+      "id": "cangurasul-2026",
+      "tip": "concurs",
+      "nume": "Cangurașul Matematician",
+      "scoala": null,
+      "oras": "Național",
+      "clase": "Pregătitoare–IV",
+      "an_scolar": "2026-2027",
+      "data": "2026-12-17",
+      "data_text": "17 decembrie 2026 (pagina nu indică explicit ediția și nu are perioadă de înscriere)",
+      "status": "de_verificat",
+      "site": "https://www.cangurul.ro",
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.cangurul.ro/"
+      ],
+      "verificat_la": "2026-10-26"
+    },
+    {
       "id": "cangurul-2027",
       "tip": "concurs",
       "nume": "Cangurul Matematic",
@@ -310,8 +330,10 @@
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
-      "surse": [],
-      "verificat_la": "2026-10-07"
+      "surse": [
+        "https://www.cangurul.ro/"
+      ],
+      "verificat_la": "2026-10-26"
     },
     {
       "id": "en-iv-2026",
@@ -412,16 +434,18 @@
       "nume": "LuminaMath (național)",
       "scoala": null,
       "oras": "Național",
-      "clase": "necunoscut",
+      "clase": "II–VIII (etapa online); III–VIII (etapa scrisă)",
       "an_scolar": "2026-2027",
-      "data": null,
-      "data_text": null,
-      "status": "nepublicat",
-      "site": null,
+      "data": "2026-12-05",
+      "data_text": "etapa online: 3 noiembrie 2026 (clasele II–IV) și 5 noiembrie 2026 (clasele V–VIII); etapa scrisă: 5 decembrie 2026. Gratuit. Înscriere cu cont pe luminamath.org (perioada nu este precizată). Etapa scrisă poate să nu aibă loc în unele județe.",
+      "status": "publicat",
+      "site": "https://luminamath.org",
       "inscriere": null,
-      "link_inscriere": null,
-      "surse": [],
-      "verificat_la": "2026-10-07"
+      "link_inscriere": "https://luminamath.org",
+      "surse": [
+        "https://luminamath.org/"
+      ],
+      "verificat_la": "2026-10-26"
     }
   ]
 }
