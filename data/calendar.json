@@ -1,5 +1,5 @@
 {
-  "actualizat": "2026-10-07",
+  "actualizat": "2026-11-02",
   "nota": "Date verificate din surse publice. Status: publicat = confirmat din sursă; de_verificat = sursă contradictorie sau incompletă; nepublicat = nu există încă anunț oficial.",
   "intrari": [
     {
@@ -37,7 +37,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "traian-lalescu-2026",
@@ -78,7 +78,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "eminent-2026",
@@ -114,7 +114,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "alexandru-myller-2026",
@@ -150,7 +150,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "cantemir-junior-2026",
@@ -186,7 +186,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "urmasii-moisil-2026",
@@ -222,7 +222,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "leris-2026",
@@ -258,7 +258,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "onm-2026-local",
@@ -294,7 +294,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "cangurul-2027",
@@ -311,7 +311,30 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
+    },
+    {
+      "id": "campiomate-2027",
+      "tip": "concurs",
+      "nume": "Campiomate — campionatul național de matematică pe echipe (ediția 2027)",
+      "scoala": null,
+      "oras": "Național",
+      "clase": "V–VIII (gimnaziu)",
+      "an_scolar": "2026-2027",
+      "data": null,
+      "data_text": "calificări 5–23 noiembrie 2026; etapele campionatului din ianuarie 2027; gala națională și a județelor în iunie 2027",
+      "status": "de_verificat",
+      "site": "https://www.campiomate.ro",
+      "inscriere": {
+        "de": null,
+        "pana": "2026-10-31",
+        "nota": "Înscriere gratuită (elevi și profesori); termen indicat în articol: 31 octombrie 2026, deci probabil închisă. Organizator: Asociația Visuri Îndrăznețe, în parteneriat cu SSMR"
+      },
+      "link_inscriere": null,
+      "surse": [
+        "https://spotmedia.ro/stiri/educatie/campiomate-campionatul-national-de-matematica-pe-echipe-care-atrage-copiii-in-jocul-matematicii-a-dat-startul-inscrierilor-pentru-editia-2027"
+      ],
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "en-iv-2026",
@@ -328,9 +351,10 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
-        "https://www.digi24.ro/stiri/actualitate/educatie/evaluarea-nationala-2026-clasa-a-iv-a-subiecte-la-matematica-si-stiinte-ale-naturii-cand-afla-elevii-notele-finale-3774637"
+        "https://www.digi24.ro/stiri/actualitate/educatie/evaluarea-nationala-2026-clasa-a-iv-a-subiecte-la-matematica-si-stiinte-ale-naturii-cand-afla-elevii-notele-finale-3774637",
+        "https://www.edu.ro/EN_II_IV_VI"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "en-iv-2027",
@@ -347,7 +371,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "en-vi-2026",
@@ -358,15 +382,15 @@
       "clase": "VI",
       "an_scolar": "2025-2026",
       "data": "2026-05-26",
-      "data_text": "26–28 mai 2026 (proiect de calendar, încă în consultare publică)",
-      "status": "de_verificat",
+      "data_text": "26–28 mai 2026: limba și comunicarea (26), matematică și științe ale naturii (27), limba maternă (28)",
+      "status": "publicat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
-        "https://www.edupedu.ro/proiect-calendar-evaluarea-nationala-pentru-clasele-a-ii-a-a-iv-a-si-a-vi-a-in-2026/"
+        "https://www.edu.ro/EN_II_IV_VI"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     },
     {
       "id": "simulare-viii-iasi-2026",
@@ -421,7 +445,7 @@
       "inscriere": null,
       "link_inscriere": null,
       "surse": [],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-02"
     }
   ]
 }
