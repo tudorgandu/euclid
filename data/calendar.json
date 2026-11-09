@@ -1,5 +1,5 @@
 {
-  "actualizat": "2026-10-07",
+  "actualizat": "2026-11-09",
   "nota": "Date verificate din surse publice. Status: publicat = confirmat din sursă; de_verificat = sursă contradictorie sau incompletă; nepublicat = nu există încă anunț oficial.",
   "intrari": [
     {
@@ -369,6 +369,25 @@
       "verificat_la": "2026-10-07"
     },
     {
+      "id": "en-viii-2027",
+      "tip": "testare",
+      "nume": "Evaluarea Națională — clasa a VIII-a",
+      "scoala": null,
+      "oras": "Național (toate școlile)",
+      "clase": "VIII",
+      "an_scolar": "2026-2027",
+      "data": "2027-06-22",
+      "data_text": "22–25 iunie 2027 (probe scrise); rezultatele inițiale: 30 iunie 2027",
+      "status": "publicat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.edupedu.ro/tag/calendar-evaluarea-nationala-2027/"
+      ],
+      "verificat_la": "2026-11-09"
+    },
+    {
       "id": "simulare-viii-iasi-2026",
       "tip": "testare",
       "nume": "Simulare Evaluarea Națională — clasa a VIII-a (județul Iași)",
@@ -386,6 +405,25 @@
         "https://www.bzi.ro/simularile-examenelor-nationale-2026-incep-pe-16-martie-aproape-13-000-de-elevi-din-iasi-sustin-testarile-din-martie-5479518"
       ],
       "verificat_la": "2026-10-07"
+    },
+    {
+      "id": "simulare-viii-iasi-2027",
+      "tip": "testare",
+      "nume": "Simulare Evaluarea Națională — clasa a VIII-a",
+      "scoala": null,
+      "oras": "Iași (județ)",
+      "clase": "VIII",
+      "an_scolar": "2026-2027",
+      "data": "2027-03-17",
+      "data_text": "16–18 martie 2027 (17 martie: matematică); rezultatele: 30 martie 2027. Calendar național de simulare; datele pentru Iași trebuie confirmate de ISJ",
+      "status": "publicat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.edupedu.ro/oficial-calendar-simulare-evaluarea-nationala-2027-elevii-vor-sustine-probele-scrise-in-perioada-16-18-martie-rezultatele-vor-fi-comunicate-pe-30-martie/amp/"
+      ],
+      "verificat_la": "2026-11-09"
     },
     {
       "id": "lumina-math-2024",
@@ -409,19 +447,21 @@
     {
       "id": "lumina-math-2027",
       "tip": "concurs",
-      "nume": "LuminaMath (național)",
+      "nume": "LuminaMath (național) — ediția 30 (2026)",
       "scoala": null,
       "oras": "Național",
-      "clase": "necunoscut",
+      "clase": "II–VIII",
       "an_scolar": "2026-2027",
-      "data": null,
-      "data_text": null,
-      "status": "nepublicat",
-      "site": null,
+      "data": "2026-12-05",
+      "data_text": "Etapa online: marți 3 noiembrie 2026 (cl. II–IV) și joi 5 noiembrie 2026 (cl. V–VIII), 10:00–21:00; etapa scrisă: sâmbătă 5 decembrie 2026 (cl. III–VIII), în centre de examen ale ISJ",
+      "status": "publicat",
+      "site": "https://www.luminamath.org",
       "inscriere": null,
-      "link_inscriere": null,
-      "surse": [],
-      "verificat_la": "2026-10-07"
+      "link_inscriere": "https://www.luminamath.org",
+      "surse": [
+        "https://www.luminamath.org/"
+      ],
+      "verificat_la": "2026-11-09"
     }
   ]
 }
