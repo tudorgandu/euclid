@@ -1,5 +1,5 @@
 {
-  "actualizat": "2026-10-07",
+  "actualizat": "2026-11-16",
   "nota": "Date verificate din surse publice. Status: publicat = confirmat din sursă; de_verificat = sursă contradictorie sau incompletă; nepublicat = nu există încă anunț oficial.",
   "intrari": [
     {
@@ -126,14 +126,14 @@
       "an_scolar": "2026-2027",
       "data": "2026-05-09",
       "data_text": null,
-      "status": "de_verificat",
+      "status": "publicat",
       "site": "https://colegiulnationaliasi.ro",
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
         "https://www.bzi.ro/incepe-admiterea-in-clasa-a-v-a-la-colegiile-de-top-din-iasi-elevii-nu-vor-putea-participa-la-mai-multe-concursuri-din-cauza-calendarului-restrans-5530591"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-16"
     },
     {
       "id": "alexandru-myller-2027",
@@ -234,14 +234,14 @@
       "an_scolar": "2026-2027",
       "data": "2026-05-23",
       "data_text": null,
-      "status": "publicat",
+      "status": "de_verificat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
         "https://www.bzi.ro/incepe-admiterea-in-clasa-a-v-a-la-colegiile-de-top-din-iasi-elevii-nu-vor-putea-participa-la-mai-multe-concursuri-din-cauza-calendarului-restrans-5530591"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-16"
     },
     {
       "id": "leris-2027",
@@ -270,14 +270,15 @@
       "an_scolar": "2025-2026",
       "data": "2026-01-30",
       "data_text": "30 ianuarie – 21 februarie 2026, în funcție de județ",
-      "status": "publicat",
+      "status": "de_verificat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
-        "https://www.edupedu.ro/calendarul-olimpiadei-nationale-de-matematica-2026-etapa-locala-este-anuntat-de-societatea-de-stiinte-matematice-inainte-ca-ministerul-educatiei-sa-publice-calendarul-oficial-al-competitiilor-si-oli/"
+        "https://www.edupedu.ro/calendarul-olimpiadei-nationale-de-matematica-2026-etapa-locala-este-anuntat-de-societatea-de-stiinte-matematice-inainte-ca-ministerul-educatiei-sa-publice-calendarul-oficial-al-competitiilor-si-oli/",
+        "https://www.edupedu.ro/societatea-de-stiinte-matematice-din-romania-a-retras-de-pe-site-fara-nicio-explicatie-datele-etapei-locale-a-olimpiadei-nationale-de-matematica-2026/"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-16"
     },
     {
       "id": "onm-2027-local",
@@ -350,6 +351,23 @@
       "verificat_la": "2026-10-07"
     },
     {
+      "id": "en-vi-2027",
+      "tip": "testare",
+      "nume": "Evaluarea Națională — clasa a VI-a",
+      "scoala": null,
+      "oras": "Național (toate școlile)",
+      "clase": "VI",
+      "an_scolar": "2026-2027",
+      "data": null,
+      "data_text": null,
+      "status": "nepublicat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [],
+      "verificat_la": "2026-11-16"
+    },
+    {
       "id": "en-vi-2026",
       "tip": "testare",
       "nume": "Evaluarea Națională — clasa a VI-a",
@@ -358,15 +376,16 @@
       "clase": "VI",
       "an_scolar": "2025-2026",
       "data": "2026-05-26",
-      "data_text": "26–28 mai 2026 (proiect de calendar, încă în consultare publică)",
-      "status": "de_verificat",
+      "data_text": "26–28 mai 2026 (calendar oficial, Ordinul nr. 6.405/2025; matematica pe 27 mai)",
+      "status": "publicat",
       "site": null,
       "inscriere": null,
       "link_inscriere": null,
       "surse": [
+        "https://www.edupedu.ro/oficial-calendar-evaluare-nationala-pentru-clasele-a-ii-a-a-iv-a-si-a-vi-a-in-anul-scolar-2025-2026/",
         "https://www.edupedu.ro/proiect-calendar-evaluarea-nationala-pentru-clasele-a-ii-a-a-iv-a-si-a-vi-a-in-2026/"
       ],
-      "verificat_la": "2026-10-07"
+      "verificat_la": "2026-11-16"
     },
     {
       "id": "simulare-viii-iasi-2026",
@@ -386,6 +405,63 @@
         "https://www.bzi.ro/simularile-examenelor-nationale-2026-incep-pe-16-martie-aproape-13-000-de-elevi-din-iasi-sustin-testarile-din-martie-5479518"
       ],
       "verificat_la": "2026-10-07"
+    },
+    {
+      "id": "simulare-regionala-viii-2026",
+      "tip": "testare",
+      "nume": "Simulare regională — clasa a VIII-a (Iași și alte 5 județe)",
+      "scoala": null,
+      "oras": "Iași (regiune)",
+      "clase": "VIII",
+      "an_scolar": "2026-2027",
+      "data": null,
+      "data_text": "7–9 decembrie (anul nu este clar în sursă; articolul are titlu „2027” dar text despre 2026)",
+      "status": "de_verificat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.edupedu.ro/elevii-de-clasele-a-viii-a-si-a-xii-a-din-judetele-suceava-botosani-neamt-iasi-bacau-si-vaslui-vor-sustine-in-luna-decembrie-o-simulare-regionala-pentru-evaluarea-nationala-si-bac-2027-seful-isj/"
+      ],
+      "verificat_la": "2026-11-16"
+    },
+    {
+      "id": "simulare-viii-2027",
+      "tip": "testare",
+      "nume": "Simulare Evaluarea Națională — clasa a VIII-a (calendar național)",
+      "scoala": null,
+      "oras": "Național (inclusiv Iași)",
+      "clase": "VIII",
+      "an_scolar": "2026-2027",
+      "data": "2027-03-17",
+      "data_text": "16–18 martie 2027 (matematică pe 17 martie); rezultate 30 martie 2027",
+      "status": "publicat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.edupedu.ro/oficial-calendar-simulare-evaluarea-nationala-2027-elevii-vor-sustine-probele-scrise-in-perioada-16-18-martie-rezultatele-vor-fi-comunicate-pe-30-martie/"
+      ],
+      "verificat_la": "2026-11-16"
+    },
+    {
+      "id": "en-viii-2027",
+      "tip": "testare",
+      "nume": "Evaluarea Națională — clasa a VIII-a",
+      "scoala": null,
+      "oras": "Național (toate școlile)",
+      "clase": "VIII",
+      "an_scolar": "2026-2027",
+      "data": "2027-06-24",
+      "data_text": "22–25 iunie 2027 (matematică pe 24 iunie); rezultate inițiale 30 iunie, rezultate finale 7 iulie",
+      "status": "publicat",
+      "site": null,
+      "inscriere": null,
+      "link_inscriere": null,
+      "surse": [
+        "https://www.edupedu.ro/oficial-calendar-evaluarea-nationala-2027-probele-scrise-au-loc-intre-22-si-25-iunie-iar-rezultatele-initiale-se-afiseaza-pe-30-iunie-noi-reguli-pentru-corectarea-lucrarilor/"
+      ],
+      "verificat_la": "2026-11-16"
     },
     {
       "id": "lumina-math-2024",
